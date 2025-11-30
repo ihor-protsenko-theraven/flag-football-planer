@@ -6,7 +6,7 @@
         "duration": 8,
         "category": "пас",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_001.jpg"
     },
     {
         "id": "drill_002",
@@ -15,7 +15,7 @@
         "duration": 12,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_002.jpg"
     },
     {
         "id": "drill_003",
@@ -24,7 +24,7 @@
         "duration": 15,
         "category": "атака",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_003.jpg"
     },
     {
         "id": "drill_004",
@@ -33,7 +33,7 @@
         "duration": 10,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_004.jpg"
     },
     {
         "id": "drill_005",
@@ -42,7 +42,7 @@
         "duration": 5,
         "category": "розминка",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_005.jpg"
     },
     {
         "id": "drill_006",
@@ -51,7 +51,7 @@
         "duration": 15,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_006.jpg"
     },
     {
         "id": "drill_007",
@@ -60,7 +60,7 @@
         "duration": 12,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1546608235-3310a2494cdf?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_007.jpg"
     },
     {
         "id": "drill_008",
@@ -69,7 +69,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_008.jpg"
     },
     {
         "id": "drill_009",
@@ -78,7 +78,7 @@
         "duration": 10,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_009.jpg"
     },
     {
         "id": "drill_010",
@@ -87,7 +87,7 @@
         "duration": 10,
         "category": "захист",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_010.jpg"
     },
     {
         "id": "drill_011",
@@ -96,7 +96,7 @@
         "duration": 12,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_011.jpg"
     },
     {
         "id": "drill_012",
@@ -105,7 +105,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_012.jpg"
     },
     {
         "id": "drill_013",
@@ -114,7 +114,7 @@
         "duration": 15,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_013.jpg"
     },
     {
         "id": "drill_014",
@@ -123,7 +123,7 @@
         "duration": 10,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_014.jpg"
     },
     {
         "id": "drill_015",
@@ -132,7 +132,7 @@
         "duration": 7,
         "category": "розминка",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_015.jpg"
     },
     {
         "id": "drill_016",
@@ -141,7 +141,7 @@
         "duration": 15,
         "category": "пас",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_016.jpg"
     },
     {
         "id": "drill_017",
@@ -150,7 +150,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_017.jpg"
     },
     {
         "id": "drill_018",
@@ -159,7 +159,7 @@
         "duration": 6,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_018.jpg"
     },
     {
         "id": "drill_019",
@@ -168,7 +168,7 @@
         "duration": 12,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_019.jpg"
     },
     {
         "id": "drill_020",
@@ -177,7 +177,7 @@
         "duration": 5,
         "category": "розминка",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_020.jpg"
     },
     {
         "id": "drill_021",
@@ -186,7 +186,7 @@
         "duration": 8,
         "category": "атака",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1599392305537-805125327318?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_021.jpg"
     },
     {
         "id": "drill_022",
@@ -195,7 +195,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1593786481097-cf281dd12e9e?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_022.jpg"
     },
     {
         "id": "drill_023",
@@ -204,7 +204,7 @@
         "duration": 12,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1628779238951-be2c9f25b227?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_023.jpg"
     },
     {
         "id": "drill_024",
@@ -213,7 +213,7 @@
         "duration": 8,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1606733292414-99a38ab4c10a?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_024.jpg"
     },
     {
         "id": "drill_025",
@@ -222,7 +222,7 @@
         "duration": 15,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1519766304800-c9519d0cefcd?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_025.jpg"
     },
     {
         "id": "drill_026",
@@ -231,7 +231,7 @@
         "duration": 10,
         "category": "захист",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1558064402-23c2a13df0d1?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_026.jpg"
     },
     {
         "id": "drill_027",
@@ -240,7 +240,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1520642398642-16a75a7c2c9d?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_027.jpg"
     },
     {
         "id": "drill_028",
@@ -249,7 +249,7 @@
         "duration": 12,
         "category": "пас",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_028.jpg"
     },
     {
         "id": "drill_029",
@@ -258,7 +258,7 @@
         "duration": 6,
         "category": "атака",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1627627409228-2d0436d5e0d4?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_029.jpg"
     },
     {
         "id": "drill_030",
@@ -267,7 +267,7 @@
         "duration": 15,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1517926227650-6bb11c1d0448?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_030.jpg"
     },
     {
         "id": "drill_031",
@@ -276,7 +276,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1570545906834-2b0481c8e5dc?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_031.jpg"
     },
     {
         "id": "drill_032",
@@ -285,7 +285,7 @@
         "duration": 12,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1512941675423-6b2c600a2bdb?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_032.jpg"
     },
     {
         "id": "drill_033",
@@ -294,7 +294,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1605296867304-46d5465a3e1b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_033.jpg"
     },
     {
         "id": "drill_034",
@@ -303,7 +303,7 @@
         "duration": 12,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1571019614242-cb3e0ed741b1?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_034.jpg"
     },
     {
         "id": "drill_035",
@@ -312,7 +312,7 @@
         "duration": 10,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1552667466-1a39b3c01182?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_035.jpg"
     },
     {
         "id": "drill_036",
@@ -321,7 +321,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1594730333320-7a8e2a1c6e8c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_036.jpg"
     },
     {
         "id": "drill_037",
@@ -330,7 +330,7 @@
         "duration": 10,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_037.jpg"
     },
     {
         "id": "drill_038",
@@ -339,7 +339,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1519501025264-65ba15ae6c1e?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_038.jpg"
     },
     {
         "id": "drill_039",
@@ -348,7 +348,7 @@
         "duration": 15,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1579952366581-6e5163b7e4d9?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_039.jpg"
     },
     {
         "id": "drill_040",
@@ -357,7 +357,7 @@
         "duration": 10,
         "category": "пас",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1606106757029-6373e1d6e5f4?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_040.jpg"
     },
     {
         "id": "drill_041",
@@ -366,7 +366,7 @@
         "duration": 12,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_041.jpg"
     },
     {
         "id": "drill_042",
@@ -375,7 +375,7 @@
         "duration": 8,
         "category": "атака",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1628779238951-be2c9f25b227?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_042.jpg"
     },
     {
         "id": "drill_043",
@@ -384,7 +384,7 @@
         "duration": 12,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1512941675423-6b2c600a2bdb?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_043.jpg"
     },
     {
         "id": "drill_044",
@@ -393,7 +393,7 @@
         "duration": 10,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_044.jpg"
     },
     {
         "id": "drill_045",
@@ -402,7 +402,7 @@
         "duration": 10,
         "category": "пас",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1570545906834-2b0481c8e5dc?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_045.jpg"
     },
     {
         "id": "drill_046",
@@ -411,7 +411,7 @@
         "duration": 8,
         "category": "атака",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1627627409228-2d0436d5e0d4?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_046.jpg"
     },
     {
         "id": "drill_047",
@@ -420,7 +420,7 @@
         "duration": 6,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1605296867304-46d5465a3e1b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_047.jpg"
     },
     {
         "id": "drill_048",
@@ -429,7 +429,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1517926227650-6bb11c1d0448?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_048.jpg"
     },
     {
         "id": "drill_049",
@@ -438,7 +438,7 @@
         "duration": 12,
         "category": "пас",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1606733292414-99a38ab4c10a?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_049.jpg"
     },
     {
         "id": "drill_050",
@@ -447,7 +447,7 @@
         "duration": 10,
         "category": "фізпідготовка",
         "level": "всі рівні",
-        "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_050.jpg"
     },
     {
         "id": "drill_051",
@@ -456,7 +456,7 @@
         "duration": 10,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_051.jpg"
     },
     {
         "id": "drill_052",
@@ -465,7 +465,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1606904825846-477e25dd422c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_052.jpg"
     },
     {
         "id": "drill_053",
@@ -474,7 +474,7 @@
         "duration": 15,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_053.jpg"
     },
     {
         "id": "drill_054",
@@ -483,7 +483,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1518614368383-3eae23d2d9a7?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_054.jpg"
     },
     {
         "id": "drill_055",
@@ -492,7 +492,7 @@
         "duration": 10,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_055.jpg"
     },
     {
         "id": "drill_056",
@@ -501,7 +501,7 @@
         "duration": 12,
         "category": "захист",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1558064402-23c2a13df0d1?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_056.jpg"
     },
     {
         "id": "drill_057",
@@ -510,7 +510,7 @@
         "duration": 10,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1628779238951-be2c9f25b227?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_057.jpg"
     },
     {
         "id": "drill_058",
@@ -519,7 +519,7 @@
         "duration": 8,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_058.jpg"
     },
     {
         "id": "drill_059",
@@ -528,7 +528,7 @@
         "duration": 12,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1599392305537-805125327318?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_059.jpg"
     },
     {
         "id": "drill_060",
@@ -537,7 +537,7 @@
         "duration": 8,
         "category": "пас",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_060.jpg"
     },
     {
         "id": "drill_061",
@@ -546,7 +546,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_061.jpg"
     },
     {
         "id": "drill_062",
@@ -555,7 +555,7 @@
         "duration": 12,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1593786481097-cf281dd12e9e?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_062.jpg"
     },
     {
         "id": "drill_063",
@@ -564,7 +564,7 @@
         "duration": 10,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_063.jpg"
     },
     {
         "id": "drill_064",
@@ -573,7 +573,7 @@
         "duration": 6,
         "category": "пас",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_064.jpg"
     },
     {
         "id": "drill_065",
@@ -582,7 +582,7 @@
         "duration": 12,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1519766304800-c9519d0cefcd?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_065.jpg"
     },
     {
         "id": "drill_066",
@@ -591,7 +591,7 @@
         "duration": 10,
         "category": "захист",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1606733292414-99a38ab4c10a?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_066.jpg"
     },
     {
         "id": "drill_067",
@@ -600,7 +600,7 @@
         "duration": 8,
         "category": "атака",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_067.jpg"
     },
     {
         "id": "drill_068",
@@ -609,7 +609,7 @@
         "duration": 7,
         "category": "фізпідготовка",
         "level": "початковий",
-        "imageUrl": "https://images.unsplash.com/photo-1605296867304-46d5465a3e1b?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_068.jpg"
     },
     {
         "id": "drill_069",
@@ -618,7 +618,7 @@
         "duration": 15,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_069.jpg"
     },
     {
         "id": "drill_070",
@@ -627,7 +627,7 @@
         "duration": 8,
         "category": "пас",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1570545906834-2b0481c8e5dc?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_070.jpg"
     },
     {
         "id": "drill_071",
@@ -636,7 +636,7 @@
         "duration": 10,
         "category": "захист",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_071.jpg"
     },
     {
         "id": "drill_072",
@@ -645,7 +645,7 @@
         "duration": 10,
         "category": "пас",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_072.jpg"
     },
     {
         "id": "drill_073",
@@ -654,7 +654,7 @@
         "duration": 8,
         "category": "фізпідготовка",
         "level": "середній",
-        "imageUrl": "https://images.unsplash.com/photo-1519501025264-65ba15ae6c1e?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_073.jpg"
     },
     {
         "id": "drill_074",
@@ -663,7 +663,7 @@
         "duration": 10,
         "category": "атака",
         "level": "просунутий",
-        "imageUrl": "https://images.unsplash.com/photo-1599392305537-805125327318?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_074.jpg"
     },
     {
         "id": "drill_075",
@@ -672,6 +672,6 @@
         "duration": 5,
         "category": "атака",
         "level": "всі рівні",
-        "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&h=300&fit=crop"
+        "imageUrl": "assets/images/drills_images_preview/drill_075.jpg"
     }
 ]
