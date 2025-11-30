@@ -1,0 +1,94 @@
+{
+    "NAV": {
+        "TITLE": "Flag Planner",
+        "PRO_EDITION": "Pro Edition",
+        "DRILL_CATALOG": "Drill Catalog",
+        "TRAINING_BUILDER": "Training Builder",
+        "MY_TRAININGS": "My Trainings"
+    },
+    "CATALOG": {
+        "TITLE": "Drill Catalog",
+        "SUBTITLE": "Browse and discover drills for your training sessions",
+        "SEARCH_LABEL": "Search",
+        "SEARCH_PLACEHOLDER": "Search drills...",
+        "CATEGORY_LABEL": "Category",
+        "ALL_CATEGORIES": "All Categories",
+        "LEVEL_LABEL": "Level",
+        "ALL_LEVELS": "All Levels",
+        "ACTIVE_FILTERS": "Active filters:",
+        "CLEAR_ALL": "Clear all",
+        "SHOWING_RESULTS": "Showing {{count}} drills",
+        "NO_RESULTS_TITLE": "No drills found",
+        "NO_RESULTS_DESC": "Try adjusting your filters to see more results",
+        "CLEAR_FILTERS_BTN": "Clear Filters"
+    },
+    "DRILL": {
+        "CATEGORIES": {
+            "PASSING": "Passing",
+            "DEFENSE": "Defense",
+            "OFFENSE": "Offense",
+            "CONDITIONING": "Conditioning",
+            "WARMUP": "Warm-up",
+            "FLAG_PULLING": "Flag Pulling"
+        },
+        "LEVELS": {
+            "BEGINNER": "Beginner",
+            "INTERMEDIATE": "Intermediate",
+            "ADVANCED": "Advanced"
+        }
+    },
+    "DRILL_DETAIL": {
+        "BACK_TO_CATALOG": "Back to Catalog",
+        "DURATION": "Duration",
+        "MINUTES": "minutes",
+        "CATEGORY": "Category",
+        "LEVEL": "Level",
+        "DESCRIPTION": "Description",
+        "INSTRUCTIONS": "Instructions",
+        "EQUIPMENT": "Equipment Needed",
+        "TIPS": "Coaching Tips",
+        "ADD_TO_TRAINING": "Add to Training",
+        "WATCH_VIDEO": "Watch Video",
+        "NO_VIDEO": "No video available",
+        "RELATED_DRILLS": "Related Drills"
+    },
+    "MY_TRAININGS": {
+        "TITLE": "My Trainings",
+        "SUBTITLE": "Manage your saved training sessions",
+        "NEW_TRAINING_BTN": "New Training",
+        "VIEW_DETAILS": "View Details",
+        "DELETE": "Delete",
+        "NO_TRAININGS_TITLE": "No training sessions yet",
+        "NO_TRAININGS_DESC": "Start building your first training session to organize drills and create effective practice plans",
+        "CREATE_FIRST_BTN": "Create Your First Training",
+        "CONFIRM_DELETE": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone."
+    },
+    "TRAINING_BUILDER": {
+        "TITLE": "Training Builder",
+        "SUBTITLE": "Create your custom training session",
+        "RESET": "Reset",
+        "SAVE_TRAINING": "Save Training",
+        "AVAILABLE_DRILLS": "Available Drills",
+        "SEARCH_PLACEHOLDER": "Search drills...",
+        "NO_DRILLS": "No drills found",
+        "TRAINING_NAME_LABEL": "Training Name",
+        "TRAINING_NAME_PLACEHOLDER": "e.g., Morning Practice - Week 1",
+        "DURATION": "Duration",
+        "MIN": "min",
+        "DRILLS": "Drills",
+        "SESSION_PLAN": "Session Plan",
+        "CLEAR_ALL": "Clear All",
+        "COACH_NOTES": "Coach Notes",
+        "NOTES_PLACEHOLDER": "Add specific instructions...",
+        "START_BUILDING_TITLE": "Start Building",
+        "START_BUILDING_DESC": "Drag and drop drills from the sidebar to create your training session.",
+        "CONFIRM_CLEAR": "Are you sure you want to remove all drills?",
+        "CONFIRM_RESET": "Are you sure you want to reset? All unsaved changes will be lost.",
+        "SAVE_ERROR": "Please enter a training name and add at least one drill",
+        "SAVE_SUCCESS": "Training saved successfully!",
+        "CATEGORY_LABEL": "Category",
+        "ALL_CATEGORIES": "All Categories",
+        "LEVEL_LABEL": "Level",
+        "ALL_LEVELS": "All Levels"
+    }
+}

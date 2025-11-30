@@ -1,0 +1,113 @@
+[
+    {
+        "id": "training_001",
+        "name": "Morning Practice - Week 1",
+        "createdBy": "coach_001",
+        "createdAt": "2024-11-25T09:00:00.000Z",
+        "drills": [
+            {
+                "drillId": "drill_005",
+                "duration": 5,
+                "notes": "Focus on proper form",
+                "order": 0
+            },
+            {
+                "drillId": "drill_001",
+                "duration": 10,
+                "notes": "Emphasize accuracy over speed",
+                "order": 1
+            },
+            {
+                "drillId": "drill_003",
+                "duration": 15,
+                "notes": "Work on sharp cuts",
+                "order": 2
+            },
+            {
+                "drillId": "drill_012",
+                "duration": 8,
+                "notes": "",
+                "order": 3
+            },
+            {
+                "drillId": "drill_020",
+                "duration": 5,
+                "notes": "Stretching and recovery",
+                "order": 4
+            }
+        ],
+        "totalDuration": 43
+    },
+    {
+        "id": "training_002",
+        "name": "Defense Focus Session",
+        "createdBy": "coach_001",
+        "createdAt": "2024-11-26T14:00:00.000Z",
+        "drills": [
+            {
+                "drillId": "drill_015",
+                "duration": 7,
+                "notes": "",
+                "order": 0
+            },
+            {
+                "drillId": "drill_010",
+                "duration": 12,
+                "notes": "Practice both hands",
+                "order": 1
+            },
+            {
+                "drillId": "drill_002",
+                "duration": 15,
+                "notes": "Communication is key",
+                "order": 2
+            },
+            {
+                "drillId": "drill_017",
+                "duration": 10,
+                "notes": "Stay low and aggressive",
+                "order": 3
+            }
+        ],
+        "totalDuration": 44
+    },
+    {
+        "id": "training_003",
+        "name": "Advanced Offensive Strategies",
+        "createdBy": "coach_002",
+        "createdAt": "2024-11-27T16:30:00.000Z",
+        "drills": [
+            {
+                "drillId": "drill_005",
+                "duration": 5,
+                "notes": "",
+                "order": 0
+            },
+            {
+                "drillId": "drill_007",
+                "duration": 12,
+                "notes": "Red zone execution",
+                "order": 1
+            },
+            {
+                "drillId": "drill_019",
+                "duration": 12,
+                "notes": "Sell the fake!",
+                "order": 2
+            },
+            {
+                "drillId": "drill_009",
+                "duration": 10,
+                "notes": "Clock management practice",
+                "order": 3
+            },
+            {
+                "drillId": "drill_008",
+                "duration": 8,
+                "notes": "Push through fatigue",
+                "order": 4
+            }
+        ],
+        "totalDuration": 47
+    }
+]
