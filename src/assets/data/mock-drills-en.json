@@ -1,0 +1,677 @@
+[
+    {
+        "id": "drill_001",
+        "name": "Quick Passing Drill",
+        "description": "Focus on quick, accurate passes between players. Players line up in two rows facing each other, 10 yards apart. Practice chest passes, bounce passes, and overhead passes.",
+        "duration": 8,
+        "category": "passing",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_002",
+        "name": "Zone Defense Formation",
+        "description": "Learn proper zone defense positioning and communication. Players practice covering zones and transitioning between offensive threats.",
+        "duration": 12,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_003",
+        "name": "Route Running Basics",
+        "description": "Master fundamental route patterns including slants, posts, corners, and outs. Focus on sharp cuts and proper timing with the quarterback.",
+        "duration": 15,
+        "category": "offense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_004",
+        "name": "Ladder Agility Training",
+        "description": "High-intensity footwork drills using agility ladder. Improves speed, coordination, and quick direction changes essential for flag football.",
+        "duration": 10,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_005",
+        "name": "Dynamic Warm-up Circuit",
+        "description": "Complete warm-up routine including high knees, butt kicks, leg swings, arm circles, and light jogging to prepare muscles for practice.",
+        "duration": 5,
+        "category": "warmup",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_006",
+        "name": "Man-to-Man Coverage",
+        "description": "Advanced defensive drill focusing on tight man coverage techniques, hip positioning, and staying with receivers through their routes.",
+        "duration": 15,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_007",
+        "name": "Red Zone Offense",
+        "description": "Practice offensive plays in the red zone (inside 20 yards). Focus on quick scoring opportunities and tight space execution.",
+        "duration": 12,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1546608235-3310a2494cdf?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_008",
+        "name": "Sprint Intervals",
+        "description": "High-intensity interval training with 40-yard sprints followed by rest periods. Builds explosive speed and endurance.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_009",
+        "name": "Two-Minute Drill",
+        "description": "Simulate end-of-game scenarios with limited time. Practice quick plays, clock management, and high-pressure decision making.",
+        "duration": 10,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_010",
+        "name": "Flag Pulling Technique",
+        "description": "Master the art of flag pulling with proper hand positioning, timing, and pursuit angles. Essential defensive skill for all levels.",
+        "duration": 10,
+        "category": "flag_pulling",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_011",
+        "name": "Crossing Routes",
+        "description": "Practice crossing route patterns with multiple receivers. Focus on timing, spacing, and avoiding collisions in the middle of the field.",
+        "duration": 12,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_012",
+        "name": "Cone Drills",
+        "description": "Set up cone patterns for cutting, weaving, and change of direction exercises. Improves agility and body control.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_013",
+        "name": "Blitz Package",
+        "description": "Advanced defensive strategies for rushing the quarterback. Learn timing, gap assignments, and pressure techniques.",
+        "duration": 15,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_014",
+        "name": "Screen Pass Execution",
+        "description": "Practice screen pass plays with proper blocking and timing. Receivers learn to catch and turn upfield quickly.",
+        "duration": 10,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_015",
+        "name": "Team Stretching Routine",
+        "description": "Comprehensive stretching session focusing on major muscle groups. Includes static and dynamic stretches to prevent injuries.",
+        "duration": 7,
+        "category": "warmup",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_016",
+        "name": "Option Route Reading",
+        "description": "Advanced passing drill where receivers read the defense and adjust routes accordingly. QB and receiver must be in sync.",
+        "duration": 15,
+        "category": "passing",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_017",
+        "name": "Goal Line Stand",
+        "description": "Defensive drill for stopping the offense at the goal line. Practice gap control and aggressive flag pulling in tight spaces.",
+        "duration": 10,
+        "category": "flag_pulling",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_018",
+        "name": "Shuttle Runs",
+        "description": "Classic conditioning drill with 5-10-5 shuttle runs. Builds explosive lateral movement and cardiovascular endurance.",
+        "duration": 6,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_019",
+        "name": "Play Action Passing",
+        "description": "Deceptive passing plays that start with a fake run. Practice selling the fake and executing the pass with proper timing.",
+        "duration": 12,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_020",
+        "name": "Cool Down Jog",
+        "description": "Light jogging and walking to gradually lower heart rate after intense practice. Helps with recovery and reduces muscle soreness.",
+        "duration": 5,
+        "category": "warmup",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_021",
+        "name": "Center Snap Accuracy",
+        "description": "Critical for shotgun formations. Centers practice snapping the ball consistently to the QB's chest from 5-7 yards away while looking forward.",
+        "duration": 8,
+        "category": "offense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1599392305537-805125327318?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_022",
+        "name": "Defensive Backpedal & Break",
+        "description": "DBs practice maintaining a low backpedal, planting the back foot, and driving forward 45 degrees to close on the ball.",
+        "duration": 10,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1593786481097-cf281dd12e9e?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_023",
+        "name": "The Gauntlet Catching",
+        "description": "Receiver runs down a line while QBs/coaches throw balls from alternating sides. Improves reaction time and hand-eye coordination.",
+        "duration": 12,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1628779238951-be2c9f25b227?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_024",
+        "name": "Tip Drill / Hail Mary Defense",
+        "description": "Defenders practice batting the ball down to the ground rather than trying to catch it in crowd situations. Essential for end-of-half defense.",
+        "duration": 8,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1606733292414-99a38ab4c10a?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_025",
+        "name": "Scramble Drill",
+        "description": "Simulate a broken play. QB rolls out, and receivers must break off their routes to mirror the QB or find open space (plaster rule).",
+        "duration": 15,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1519766304800-c9519d0cefcd?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_026",
+        "name": "Pursuit Angles",
+        "description": "Defenders practice taking the correct geometric angle to intercept a runner at the sideline, rather than chasing directly behind them.",
+        "duration": 10,
+        "category": "defense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1558064402-23c2a13df0d1?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_027",
+        "name": "Mirror Dodge",
+        "description": "Ball carrier faces a defender in a narrow corridor (5 yards wide). Carrier tries to make one move to beat the defender; defender mirrors.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1520642398642-16a75a7c2c9d?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_028",
+        "name": "Double Move Routes",
+        "description": "Receivers practice selling the first route (e.g., a hitch) before accelerating into a second route (e.g., a go). Focus on body language deception.",
+        "duration": 12,
+        "category": "passing",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_029",
+        "name": "Handoff Precision",
+        "description": "Repetitive practice of the mesh point between QB and RB. Focus on minimizing fumbles and hiding the ball for play-action setups.",
+        "duration": 6,
+        "category": "offense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1627627409228-2d0436d5e0d4?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_030",
+        "name": "Zone Switch Communication",
+        "description": "Defenders practice passing off receivers when they cross from one zone to another. Focuses purely on vocal communication (\"In! Out! Crossing!\").",
+        "duration": 15,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1517926227650-6bb11c1d0448?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_031",
+        "name": "One-on-One Jamming",
+        "description": "Defender practices press coverage at the line of scrimmage using hands to disrupt the receiver’s release without holding. Focus on footwork and legal contact.",
+        "duration": 10,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1570545906834-2b0481c8e5dc?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_032",
+        "name": "Hot Route Recognition",
+        "description": "Receivers practice identifying blitz pressure and immediately breaking into hot routes (quick slants or drags) while QB progresses through reads.",
+        "duration": 12,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1512941675423-6b2c600a2bdb?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_033",
+        "name": "Bag Reaction Drill",
+        "description": "Players react to coach lifting colored bags or calling commands while running. Improves reaction time, acceleration, and change of direction.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1605296867304-46d5465a3e1b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_034",
+        "name": "Pick/Rub Route Concepts",
+        "description": "Two receivers run crossing or rub routes designed to legally pick defenders. Focus on timing and using body to create separation for teammate.",
+        "duration": 12,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1571019614242-cb3e0ed741b1?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_035",
+        "name": "4th Down Decision Drill",
+        "description": "QB practices reading the defense pre-snap and making quick go/no-go decisions on 4th down plays. Includes run/pass options.",
+        "duration": 10,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1552667466-1a39b3c01182?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_036",
+        "name": "Trail Technique & Recovery",
+        "description": "DBs practice playing from a trail position (receiver beats them initially) and using speed and angles to recover and play the ball.",
+        "duration": 10,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1594730333320-7a8e2a1c6e8c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_037",
+        "name": "Sideline Toe-Tap Catching",
+        "description": "Receivers run routes along the sideline and practice dragging feet inbounds while making contested catches. Great for boundary awareness.",
+        "duration": 10,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_038",
+        "name": "Get-Off Explosion",
+        "description": "Linemen and rushers work on explosive first steps off the snap using resistance bands or sleds. Focus on low pad level and hand violence.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1519501025264-65ba15ae6c1e?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_039",
+        "name": "No-Huddle Tempo Practice",
+        "description": "Offense runs plays at rapid pace with no huddle. Builds conditioning, communication, and ability to recognize defensive alignments quickly.",
+        "duration": 15,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1579952366581-6e5163b7e4d9?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_040",
+        "name": "Jump Ball Contest",
+        "description": "One-on-one fade routes in the end zone. Receiver and defender compete for high-point catches. Emphasizes timing, body position, and ball skills.",
+        "duration": 10,
+        "category": "passing",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1606106757029-6373e1d6e5f4?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_041",
+        "name": "Run Fit & Contain",
+        "description": "Defensive line and edge players practice maintaining outside leverage and setting the edge against outside runs. Focus on spill vs. force techniques.",
+        "duration": 12,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_042",
+        "name": "Ball Security Gauntlet",
+        "description": "Ball carrier runs through a line of defenders trying to pull flags while protecting the ball high and tight. Reinforces proper carrying technique.",
+        "duration": 8,
+        "category": "offense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1628779238951-be2c9f25b227?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_043",
+        "name": "QB Drop & Throw on the Run",
+        "description": "Quarterbacks practice 3-step, 5-step, and 7-step drops then roll out and throw accurately while moving. Simulates real-game movement.",
+        "duration": 12,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1512941675423-6b2c600a2bdb?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_044",
+        "name": "Defensive Line Stunts",
+        "description": "Rushers practice twisting, looping, and crossing stunts to confuse blockers and create pressure lanes.",
+        "duration": 10,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_045",
+        "name": "Over-the-Shoulder Catch",
+        "description": "Receivers run deep go routes and track the ball over either shoulder. Focus on body control and soft hands.",
+        "duration": 10,
+        "category": "passing",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1570545906834-2b0481c8e5dc?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_046",
+        "name": "Tagging Up (Run After Catch)",
+        "description": "After catching short passes, receivers must 'tag up' at a cone before exploding upfield. Teaches discipline to secure catch before running.",
+        "duration": 8,
+        "category": "offense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1627627409228-2d0436d5e0d4?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_047",
+        "name": "Reaction Ball Drops",
+        "description": "Coach throws reaction ball (irregular bounce) while player backpedals. Player must react and catch on the bounce. Great for hand-eye coordination.",
+        "duration": 6,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1605296867304-46d5465a3e1b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_048",
+        "name": "Motion & Shift Recognition",
+        "description": "Defense practices recognizing pre-snap motion and shifts, adjusting assignments quickly without jumping offsides.",
+        "duration": 10,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1517926227650-6bb11c1d0448?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_049",
+        "name": "Back Shoulder Fade",
+        "description": "Advanced timing route where QB throws to receiver’s back shoulder away from the defender. Requires trust and precise ball placement.",
+        "duration": 12,
+        "category": "passing",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1606733292414-99a38ab4c10a?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_050",
+        "name": "End-of-Practice Conditioning: Indian Runs",
+        "description": "Team runs in a line; last player sprints to the front. Continues until everyone has sprinted multiple times. Builds team unity and conditioning.",
+        "duration": 10,
+        "category": "conditioning",
+        "level": "all",
+        "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h '<?php echo 300?>&fit=crop"
+    },
+    {
+        "id": "drill_051",
+        "name": "QB Pocket Movement Ladder",
+        "description": "QB steps through agility ladder while keeping eyes downfield, then throws to designated receiver. Builds pocket presence and foot quickness.",
+        "duration": 10,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_052",
+        "name": "3-Cone L Drill",
+        "description": "Classic L-shaped cone pattern (5-10-5 variation). Players sprint, backpedal, and shuffle around cones. Excellent for multi-directional burst.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1606904825846-477e25dd422c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_053",
+        "name": "RPO Read & React",
+        "description": "QB practices run-pass option plays live against defense. Must read the end man on the line of scrimmage and decide handoff or throw in <2 seconds.",
+        "duration": 15,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_054",
+        "name": "Swim & Rip Move Progression",
+        "description": "Rushers practice swim and rip pass-rush moves against bags or live blockers (no contact). Focus on hand placement and violent hips.",
+        "duration": 10,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1518614368383-3eae23d2d9a7?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_055",
+        "name": "Bubble Screen Timing",
+        "description": "Quick wide receiver screen with two blockers leading. Emphasizes catch-and-run, blocker release angles, and wall formation.",
+        "duration": 10,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_056",
+        "name": "Defensive Pursuit Relay",
+        "description": "Team split into groups; ball carrier runs, defenders pursue from different starting points. First team to pull flag wins. Teaches team pursuit.",
+        "duration": 12,
+        "category": "defense",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1558064402-23c2a13df0d1?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_057",
+        "name": "Comeback Route Precision",
+        "description": "Receiver runs 12–15 yards, plants hard, and breaks back to the ball at a 45° angle. QB throws low and away. Great for sideline throws.",
+        "duration": 10,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1628779238951-be2c9f25b227?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_058",
+        "name": "Chaos Flag Pull",
+        "description": "Multiple ball carriers (3–4) run simultaneously in a confined area while defenders swarm. Forces quick reads and accurate pulls under chaos.",
+        "duration": 8,
+        "category": "flag_pulling",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_059",
+        "name": "Jet Sweep Handoff Series",
+        "description": "Practice pre-snap motion into jet sweep handoffs. Focus on timing, mesh point, and perimeter blocking angles.",
+        "duration": 12,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1599392305537-805125327318?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_060",
+        "name": "Wobble Ball Catching",
+        "description": "Coach throws intentionally wobbly/under-inflated balls. Forces receivers to adjust and track bad throws—exactly like game situations.",
+        "duration": 8,
+        "category": "passing",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_061",
+        "name": "Box Jumps & Burst",
+        "description": "Players jump onto 18–24 inch boxes, then explode 10 yards immediately after landing. Builds lower-body power and transition speed.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_062",
+        "name": "Cover 0 Jam & Go",
+        "description": "Full press-man coverage with no safety help. DBs jam and run with receivers on vertical routes. Simulates high-pressure situations.",
+        "duration": 12,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1593786481097-cf281dd12e9e?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_063",
+        "name": "Yards After Catch Obstacle Course",
+        "description": "Receiver catches short pass then navigates cones, bags, and defenders to maximize YAC. Emphasizes vision and elusiveness.",
+        "duration": 10,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_064",
+        "name": "Pat & Go",
+        "description": "Classic one-hand pat, immediate sprint, and catch. High-rep, fast-paced drill for hands and getting off the line quickly.",
+        "duration": 6,
+        "category": "passing",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_065",
+        "name": "Reverse & Misdirection Timing",
+        "description": "Practice reverses, double reverses, and counter plays. Focus on ball security, fakes, and pulling defenders out of position.",
+        "duration": 12,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1519766304800-c9519d0cefcd?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_066",
+        "name": "Tarp Drop Interceptions",
+        "description": "Defender stands under a suspended tarp; ball is thrown high and tarp drops, forcing instant reaction to locate and intercept.",
+        "duration": 10,
+        "category": "defense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1606733292414-99a38ab4c10a?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_067",
+        "name": "Speed Cut Stick Drill",
+        "description": "Receiver runs full speed, plants and cuts sharply, then sticks foot in ground for 1 second before releasing. Builds explosive cuts.",
+        "duration": 8,
+        "category": "offense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_068",
+        "name": "Four Corners Reaction",
+        "description": "Coach points to one of four cones; player must sprint and touch the correct cone. Improves visual processing and first-step explosion.",
+        "duration": 7,
+        "category": "conditioning",
+        "level": "beginner",
+        "imageUrl": "https://images.unsplash.com/photo-1605296867304-46d5465a3e1b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_069",
+        "name": "Trick Play Execution",
+        "description": "Run through flea-flickers, hook-and-ladders, and double passes. Low reps, high focus on timing and deception.",
+        "duration": 15,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_070",
+        "name": "Low Ball Scoop Drill",
+        "description": "Balls thrown intentionally low and in the dirt. Receivers practice scooping without breaking stride. Eliminates body catches.",
+        "duration": 8,
+        "category": "passing",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1570545906834-2b0481c8e5dc?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_071",
+        "name": "Contain the QB Spy",
+        "description": "Designated defender shadows the QB on every play with one job: mirror and contain. QB tries to escape; spy works angles.",
+        "duration": 10,
+        "category": "defense",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_072",
+        "name": "Hitch & Go Double Move",
+        "description": "Receiver sells a 6-yard hitch, then explodes vertical. DB must bite on the fake. Works route deception and separation.",
+        "duration": 10,
+        "category": "passing",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_073",
+        "name": "Parachute Sprints",
+        "description": "Players sprint with resistance parachutes. Builds leg drive and top-end speed when chute releases.",
+        "duration": 8,
+        "category": "conditioning",
+        "level": "intermediate",
+        "imageUrl": "https://images.unsplash.com/photo-1519501025264-65ba15ae6c1e?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_074",
+        "name": "Center-QB Exchange Under Pressure",
+        "description": "Center snaps while a defender rushes immediately. QB must catch snap, avoid pressure, and throw hot route. Simulates bad snaps.",
+        "duration": 10,
+        "category": "offense",
+        "level": "advanced",
+        "imageUrl": "https://images.unsplash.com/photo-1599392305537-805125327318?w=400&h=300&fit=crop"
+    },
+    {
+        "id": "drill_075",
+        "name": "Victory Formation Kneel & Protect",
+        "description": "Practice protecting the ball and clock in victory formation. Center snaps cleanly while line absorbs rush. Teaches discipline.",
+        "duration": 5,
+        "category": "offense",
+        "level": "all",
+        "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&h=300&fit=crop"
+    }
+]

@@ -1,0 +1,162 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [CommonModule, RouterModule, TranslateModule],
+  template: `
+    <nav class="glass sticky top-0 z-50 border-b border-slate-200/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3 group cursor-pointer" routerLink="/">
+            <div class="relative w-10 h-10 flex items-center justify-center">
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-green-600 to-emerald-400 rounded-xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300 shadow-lg shadow-green-500/30"></div>
+              <div
+                class="absolute inset-0 bg-white rounded-xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-300 opacity-20"></div>
+              <span
+                class="relative text-white text-xl transform group-hover:scale-110 transition-transform duration-300">🏈</span>
+            </div>
+            <div>
+              <h1
+                class="text-xl font-display font-bold text-slate-900 tracking-tight group-hover:text-green-700 transition-colors">{{ 'NAV.TITLE' | translate }}</h1>
+              <p
+                class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">{{ 'NAV.PRO_EDITION' | translate }}</p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-1">
+            <a
+              routerLink="/catalog"
+              routerLinkActive="bg-green-50 text-green-700 shadow-sm ring-1 ring-green-500/20"
+              [routerLinkActiveOptions]="{exact: false}"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+            >
+
+              {{ 'NAV.DRILL_CATALOG' | translate }}
+            </a>
+            <a
+              routerLink="/builder"
+              routerLinkActive="bg-green-50 text-green-700 shadow-sm ring-1 ring-green-500/20"
+              [routerLinkActiveOptions]="{exact: false}"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+            >
+
+              {{ 'NAV.TRAINING_BUILDER' | translate }}
+            </a>
+            <a
+              routerLink="/trainings"
+              routerLinkActive="bg-green-50 text-green-700 shadow-sm ring-1 ring-green-500/20"
+              [routerLinkActiveOptions]="{exact: false}"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+            >
+
+              {{ 'NAV.MY_TRAININGS' | translate }}
+            </a>
+          </div>
+
+          <!-- Language Switcher -->
+          <div class="hidden md:flex items-center space-x-2 ml-4">
+            <button
+              (click)="switchLanguage('en')"
+              [class.text-green-600]="currentLang === 'en'"
+              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+            >EN
+            </button>
+            <span class="text-slate-300">|</span>
+            <button
+              (click)="switchLanguage('uk')"
+              [class.text-green-600]="currentLang === 'uk'"
+              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+            >UK
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            (click)="toggleMobileMenu()"
+            class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/20"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path *ngIf="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+              <path *ngIf="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div *ngIf="mobileMenuOpen" class="md:hidden py-4 space-y-2 border-t border-slate-100 animate-fade-in">
+          <a
+            routerLink="/catalog"
+            routerLinkActive="bg-green-50 text-green-700"
+            (click)="closeMobileMenu()"
+            class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+          >
+            {{ 'NAV.DRILL_CATALOG' | translate }}
+          </a>
+          <a
+            routerLink="/builder"
+            routerLinkActive="bg-green-50 text-green-700"
+            (click)="closeMobileMenu()"
+            class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+          >
+            {{ 'NAV.TRAINING_BUILDER' | translate }}
+          </a>
+          <a
+            routerLink="/trainings"
+            routerLinkActive="bg-green-50 text-green-700"
+            (click)="closeMobileMenu()"
+            class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+          >
+            {{ 'NAV.MY_TRAININGS' | translate }}
+          </a>
+
+          <!-- Mobile Language Switcher -->
+          <div class="px-4 py-3 border-t border-slate-100 flex items-center space-x-4">
+            <button
+              (click)="switchLanguage('en')"
+              [class.text-green-600]="currentLang === 'en'"
+              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+            >English
+            </button>
+            <button
+              (click)="switchLanguage('uk')"
+              [class.text-green-600]="currentLang === 'uk'"
+              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+            >Українська
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  `,
+  styles: []
+})
+export class NavbarComponent {
+  mobileMenuOpen = false;
+  currentLang = 'en';
+
+  constructor(private translate: TranslateService) {
+    this.currentLang = translate.currentLang || translate.defaultLang || 'en';
+  }
+
+  switchLanguage(lang: string) {
+    this.translate.use(lang);
+    this.currentLang = lang;
+  }
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu(): void {
+    this.mobileMenuOpen = false;
+  }
+}
