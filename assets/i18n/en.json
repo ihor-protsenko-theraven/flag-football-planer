@@ -63,6 +63,11 @@
         "CREATE_FIRST_BTN": "Create Your First Training",
         "CONFIRM_DELETE": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone."
     },
+    "CONFIRMATION": {
+        "CONFIRM": "Confirm",
+        "CANCEL": "Cancel",
+        "TITLE": "Confirm Action"
+    },
     "TRAINING_BUILDER": {
         "TITLE": "Training Builder",
         "SUBTITLE": "Create your custom training session",
