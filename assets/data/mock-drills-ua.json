@@ -673,5 +673,230 @@
         "category": "offense",
         "level": "all",
         "imageUrl": "assets/images/drills_images_preview/drill_075.jpg"
-    }
+    },
+  {
+    "id": "drill_076",
+    "name": "Зонний захист Cover 2",
+    "description": "Захист відпрацьовує класичну схему Cover 2. Два сейфті ділять глибокі половини поля, корнери відповідають за флетові зони. Вчить закривати слабке місце «Honey hole».",
+    "duration": 15,
+    "category": "defense",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_076.jpg"
+  },
+  {
+    "id": "drill_077",
+    "name": "Трюк «Статуя Свободи»",
+    "description": "Відпрацювання класичного фейку пасу з передачею за спиною. Квотербек імітує кидок, таємно передаючи м'яч раннінгбеку за своєю спиною.",
+    "duration": 8,
+    "category": "offense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_077.jpg"
+  },
+  {
+    "id": "drill_078",
+    "name": "Механіка розвороту (Spin Move)",
+    "description": "Гравці з м'ячем тренують таймінг розвороту для уникнення зривання прапорця. Фокус на збереженні рівноваги та швидкості під час обертання.",
+    "duration": 10,
+    "category": "offense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_078.jpg"
+  },
+  {
+    "id": "drill_079",
+    "name": "Робота з аудіблами (Зміна розіграшу)",
+    "description": "Квотербек називає розіграш, бачить специфічне шикування захисту (задане тренером) і повинен вигукнути аудібл для зміни комбінації на лінії.",
+    "duration": 12,
+    "category": "offense",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_079.jpg"
+  },
+  {
+    "id": "drill_080",
+    "name": "Контроль трафіку (Вправа для сейфті)",
+    "description": "Сейфті тренують читання очей квотербека під час бекпедалу, після чого роблять ривок на м'яч, кинутий до будь-якої бокової лінії.",
+    "duration": 10,
+    "category": "defense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_080.jpg"
+  },
+  {
+    "id": "drill_081",
+    "name": "Комбінація маршрутів «Ножиці» (Scissors)",
+    "description": "Два ресивери біжать маршрути, що перетинаються (Post і Corner), щоб заплутати зонний захист. Фокус на таймінгу в точці перетину.",
+    "duration": 12,
+    "category": "passing",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_081.jpg"
+  },
+  {
+    "id": "drill_082",
+    "name": "Доступні прапорці (Flag Guarding)",
+    "description": "Вправа, щоб відучити бігунів захищати прапорці руками. Гравці біжать крізь вузький коридор, тримаючи руки високо і подалі від стегон.",
+    "duration": 8,
+    "category": "offense",
+    "level": "beginner",
+    "imageUrl": "assets/images/drills_images_preview/drill_082.jpg"
+  },
+  {
+    "id": "drill_083",
+    "name": "Дзеркальне блокування (Shielding)",
+    "description": "Гравці атаки тренують перекриття шляху рашерам без використання рук та затримок (рухаючись як баскетбольний заслон).",
+    "duration": 10,
+    "category": "offense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_083.jpg"
+  },
+  {
+    "id": "drill_084",
+    "name": "Снеп без голосу (Silent Count)",
+    "description": "Центр і QB тренують введення м'яча за допомогою дотику або ритмічного кивка головою замість голосу. Корисно в шумних умовах.",
+    "duration": 5,
+    "category": "offense",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_084.jpg"
+  },
+  {
+    "id": "drill_085",
+    "name": "Перехід до повернення перехоплення",
+    "description": "Захисники ловлять м'яч і миттєво кричать «Oskie!», поки партнери знаходять кого блокувати (shielding), щоб організувати повернення.",
+    "duration": 10,
+    "category": "defense",
+    "level": "all",
+    "imageUrl": "assets/images/drills_images_preview/drill_085.jpg"
+  },
+  {
+    "id": "drill_086",
+    "name": "Ловля у найвищій точці",
+    "description": "Ресивери тренують стрибок і ловлю м'яча у найвищій точці стрибка (high point), щоб завадити захисникам дотягнутися до нього.",
+    "duration": 8,
+    "category": "passing",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_086.jpg"
+  },
+  {
+    "id": "drill_087",
+    "name": "Шикування захисту Prevent",
+    "description": "Захист відпрацьовує глибоке шикування з 3 сейфті для зупинки довгих пасів на останніх секундах. Головне правило: тримати все перед собою.",
+    "duration": 10,
+    "category": "defense",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_087.jpg"
+  },
+  {
+    "id": "drill_088",
+    "name": "Таймінг маршруту Wheel",
+    "description": "Раннінгбек біжить маршрут Flat, потім різко повертає вгору по боковій. QB тренує навісний пас через лайнбекера, але під сейфті.",
+    "duration": 12,
+    "category": "passing",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_088.jpg"
+  },
+  {
+    "id": "drill_089",
+    "name": "Перегони «Ведмежою ходою»",
+    "description": "Кондиційна вправа: гравці повзуть 10 ярдів «ведмежою ходою» (bear crawl), потім роблять спринт на 20 ярдів. Розвиває силу кору та вибух.",
+    "duration": 8,
+    "category": "conditioning",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_089.jpg"
+  },
+  {
+    "id": "drill_090",
+    "name": "Бліц «Не в те плече» (Wrong Arm)",
+    "description": "Рашери тренують прохід з «неправильного» (неочікуваного) боку блокувальника, щоб зламати кут блокування і вигнати QB з кишені.",
+    "duration": 10,
+    "category": "defense",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_090.jpg"
+  },
+  {
+    "id": "drill_091",
+    "name": "Тунельний скрін (Tunnel Screen)",
+    "description": "Ресивер ловить скрін-пас у центрі поля, поки інші ресивери створюють «тунель» для проходу. Таймінг критично важливий.",
+    "duration": 12,
+    "category": "offense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_091.jpg"
+  },
+  {
+    "id": "drill_092",
+    "name": "Розминка «Алтімат Футбол»",
+    "description": "Гра за правилами Алтімат Фрізбі, але з м'ячем. Гравці не можуть бігти з м'ячем, тільки пасувати. Чудово для пошуку вільного простору.",
+    "duration": 15,
+    "category": "warmup",
+    "level": "all",
+    "imageUrl": "assets/images/drills_images_preview/drill_092.jpg"
+  },
+  {
+    "id": "drill_093",
+    "name": "Тіньова вправа (Shadow Drill)",
+    "description": "Захисник дзеркалить бічні рухи гравця атаки, не дивлячись на м'яч. Фокус на рухливості стегон та швидкій реакції.",
+    "duration": 8,
+    "category": "defense",
+    "level": "beginner",
+    "imageUrl": "assets/images/drills_images_preview/drill_093.jpg"
+  },
+  {
+    "id": "drill_094",
+    "name": "Концепція Flood (Перевантаження)",
+    "description": "Три ресивери біжать маршрути на один бік поля на різних рівнях (короткий, середній, глибокий), щоб перевантажити зонний захист.",
+    "duration": 15,
+    "category": "passing",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_094.jpg"
+  },
+  {
+    "id": "drill_095",
+    "name": "Швидкі ноги на драбині",
+    "description": "Швидкі кроки через координаційну драбину з фокусом на патерни «Icky shuffle» та «in-in-out-out» для розвитку швидкості ніг.",
+    "duration": 8,
+    "category": "conditioning",
+    "level": "beginner",
+    "imageUrl": "assets/images/drills_images_preview/drill_095.jpg"
+  },
+  {
+    "id": "drill_096",
+    "name": "Пас хафбека (Halfback Pass)",
+    "description": "Відпрацювання трюкового розіграшу. QB віддає м'яч RB, той зупиняється і кидає глибокому ресиверу. Вимагає від RB навичок кидка.",
+    "duration": 12,
+    "category": "offense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_096.jpg"
+  },
+  {
+    "id": "drill_097",
+    "name": "Пошук вільної зони (Sit Down)",
+    "description": "Ресивери біжать маршрути, але повинні зупинитися і «сісти» у вільному просторі між захисниками зони, замість того щоб бігти наосліп.",
+    "duration": 12,
+    "category": "passing",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_097.jpg"
+  },
+  {
+    "id": "drill_098",
+    "name": "Концепція Mesh (Перетин)",
+    "description": "Два ресивери біжать неглибокі перехресні маршрути дуже близько один до одного, щоб «зішкребти» захисників (rub). Ефективно проти Man-to-man.",
+    "duration": 10,
+    "category": "passing",
+    "level": "advanced",
+    "imageUrl": "assets/images/drills_images_preview/drill_098.jpg"
+  },
+  {
+    "id": "drill_099",
+    "name": "Зривання прапорця на лінії воріт",
+    "description": "Вправа 1 на 1, старт з 5 ярдів. Захисник повинен зірвати прапорець до того, як бігун перетне лінію воріт. Висока ціна помилки.",
+    "duration": 8,
+    "category": "flag_pulling",
+    "level": "all",
+    "imageUrl": "assets/images/drills_images_preview/drill_099.jpg"
+  },
+  {
+    "id": "drill_100",
+    "name": "Позиціонування Hail Mary",
+    "description": "Симуляція останнього розіграшу гри. Напад збивається в купу в заліковці, Захист роззосереджується, щоб збити м'яч вниз.",
+    "duration": 5,
+    "category": "defense",
+    "level": "intermediate",
+    "imageUrl": "assets/images/drills_images_preview/drill_100.jpg"
+  }
 ]
