@@ -7,7 +7,11 @@ export interface Drill {
     level: DrillLevel;
     imageUrl?: string;
     videoUrl?: string;
+    instructions?: string[];
+    coachingTips?: string[];
+    equipment?: string[];
 }
+
 
 export type DrillCategory = 'passing' | 'defense' | 'offense' | 'conditioning' | 'warmup' | 'flag_pulling';
 export type DrillLevel = 'beginner' | 'intermediate' | 'advanced';

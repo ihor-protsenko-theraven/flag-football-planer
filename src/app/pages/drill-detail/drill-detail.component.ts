@@ -8,10 +8,10 @@ import { Drill } from '../../models/drill.model';
 import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
 
 @Component({
-    selector: 'app-drill-detail',
-    standalone: true,
-    imports: [CommonModule, RouterModule, TranslateModule, DrillCardComponent],
-    template: `
+  selector: 'app-drill-detail',
+  standalone: true,
+  imports: [CommonModule, RouterModule, TranslateModule, DrillCardComponent],
+  template: `
     <div class="min-h-screen bg-gray-50 py-8">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Back Button -->
@@ -108,8 +108,8 @@ import { DrillCardComponent } from '../../components/drill-card/drill-card.compo
                 <p class="text-gray-700 leading-relaxed">{{ drill.description }}</p>
               </div>
 
-              <!-- Instructions (placeholder) -->
-              <div class="card p-6">
+              <!-- Instructions -->
+              <div *ngIf="drill.instructions && drill.instructions.length > 0" class="card p-6">
                 <h2 class="text-2xl font-display font-bold text-gray-900 mb-4 flex items-center">
                   <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -117,11 +117,7 @@ import { DrillCardComponent } from '../../components/drill-card/drill-card.compo
                   {{ 'DRILL_DETAIL.INSTRUCTIONS' | translate }}
                 </h2>
                 <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                  <li>Set up the field with cones marking the boundaries</li>
-                  <li>Divide players into two teams</li>
-                  <li>Explain the drill objectives and rules</li>
-                  <li>Run the drill for the specified duration</li>
-                  <li>Provide feedback and coaching points</li>
+                  <li *ngFor="let instruction of drill.instructions">{{ instruction }}</li>
                 </ol>
               </div>
             </div>
@@ -129,7 +125,7 @@ import { DrillCardComponent } from '../../components/drill-card/drill-card.compo
             <!-- Sidebar -->
             <div class="space-y-6">
               <!-- Equipment -->
-              <div class="card p-6">
+              <div *ngIf="drill.equipment && drill.equipment.length > 0" class="card p-6">
                 <h3 class="text-lg font-display font-bold text-gray-900 mb-3 flex items-center">
                   <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -137,23 +133,15 @@ import { DrillCardComponent } from '../../components/drill-card/drill-card.compo
                   {{ 'DRILL_DETAIL.EQUIPMENT' | translate }}
                 </h3>
                 <ul class="space-y-2 text-sm text-gray-700">
-                  <li class="flex items-start">
+                  <li *ngFor="let item of drill.equipment" class="flex items-start">
                     <span class="text-green-600 mr-2">•</span>
-                    <span>Cones (8-12)</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-600 mr-2">•</span>
-                    <span>Footballs (2-4)</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-600 mr-2">•</span>
-                    <span>Flag belts</span>
+                    <span>{{ item }}</span>
                   </li>
                 </ul>
               </div>
 
               <!-- Coaching Tips -->
-              <div class="card p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-100">
+              <div *ngIf="drill.coachingTips && drill.coachingTips.length > 0" class="card p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-100">
                 <h3 class="text-lg font-display font-bold text-gray-900 mb-3 flex items-center">
                   <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -161,17 +149,9 @@ import { DrillCardComponent } from '../../components/drill-card/drill-card.compo
                   {{ 'DRILL_DETAIL.TIPS' | translate }}
                 </h3>
                 <ul class="space-y-2 text-sm text-gray-700">
-                  <li class="flex items-start">
+                  <li *ngFor="let tip of drill.coachingTips" class="flex items-start">
                     <span class="text-green-600 mr-2">✓</span>
-                    <span>Focus on proper technique over speed</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-600 mr-2">✓</span>
-                    <span>Encourage communication between players</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-600 mr-2">✓</span>
-                    <span>Adjust difficulty based on skill level</span>
+                    <span>{{ tip }}</span>
                   </li>
                 </ul>
               </div>
@@ -199,99 +179,99 @@ import { DrillCardComponent } from '../../components/drill-card/drill-card.compo
       </div>
     </div>
   `,
-    styles: []
+  styles: []
 })
 export class DrillDetailComponent implements OnInit {
-    drill: Drill | null = null;
-    relatedDrills: Drill[] = [];
+  drill: Drill | null = null;
+  relatedDrills: Drill[] = [];
 
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private drillService: DrillService,
-        public translationHelper: TranslationHelperService
-    ) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private drillService: DrillService,
+    public translationHelper: TranslationHelperService
+  ) { }
 
-    ngOnInit(): void {
-        const id = this.route.snapshot.paramMap.get('id');
-        if (id) {
-            this.loadDrill(id);
-        }
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.loadDrill(id);
     }
+  }
 
-    loadDrill(id: string): void {
-        this.drillService.getDrillById(id).subscribe(drill => {
-            if (drill) {
-                this.drill = drill;
-                this.loadRelatedDrills();
-            } else {
-                this.router.navigate(['/catalog']);
-            }
-        });
-    }
-
-    loadRelatedDrills(): void {
-        if (!this.drill) return;
-
-        this.drillService.filterAndSearchDrills(
-            undefined,
-            this.drill.category,
-            undefined
-        ).subscribe(drills => {
-            this.relatedDrills = drills
-                .filter(d => d.id !== this.drill?.id)
-                .slice(0, 3);
-        });
-    }
-
-    goBack(): void {
+  loadDrill(id: string): void {
+    this.drillService.getDrillById(id).subscribe(drill => {
+      if (drill) {
+        this.drill = drill;
+        this.loadRelatedDrills();
+      } else {
         this.router.navigate(['/catalog']);
-    }
+      }
+    });
+  }
 
-    openVideo(): void {
-        if (this.drill?.videoUrl) {
-            window.open(this.drill.videoUrl, '_blank');
-        }
-    }
+  loadRelatedDrills(): void {
+    if (!this.drill) return;
 
-    onRelatedDrillClick(drill: Drill): void {
-        this.router.navigate(['/catalog', drill.id]);
-        // Reload the page with new drill
-        this.loadDrill(drill.id);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.drillService.filterAndSearchDrills(
+      undefined,
+      this.drill.category,
+      undefined
+    ).subscribe(drills => {
+      this.relatedDrills = drills
+        .filter(d => d.id !== this.drill?.id)
+        .slice(0, 3);
+    });
+  }
 
-    getLevelBadgeClass(): string {
-        if (!this.drill) return '';
-        const baseClass = 'badge text-white font-medium tracking-wide text-sm px-3 py-1.5';
-        switch (this.drill.level) {
-            case 'beginner':
-                return `${baseClass} bg-emerald-500`;
-            case 'intermediate':
-                return `${baseClass} bg-amber-500`;
-            case 'advanced':
-                return `${baseClass} bg-rose-500`;
-            default:
-                return `${baseClass} bg-slate-500`;
-        }
-    }
+  goBack(): void {
+    this.router.navigate(['/catalog']);
+  }
 
-    getCategoryBadgeClass(): string {
-        if (!this.drill) return '';
-        const baseClass = 'badge border text-sm';
-        switch (this.drill.category) {
-            case 'passing':
-                return `${baseClass} bg-sky-50 text-sky-700 border-sky-200`;
-            case 'defense':
-                return `${baseClass} bg-rose-50 text-rose-700 border-rose-200`;
-            case 'offense':
-                return `${baseClass} bg-emerald-50 text-emerald-700 border-emerald-200`;
-            case 'conditioning':
-                return `${baseClass} bg-violet-50 text-violet-700 border-violet-200`;
-            case 'warmup':
-                return `${baseClass} bg-orange-50 text-orange-700 border-orange-200`;
-            default:
-                return `${baseClass} bg-slate-50 text-slate-700 border-slate-200`;
-        }
+  openVideo(): void {
+    if (this.drill?.videoUrl) {
+      window.open(this.drill.videoUrl, '_blank');
     }
+  }
+
+  onRelatedDrillClick(drill: Drill): void {
+    this.router.navigate(['/catalog', drill.id]);
+    // Reload the page with new drill
+    this.loadDrill(drill.id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  getLevelBadgeClass(): string {
+    if (!this.drill) return '';
+    const baseClass = 'badge text-white font-medium tracking-wide text-sm px-3 py-1.5';
+    switch (this.drill.level) {
+      case 'beginner':
+        return `${baseClass} bg-emerald-500`;
+      case 'intermediate':
+        return `${baseClass} bg-amber-500`;
+      case 'advanced':
+        return `${baseClass} bg-rose-500`;
+      default:
+        return `${baseClass} bg-slate-500`;
+    }
+  }
+
+  getCategoryBadgeClass(): string {
+    if (!this.drill) return '';
+    const baseClass = 'badge border text-sm';
+    switch (this.drill.category) {
+      case 'passing':
+        return `${baseClass} bg-sky-50 text-sky-700 border-sky-200`;
+      case 'defense':
+        return `${baseClass} bg-rose-50 text-rose-700 border-rose-200`;
+      case 'offense':
+        return `${baseClass} bg-emerald-50 text-emerald-700 border-emerald-200`;
+      case 'conditioning':
+        return `${baseClass} bg-violet-50 text-violet-700 border-violet-200`;
+      case 'warmup':
+        return `${baseClass} bg-orange-50 text-orange-700 border-orange-200`;
+      default:
+        return `${baseClass} bg-slate-50 text-slate-700 border-slate-200`;
+    }
+  }
 }
