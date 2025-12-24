@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -37,7 +37,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
             >
-
               {{ 'NAV.DRILL_CATALOG' | translate }}
             </a>
             <a
@@ -46,7 +45,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
             >
-
               {{ 'NAV.TRAINING_BUILDER' | translate }}
             </a>
             <a
@@ -55,7 +53,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
             >
-
               {{ 'NAV.MY_TRAININGS' | translate }}
             </a>
           </div>
@@ -64,14 +61,16 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           <div class="hidden md:flex items-center space-x-2 ml-4">
             <button
               (click)="switchLanguage('en')"
-              [class]="currentLang === 'en' ? 'px-3 py-1.5 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
-            >EN
+              [class]="getLangButtonClass('en')"
+            >
+              EN
             </button>
             <span class="text-slate-300">|</span>
             <button
               (click)="switchLanguage('uk')"
-              [class]="currentLang === 'uk' ? 'px-3 py-1.5 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
-            >UK
+              [class]="getLangButtonClass('uk')"
+            >
+              UK
             </button>
           </div>
 
@@ -80,79 +79,96 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             (click)="toggleMobileMenu()"
             class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/20"
           >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path *ngIf="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"/>
-              <path *ngIf="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"/>
-            </svg>
+            @if (!mobileMenuOpen()) {
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            } @else {
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            }
           </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div *ngIf="mobileMenuOpen" class="md:hidden py-4 space-y-2 border-t border-slate-100 animate-fade-in">
-          <a
-            routerLink="/catalog"
-            routerLinkActive="bg-green-50 text-green-700"
-            (click)="closeMobileMenu()"
-            class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
-          >
-            {{ 'NAV.DRILL_CATALOG' | translate }}
-          </a>
-          <a
-            routerLink="/builder"
-            routerLinkActive="bg-green-50 text-green-700"
-            (click)="closeMobileMenu()"
-            class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
-          >
-            {{ 'NAV.TRAINING_BUILDER' | translate }}
-          </a>
-          <a
-            routerLink="/trainings"
-            routerLinkActive="bg-green-50 text-green-700"
-            (click)="closeMobileMenu()"
-            class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
-          >
-            {{ 'NAV.MY_TRAININGS' | translate }}
-          </a>
+        @if (mobileMenuOpen()) {
+          <div class="md:hidden py-4 space-y-2 border-t border-slate-100 animate-fade-in">
+            <a
+              routerLink="/catalog"
+              routerLinkActive="bg-green-50 text-green-700"
+              (click)="closeMobileMenu()"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+            >
+              {{ 'NAV.DRILL_CATALOG' | translate }}
+            </a>
+            <a
+              routerLink="/builder"
+              routerLinkActive="bg-green-50 text-green-700"
+              (click)="closeMobileMenu()"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+            >
+              {{ 'NAV.TRAINING_BUILDER' | translate }}
+            </a>
+            <a
+              routerLink="/trainings"
+              routerLinkActive="bg-green-50 text-green-700"
+              (click)="closeMobileMenu()"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+            >
+              {{ 'NAV.MY_TRAININGS' | translate }}
+            </a>
 
-          <!-- Mobile Language Switcher -->
-          <div class="px-4 py-3 border-t border-slate-100 flex items-center space-x-4">
-            <button
-              (click)="switchLanguage('en')"
-              [class]="currentLang === 'en' ? 'px-4 py-2 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-4 py-2 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
-            >English
-            </button>
-            <button
-              (click)="switchLanguage('uk')"
-              [class]="currentLang === 'uk' ? 'px-4 py-2 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-4 py-2 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
-            >Українська
-            </button>
+            <!-- Mobile Language Switcher -->
+            <div class="px-4 py-3 border-t border-slate-100 flex items-center space-x-4">
+              <button
+                (click)="switchLanguage('en')"
+                [class]="getLangButtonClass('en')"
+              >
+                English
+              </button>
+              <button
+                (click)="switchLanguage('uk')"
+                [class]="getLangButtonClass('uk')"
+              >
+                Українська
+              </button>
+            </div>
           </div>
-        </div>
+        }
       </div>
     </nav>
   `,
   styles: []
 })
 export class NavbarComponent {
-  mobileMenuOpen = false;
-  currentLang = 'uk';
+  private readonly translate = inject(TranslateService);
 
-  constructor(private translate: TranslateService) {
-    this.currentLang = translate.currentLang || translate.defaultLang || 'uk';
-  }
+  mobileMenuOpen = signal(false);
+  currentLang = signal(
+    this.translate.currentLang || this.translate.defaultLang || 'uk'
+  );
 
-  switchLanguage(lang: string) {
+  switchLanguage(lang: string): void {
     this.translate.use(lang);
-    this.currentLang = lang;
+    this.currentLang.set(lang);
   }
 
   toggleMobileMenu(): void {
-    this.mobileMenuOpen = !this.mobileMenuOpen;
+    this.mobileMenuOpen.update(open => !open);
   }
 
   closeMobileMenu(): void {
-    this.mobileMenuOpen = false;
+    this.mobileMenuOpen.set(false);
+  }
+
+  getLangButtonClass(lang: string): string {
+    const isActive = this.currentLang() === lang;
+    const baseClass = 'px-3 py-1.5 rounded-lg text-sm transition-all';
+
+    if (isActive) {
+      return `${baseClass} font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30`;
+    }
+    return `${baseClass} font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100`;
   }
 }

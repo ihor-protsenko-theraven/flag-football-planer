@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model';
+import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TranslateModule} from '@ngx-translate/core';
+import {Drill, DRILL_CATEGORIES, DRILL_LEVELS} from '../../models/drill.model';
 
 @Component({
   selector: 'app-drill-card',
@@ -10,15 +10,18 @@ import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model'
   template: `
     <div class="card group cursor-pointer h-full flex flex-col relative overflow-hidden" (click)="onCardClick()">
       <!-- Hover Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
 
       <!-- Drill Image -->
       <div class="relative overflow-hidden h-48 shrink-0">
-        <div class="absolute inset-0 bg-slate-200 animate-pulse" *ngIf="!imageLoaded"></div>
-        <img 
-          [src]="drill.imageUrl || 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=400&h=300&fit=crop'" 
+        @if (!imageLoaded()) {
+          <div class="absolute inset-0 bg-slate-200 animate-pulse"></div>
+        }
+        <img
+          [src]="drill.imageUrl"
           [alt]="drill.name"
-          (load)="imageLoaded = true"
+          (load)="imageLoaded.set(true)"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div class="absolute top-3 right-3 z-20">
@@ -31,12 +34,15 @@ import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model'
       <!-- Drill Info -->
       <div class="p-5 flex-1 flex flex-col space-y-3">
         <div class="flex items-start justify-between gap-3">
-          <h3 class="font-display font-semibold text-lg text-slate-900 group-hover:text-green-600 transition-colors line-clamp-2 leading-tight">
+          <h3
+            class="font-display font-semibold text-lg text-slate-900 group-hover:text-green-600 transition-colors line-clamp-2 leading-tight">
             {{ drill.name }}
           </h3>
-          <span class="flex items-center text-green-600 font-bold text-sm whitespace-nowrap bg-green-50 px-2 py-1 rounded-lg">
+          <span
+            class="flex items-center text-green-600 font-bold text-sm whitespace-nowrap bg-green-50 px-2 py-1 rounded-lg">
             <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             {{ drill.duration }} min
           </span>
@@ -51,16 +57,17 @@ import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model'
             {{ getCategoryTranslationKey(drill.category) | translate }}
           </span>
 
-          <button 
-            *ngIf="showAddButton"
-            (click)="onAddClick($event)"
-            class="btn-primary text-xs px-3 py-1.5 shadow-none hover:shadow-md"
-          >
-            Add
-            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-          </button>
+          @if (showAddButton) {
+            <button
+              (click)="onAddClick($event)"
+              class="btn-primary text-xs px-3 py-1.5 shadow-none hover:shadow-md"
+            >
+              Add
+              <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+          }
         </div>
       </div>
     </div>
@@ -80,7 +87,7 @@ export class DrillCardComponent {
   @Output() cardClick = new EventEmitter<Drill>();
   @Output() addClick = new EventEmitter<Drill>();
 
-  imageLoaded = false;
+  imageLoaded = signal(false);
 
   onCardClick(): void {
     this.cardClick.emit(this.drill);

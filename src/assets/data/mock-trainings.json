@@ -1,113 +1,448 @@
 [
-    {
-        "id": "training_001",
-        "name": "Morning Practice - Week 1",
-        "createdBy": "coach_001",
-        "createdAt": "2024-11-25T09:00:00.000Z",
-        "drills": [
-            {
-                "drillId": "drill_005",
-                "duration": 5,
-                "notes": "Focus on proper form",
-                "order": 0
-            },
-            {
-                "drillId": "drill_001",
-                "duration": 10,
-                "notes": "Emphasize accuracy over speed",
-                "order": 1
-            },
-            {
-                "drillId": "drill_003",
-                "duration": 15,
-                "notes": "Work on sharp cuts",
-                "order": 2
-            },
-            {
-                "drillId": "drill_012",
-                "duration": 8,
-                "notes": "",
-                "order": 3
-            },
-            {
-                "drillId": "drill_020",
-                "duration": 5,
-                "notes": "Stretching and recovery",
-                "order": 4
-            }
-        ],
-        "totalDuration": 43
-    },
-    {
-        "id": "training_002",
-        "name": "Defense Focus Session",
-        "createdBy": "coach_001",
-        "createdAt": "2024-11-26T14:00:00.000Z",
-        "drills": [
-            {
-                "drillId": "drill_015",
-                "duration": 7,
-                "notes": "",
-                "order": 0
-            },
-            {
-                "drillId": "drill_010",
-                "duration": 12,
-                "notes": "Practice both hands",
-                "order": 1
-            },
-            {
-                "drillId": "drill_002",
-                "duration": 15,
-                "notes": "Communication is key",
-                "order": 2
-            },
-            {
-                "drillId": "drill_017",
-                "duration": 10,
-                "notes": "Stay low and aggressive",
-                "order": 3
-            }
-        ],
-        "totalDuration": 44
-    },
-    {
-        "id": "training_003",
-        "name": "Advanced Offensive Strategies",
-        "createdBy": "coach_002",
-        "createdAt": "2024-11-27T16:30:00.000Z",
-        "drills": [
-            {
-                "drillId": "drill_005",
-                "duration": 5,
-                "notes": "",
-                "order": 0
-            },
-            {
-                "drillId": "drill_007",
-                "duration": 12,
-                "notes": "Red zone execution",
-                "order": 1
-            },
-            {
-                "drillId": "drill_019",
-                "duration": 12,
-                "notes": "Sell the fake!",
-                "order": 2
-            },
-            {
-                "drillId": "drill_009",
-                "duration": 10,
-                "notes": "Clock management practice",
-                "order": 3
-            },
-            {
-                "drillId": "drill_008",
-                "duration": 8,
-                "notes": "Push through fatigue",
-                "order": 4
-            }
-        ],
-        "totalDuration": 47
-    }
+  {
+    "id": "training_beg_001",
+    "name": "Новачки: Введення в напад (Тиждень 1)",
+    "description": "Перше тренування. Фокус на безпеці м'яча, правильній стійці, ловлі та базовій механіці.",
+    "createdBy": "coach_default",
+    "createdAt": "2025-12-01T09:00:00.000Z",
+    "level": "beginner",
+    "drills": [
+      {
+        "drillId": "drill_005",
+        "duration": 5,
+        "notes": "Розігрів всіх суглобів. Слідкувати за диханням.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_029",
+        "duration": 8,
+        "notes": "Навчити правильно формувати 'кишеню' для м'яча. Без фамблів.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_001",
+        "duration": 10,
+        "notes": "Тільки техніка рук (трикутник). Ноги на ширині плечей.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_046",
+        "duration": 10,
+        "notes": "Tagging Up. Привчаємо фіксувати м'яч перед бігом.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_092",
+        "duration": 15,
+        "notes": "Ultimate Football. Гра без бігу, тільки пас. Весело для новачків.",
+        "order": 4
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Легка розтяжка та обговорення правил.",
+        "order": 5
+      }
+    ],
+    "totalDuration": 53
+  },
+  {
+    "id": "training_beg_002",
+    "name": "Новачки: Основи захисту (Тиждень 1)",
+    "description": "Базові навички захисту: стійка, зривання прапорців та кути переслідування.",
+    "createdBy": "coach_default",
+    "createdAt": "2025-11-03T18:00:00.000Z",
+    "level": "beginner",
+    "drills": [
+      {
+        "drillId": "drill_033",
+        "duration": 8,
+        "notes": "Гра на реакцію. Вчимося швидко стартувати.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_010",
+        "duration": 12,
+        "notes": "Техніка зривання прапорців. Дивитися на стегна, а не на ноги.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_026",
+        "duration": 10,
+        "notes": "Кути переслідування. Не бігти слідом, а на переріз.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_056",
+        "duration": 12,
+        "notes": "Естафета переслідування. Командна робота.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Заминка та розбір помилок.",
+        "order": 4
+      }
+    ],
+    "totalDuration": 47
+  },
+  {
+    "id": "training_beg_003",
+    "name": "Новачки: Снеп та Старт (Тиждень 2)",
+    "description": "Фокус на початку розіграшу: робота центра та квотербека, правильний старт ресиверів.",
+    "createdBy": "coach_default",
+    "createdAt": "2025-10-05T18:00:00.000Z",
+    "level": "beginner",
+    "drills": [
+      {
+        "drillId": "drill_005",
+        "duration": 5,
+        "notes": "Динамічна розминка.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_021",
+        "duration": 10,
+        "notes": "Точність снепу. Критично для початку гри.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_038",
+        "duration": 8,
+        "notes": "Вибуховий старт на м'яч (Get-off).",
+        "order": 2
+      },
+      {
+        "drillId": "drill_042",
+        "duration": 10,
+        "notes": "Ball Security Gauntlet. Пробігання через коридор.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_050",
+        "duration": 10,
+        "notes": "Indian Runs. Командне кардіо.",
+        "order": 4
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Заминка.",
+        "order": 5
+      }
+    ],
+    "totalDuration": 48
+  },
+  {
+    "id": "training_int_001",
+    "name": "Середній: Розвиток маршрутів (Тиждень 3)",
+    "description": "Поглиблена робота над технікою маршрутів та таймінгом QB-WR.",
+    "createdBy": "coach_mid",
+    "createdAt": "2025-09-10T18:30:00.000Z",
+    "level": "intermediate",
+    "drills": [
+      {
+        "drillId": "drill_004",
+        "duration": 10,
+        "notes": "Координаційна драбина. Швидкість ніг як розминка.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_003",
+        "duration": 15,
+        "notes": "Базові маршрути (Slant, Out). Акцент на різких катах.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_011",
+        "duration": 12,
+        "notes": "Перехресні маршрути. Уникати зіткнень, таймінг.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_037",
+        "duration": 10,
+        "notes": "Toe-Tap. Робота біля бокової лінії.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Розтяжка ніг.",
+        "order": 4
+      }
+    ],
+    "totalDuration": 52
+  },
+  {
+    "id": "training_int_002",
+    "name": "Середній: Введення Зонного захисту (Тиждень 3)",
+    "description": "Вивчення концепції зон, передачі гравців та комунікації.",
+    "createdBy": "coach_mid",
+    "createdAt": "2025-08-12T18:30:00.000Z",
+    "level": "intermediate",
+    "drills": [
+      {
+        "drillId": "drill_015",
+        "duration": 7,
+        "notes": "Командна розтяжка.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_022",
+        "duration": 10,
+        "notes": "Бекпедал. Тримати низький центр ваги.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_002",
+        "duration": 15,
+        "notes": "Формація зонного захисту. Голосова комунікація обов'язкова.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_080",
+        "duration": 10,
+        "notes": "Робота сейфті. Читання очей QB.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_024",
+        "duration": 8,
+        "notes": "Tip Drill. Збивання м'яча замість ризикованої ловлі.",
+        "order": 4
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Заминка.",
+        "order": 5
+      }
+    ],
+    "totalDuration": 55
+  },
+  {
+    "id": "training_int_003",
+    "name": "Середній: Спеціальні ситуації (Тиждень 4)",
+    "description": "Робота над Red Zone та бліцами. Гра в обмеженому просторі.",
+    "createdBy": "coach_mid",
+    "createdAt": "2025-06-20T18:30:00.000Z",
+    "level": "intermediate",
+    "drills": [
+      {
+        "drillId": "drill_052",
+        "duration": 8,
+        "notes": "L-Drill. Розминка зміни напрямку.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_007",
+        "duration": 15,
+        "notes": "Red Zone Offense. Тісний простір, швидкі рішення.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_017",
+        "duration": 12,
+        "notes": "Goal Line Defense. Персональна відповідальність.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_054",
+        "duration": 10,
+        "notes": "Pass Rush (Swim/Rip). Техніка обходу блоку.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Легкий біг.",
+        "order": 4
+      }
+    ],
+    "totalDuration": 50
+  },
+  {
+    "id": "training_adv_001",
+    "name": "Просунуті: Складні схеми атаки (Тиждень 5+)",
+    "description": "RPO, читання захисту та подвійні рухи.",
+    "createdBy": "coach_pro",
+    "createdAt": "2025-05-01T19:00:00.000Z",
+    "level": "advanced",
+    "drills": [
+      {
+        "drillId": "drill_005",
+        "duration": 5,
+        "notes": "Швидка розминка.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_053",
+        "duration": 15,
+        "notes": "RPO Read. QB має читати крайнього захисника.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_032",
+        "duration": 12,
+        "notes": "Hot Route. Розпізнавання бліцу та адаптація.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_072",
+        "duration": 10,
+        "notes": "Hitch & Go. Подвійні рухи для обману DB.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_039",
+        "duration": 15,
+        "notes": "No-Huddle Tempo. Робота на втому.",
+        "order": 4
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Глибока розтяжка.",
+        "order": 5
+      }
+    ],
+    "totalDuration": 62
+  },
+  {
+    "id": "training_adv_002",
+    "name": "Просунуті: Захист проти еліти (Тиждень 5+)",
+    "description": "Cover 0, маскування покриття та захист проти складних маршрутів.",
+    "createdBy": "coach_pro",
+    "createdAt": "2025-04-03T19:00:00.000Z",
+    "level": "advanced",
+    "drills": [
+      {
+        "drillId": "drill_061",
+        "duration": 8,
+        "notes": "Пліометрика. Вибухова сила ніг (замість звичайної розминки).",
+        "order": 0
+      },
+      {
+        "drillId": "drill_062",
+        "duration": 12,
+        "notes": "Cover 0 Jam. Агресивний прес на лінії.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_048",
+        "duration": 10,
+        "notes": "Motion Recognition. Комунікація при змінах.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_090",
+        "duration": 10,
+        "notes": "Wrong Arm Blitz. Нестандартні кути атаки.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_058",
+        "duration": 10,
+        "notes": "Chaos Flag Pull. Стрес-тест для захисту.",
+        "order": 4
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Заминка.",
+        "order": 5
+      }
+    ],
+    "totalDuration": 55
+  },
+  {
+    "id": "training_adv_003",
+    "name": "Просунуті: Ситуаційний футбол (Game Prep)",
+    "description": "Підготовка до специфічних ігрових ситуацій: 2 хвилини, 4-й даун, останній пас.",
+    "createdBy": "coach_pro",
+    "createdAt": "2025-03-05T10:00:00.000Z",
+    "level": "advanced",
+    "drills": [
+      {
+        "drillId": "drill_005",
+        "duration": 5,
+        "notes": "Швидка розминка.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_009",
+        "duration": 15,
+        "notes": "Two-Minute Drill. Управління часом, вихід в аут.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_035",
+        "duration": 10,
+        "notes": "4th Down Decision. Грати чи не грати.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_087",
+        "duration": 10,
+        "notes": "Prevent Defense. Захист від довгого пасу.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_100",
+        "duration": 5,
+        "notes": "Hail Mary. Останній розіграш матчу.",
+        "order": 4
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Розбір польотів.",
+        "order": 5
+      }
+    ],
+    "totalDuration": 50
+  },
+  {
+    "id": "training_adv_004",
+    "name": "Просунуті: Трюки та Розваги (Тиждень 6+)",
+    "description": "Відпрацювання трюкових розіграшів для розвантаження та здивування суперника.",
+    "createdBy": "coach_pro",
+    "createdAt": "2025-02-08T10:00:00.000Z",
+    "level": "advanced",
+    "drills": [
+      {
+        "drillId": "drill_092",
+        "duration": 15,
+        "notes": "Ultimate Football як розминка.",
+        "order": 0
+      },
+      {
+        "drillId": "drill_077",
+        "duration": 8,
+        "notes": "Statue of Liberty. Техніка прихованої передачі.",
+        "order": 1
+      },
+      {
+        "drillId": "drill_096",
+        "duration": 12,
+        "notes": "Halfback Pass. Пас від раннінгбека.",
+        "order": 2
+      },
+      {
+        "drillId": "drill_069",
+        "duration": 15,
+        "notes": "Trick Plays. Flea Flicker та Hook & Ladder.",
+        "order": 3
+      },
+      {
+        "drillId": "drill_020",
+        "duration": 5,
+        "notes": "Заминка.",
+        "order": 4
+      }
+    ],
+    "totalDuration": 55
+  }
 ]
