@@ -60,17 +60,17 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           <!-- Language Switcher -->
           <div class="hidden md:flex items-center space-x-2 ml-4">
             <button
-              (click)="switchLanguage('en')"
-              [class]="getLangButtonClass('en')"
-            >
-              EN
-            </button>
-            <span class="text-slate-300">|</span>
-            <button
               (click)="switchLanguage('uk')"
               [class]="getLangButtonClass('uk')"
             >
               UK
+            </button>
+            <span class="text-slate-300">|</span>
+            <button
+              (click)="switchLanguage('en')"
+              [class]="getLangButtonClass('en')"
+            >
+              EN
             </button>
           </div>
 
