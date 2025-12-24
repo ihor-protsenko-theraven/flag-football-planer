@@ -28,7 +28,7 @@
                 "output": "assets"
               },
               "src/404.html",
-              "src/favicon.ico"
+              "src/favicon.svg"
             ],
             "styles": [
               "src/styles.css"

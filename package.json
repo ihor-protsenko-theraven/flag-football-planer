@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href /flag-football-planer/ && npx gh-pages -d dist/flag-football-planer/browser"
   },
   "prettier": {
     "printWidth": 100,
@@ -25,7 +26,7 @@
   "dependencies": {
     "@angular/cdk": "^21.0.1",
     "@angular/common": "^21.0.0",
-    "@angular/compiler": "^21.0.0",
+    "@angular/compiler": "21.0.2",
     "@angular/core": "^21.0.0",
     "@angular/forms": "^21.0.0",
     "@angular/platform-browser": "^21.0.0",
@@ -43,6 +44,7 @@
     "@types/pdfmake": "^0.2.12",
     "angular-cli-ghpages": "^2.0.3",
     "autoprefixer": "^10.4.22",
+    "gh-pages": "^6.2.0",
     "jsdom": "^27.1.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.18",
