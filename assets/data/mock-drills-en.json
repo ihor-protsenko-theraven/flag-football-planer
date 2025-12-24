@@ -6,7 +6,22 @@
     "duration": 8,
     "category": "passing",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_001.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_001.jpg",
+    "instructions": [
+      "Pair up players and have them stand 5-10 yards apart.",
+      "On the whistle, pass back and forth for 60 seconds without dropping the ball.",
+      "Switch passing styles: chest pass, overhead, one-handed.",
+      "Rotate partners after each set."
+    ],
+    "coachingTips": [
+      "Step into the throw with your opposite foot.",
+      "Form a diamond/triangle with hands when catching.",
+      "Aim for the partner's chest/numbers."
+    ],
+    "equipment": [
+      "Footballs (1 per pair)",
+      "Cones"
+    ]
   },
   {
     "id": "drill_002",
@@ -15,7 +30,23 @@
     "duration": 12,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_002.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_002.jpg",
+    "instructions": [
+      "Mark 4 zones with cones.",
+      "Assign one defender to each zone.",
+      "Have two receivers run routes through the zones.",
+      "Defenders must pass the receiver off to the next zone without chasing."
+    ],
+    "coachingTips": [
+      "Communication is key: yell 'In!' or 'Out!'.",
+      "Keep your eyes on the Quarterback, use peripheral vision for receivers.",
+      "Stay in your zone, do not drift."
+    ],
+    "equipment": [
+      "Cones (8-12)",
+      "Pinnies/Vests",
+      "Football"
+    ]
   },
   {
     "id": "drill_003",
@@ -24,7 +55,22 @@
     "duration": 15,
     "category": "offense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_003.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_003.jpg",
+    "instructions": [
+      "Set up cones to mark the breaking points of routes.",
+      "Players line up and run a specific route (e.g., Slant) one by one.",
+      "QB throws to the spot where the receiver should be.",
+      "Catch, tuck the ball, sprint 5 yards, and return to line."
+    ],
+    "coachingTips": [
+      "Sink your hips before making a cut.",
+      "Make sharp cuts, do not round off the route.",
+      "Look the ball all the way into your hands."
+    ],
+    "equipment": [
+      "Cones",
+      "Footballs"
+    ]
   },
   {
     "id": "drill_004",
@@ -33,7 +79,22 @@
     "duration": 10,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_004.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_004.jpg",
+    "instructions": [
+      "Lay out the agility ladder on flat ground.",
+      "Players run through: 'one foot in', 'two feet in', 'lateral shuffle'.",
+      "Sprint 10 yards immediately after exiting the ladder.",
+      "Jog back to the start."
+    ],
+    "coachingTips": [
+      "Pump your arms, do not keep them in pockets.",
+      "Keep your head up, don't stare at your feet.",
+      "Accuracy is more important than speed initially."
+    ],
+    "equipment": [
+      "Agility Ladder",
+      "Cone (for sprint finish)"
+    ]
   },
   {
     "id": "drill_005",
@@ -42,7 +103,21 @@
     "duration": 5,
     "category": "warmup",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_005.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_005.jpg",
+    "instructions": [
+      "Line up players on the sideline.",
+      "Mark a distance of 20 yards.",
+      "Perform dynamic movements to the line, jog back.",
+      "Sequence: High knees, Butt kicks, Lunges, Side shuffles."
+    ],
+    "coachingTips": [
+      "Gradually increase intensity.",
+      "Focus on breathing.",
+      "Warm up the muscles, don't exhaust the players."
+    ],
+    "equipment": [
+      "Cones"
+    ]
   },
   {
     "id": "drill_006",
@@ -51,7 +126,22 @@
     "duration": 15,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_006.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_006.jpg",
+    "instructions": [
+      "One Receiver vs. One Defender (DB).",
+      "Receiver chooses any route.",
+      "Defender starts 5 yards off.",
+      "Defender must prevent the catch or pull the flag immediately after catch."
+    ],
+    "coachingTips": [
+      "Watch the receiver's hips/waist, not their head.",
+      "Do not cross your feet when shuffling.",
+      "Use the sideline as an extra defender."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_007",
@@ -60,7 +150,23 @@
     "duration": 12,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_007.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_007.jpg",
+    "instructions": [
+      "Place the ball on the 10-yard line going in.",
+      "Offense has 4 downs to score.",
+      "Defense plays tight coverage.",
+      "Rotate possession after a score or turnover."
+    ],
+    "coachingTips": [
+      "Windows are smaller, throws must be sharper.",
+      "Use rub routes to create separation.",
+      "Avoid interceptions—throwing the ball away is better than a turnover."
+    ],
+    "equipment": [
+      "Football",
+      "Flag belts",
+      "Cones (End Zone)"
+    ]
   },
   {
     "id": "drill_008",
@@ -69,7 +175,22 @@
     "duration": 8,
     "category": "conditioning",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_008.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_008.jpg",
+    "instructions": [
+      "Line players up at the start line.",
+      "On the whistle, sprint 40 yards at 100% effort.",
+      "Walk back to the start (active recovery).",
+      "Repeat 6-8 times."
+    ],
+    "coachingTips": [
+      "Start from a low stance.",
+      "Drive your arms aggressively.",
+      "Run through the finish line, don't slow down early."
+    ],
+    "equipment": [
+      "Cones (Start/Finish)",
+      "Stopwatch"
+    ]
   },
   {
     "id": "drill_009",
@@ -78,7 +199,23 @@
     "duration": 10,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_009.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_009.jpg",
+    "instructions": [
+      "Set clock to 2 minutes. Score is tied or offense is down.",
+      "Ball on own 20-yard line. One timeout remaining.",
+      "Offense must drive the field and score.",
+      "Focus on getting out of bounds to stop the clock."
+    ],
+    "coachingTips": [
+      "QB must hurry the team to the line.",
+      "Receivers: catch and get out of bounds immediately.",
+      "Know the situation: do you need a TD or just yards?"
+    ],
+    "equipment": [
+      "Football",
+      "Stopwatch/Timer",
+      "Whistle"
+    ]
   },
   {
     "id": "drill_010",
@@ -87,7 +224,22 @@
     "duration": 10,
     "category": "flag_pulling",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_010.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_010.jpg",
+    "instructions": [
+      "Runner jogs at 50% speed past the defender.",
+      "Defender steps forward, breaks down, and targets the hips.",
+      "Grab the flag near the belt and pull sharply.",
+      "Raise the flag in the air to signal the pull."
+    ],
+    "coachingTips": [
+      "Eyes on the hips, not the head or feet.",
+      "Shorten your steps (break down) as you approach.",
+      "Do not grab the jersey or shorts."
+    ],
+    "equipment": [
+      "Flag belts",
+      "Cones"
+    ]
   },
   {
     "id": "drill_011",
@@ -96,7 +248,22 @@
     "duration": 12,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_011.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_011.jpg",
+    "instructions": [
+      "Two receivers start from opposite sides.",
+      "One runs a shallow cross (5 yards), one runs a deep cross (7-10 yards).",
+      "QB chooses a target as they cross the middle.",
+      "Receivers continue running after the catch."
+    ],
+    "coachingTips": [
+      "Avoid collisions, maintain eye contact.",
+      "QB: lead the receiver (throw to where they are going).",
+      "Keep speed up while crossing the middle."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_012",
@@ -105,7 +272,21 @@
     "duration": 8,
     "category": "conditioning",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_012.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_012.jpg",
+    "instructions": [
+      "Set up cones in a slalom or 'M' shape.",
+      "Player runs through cones, touching the ground at turns.",
+      "Sprint to finish.",
+      "Variations: Backpedal, side shuffle."
+    ],
+    "coachingTips": [
+      "Keep hips low on turns.",
+      "Push off the outside foot to change direction.",
+      "Keep your head up."
+    ],
+    "equipment": [
+      "Cones (6-10)"
+    ]
   },
   {
     "id": "drill_013",
@@ -114,7 +295,22 @@
     "duration": 15,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_013.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_013.jpg",
+    "instructions": [
+      "Assign a blitzer/rusher at 7 yards.",
+      "On the snap, blitzer sprints to the QB.",
+      "Other defenders must rotate to cover the blitzer's zone.",
+      "QB tries to pass within 3 seconds."
+    ],
+    "coachingTips": [
+      "Blitzer: time the snap perfectly, do not be offsides.",
+      "Raise hands when nearing QB to block vision.",
+      "DBs: Expect a quick pass, play tighter."
+    ],
+    "equipment": [
+      "Football",
+      "Cone (7-yard rush line)"
+    ]
   },
   {
     "id": "drill_014",
@@ -123,7 +319,22 @@
     "duration": 10,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_014.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_014.jpg",
+    "instructions": [
+      "QB fakes a long pass, defense drops back.",
+      "Receiver 1 steps back behind the line.",
+      "Receiver 2 acts as a shield/blocker in front.",
+      "Pass, catch, and run behind the blocker."
+    ],
+    "coachingTips": [
+      "Sell the fake deep pass.",
+      "Blocker: hands behind back or on chest, do not push.",
+      "Receiver: yell 'Go' once the ball is caught."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_015",
@@ -132,7 +343,21 @@
     "duration": 7,
     "category": "warmup",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_015.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_015.jpg",
+    "instructions": [
+      "Circle up or form lines.",
+      "Captain/Coach leads the count to 10.",
+      "Sequence: Neck, shoulders, back, hamstrings, calves.",
+      "Finish with light hops."
+    ],
+    "coachingTips": [
+      "No bouncing during static stretches.",
+      "Breathe deeply.",
+      "Identify players who lack flexibility and need extra work."
+    ],
+    "equipment": [
+      "None"
+    ]
   },
   {
     "id": "drill_016",
@@ -141,16 +366,48 @@
     "duration": 15,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_016.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_016.jpg",
+    "instructions": [
+      "Place a defender (or cone) in the receiver's path.",
+      "Receiver runs straight.",
+      "If defender drops back -> Stop (Curl).",
+      "If defender presses -> Go deep.",
+      "If defender stands still -> Break Out/In."
+    ],
+    "coachingTips": [
+      "QB and Receiver must see the same thing.",
+      "Make the decision instantly.",
+      "Use hand signals pre-snap."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones/Defender"
+    ]
   },
   {
     "id": "drill_017",
     "name": "Goal Line Stand",
     "description": "Defensive drill for stopping the offense at the goal line. Practice gap control and aggressive flag pulling in tight spaces.",
     "duration": 10,
-    "category": "flag_pulling",
+    "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_017.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_017.jpg",
+    "instructions": [
+      "Ball on the 5-yard line.",
+      "Defense plays Man or tight Zone.",
+      "Offense has one play to score.",
+      "No entering the End Zone until interception or TD."
+    ],
+    "coachingTips": [
+      "Do not back up into the end zone, meet them at the line.",
+      "Watch for shovel passes and low throws.",
+      "Hands ready to pull flags."
+    ],
+    "equipment": [
+      "Football",
+      "End Zone Cones",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_018",
@@ -159,7 +416,23 @@
     "duration": 6,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_018.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_018.jpg",
+    "instructions": [
+      "Place 3 cones in a line, 5 yards apart.",
+      "Start at center cone.",
+      "Sprint 5 yards right (touch line), turn.",
+      "Sprint 10 yards left (touch line), turn.",
+      "Sprint 5 yards through the center."
+    ],
+    "coachingTips": [
+      "Touch the line with your hand to ensure low center of gravity.",
+      "Explode out of every turn.",
+      "Keep head up."
+    ],
+    "equipment": [
+      "Cones (3)",
+      "Stopwatch"
+    ]
   },
   {
     "id": "drill_019",
@@ -168,7 +441,22 @@
     "duration": 12,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_019.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_019.jpg",
+    "instructions": [
+      "QB and RB practice the mesh point.",
+      "QB extends ball to RB belly, pulls it back at last second.",
+      "RB hunches over pretending to have ball.",
+      "QB hides ball on hip, drops back, and throws."
+    ],
+    "coachingTips": [
+      "Everyone must sell the fake, including the line.",
+      "QB: turn your back to the defense to hide the ball.",
+      "Pass is usually intermediate depth behind linebackers."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_020",
@@ -177,7 +465,21 @@
     "duration": 5,
     "category": "warmup",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_020.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_020.jpg",
+    "instructions": [
+      "Team jogs slowly around the field.",
+      "Transition to walking.",
+      "Deep breathing: in through nose, out through mouth.",
+      "Light static stretching to finish."
+    ],
+    "coachingTips": [
+      "Time for team debrief and feedback.",
+      "Do not sit down immediately after hard work.",
+      "Hydrate."
+    ],
+    "equipment": [
+      "None"
+    ]
   },
   {
     "id": "drill_021",
@@ -186,7 +488,22 @@
     "duration": 8,
     "category": "offense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_021.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_021.jpg",
+    "instructions": [
+      "Centers line up, QB stands 5 yards back.",
+      "Wide stance, head up (looking at defense).",
+      "Sharp wrist flick between legs.",
+      "Ball should spiral or stay flat."
+    ],
+    "coachingTips": [
+      "Do not look back through legs (unless allowed, but head up is better).",
+      "Power comes from the arm/wrist, not the back.",
+      "Sequence: Grip -> Stance -> Look -> Snap."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_022",
@@ -195,7 +512,21 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_022.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_022.jpg",
+    "instructions": [
+      "DB starts in athletic stance.",
+      "Coach signals backpedal.",
+      "Coach points direction (left/right forward).",
+      "DB plants back foot and explodes forward."
+    ],
+    "coachingTips": [
+      "Shoulders over knees, do not lean back.",
+      "Active arms.",
+      "No wasted steps when changing direction."
+    ],
+    "equipment": [
+      "Cones"
+    ]
   },
   {
     "id": "drill_023",
@@ -204,7 +535,21 @@
     "duration": 12,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_023.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_023.jpg",
+    "instructions": [
+      "Receiver runs down a line (20-30 yards).",
+      "5-6 throwers stand on alternating sides.",
+      "Catch, drop ball, immediately look for next ball.",
+      "Fast pace."
+    ],
+    "coachingTips": [
+      "Focus only on the ball coming to you.",
+      "Get rid of the caught ball instantly.",
+      "Use hands, not body."
+    ],
+    "equipment": [
+      "Many Footballs (6-10)"
+    ]
   },
   {
     "id": "drill_024",
@@ -213,7 +558,21 @@
     "duration": 8,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_024.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_024.jpg",
+    "instructions": [
+      "Group of defenders in the End Zone.",
+      "Coach throws a high 'jump ball'.",
+      "One defender jumps highest, calls 'Tip!' or 'Down!' and bats ball into the ground.",
+      "Others ensure no offense catches the tip."
+    ],
+    "coachingTips": [
+      "Smack the ball down with palm or fist.",
+      "Safest play is ball on the ground.",
+      "Land safely."
+    ],
+    "equipment": [
+      "Football"
+    ]
   },
   {
     "id": "drill_025",
@@ -222,7 +581,22 @@
     "duration": 15,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_025.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_025.jpg",
+    "instructions": [
+      "Play starts normally.",
+      "Coach yells 'Scramble!'.",
+      "QB rolls left or right.",
+      "Receivers on near side go deep, receivers on far side cross the field to QB."
+    ],
+    "coachingTips": [
+      "Never stand still when QB is running.",
+      "Rule: one short, one deep, one sideline.",
+      "QB: point where you want them to go."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_026",
@@ -231,7 +605,23 @@
     "duration": 10,
     "category": "defense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_026.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_026.jpg",
+    "instructions": [
+      "Place a cone on the sideline (runner start) and in the middle of the field (defender start).",
+      "Runner sprints straight down the sideline.",
+      "Defender must run to intersect the runner, not chase from behind.",
+      "Goal is to pull the flag before the end zone without making contact."
+    ],
+    "coachingTips": [
+      "Don't go where the player is, go where they are going to be.",
+      "Use the sideline as your teammate.",
+      "Cut the angle to close the distance faster."
+    ],
+    "equipment": [
+      "Cones",
+      "Flag belts",
+      "Football"
+    ]
   },
   {
     "id": "drill_027",
@@ -240,7 +630,22 @@
     "duration": 8,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_027.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_027.jpg",
+    "instructions": [
+      "Create a 5-yard wide corridor.",
+      "Offensive player zig-zags or fakes.",
+      "Defender must mirror the movement laterally.",
+      "On coach's whistle, offense tries to burst past."
+    ],
+    "coachingTips": [
+      "Defender: Watch the belly button, not the feet.",
+      "Don't cross your feet (shuffle).",
+      "Offense: Change tempo, don't just change direction."
+    ],
+    "equipment": [
+      "Cones (4)",
+      "Football"
+    ]
   },
   {
     "id": "drill_028",
@@ -249,7 +654,22 @@
     "duration": 12,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_028.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_028.jpg",
+    "instructions": [
+      "Receiver runs a short route (e.g., Hitch at 5 yards).",
+      "Aggressively sells the stop (drops hips, turns head).",
+      "Immediately explodes deep (Go route).",
+      "QB throws after the second move."
+    ],
+    "coachingTips": [
+      "Sell the first move with eyes and shoulders.",
+      "Pause for a split second to bait the defender.",
+      "Explosive acceleration after the fake."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_029",
@@ -258,7 +678,21 @@
     "duration": 6,
     "category": "offense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_029.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_029.jpg",
+    "instructions": [
+      "QB and RB stand in formation.",
+      "RB runs past QB, forming a pocket with arms (elbow up, palm up).",
+      "QB places ball firmly into the belly.",
+      "RB clamps down over the ball and runs."
+    ],
+    "coachingTips": [
+      "RB: Don't clamp before you feel the ball.",
+      "QB: Eyes on the ball during the exchange, then look up.",
+      "Practice to both left and right sides."
+    ],
+    "equipment": [
+      "Footballs"
+    ]
   },
   {
     "id": "drill_030",
@@ -267,7 +701,22 @@
     "duration": 15,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_030.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_030.jpg",
+    "instructions": [
+      "Two defenders stand side-by-side covering their zones.",
+      "Two receivers cross paths (switch).",
+      "Defender yells 'IN!' when a player enters their zone.",
+      "Defender yells 'OUT!' when a player leaves."
+    ],
+    "coachingTips": [
+      "Communication must be loud and instant.",
+      "Trust your partner, don't chase into another zone.",
+      "Keep hands up to disrupt passing lanes."
+    ],
+    "equipment": [
+      "Cones for zones",
+      "Football"
+    ]
   },
   {
     "id": "drill_031",
@@ -276,7 +725,21 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_031.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_031.jpg",
+    "instructions": [
+      "Defender lines up 1 yard opposite the receiver.",
+      "Receiver tries to release left or right.",
+      "Defender mirrors feet to stay in front.",
+      "In flag football, focus on 'shadowing' rather than physical jamming (check league rules)."
+    ],
+    "coachingTips": [
+      "Be patient, don't lunge.",
+      "Fast feet, low hips.",
+      "Force the receiver to run a wide arc."
+    ],
+    "equipment": [
+      "Cones for line of scrimmage"
+    ]
   },
   {
     "id": "drill_032",
@@ -285,7 +748,22 @@
     "duration": 12,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_032.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_032.jpg",
+    "instructions": [
+      "Coach secretly signals a defender to blitz.",
+      "On snap, defender rushes.",
+      "Receiver must see the blitz and break off long route.",
+      "Receiver runs a quick Slant into the space the blitzer left."
+    ],
+    "coachingTips": [
+      "QB and Receiver must make eye contact.",
+      "If you see a blitz, get 'Hot'.",
+      "Pass must be out in under 2 seconds."
+    ],
+    "equipment": [
+      "Football",
+      "Pinnie for blitzer"
+    ]
   },
   {
     "id": "drill_033",
@@ -294,7 +772,21 @@
     "duration": 8,
     "category": "conditioning",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_033.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_033.jpg",
+    "instructions": [
+      "Players jog in place.",
+      "Coach raises a colored cone/bag.",
+      "Red = Stop, Green = Sprint, Blue = Burpee.",
+      "Change commands randomly."
+    ],
+    "coachingTips": [
+      "Head up, eyes on coach.",
+      "Reaction should be instant.",
+      "Add competition: last one to react is out."
+    ],
+    "equipment": [
+      "Colored cones or cards"
+    ]
   },
   {
     "id": "drill_034",
@@ -303,7 +795,22 @@
     "duration": 12,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_034.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_034.jpg",
+    "instructions": [
+      "Receiver 1 runs a short Slant.",
+      "Receiver 2 runs an Out or Flat route right behind Receiver 1.",
+      "The defender chasing Receiver 2 gets caught in traffic.",
+      "Avoid initiating contact (illegal pick)."
+    ],
+    "coachingTips": [
+      "Run shoulder-to-shoulder to leave no gap for defenders.",
+      "Timing is everything; don't arrive at the same spot.",
+      "QB reads the defender who gets rubbed."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_035",
@@ -312,7 +819,22 @@
     "duration": 10,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_035.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_035.jpg",
+    "instructions": [
+      "Situation: 4th and 5 yards to gain.",
+      "Defense changes alignment every play.",
+      "QB decides: safe pass for yards or risky TD shot.",
+      "If no one is open, run for the first down."
+    ],
+    "coachingTips": [
+      "Know where the First Down marker is.",
+      "Don't throw a pass short of the sticks.",
+      "Better to throw incomplete than an interception."
+    ],
+    "equipment": [
+      "Football",
+      "Down markers/Cones"
+    ]
   },
   {
     "id": "drill_036",
@@ -321,7 +843,22 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_036.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_036.jpg",
+    "instructions": [
+      "Receiver starts 2 yards ahead of defender.",
+      "Defender runs in the receiver's 'back pocket'.",
+      "When receiver raises hands for catch, defender punches through the hands.",
+      "Try to tip the ball or pull flag immediately."
+    ],
+    "coachingTips": [
+      "Don't panic if you are behind.",
+      "Watch the receiver's hands, they tell you when the ball arrives.",
+      "Play the ball, avoid Pass Interference."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_037",
@@ -330,7 +867,22 @@
     "duration": 10,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_037.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_037.jpg",
+    "instructions": [
+      "Receiver runs an Out route to the sideline.",
+      "QB throws the ball wide.",
+      "Receiver catches and drags toes to stay inbounds.",
+      "Maintain possession through the ground."
+    ],
+    "coachingTips": [
+      "Get your feet down!",
+      "Catch first, then feet, then look up.",
+      "Feel the sideline awareness."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones or field lines"
+    ]
   },
   {
     "id": "drill_038",
@@ -339,7 +891,21 @@
     "duration": 8,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_038.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_038.jpg",
+    "instructions": [
+      "Players get in stance.",
+      "Coach holds a ball. Movement of ball = Go.",
+      "Sprint 5-7 yards at max speed.",
+      "Walk back."
+    ],
+    "coachingTips": [
+      "Don't react to voice, only ball movement.",
+      "First step should be powerful, stay low.",
+      "Pump arms to generate speed."
+    ],
+    "equipment": [
+      "Football"
+    ]
   },
   {
     "id": "drill_039",
@@ -348,7 +914,22 @@
     "duration": 15,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_039.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_039.jpg",
+    "instructions": [
+      "Run a play.",
+      "Everyone sprints back to line of scrimmage.",
+      "QB calls next play using a code word.",
+      "Snap as soon as set. Run 5-6 plays in a row."
+    ],
+    "coachingTips": [
+      "Speed kills defense.",
+      "Know the playbook by heart.",
+      "Control your breathing."
+    ],
+    "equipment": [
+      "Football",
+      "Stopwatch"
+    ]
   },
   {
     "id": "drill_040",
@@ -357,7 +938,22 @@
     "duration": 10,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_040.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_040.jpg",
+    "instructions": [
+      "Receiver runs to back corner of End Zone.",
+      "QB throws a high lob pass.",
+      "Receiver and Defender jump for the ball.",
+      "Use body to box out the opponent."
+    ],
+    "coachingTips": [
+      "High point the ball (catch at peak).",
+      "Receiver: Shield defender with body.",
+      "Defender: If you can't catch, bat it down."
+    ],
+    "equipment": [
+      "Footballs",
+      "End Zone Cones"
+    ]
   },
   {
     "id": "drill_041",
@@ -366,7 +962,23 @@
     "duration": 12,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_041.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_041.jpg",
+    "instructions": [
+      "Runner tries to sweep outside.",
+      "Defender moves parallel, keeping outside shoulder free.",
+      "Goal: Force runner back inside to help.",
+      "Do not let runner get to the sideline."
+    ],
+    "coachingTips": [
+      "Never lose outside leverage (Outside Contain).",
+      "Be patient, don't dive in.",
+      "Squeeze the runner towards teammates."
+    ],
+    "equipment": [
+      "Cones",
+      "Flag belts",
+      "Football"
+    ]
   },
   {
     "id": "drill_042",
@@ -375,7 +987,22 @@
     "duration": 8,
     "category": "offense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_042.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_042.jpg",
+    "instructions": [
+      "Two rows of players with soft pads or hands.",
+      "Runner goes through the tunnel.",
+      "Players try to strip ball (gently) or tap flags.",
+      "Runner must protect the ball."
+    ],
+    "coachingTips": [
+      "High and Tight (ball against chest).",
+      "Cover ball with off-hand in traffic.",
+      "Keep legs moving."
+    ],
+    "equipment": [
+      "Football",
+      "Pads (optional)"
+    ]
   },
   {
     "id": "drill_043",
@@ -384,7 +1011,22 @@
     "duration": 12,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_043.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_043.jpg",
+    "instructions": [
+      "QB takes 3 step drop.",
+      "Coach points direction for rollout.",
+      "QB runs sideways and throws to target on the run.",
+      "Square shoulders to target before release."
+    ],
+    "coachingTips": [
+      "Don't drift backwards while running.",
+      "Throw off the plant foot if possible.",
+      "Torque the torso for power."
+    ],
+    "equipment": [
+      "Footballs",
+      "Target net or receiver"
+    ]
   },
   {
     "id": "drill_044",
@@ -393,7 +1035,21 @@
     "duration": 10,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_044.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_044.jpg",
+    "instructions": [
+      "Two rushers side-by-side.",
+      "Rusher 1 attacks center angle.",
+      "Rusher 2 waits, then loops behind Rusher 1.",
+      "Confuses offensive blocking/shielding assignments."
+    ],
+    "coachingTips": [
+      "Rusher 1 must draw attention.",
+      "Rusher 2 must wrap tight.",
+      "Communicate before the snap."
+    ],
+    "equipment": [
+      "Cones/Blocking bags"
+    ]
   },
   {
     "id": "drill_045",
@@ -402,7 +1058,21 @@
     "duration": 10,
     "category": "passing",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_045.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_045.jpg",
+    "instructions": [
+      "Receiver runs straight line (Go route).",
+      "QB throws high lead pass.",
+      "Receiver turns head only, not full body.",
+      "Catch ball with pinkies together (basket catch) away from chest."
+    ],
+    "coachingTips": [
+      "Don't slow down, run through the ball.",
+      "Late hands (raise hands at last second).",
+      "Track the ball with your eyes."
+    ],
+    "equipment": [
+      "Footballs"
+    ]
   },
   {
     "id": "drill_046",
@@ -411,7 +1081,22 @@
     "duration": 8,
     "category": "offense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_046.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_046.jpg",
+    "instructions": [
+      "Place a cone 5 yards from start.",
+      "Receiver runs to cone, turns, catches pass.",
+      "Must touch ball to cone ('tag up') before running.",
+      "Simulates tucking ball away."
+    ],
+    "coachingTips": [
+      "Catch first, then move.",
+      "Don't run before you have the ball.",
+      "Turn upfield aggressively."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_047",
@@ -420,7 +1105,21 @@
     "duration": 6,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_047.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_047.jpg",
+    "instructions": [
+      "Use a Reaction Ball (bumpy).",
+      "Player is in defensive stance.",
+      "Coach drops/throws ball on ground.",
+      "Player reacts to the bounce and catches it."
+    ],
+    "coachingTips": [
+      "Stay low.",
+      "Active feet.",
+      "React, don't guess."
+    ],
+    "equipment": [
+      "Reaction Ball"
+    ]
   },
   {
     "id": "drill_048",
@@ -429,7 +1128,21 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_048.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_048.jpg",
+    "instructions": [
+      "Offense lines up, then one player Motions across.",
+      "Defense must communicate ('Motion!') and bump zones.",
+      "Coach snaps ball unexpectedly."
+    ],
+    "coachingTips": [
+      "Don't stand still.",
+      "Communication is key.",
+      "Check for uncovered gaps."
+    ],
+    "equipment": [
+      "Football",
+      "Pinnies"
+    ]
   },
   {
     "id": "drill_049",
@@ -438,7 +1151,22 @@
     "duration": 12,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_049.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_049.jpg",
+    "instructions": [
+      "Receiver runs down sideline, defender slightly ahead.",
+      "QB throws behind and outside the receiver.",
+      "Receiver turns through outside shoulder to catch.",
+      "Uses defender's momentum against them."
+    ],
+    "coachingTips": [
+      "QB: Throw when defender isn't looking.",
+      "Receiver: React to ball flight, don't stop early.",
+      "Requires many reps for timing."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_050",
@@ -447,7 +1175,21 @@
     "duration": 10,
     "category": "conditioning",
     "level": "all",
-    "imageUrl": "assets/images/drills_images_preview/drill_050.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_050.jpg",
+    "instructions": [
+      "Team jogs in single file line around field.",
+      "On whistle, last player sprints to the front.",
+      "Continue until everyone has lead the line.",
+      "Maintain steady jog pace."
+    ],
+    "coachingTips": [
+      "Builds team spirit.",
+      "Encourage the sprinter.",
+      "Keep formation tight."
+    ],
+    "equipment": [
+      "Whistle"
+    ]
   },
   {
     "id": "drill_051",
@@ -456,7 +1198,23 @@
     "duration": 10,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_051.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_051.jpg",
+    "instructions": [
+      "QB holds ball with two hands near chest.",
+      "Move laterally or forward through the ladder without looking down.",
+      "Coach or receiver raises hand as signal to throw.",
+      "QB stops, sets feet, and throws immediately."
+    ],
+    "coachingTips": [
+      "Keep eyes downfield (on the receivers), not on your feet.",
+      "Ball security: keep it tight while moving.",
+      "Throw from a stable base, don't throw while hopping."
+    ],
+    "equipment": [
+      "Agility Ladder",
+      "Footballs",
+      "Target net or receiver"
+    ]
   },
   {
     "id": "drill_052",
@@ -465,7 +1223,22 @@
     "duration": 8,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_052.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_052.jpg",
+    "instructions": [
+      "Set 3 cones in an L shape, 5 yards apart.",
+      "Sprint from Cone 1 to 2, touch line, sprint back to 1.",
+      "Sprint around Cone 2 to Cone 3, circle it from inside out.",
+      "Sprint back around Cone 2 and finish at Cone 1."
+    ],
+    "coachingTips": [
+      "Touch the line at turns to drop hips.",
+      "Make tight turns around cones, don't drift wide.",
+      "Accelerate out of every turn."
+    ],
+    "equipment": [
+      "Cones (3)",
+      "Stopwatch"
+    ]
   },
   {
     "id": "drill_053",
@@ -474,7 +1247,22 @@
     "duration": 15,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_053.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_053.jpg",
+    "instructions": [
+      "QB and RB in shotgun. One WR runs a Slant.",
+      "Identify the 'Read Key' defender (usually edge rusher).",
+      "If Read Key crashes down (Run) -> QB pulls ball and throws.",
+      "If Read Key sits/waits (Pass) -> QB hands off to RB."
+    ],
+    "coachingTips": [
+      "Decision must be made BEFORE RB crosses QB's face.",
+      "QB eyes locked on the read key only.",
+      "RB: Don't clamp on the ball until you feel QB let go."
+    ],
+    "equipment": [
+      "Footballs",
+      "Pinnie for Read Key defender"
+    ]
   },
   {
     "id": "drill_054",
@@ -483,7 +1271,20 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_054.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_054.jpg",
+    "instructions": [
+      "Swim: Slap blocker's arm, swim other arm over the top.",
+      "Rip: Uppercut under blocker's arm, drive shoulder through.",
+      "Practice moves on bags or stationary partners at 50% speed."
+    ],
+    "coachingTips": [
+      "Don't stop your feet while using hands.",
+      "Turn your shoulders (get skinny) to reduce surface area.",
+      "Violent hands, speed is the key."
+    ],
+    "equipment": [
+      "Blocking bags/dummies"
+    ]
   },
   {
     "id": "drill_055",
@@ -492,7 +1293,23 @@
     "duration": 10,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_055.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_055.jpg",
+    "instructions": [
+      "Inside WR bubbles back. Two outside WRs block.",
+      "QB throws immediately upon snap.",
+      "Blockers create a path/wall.",
+      "Catcher yells 'Go!' or 'Ball!' to alert blockers."
+    ],
+    "coachingTips": [
+      "Throw must be accurate to maintain momentum.",
+      "Blockers: Mirror defenders with feet/body, no hands/pushing.",
+      "Receiver: Catch first, then run."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_056",
@@ -501,7 +1318,23 @@
     "duration": 12,
     "category": "defense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_056.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_056.jpg",
+    "instructions": [
+      "Runner gets 5-yard head start.",
+      "3-4 defenders start from different field angles.",
+      "Pursue runner to the sideline or pull flag.",
+      "Don't interfere with teammates."
+    ],
+    "coachingTips": [
+      "Take proper angles (don't all run to the same spot).",
+      "Communicate: 'I got left!', 'I got right!'.",
+      "Effort drill: never give up on the play."
+    ],
+    "equipment": [
+      "Football",
+      "Flag belts",
+      "Cones"
+    ]
   },
   {
     "id": "drill_057",
@@ -510,7 +1343,22 @@
     "duration": 10,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_057.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_057.jpg",
+    "instructions": [
+      "Receiver sprints 12 yards, drops hips to stop.",
+      "Turns back towards QB at 45 degrees (towards sideline).",
+      "QB throws as receiver breaks.",
+      "Catch at 10 yards depth."
+    ],
+    "coachingTips": [
+      "Run back to the ball, don't wait for it.",
+      "QB: Throw low and to the outside (away from defender).",
+      "Sell the deep route first."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_058",
@@ -519,7 +1367,23 @@
     "duration": 8,
     "category": "flag_pulling",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_058.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_058.jpg",
+    "instructions": [
+      "Mark a 10x10 yard box.",
+      "Release 3 runners with flags.",
+      "Release 2 defenders.",
+      "Defenders must pull all flags as fast as possible."
+    ],
+    "coachingTips": [
+      "Stay calm in chaos.",
+      "Focus on one target at a time.",
+      "Break down steps before pulling."
+    ],
+    "equipment": [
+      "Cones",
+      "Many flag belts",
+      "Stopwatch"
+    ]
   },
   {
     "id": "drill_059",
@@ -528,7 +1392,22 @@
     "duration": 12,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_059.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_059.jpg",
+    "instructions": [
+      "WR goes in Motion parallel to line.",
+      "Snap ball when WR passes behind Tackle.",
+      "QB hands off immediately to sprinting WR.",
+      "WR rounds the corner."
+    ],
+    "coachingTips": [
+      "Timing is critical: WR must be full speed.",
+      "Don't fumble the exchange.",
+      "WR cannot turn upfield until he has the ball."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_060",
@@ -537,7 +1416,21 @@
     "duration": 8,
     "category": "passing",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_060.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_060.jpg",
+    "instructions": [
+      "Coach throws ball gripping the nose (knuckleball).",
+      "Ball flutters in the air.",
+      "Receiver must adjust body and catch with hands.",
+      "Repeat 10 times per player."
+    ],
+    "coachingTips": [
+      "Look the ball all the way in.",
+      "Use soft hands to absorb the wobble.",
+      "Don't snatch; guide it in."
+    ],
+    "equipment": [
+      "Footballs"
+    ]
   },
   {
     "id": "drill_061",
@@ -546,7 +1439,22 @@
     "duration": 8,
     "category": "conditioning",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_061.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_061.jpg",
+    "instructions": [
+      "Jump onto box with two feet.",
+      "Step/jump down (land softly).",
+      "Immediately sprint forward 10 yards.",
+      "Focus on ground contact time."
+    ],
+    "coachingTips": [
+      "Use arms for momentum.",
+      "Land in athletic stance.",
+      "Explode out of the landing."
+    ],
+    "equipment": [
+      "Plyo box",
+      "Cones"
+    ]
   },
   {
     "id": "drill_062",
@@ -555,7 +1463,22 @@
     "duration": 12,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_062.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_062.jpg",
+    "instructions": [
+      "DB aligns 1 yard from WR.",
+      "Disrupt release with feet/body (shadow).",
+      "Sprint hip-to-hip on vertical route.",
+      "Look for ball only when WR looks."
+    ],
+    "coachingTips": [
+      "Don't give a free release.",
+      "If beaten, sprint to recover (don't foul).",
+      "High risk, high reward defense."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_063",
@@ -564,7 +1487,23 @@
     "duration": 10,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_063.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_063.jpg",
+    "instructions": [
+      "Catch 5-yard hitch.",
+      "Turn and weave through cones.",
+      "Jump over bag or spin move.",
+      "Finish in End Zone."
+    ],
+    "coachingTips": [
+      "Tuck ball away from trouble (obstacles).",
+      "Eyes up to scan field.",
+      "Smooth is fast."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones",
+      "Agility bags"
+    ]
   },
   {
     "id": "drill_064",
@@ -573,7 +1512,21 @@
     "duration": 6,
     "category": "passing",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_064.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_064.jpg",
+    "instructions": [
+      "Line of WRs near QB.",
+      "WR pats ball in QB hand, sprints straight.",
+      "QB lobs ball 10-15 yards deep.",
+      "Catch on the run, circle back."
+    ],
+    "coachingTips": [
+      "High tempo, no waiting.",
+      "WR: Don't break stride.",
+      "QB: Work on touch passes."
+    ],
+    "equipment": [
+      "Many Footballs"
+    ]
   },
   {
     "id": "drill_065",
@@ -582,7 +1535,22 @@
     "duration": 12,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_065.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_065.jpg",
+    "instructions": [
+      "QB hands to RB going Right.",
+      "WR coming from Right runs Left.",
+      "RB hands off to WR behind the line.",
+      "WR rounds the edge."
+    ],
+    "coachingTips": [
+      "Handoff must be subtle (sleight of hand).",
+      "Maintain spacing to avoid collisions.",
+      "Sell the first run direction."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_066",
@@ -591,7 +1559,23 @@
     "duration": 10,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_066.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_066.jpg",
+    "instructions": [
+      "Hold a tarp/sheet at eye level.",
+      "Defender stands behind it.",
+      "QB throws high ball.",
+      "Drop tarp when ball is arriving.",
+      "Defender finds ball and catches."
+    ],
+    "coachingTips": [
+      "Improves reaction time and concentration.",
+      "Keep hands ready.",
+      "Find the ball visually immediately."
+    ],
+    "equipment": [
+      "Football",
+      "Large Tarp/Towel"
+    ]
   },
   {
     "id": "drill_067",
@@ -600,7 +1584,22 @@
     "duration": 8,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_067.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_067.jpg",
+    "instructions": [
+      "Run 10 yards.",
+      "Plant outside foot hard (Stick).",
+      "Cut 90 degrees (Out) or 45 degrees (Post).",
+      "No stutter steps."
+    ],
+    "coachingTips": [
+      "No rounding the cut.",
+      "Head turns with the cut.",
+      "Pump arms through the turn."
+    ],
+    "equipment": [
+      "Cones",
+      "Footballs"
+    ]
   },
   {
     "id": "drill_068",
@@ -609,7 +1608,21 @@
     "duration": 7,
     "category": "conditioning",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_068.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_068.jpg",
+    "instructions": [
+      "4 colored cones in a square.",
+      "Player in center.",
+      "Coach calls color or points.",
+      "Sprint, touch cone, return to center."
+    ],
+    "coachingTips": [
+      "Face the coach/front always.",
+      "Explosive reaction.",
+      "Stay low."
+    ],
+    "equipment": [
+      "4 Colored Cones"
+    ]
   },
   {
     "id": "drill_069",
@@ -618,7 +1631,21 @@
     "duration": 15,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_069.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_069.jpg",
+    "instructions": [
+      "Hook & Ladder: Catch curl, pitch to teammate running by.",
+      "Flea Flicker: Run, toss back to QB, QB throws deep.",
+      "Practice at half speed then full speed."
+    ],
+    "coachingTips": [
+      "High risk plays require perfect execution.",
+      "Sell the initial play first.",
+      "Have fun but stay disciplined."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_070",
@@ -627,7 +1654,21 @@
     "duration": 8,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_070.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_070.jpg",
+    "instructions": [
+      "Receiver runs towards QB.",
+      "QB throws at shin/shoelace level.",
+      "Receiver drops hands (pinkies together).",
+      "Scoop ball and continue running."
+    ],
+    "coachingTips": [
+      "Bend knees to get low, not just waist.",
+      "Don't stop running.",
+      "Get fingers under the ball."
+    ],
+    "equipment": [
+      "Footballs"
+    ]
   },
   {
     "id": "drill_071",
@@ -636,7 +1677,23 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_071.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_071.jpg",
+    "instructions": [
+      "One defender (Spy) stands behind Line of Scrimmage.",
+      "QB moves around pocket.",
+      "Spy mirrors laterally.",
+      "If QB crosses line, Spy attacks."
+    ],
+    "coachingTips": [
+      "Spy: Don't look at receivers.",
+      "Be patient, maintain distance.",
+      "Close gap quickly once QB commits."
+    ],
+    "equipment": [
+      "Football",
+      "Flag belts",
+      "Pinnie for Spy"
+    ]
   },
   {
     "id": "drill_072",
@@ -645,7 +1702,22 @@
     "duration": 10,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_072.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_072.jpg",
+    "instructions": [
+      "Run 6 yards, stop hard, turn to QB.",
+      "QB pump fakes.",
+      "Receiver turns back upfield and sprints.",
+      "QB throws deep."
+    ],
+    "coachingTips": [
+      "Good acting by WR and QB required.",
+      "Throw high and far.",
+      "Don't rush the fake."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_073",
@@ -654,7 +1726,22 @@
     "duration": 8,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_073.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_073.jpg",
+    "instructions": [
+      "Attach chute to waist.",
+      "Sprint 20-30 yards against resistance.",
+      "Release chute (if model allows) and burst.",
+      "Rest between reps."
+    ],
+    "coachingTips": [
+      "Maintain forward lean.",
+      "Drive arms to overcome drag.",
+      "Run with good form."
+    ],
+    "equipment": [
+      "Speed Parachutes",
+      "Cones"
+    ]
   },
   {
     "id": "drill_074",
@@ -663,7 +1750,22 @@
     "duration": 10,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_074.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_074.jpg",
+    "instructions": [
+      "Defender stands 7 yards back.",
+      "Rush on snap.",
+      "Center varies snaps (some low/bad).",
+      "QB must secure ball, evade, and throw."
+    ],
+    "coachingTips": [
+      "Don't panic. Ball first, then rusher.",
+      "Use feet to buy time.",
+      "Throw it away if nothing is there."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_075",
@@ -672,7 +1774,21 @@
     "duration": 5,
     "category": "offense",
     "level": "all",
-    "imageUrl": "assets/images/drills_images_preview/drill_075.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_075.jpg",
+    "instructions": [
+      "Two safety valve receivers deep.",
+      "QB takes snap, immediately kneels.",
+      "Hold position until whistle.",
+      "Defense applies pressure without fouling."
+    ],
+    "coachingTips": [
+      "Not a time to relax—bad snap loses game.",
+      "QB: Grip ball with death grip.",
+      "No fouls, game is won."
+    ],
+    "equipment": [
+      "Football"
+    ]
   },
   {
     "id": "drill_076",
@@ -681,7 +1797,23 @@
     "duration": 15,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_076.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_076.jpg",
+    "instructions": [
+      "Position 2 safeties deep (10-12 yards), splitting field in half.",
+      "Position corners at the line of scrimmage opposite receivers.",
+      "On snap, corners stay in the flat, safeties drop back.",
+      "QB tries to throw into the 'Honey Hole' (gap between corner and safety)."
+    ],
+    "coachingTips": [
+      "Safeties must read QB eyes and not let anyone behind them.",
+      "Corners should force receivers inside.",
+      "Communication is vital when passing off routes."
+    ],
+    "equipment": [
+      "Cones (4)",
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_077",
@@ -690,7 +1822,22 @@
     "duration": 8,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_077.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_077.jpg",
+    "instructions": [
+      "QB in passing stance, RB behind or to side.",
+      "QB raises non-throwing arm high as if to pass.",
+      "Simultaneously, QB puts ball behind back with other hand.",
+      "RB takes ball silently and runs opposite direction."
+    ],
+    "coachingTips": [
+      "Sell the fake with your eyes—look downfield.",
+      "RB must move quietly and stay low.",
+      "Rule: Ball must be secured before running."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_078",
@@ -699,7 +1846,23 @@
     "duration": 10,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_078.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_078.jpg",
+    "instructions": [
+      "Place defenders (or dummies) 5 yards apart.",
+      "Runner approaches, slows slightly at half-step.",
+      "Executes 360-degree spin.",
+      "Explodes out of the spin immediately."
+    ],
+    "coachingTips": [
+      "Two hands on the ball during spin to prevent fumbles.",
+      "Spin on bent knees (low center of gravity).",
+      "Don't stop completely; fluid motion."
+    ],
+    "equipment": [
+      "Cones or dummies",
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_079",
@@ -708,7 +1871,23 @@
     "duration": 12,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_079.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_079.jpg",
+    "instructions": [
+      "Offense lines up. Coach flashes a card to Defense (e.g., Blitz).",
+      "QB approaches line, recognizes threat, yells code (e.g., 'Blue! Blue!').",
+      "Team changes route or blocking scheme based on code.",
+      "Snap the ball."
+    ],
+    "coachingTips": [
+      "QB voice must be loud and clear.",
+      "Team must know 'live' colors/codes.",
+      "Decision must be made in 3-5 seconds."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones",
+      "Defense Cards (optional)"
+    ]
   },
   {
     "id": "drill_080",
@@ -717,7 +1896,22 @@
     "duration": 10,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_080.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_080.jpg",
+    "instructions": [
+      "Safety in middle of field. Coach (QB) at line.",
+      "On signal, safety backpedals.",
+      "Coach turns body/pumps to left or right.",
+      "Safety reacts, turns hips, and sprints to sideline interception point."
+    ],
+    "coachingTips": [
+      "Don't cross feet while backpedaling.",
+      "React to the arm movement, not just the eyes.",
+      "Attack the ball at the high point."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_081",
@@ -726,7 +1920,22 @@
     "duration": 12,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_081.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_081.jpg",
+    "instructions": [
+      "Inside WR runs Corner route.",
+      "Outside WR runs Post route.",
+      "Routes cross at 8-10 yards depth.",
+      "QB reads the safety and throws to open man."
+    ],
+    "coachingTips": [
+      "Outside WR goes UNDER the Inside WR.",
+      "Run at full speed to stress the defense.",
+      "QB must lead the receiver."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_082",
@@ -735,7 +1944,23 @@
     "duration": 8,
     "category": "offense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_082.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_082.jpg",
+    "instructions": [
+      "Create a narrow lane (1-2 yards) with cones.",
+      "Defenders stand on sides reaching in.",
+      "Runner goes through holding ball high at chest.",
+      "No swatting defender hands (Flag Guarding)."
+    ],
+    "coachingTips": [
+      "Elbows high, ball at chin.",
+      "Use hips/twist to dodge, not hands.",
+      "Emphasize: Flag guarding is a penalty."
+    ],
+    "equipment": [
+      "Cones",
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_083",
@@ -744,7 +1969,21 @@
     "duration": 10,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_083.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_083.jpg",
+    "instructions": [
+      "Mark a 5x5 yard box.",
+      "Defender tries to touch a cone behind the attacker.",
+      "Attacker shuffles to block the path with body.",
+      "Hands behind back or crossed on chest."
+    ],
+    "coachingTips": [
+      "Low center of gravity.",
+      "Do not initiate contact, just occupy space.",
+      "Hands out = Holding penalty."
+    ],
+    "equipment": [
+      "Cones (4)"
+    ]
   },
   {
     "id": "drill_084",
@@ -753,7 +1992,21 @@
     "duration": 5,
     "category": "offense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_084.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_084.jpg",
+    "instructions": [
+      "QB in Shotgun uses leg lift or head bob signal.",
+      "Center looks through legs or watches for cue.",
+      "Snap occurs after set rhythm (e.g., 1 second delay).",
+      "Defense tries to jump the snap."
+    ],
+    "coachingTips": [
+      "Establish a clear rhythm.",
+      "Center keeps head down/neutral.",
+      "Linemen watch the ball, don't listen."
+    ],
+    "equipment": [
+      "Footballs"
+    ]
   },
   {
     "id": "drill_085",
@@ -762,7 +2015,22 @@
     "duration": 10,
     "category": "defense",
     "level": "all",
-    "imageUrl": "assets/images/drills_images_preview/drill_085.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_085.jpg",
+    "instructions": [
+      "Coach throws ball to defender.",
+      "Defender catches and yells 'Oskie!' or 'Bingo!'.",
+      "Teammates immediately become blockers (shields).",
+      "Returner follows the wall to end zone."
+    ],
+    "coachingTips": [
+      "Instant transition from defense to offense.",
+      "Blockers screen, don't push.",
+      "Returner follows the blocks."
+    ],
+    "equipment": [
+      "Footballs",
+      "Pinnies"
+    ]
   },
   {
     "id": "drill_086",
@@ -771,7 +2039,22 @@
     "duration": 8,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_086.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_086.jpg",
+    "instructions": [
+      "Receiver runs Fade or Post.",
+      "Coach throws ball slightly high.",
+      "Receiver jumps to catch ball at peak extension.",
+      "Land and secure ball."
+    ],
+    "coachingTips": [
+      "Don't wait for ball to come down.",
+      "Use body to shield imaginary defender.",
+      "Land on two feet for stability."
+    ],
+    "equipment": [
+      "Footballs",
+      "Landing mats (optional)"
+    ]
   },
   {
     "id": "drill_087",
@@ -780,7 +2063,22 @@
     "duration": 10,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_087.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_087.jpg",
+    "instructions": [
+      "Position 3 safeties very deep (20+ yards).",
+      "LBs cover middle but don't chase short routes.",
+      "Offense attempts Hail Mary or deep pass.",
+      "Goal: Keep everything in front."
+    ],
+    "coachingTips": [
+      "Yield yards, not Touchdowns.",
+      "Bat the ball down, don't risk interception tip.",
+      "Communicate when ball is in air."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_088",
@@ -789,7 +2087,22 @@
     "duration": 12,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_088.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_088.jpg",
+    "instructions": [
+      "RB starts flat, then turns vertical up sideline.",
+      "QB drops, waits for the turn.",
+      "Throw touch pass over the LB to the sideline area.",
+      "Semi-passive defender acts as LB."
+    ],
+    "coachingTips": [
+      "RB must not lose speed on turn.",
+      "Drop the ball 'in the bucket'.",
+      "Timing throw to a spot."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_089",
@@ -798,7 +2111,21 @@
     "duration": 8,
     "category": "conditioning",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_089.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_089.jpg",
+    "instructions": [
+      "Set start line, 10-yard line, finish line.",
+      "Players start on all fours (knees off ground).",
+      "Crawl to 10 yards, pop up, sprint to finish.",
+      "Finish at max speed."
+    ],
+    "coachingTips": [
+      "Flat back while crawling.",
+      "Explosive transition to run.",
+      "Competition: loser does pushups."
+    ],
+    "equipment": [
+      "Cones"
+    ]
   },
   {
     "id": "drill_090",
@@ -807,7 +2134,21 @@
     "duration": 10,
     "category": "defense",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_090.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_090.jpg",
+    "instructions": [
+      "Place blocker/cone in front of rusher.",
+      "Rusher steps one way to shift blocker.",
+      "Dips under the 'inside' shoulder (unexpected side).",
+      "Take shortest path to QB."
+    ],
+    "coachingTips": [
+      "Use footwork to freeze blocker.",
+      "Keep shoulders low to slip past.",
+      "Speed wins over strength."
+    ],
+    "equipment": [
+      "Cones/Bags"
+    ]
   },
   {
     "id": "drill_091",
@@ -816,7 +2157,23 @@
     "duration": 12,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_091.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_091.jpg",
+    "instructions": [
+      "Outside WR steps back for screen.",
+      "Inside WR blocks middle LB.",
+      "Outside WR catches and runs through the 'tunnel'.",
+      "QB throws fast."
+    ],
+    "coachingTips": [
+      "Blocker: No contact before catch.",
+      "Receiver: Yell 'Go' when caught.",
+      "Run aggressively upfield."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_092",
@@ -825,7 +2182,23 @@
     "duration": 15,
     "category": "warmup",
     "level": "all",
-    "imageUrl": "assets/images/drills_images_preview/drill_092.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_092.jpg",
+    "instructions": [
+      "Field 40x20 yards.",
+      "Ball carrier max 2 steps.",
+      "Pass to advance. Drop = turnover.",
+      "Score by catching in endzone."
+    ],
+    "coachingTips": [
+      "Move constantly without the ball.",
+      "Short quick passes work best.",
+      "Communicate."
+    ],
+    "equipment": [
+      "Football",
+      "Cones",
+      "Pinnies"
+    ]
   },
   {
     "id": "drill_093",
@@ -834,7 +2207,21 @@
     "duration": 8,
     "category": "defense",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_093.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_093.jpg",
+    "instructions": [
+      "Pair up in 5 yard lane.",
+      "Offense shuffles left/right.",
+      "Defender mirrors remaining in front.",
+      "On whistle, offense bursts, defender touches."
+    ],
+    "coachingTips": [
+      "Don't cross feet.",
+      "Watch hips/belly button.",
+      "Hands ready."
+    ],
+    "equipment": [
+      "Cones"
+    ]
   },
   {
     "id": "drill_094",
@@ -843,7 +2230,22 @@
     "duration": 15,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_094.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_094.jpg",
+    "instructions": [
+      "WR1 runs deep (Go).",
+      "WR2 runs intermediate (Out at 10 yds).",
+      "WR3 runs short (Flat).",
+      "QB reads Cornerback: if he drops, throw Out; if he stays, throw Go."
+    ],
+    "coachingTips": [
+      "Maintain spacing.",
+      "QB reads top-down.",
+      "Timing is crucial."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_095",
@@ -852,7 +2254,22 @@
     "duration": 8,
     "category": "conditioning",
     "level": "beginner",
-    "imageUrl": "assets/images/drills_images_preview/drill_095.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_095.jpg",
+    "instructions": [
+      "Lay out ladder.",
+      "Run '2 feet in' pattern fast.",
+      "Run 'Icky Shuffle' pattern.",
+      "Sprint 5 yards at end."
+    ],
+    "coachingTips": [
+      "Active arms.",
+      "Eyes up if possible.",
+      "Rhythm over chaos."
+    ],
+    "equipment": [
+      "Ladder",
+      "Cones"
+    ]
   },
   {
     "id": "drill_096",
@@ -861,7 +2278,22 @@
     "duration": 12,
     "category": "offense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_096.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_096.jpg",
+    "instructions": [
+      "QB hands off to RB running to sideline.",
+      "WR blocks then releases deep.",
+      "RB stops and throws to WR.",
+      "If covered, RB runs."
+    ],
+    "coachingTips": [
+      "RB holds ball like a run initially.",
+      "WR sells the block.",
+      "Safety first: don't force the throw."
+    ],
+    "equipment": [
+      "Footballs",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_097",
@@ -870,7 +2302,23 @@
     "duration": 12,
     "category": "passing",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_097.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_097.jpg",
+    "instructions": [
+      "Set up zone defense/cones.",
+      "Receiver runs route, finds gap, stops.",
+      "Turns numbers to QB.",
+      "Catch and turn upfield."
+    ],
+    "coachingTips": [
+      "Don't run into coverage.",
+      "Show big target (numbers).",
+      "Stop drifting once open."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_098",
@@ -879,7 +2327,22 @@
     "duration": 10,
     "category": "passing",
     "level": "advanced",
-    "imageUrl": "assets/images/drills_images_preview/drill_098.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_098.jpg",
+    "instructions": [
+      "Two WRs cross shallow (4-5 yards).",
+      "Pass shoulder-to-shoulder (mesh point).",
+      "Defenders get rubbed off in traffic.",
+      "One WR comes free."
+    ],
+    "coachingTips": [
+      "Establish rule: Left WR goes OVER/OUTSIDE.",
+      "Run through the catch.",
+      "Keep speed up."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones"
+    ]
   },
   {
     "id": "drill_099",
@@ -888,7 +2351,23 @@
     "duration": 8,
     "category": "flag_pulling",
     "level": "all",
-    "imageUrl": "assets/images/drills_images_preview/drill_099.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_099.jpg",
+    "instructions": [
+      "Ball at 5-yard line. 1v1.",
+      "Whistle -> Runner tries to score.",
+      "Defender attacks to pull flag before line.",
+      "High intensity."
+    ],
+    "coachingTips": [
+      "Defender: Don't wait on line, attack gap.",
+      "Offense: Use fakes.",
+      "No jumping (flag guarding)."
+    ],
+    "equipment": [
+      "Footballs",
+      "Cones",
+      "Flag belts"
+    ]
   },
   {
     "id": "drill_100",
@@ -897,6 +2376,20 @@
     "duration": 5,
     "category": "defense",
     "level": "intermediate",
-    "imageUrl": "assets/images/drills_images_preview/drill_100.jpg"
+    "imageUrl": "assets/images/drills_images_preview/drill_100.jpg",
+    "instructions": [
+      "QB throws high from midfield.",
+      "3-4 WRs jump to catch/tip.",
+      "Defenders surround group.",
+      "Goal: Defense bats ball down."
+    ],
+    "coachingTips": [
+      "Defense: 'Knock it down!'.",
+      "Offense: One jumps, others wait for tip.",
+      "Avoid pass interference."
+    ],
+    "equipment": [
+      "Footballs"
+    ]
   }
 ]
