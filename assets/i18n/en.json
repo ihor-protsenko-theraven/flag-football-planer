@@ -11,6 +11,7 @@
     "SUBTITLE": "Browse and discover drills for your training sessions",
     "SEARCH_LABEL": "Search",
     "SEARCH_PLACEHOLDER": "Search drills...",
+    "FILTERS": "Filters",
     "CATEGORY_LABEL": "Category",
     "ALL_CATEGORIES": "All Categories",
     "LEVEL_LABEL": "Level",
@@ -21,6 +22,7 @@
     "RESULTS_TITLE": "Results found",
     "NO_RESULTS_TITLE": "No drills found",
     "NO_RESULTS_DESC": "Try adjusting your filters to see more results",
+    "APPLY_FILTERS": "Apply Filters",
     "CLEAR_FILTERS_BTN": "Clear Filters"
   },
   "DRILL": {
@@ -96,5 +98,19 @@
     "ALL_CATEGORIES": "All Categories",
     "LEVEL_LABEL": "Level",
     "ALL_LEVELS": "All Levels"
+  },
+  "TRAINING_VIEW": {
+    "BACK_TO_LIST": "Back to My Trainings",
+    "EXPORT_PDF": "Export to PDF",
+    "TOTAL_DURATION": "Total Duration",
+    "TOTAL_DRILLS": "Total Drills",
+    "AVG_DURATION": "Avg Duration",
+    "MINUTES": "minutes",
+    "EXERCISES": "exercises",
+    "MIN_DRILL": "min/drill",
+    "PLAN_TITLE": "Training Plan",
+    "MIN_SHORT": "min",
+    "COACH_NOTES": "Coach Notes",
+    "LOADING": "Loading training..."
   }
 }

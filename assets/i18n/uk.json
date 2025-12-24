@@ -11,6 +11,7 @@
     "SUBTITLE": "Переглядайте та знаходьте вправи для ваших тренувань",
     "SEARCH_LABEL": "Пошук",
     "SEARCH_PLACEHOLDER": "Пошук вправ...",
+    "FILTERS": "Фільтри",
     "CATEGORY_LABEL": "Категорія",
     "ALL_CATEGORIES": "Всі категорії",
     "LEVEL_LABEL": "Рівень",
@@ -21,7 +22,8 @@
     "RESULTS_TITLE": "Знайдено результатів",
     "NO_RESULTS_TITLE": "Вправ не знайдено",
     "NO_RESULTS_DESC": "Спробуйте змінити фільтри, щоб побачити більше результатів",
-    "CLEAR_FILTERS_BTN": "Очистити фільтри"
+    "CLEAR_FILTERS_BTN": "Очистити фільтри",
+    "APPLY_FILTERS": "Застосувати фільтри"
   },
   "DRILL": {
     "CATEGORIES": {
@@ -96,5 +98,19 @@
     "ALL_CATEGORIES": "Всі категорії",
     "LEVEL_LABEL": "Рівень",
     "ALL_LEVELS": "Всі рівні"
+  },
+  "TRAINING_VIEW": {
+    "BACK_TO_LIST": "До списку тренувань",
+    "EXPORT_PDF": "Експорт в PDF",
+    "TOTAL_DURATION": "Тривалість",
+    "TOTAL_DRILLS": "Кількість",
+    "AVG_DURATION": "Середній час",
+    "MINUTES": "хвилин",
+    "EXERCISES": "вправ",
+    "MIN_DRILL": "хв / вправа",
+    "PLAN_TITLE": "План тренування",
+    "MIN_SHORT": "хв",
+    "COACH_NOTES": "Нотатки тренера",
+    "LOADING": "Завантаження тренування..."
   }
 }
