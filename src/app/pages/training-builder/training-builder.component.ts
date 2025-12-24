@@ -1,15 +1,17 @@
-import {Component, computed, inject, OnInit, signal} from '@angular/core';
+import {Component, computed, inject, OnInit, signal, ViewEncapsulation} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {CdkDragDrop, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
 import {filter} from 'rxjs';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+
 import {DrillService} from '../../services/drill.service';
 import {TrainingService} from '../../services/training.service';
 import {ConfirmationService} from '../../services/confirmation.service';
+
 import {Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
 import {TrainingDrill} from '../../models/training.model';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 interface BuilderDrill extends TrainingDrill {
   drill?: Drill;
@@ -19,15 +21,19 @@ interface BuilderDrill extends TrainingDrill {
   selector: 'app-training-builder',
   standalone: true,
   imports: [CommonModule, FormsModule, DragDropModule, TranslateModule],
+  encapsulation: ViewEncapsulation.None,
   template: `
     <div class="min-h-screen bg-slate-50 py-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
+
         <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1
-              class="text-4xl font-display font-bold text-slate-900 mb-2 tracking-tight">{{ 'TRAINING_BUILDER.TITLE' | translate }}</h1>
-            <p class="text-slate-600 font-medium">{{ 'TRAINING_BUILDER.SUBTITLE' | translate }}</p>
+            <h1 class="text-4xl font-display font-bold text-slate-900 mb-2 tracking-tight">
+              {{ 'TRAINING_BUILDER.TITLE' | translate }}
+            </h1>
+            <p class="text-slate-600 font-medium">
+              {{ 'TRAINING_BUILDER.SUBTITLE' | translate }}
+            </p>
           </div>
           <div class="flex items-center gap-3">
             <button (click)="resetBuilder()" class="btn-secondary text-sm">
@@ -46,50 +52,47 @@ interface BuilderDrill extends TrainingDrill {
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <!-- Left: Drill Catalog (Compact) -->
+
           <div class="lg:col-span-4 xl:col-span-3">
             <div class="card sticky top-24 max-h-[calc(100vh-8rem)] flex flex-col">
               <div class="p-4 border-b border-slate-100">
-                <h2
-                  class="text-lg font-bold text-slate-900 mb-3">{{ 'TRAINING_BUILDER.AVAILABLE_DRILLS' | translate }}</h2>
+                <h2 class="text-lg font-bold text-slate-900 mb-3">
+                  {{ 'TRAINING_BUILDER.AVAILABLE_DRILLS' | translate }}
+                </h2>
 
-                <!-- Filters -->
                 <div class="grid grid-cols-2 gap-2 mb-3">
                   <div>
-                    <label
-                      class="block text-xs font-medium text-slate-500 mb-1">{{ 'TRAINING_BUILDER.CATEGORY_LABEL' | translate }}</label>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">
+                      {{ 'TRAINING_BUILDER.CATEGORY_LABEL' | translate }}
+                    </label>
                     <select
                       [(ngModel)]="selectedCategory"
                       (ngModelChange)="applyFilters()"
                       class="input-field py-1.5 text-xs"
                     >
-                      <option [value]="undefined">{{ 'TRAINING_BUILDER.ALL_CATEGORIES' | translate }}</option>
+                      <option [ngValue]="undefined">{{ 'TRAINING_BUILDER.ALL_CATEGORIES' | translate }}</option>
                       @for (cat of categories; track cat.value) {
-                        <option [value]="cat.value">
-                          {{ cat.translationKey | translate }}
-                        </option>
+                        <option [value]="cat.value">{{ cat.translationKey | translate }}</option>
                       }
                     </select>
                   </div>
                   <div>
-                    <label
-                      class="block text-xs font-medium text-slate-500 mb-1">{{ 'TRAINING_BUILDER.LEVEL_LABEL' | translate }}</label>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">
+                      {{ 'TRAINING_BUILDER.LEVEL_LABEL' | translate }}
+                    </label>
                     <select
                       [(ngModel)]="selectedLevel"
                       (ngModelChange)="applyFilters()"
                       class="input-field py-1.5 text-xs"
                     >
-                      <option [value]="undefined">{{ 'TRAINING_BUILDER.ALL_LEVELS' | translate }}</option>
+                      <option [ngValue]="undefined">{{ 'TRAINING_BUILDER.ALL_LEVELS' | translate }}</option>
                       @for (level of levels; track level.value) {
-                        <option [value]="level.value">
-                          {{ level.translationKey | translate }}
-                        </option>
+                        <option [value]="level.value">{{ level.translationKey | translate }}</option>
                       }
                     </select>
                   </div>
                 </div>
 
-                <!-- Quick Search -->
                 <div class="relative">
                   <input
                     type="text"
@@ -106,7 +109,6 @@ interface BuilderDrill extends TrainingDrill {
                 </div>
               </div>
 
-              <!-- Drill List -->
               <div class="flex-1 overflow-y-auto p-3 space-y-2 custom-scrollbar">
                 @for (drill of availableDrills(); track drill.id) {
                   <div
@@ -116,10 +118,14 @@ interface BuilderDrill extends TrainingDrill {
                     <div class="flex items-start justify-between gap-3">
                       <div class="flex-1 min-w-0">
                         <h3
-                          class="font-semibold text-sm text-slate-900 truncate group-hover:text-green-700 transition-colors">{{ drill.name }}</h3>
+                          class="font-semibold text-sm text-slate-900 truncate group-hover:text-green-700 transition-colors">
+                          {{ drill.name }}
+                        </h3>
                         <div class="flex items-center gap-2 mt-1">
                           <span
-                            class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 uppercase tracking-wide">{{ drill.category }}</span>
+                            class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 uppercase tracking-wide">
+                            {{ drill.category }}
+                          </span>
                           <span class="text-xs text-slate-500">{{ drill.duration }} min</span>
                         </div>
                       </div>
@@ -140,14 +146,14 @@ interface BuilderDrill extends TrainingDrill {
             </div>
           </div>
 
-          <!-- Right: Training Builder -->
           <div class="lg:col-span-8 xl:col-span-9 space-y-6">
-            <!-- Training Details Card -->
+
             <div class="card p-6">
               <div class="flex flex-col md:flex-row gap-6 items-start">
                 <div class="flex-1 w-full">
-                  <label
-                    class="block text-sm font-semibold text-slate-700 mb-2">{{ 'TRAINING_BUILDER.TRAINING_NAME_LABEL' | translate }}</label>
+                  <label class="block text-sm font-semibold text-slate-700 mb-2">
+                    {{ 'TRAINING_BUILDER.TRAINING_NAME_LABEL' | translate }}
+                  </label>
                   <input
                     type="text"
                     [(ngModel)]="trainingName"
@@ -158,21 +164,24 @@ interface BuilderDrill extends TrainingDrill {
 
                 <div class="flex gap-4 w-full md:w-auto">
                   <div class="flex-1 md:w-32 p-3 bg-green-50 rounded-xl border border-green-100 text-center">
-                    <p
-                      class="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">{{ 'TRAINING_BUILDER.DURATION' | translate }}</p>
-                    <p class="text-2xl font-bold text-green-700">{{ totalDuration() }}<span
-                      class="text-sm font-medium ml-1">{{ 'TRAINING_BUILDER.MIN' | translate }}</span></p>
+                    <p class="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">
+                      {{ 'TRAINING_BUILDER.DURATION' | translate }}
+                    </p>
+                    <p class="text-2xl font-bold text-green-700">
+                      {{ totalDuration() }}<span
+                      class="text-sm font-medium ml-1">{{ 'TRAINING_BUILDER.MIN' | translate }}</span>
+                    </p>
                   </div>
                   <div class="flex-1 md:w-32 p-3 bg-blue-50 rounded-xl border border-blue-100 text-center">
-                    <p
-                      class="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-1">{{ 'TRAINING_BUILDER.DRILLS' | translate }}</p>
+                    <p class="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-1">
+                      {{ 'TRAINING_BUILDER.DRILLS' | translate }}
+                    </p>
                     <p class="text-2xl font-bold text-blue-700">{{ trainingDrills().length }}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Drills in Training -->
             <div
               class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden min-h-[400px] flex flex-col">
               <div class="p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
@@ -189,39 +198,50 @@ interface BuilderDrill extends TrainingDrill {
                 }
               </div>
 
-              <!-- Drag and Drop List -->
               <div
                 cdkDropList
+                [cdkDropListData]="trainingDrills()"
                 (cdkDropListDropped)="onDrop($event)"
-                class="flex-1 p-4 space-y-3 bg-slate-50/30"
+                class="flex-1 p-4 space-y-3 bg-slate-50/30 min-h-[300px]"
               >
                 @for (item of trainingDrills(); let i = $index; track item.drillId) {
                   <div
                     cdkDrag
-                    class="group bg-white border border-slate-200 rounded-xl p-4 hover:border-green-400 hover:shadow-md transition-all cursor-move relative"
+                    [cdkDragData]="item"
+                    class="group bg-white border border-slate-200 rounded-xl p-4 hover:border-green-400 hover:shadow-md transition-all relative"
                   >
-                    <!-- Drag Handle -->
+                    <div *cdkDragPlaceholder class="custom-placeholder"></div>
+
                     <div class="flex items-start gap-4">
-                      <div cdkDragHandle class="text-slate-300 group-hover:text-green-500 pt-1 transition-colors">
+
+                      <div
+                        cdkDragHandle
+                        class="text-slate-300 hover:text-green-600 pt-2 cursor-move active:cursor-grabbing transition-colors"
+                        title="Drag to reorder"
+                      >
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
                         </svg>
                       </div>
 
                       <div class="flex-1 min-w-0">
-                        <!-- Drill Header -->
                         <div class="flex items-start justify-between gap-4 mb-3">
                           <div class="flex-1">
                             <div class="flex items-center gap-2 mb-1">
                               <span
-                                class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs font-bold flex items-center justify-center">{{ i + 1 }}</span>
+                                class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs font-bold flex items-center justify-center">
+                                {{ i + 1 }}
+                              </span>
                               <h3 class="font-bold text-slate-900 text-lg">{{ item.drill?.name }}</h3>
                             </div>
-                            <p class="text-sm text-slate-500 pl-8 line-clamp-1">{{ item.drill?.description }}</p>
+                            <p class="text-sm text-slate-500 pl-8 line-clamp-1">
+                              {{ item.drill?.description }}
+                            </p>
                           </div>
                           <button
                             (click)="removeDrill(i)"
-                            class="text-slate-400 hover:text-red-500 p-2 rounded-lg hover:bg-red-50 transition-all opacity-0 group-hover:opacity-100"
+                            class="text-slate-400 hover:text-red-500 p-2 rounded-lg hover:bg-red-50 transition-all"
+                            title="Remove"
                           >
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -230,23 +250,22 @@ interface BuilderDrill extends TrainingDrill {
                           </button>
                         </div>
 
-                        <!-- Duration and Notes -->
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pl-8">
                           <div class="md:col-span-3">
-                            <label
-                              class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">{{ 'TRAINING_BUILDER.DURATION' | translate }}
-                              ({{ 'TRAINING_BUILDER.MIN' | translate }})</label>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                              {{ 'TRAINING_BUILDER.DURATION' | translate }} ({{ 'TRAINING_BUILDER.MIN' | translate }})
+                            </label>
                             <input
                               type="number"
                               [(ngModel)]="item.duration"
-                              (ngModelChange)="updateTotalDuration()"
                               min="1"
                               class="input-field py-1.5 text-sm font-semibold text-center"
                             />
                           </div>
                           <div class="md:col-span-9">
-                            <label
-                              class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">{{ 'TRAINING_BUILDER.COACH_NOTES' | translate }}</label>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                              {{ 'TRAINING_BUILDER.COACH_NOTES' | translate }}
+                            </label>
                             <input
                               type="text"
                               [(ngModel)]="item.notes"
@@ -264,10 +283,12 @@ interface BuilderDrill extends TrainingDrill {
                     <div class="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4">
                       <span class="text-3xl">🏗️</span>
                     </div>
-                    <h3
-                      class="text-lg font-bold text-slate-900 mb-1">{{ 'TRAINING_BUILDER.START_BUILDING_TITLE' | translate }}</h3>
-                    <p
-                      class="text-slate-500 max-w-xs mx-auto">{{ 'TRAINING_BUILDER.START_BUILDING_DESC' | translate }}</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">
+                      {{ 'TRAINING_BUILDER.START_BUILDING_TITLE' | translate }}
+                    </h3>
+                    <p class="text-slate-500 max-w-xs mx-auto">
+                      {{ 'TRAINING_BUILDER.START_BUILDING_DESC' | translate }}
+                    </p>
                   </div>
                 }
               </div>
@@ -279,9 +300,24 @@ interface BuilderDrill extends TrainingDrill {
   `,
   styles: [`
     .cdk-drag-preview {
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      border-radius: 0.5rem;
-      opacity: 0.9;
+      box-sizing: border-box;
+      border-radius: 0.75rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      background-color: white;
+      padding: 1rem;
+      border: 1px solid #22c55e;
+      opacity: 0.95;
+      z-index: 9999 !important;
+      max-width: 800px;
+    }
+
+    .custom-placeholder {
+      background: #f0fdf4;
+      border: 2px dashed #86efac;
+      border-radius: 0.75rem;
+      min-height: 120px;
+      margin-bottom: 0.75rem;
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
     }
 
     .cdk-drag-animating {
@@ -308,10 +344,9 @@ export class TrainingBuilderComponent implements OnInit {
   selectedLevel: DrillLevel | undefined;
   trainingName = '';
 
-  // Signals for reactive state management
+
   availableDrills = signal<Drill[]>([]);
   trainingDrills = signal<BuilderDrill[]>([]);
-
   totalDuration = computed(() =>
     this.trainingDrills().reduce((sum, drill) => sum + (drill.duration || 0), 0)
   );
@@ -349,15 +384,18 @@ export class TrainingBuilderComponent implements OnInit {
   }
 
   removeDrill(index: number): void {
-    this.trainingDrills.update(drills => drills.filter((_, i) => i !== index));
-    this.updateOrders();
+    this.trainingDrills.update(drills => {
+      const updated = drills.filter((_, i) => i !== index);
+      return updated.map((item, idx) => ({...item, order: idx}));
+    });
   }
 
   clearAllDrills(): void {
     this.confirmationService.confirm({
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: this.translate.instant('TRAINING_BUILDER.CONFIRM_CLEAR'),
-      isDestructive: true
+      confirmText: this.translate.instant('TRAINING_BUILDER.CLEAR_ALL'),
+      cancelText: this.translate.instant('CONFIRMATION.CANCEL')
     }).pipe(
       filter(confirmed => confirmed)
     ).subscribe(() => {
@@ -366,22 +404,19 @@ export class TrainingBuilderComponent implements OnInit {
   }
 
   onDrop(event: CdkDragDrop<BuilderDrill[]>): void {
-    this.trainingDrills.update(drills => {
-      const updated = [...drills];
-      moveItemInArray(updated, event.previousIndex, event.currentIndex);
-      return updated;
+    if (event.previousIndex === event.currentIndex) return;
+
+    this.trainingDrills.update(currentDrills => {
+
+      const updatedDrills = [...currentDrills];
+
+      moveItemInArray(updatedDrills, event.previousIndex, event.currentIndex);
+
+      return updatedDrills.map((drill, index) => ({
+        ...drill,
+        order: index
+      }));
     });
-    this.updateOrders();
-  }
-
-  private updateOrders(): void {
-    this.trainingDrills.update(drills =>
-      drills.map((drill, index) => ({...drill, order: index}))
-    );
-  }
-
-  updateTotalDuration(): void {
-    // totalDuration is computed, automatically updates
   }
 
   canSave(): boolean {
@@ -401,7 +436,6 @@ export class TrainingBuilderComponent implements OnInit {
     };
 
     this.trainingService.createTraining(training).subscribe(() => {
-      alert(this.translate.instant('TRAINING_BUILDER.SAVE_SUCCESS'));
       this.router.navigate(['/trainings']);
     });
   }
@@ -410,7 +444,8 @@ export class TrainingBuilderComponent implements OnInit {
     this.confirmationService.confirm({
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: this.translate.instant('TRAINING_BUILDER.CONFIRM_RESET'),
-      isDestructive: true
+      confirmText: this.translate.instant('TRAINING_BUILDER.RESET'),
+      cancelText: this.translate.instant('CONFIRMATION.CANCEL')
     }).pipe(
       filter(confirmed => confirmed)
     ).subscribe(() => {
