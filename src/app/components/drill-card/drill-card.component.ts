@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {TranslateModule} from '@ngx-translate/core';
-import {Drill, DRILL_CATEGORIES, DRILL_LEVELS} from '../../models/drill.model';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model';
 
 @Component({
   selector: 'app-drill-card',
@@ -11,19 +11,27 @@ import {Drill, DRILL_CATEGORIES, DRILL_LEVELS} from '../../models/drill.model';
     <div class="card group cursor-pointer h-full flex flex-col relative overflow-hidden" (click)="onCardClick()">
       <!-- Hover Gradient Overlay -->
       <div
-        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
+        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+      </div>
 
       <!-- Drill Image -->
       <div class="relative overflow-hidden h-48 shrink-0">
+        <!-- Skeleton Loader -->
         @if (!imageLoaded()) {
-          <div class="absolute inset-0 bg-slate-200 animate-pulse"></div>
+          <div class="absolute inset-0 bg-slate-200 animate-pulse z-10"></div>
         }
+
+        <!-- Main Image -->
         <img
-          [src]="drill.imageUrl"
+          [src]="getImageUrl()"
           [alt]="drill.name"
-          (load)="imageLoaded.set(true)"
+          loading="lazy"
+          (load)="onImageLoad()"
+          (error)="onImageError()"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
+
+        <!-- Level Badge -->
         <div class="absolute top-3 right-3 z-20">
           <span [class]="getLevelBadgeClass() + ' shadow-sm backdrop-blur-sm'">
             {{ getLevelTranslationKey(drill.level) | translate }}
@@ -88,6 +96,21 @@ export class DrillCardComponent {
   @Output() addClick = new EventEmitter<Drill>();
 
   imageLoaded = signal(false);
+
+  private readonly PLACEHOLDER_IMAGE = 'assets/images/drills_images_preview/drill_placeholder.jpg';
+
+  getImageUrl(): string {
+    return this.drill.imageUrl || this.PLACEHOLDER_IMAGE;
+  }
+
+  onImageLoad(): void {
+    this.imageLoaded.set(true);
+  }
+
+  onImageError(): void {
+    // Якщо основна картинка не завантажилась, показуємо placeholder
+    this.imageLoaded.set(true);
+  }
 
   onCardClick(): void {
     this.cardClick.emit(this.drill);
