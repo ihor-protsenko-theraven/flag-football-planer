@@ -1,17 +1,18 @@
-import {Component, computed, inject, OnInit, signal, ViewEncapsulation} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
-import {CdkDragDrop, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
-import {filter} from 'rxjs';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import { Component, computed, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { filter } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-import {DrillService} from '../../services/drill.service';
-import {TrainingService} from '../../services/training.service';
-import {ConfirmationService} from '../../services/confirmation.service';
+import { DrillService } from '../../services/drill.service';
+import { TrainingService } from '../../services/training.service';
+import { ConfirmationService } from '../../services/confirmation.service';
+import { DrillUiService } from '../../services/drill-ui.service';
 
-import {Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
-import {TrainingDrill} from '../../models/training.model';
+import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from '../../models/drill.model';
+import { TrainingDrill } from '../../models/training.model';
 
 interface BuilderDrill extends TrainingDrill {
   drill?: Drill;
@@ -123,14 +124,15 @@ interface BuilderDrill extends TrainingDrill {
                         </h3>
                         <div class="flex items-center gap-2 mt-1">
                           <span
-                            class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 uppercase tracking-wide">
+                            class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wide border"
+                            [class]="getCategoryStyle(drill.category)">
                             {{ drill.category }}
                           </span>
                           <span class="text-xs text-slate-500">{{ drill.duration }} min</span>
                         </div>
                       </div>
                       <button
-                        class="w-6 h-6 rounded-full bg-green-50 text-green-600 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        class="w-6 h-6 rounded-full bg-green-50 text-green-600 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>
@@ -148,8 +150,8 @@ interface BuilderDrill extends TrainingDrill {
 
           <div class="lg:col-span-8 xl:col-span-9 space-y-6">
 
-            <div class="card p-6">
-              <div class="flex flex-col md:flex-row gap-6 items-start">
+            <div class="card p-4 md:p-6 sticky top-20 z-30 md:static shadow-lg md:shadow-card ring-1 ring-slate-900/5 md:ring-0">
+              <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
                 <div class="flex-1 w-full">
                   <label class="block text-sm font-semibold text-slate-700 mb-2">
                     {{ 'TRAINING_BUILDER.TRAINING_NAME_LABEL' | translate }}
@@ -162,21 +164,21 @@ interface BuilderDrill extends TrainingDrill {
                   />
                 </div>
 
-                <div class="flex gap-4 w-full md:w-auto">
-                  <div class="flex-1 md:w-32 p-3 bg-green-50 rounded-xl border border-green-100 text-center">
-                    <p class="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">
+                <div class="flex gap-3 w-full md:w-auto">
+                  <div class="flex-1 md:w-32 p-2 md:p-3 bg-green-50 rounded-xl border border-green-100 text-center">
+                    <p class="text-[10px] md:text-xs font-semibold text-green-600 uppercase tracking-wide mb-0.5 md:mb-1">
                       {{ 'TRAINING_BUILDER.DURATION' | translate }}
                     </p>
-                    <p class="text-2xl font-bold text-green-700">
+                    <p class="text-xl md:text-2xl font-bold text-green-700">
                       {{ totalDuration() }}<span
-                      class="text-sm font-medium ml-1">{{ 'TRAINING_BUILDER.MIN' | translate }}</span>
+                      class="text-xs md:text-sm font-medium ml-1">{{ 'TRAINING_BUILDER.MIN' | translate }}</span>
                     </p>
                   </div>
-                  <div class="flex-1 md:w-32 p-3 bg-blue-50 rounded-xl border border-blue-100 text-center">
-                    <p class="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-1">
+                  <div class="flex-1 md:w-32 p-2 md:p-3 bg-blue-50 rounded-xl border border-blue-100 text-center">
+                    <p class="text-[10px] md:text-xs font-semibold text-blue-600 uppercase tracking-wide mb-0.5 md:mb-1">
                       {{ 'TRAINING_BUILDER.DRILLS' | translate }}
                     </p>
-                    <p class="text-2xl font-bold text-blue-700">{{ trainingDrills().length }}</p>
+                    <p class="text-xl md:text-2xl font-bold text-blue-700">{{ trainingDrills().length }}</p>
                   </div>
                 </div>
               </div>
@@ -201,6 +203,7 @@ interface BuilderDrill extends TrainingDrill {
               <div
                 cdkDropList
                 [cdkDropListData]="trainingDrills()"
+                [cdkDropListAutoScrollStep]="10"
                 (cdkDropListDropped)="onDrop($event)"
                 class="flex-1 p-4 space-y-3 bg-slate-50/30 min-h-[300px]"
               >
@@ -208,6 +211,7 @@ interface BuilderDrill extends TrainingDrill {
                   <div
                     cdkDrag
                     [cdkDragData]="item"
+                    (cdkDragStarted)="onDragStarted()"
                     class="group bg-white border border-slate-200 rounded-xl p-4 hover:border-green-400 hover:shadow-md transition-all relative"
                   >
                     <div *cdkDragPlaceholder class="custom-placeholder"></div>
@@ -302,13 +306,15 @@ interface BuilderDrill extends TrainingDrill {
     .cdk-drag-preview {
       box-sizing: border-box;
       border-radius: 0.75rem;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       background-color: white;
       padding: 1rem;
       border: 1px solid #22c55e;
       opacity: 0.95;
       z-index: 9999 !important;
       max-width: 800px;
+      transform: scale(1.02);
+      cursor: grabbing;
     }
 
     .custom-placeholder {
@@ -335,6 +341,7 @@ export class TrainingBuilderComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly translate = inject(TranslateService);
   private readonly confirmationService = inject(ConfirmationService);
+  private readonly drillUi = inject(DrillUiService);
 
   readonly categories = DRILL_CATEGORIES;
   readonly levels = DRILL_LEVELS;
@@ -386,7 +393,7 @@ export class TrainingBuilderComponent implements OnInit {
   removeDrill(index: number): void {
     this.trainingDrills.update(drills => {
       const updated = drills.filter((_, i) => i !== index);
-      return updated.map((item, idx) => ({...item, order: idx}));
+      return updated.map((item, idx) => ({ ...item, order: idx }));
     });
   }
 
@@ -401,6 +408,13 @@ export class TrainingBuilderComponent implements OnInit {
     ).subscribe(() => {
       this.trainingDrills.set([]);
     });
+  }
+
+  onDragStarted(): void {
+    // Haptic feedback for mobile devices
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(50);
+    }
   }
 
   onDrop(event: CdkDragDrop<BuilderDrill[]>): void {
@@ -431,7 +445,7 @@ export class TrainingBuilderComponent implements OnInit {
 
     const training = {
       name: this.trainingName,
-      drills: this.trainingDrills().map(({drill, ...rest}) => rest),
+      drills: this.trainingDrills().map(({ drill, ...rest }) => rest),
       totalDuration: this.totalDuration()
     };
 
@@ -456,5 +470,9 @@ export class TrainingBuilderComponent implements OnInit {
       this.selectedLevel = undefined;
       this.applyFilters();
     });
+  }
+
+  getCategoryStyle(category: DrillCategory | undefined): string {
+    return this.drillUi.getCategoryStyle(category);
   }
 }

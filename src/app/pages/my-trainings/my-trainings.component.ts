@@ -1,6 +1,6 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Router, RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {filter, switchMap} from 'rxjs';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TrainingService} from '../../services/training.service';
@@ -12,120 +12,143 @@ import {Training} from '../../models/training.model';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   template: `
-    <div class="min-h-screen bg-gray-50 py-8">
+    <div class="min-h-screen bg-gray-50 py-4 md:py-8 pb-24 md:pb-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
-        <div class="flex items-center justify-between mb-8">
+
+        <div class="flex items-center justify-between mb-6 md:mb-8">
           <div>
-            <h1 class="text-4xl font-display font-bold text-gray-900 mb-2">{{ 'MY_TRAININGS.TITLE' | translate }}</h1>
-            <p class="text-gray-600">{{ 'MY_TRAININGS.SUBTITLE' | translate }}</p>
+            <h1 class="text-2xl md:text-4xl font-display font-bold text-gray-900 mb-1 md:mb-2">
+              {{ 'MY_TRAININGS.TITLE' | translate }}
+            </h1>
+            <p class="text-gray-500 text-sm md:text-base">
+              {{ 'MY_TRAININGS.SUBTITLE' | translate }}
+            </p>
           </div>
-          <button routerLink="/builder" class="btn-primary">
-            <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button routerLink="/builder" class="hidden md:inline-flex btn-primary shadow-lg shadow-green-500/20">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
             </svg>
             {{ 'MY_TRAININGS.NEW_TRAINING_BTN' | translate }}
           </button>
         </div>
 
-        <!-- Trainings List -->
         @if (trainings().length > 0) {
           <div class="space-y-4 animate-fade-in">
             @for (training of trainings(); track training.id) {
-              <div class="card hover:shadow-premium transition-all duration-200">
-                <div class="flex items-start justify-between gap-6 p-6">
-                  <!-- Training Info -->
-                  <div class="flex-1 min-w-0">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ training.name }}</h2>
+              <div
+                class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="p-4 md:p-6 flex flex-col md:flex-row gap-4">
 
-                    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
-                      <div class="flex items-center gap-1">
+                  <div class="flex-1">
+                    <div class="flex justify-between items-start mb-3">
+                      <h2 class="text-lg md:text-xl font-bold text-gray-900 line-clamp-2 pr-2">
+                        {{ training.name }}
+                      </h2>
+                      <span class="text-xs font-medium text-gray-400 md:hidden whitespace-nowrap pt-1">
+                        {{ formatDate(training.createdAt) }}
+                      </span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                      <div class="hidden md:flex items-center gap-1 text-sm text-gray-500 mr-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                         </svg>
                         <span>{{ formatDate(training.createdAt) }}</span>
                       </div>
-                      <div class="flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                      <div
+                        class="flex items-center gap-1.5 bg-green-50 text-green-700 px-2.5 py-1 rounded-lg text-xs font-bold border border-green-100">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
-                        <span class="font-semibold text-primary-600">{{ training.totalDuration }} minutes</span>
+                        <span>{{ training.totalDuration }} min</span>
                       </div>
-                      <div class="flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                      <div
+                        class="flex items-center gap-1.5 bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg text-xs font-bold border border-blue-100">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                         </svg>
-                        <span>{{ training.drills.length }} {{ training.drills.length === 1 ? 'drill' : 'drills' }}</span>
+                        <span>{{ training.drills.length }} drills</span>
                       </div>
                     </div>
 
-                    <!-- Drill Preview -->
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 mt-2 pt-3 border-t border-gray-50 md:border-t-0 md:pt-0">
                       @for (drill of getVisibleDrills(training); track drill.order) {
-                        <span class="badge bg-gray-100 text-gray-700 text-xs">
-                          Drill {{ drill.order + 1 }}
+                        <span
+                          class="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded border border-gray-200 font-medium">
+                          {{ ('Drill ' + (drill.order + 1)) }}
                         </span>
                       }
                       @if (training.drills.length > 5) {
-                        <span class="badge bg-gray-100 text-gray-700 text-xs">
-                          +{{ training.drills.length - 5 }} more
+                        <span class="px-2 py-1 bg-gray-50 text-gray-400 text-xs rounded border border-gray-200">
+                          +{{ training.drills.length - 5 }}
                         </span>
                       }
                     </div>
                   </div>
 
-                  <!-- Actions -->
-                  <div class="flex flex-col gap-2">
+                  <div
+                    class="flex md:flex-col gap-3 md:gap-2 mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-gray-100">
                     <button
                       [routerLink]="['/trainings', training.id]"
-                      class="btn-primary text-sm px-4 py-2"
+                      class="flex-1 md:flex-none btn-secondary text-sm justify-center py-2.5 px-4 hover:bg-gray-100 border border-gray-200"
                     >
                       {{ 'MY_TRAININGS.VIEW_DETAILS' | translate }}
                     </button>
                     <button
                       (click)="deleteTraining(training)"
-                      class="btn-secondary text-sm px-4 py-2 text-red-600 hover:bg-red-50 border-red-300"
+                      class="flex-1 md:flex-none btn-danger-outline text-sm justify-center py-2.5 px-4"
                     >
                       {{ 'MY_TRAININGS.DELETE' | translate }}
                     </button>
                   </div>
+
                 </div>
               </div>
             }
           </div>
         } @else {
-          <!-- Empty State -->
-          <div class="text-center py-16 animate-fade-in">
-            <div
-              class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center">
-              <svg class="w-16 h-16 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-              </svg>
+          <div class="flex flex-col items-center justify-center py-16 md:py-24 text-center px-4">
+            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+              <span class="text-4xl">📋</span>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ 'MY_TRAININGS.NO_TRAININGS_TITLE' | translate }}</h3>
-            <p class="text-gray-600 mb-8 max-w-md mx-auto">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              {{ 'MY_TRAININGS.NO_TRAININGS_TITLE' | translate }}
+            </h3>
+            <p class="text-gray-500 max-w-xs mx-auto mb-8 text-sm md:text-base">
               {{ 'MY_TRAININGS.NO_TRAININGS_DESC' | translate }}
             </p>
-            <button routerLink="/builder" class="btn-primary">
-              <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
+            <button routerLink="/builder" class="btn-primary px-8">
               {{ 'MY_TRAININGS.CREATE_FIRST_BTN' | translate }}
             </button>
           </div>
         }
       </div>
+
+      <button
+        routerLink="/builder"
+        class="md:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-gray-900 text-white rounded-full shadow-xl shadow-gray-900/30 flex items-center justify-center active:scale-95 transition-transform"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+      </button>
+
     </div>
   `,
-  styles: []
+  styles: [`
+    .btn-danger-outline {
+      @apply border border-red-200 text-red-600 bg-white hover:bg-red-50 transition-colors rounded-lg font-medium;
+    }
+  `]
 })
 export class MyTrainingsComponent implements OnInit {
   private readonly trainingService = inject(TrainingService);
-  private readonly router = inject(Router);
   private readonly translate = inject(TranslateService);
   private readonly confirmationService = inject(ConfirmationService);
 
@@ -138,27 +161,23 @@ export class MyTrainingsComponent implements OnInit {
   loadTrainings(): void {
     this.trainingService.getTrainings().subscribe(trainings => {
       this.trainings.set(
-        trainings.sort((a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        )
+        trainings.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
       );
     });
   }
 
   deleteTraining(training: Training): void {
     const message = this.translate.instant('MY_TRAININGS.CONFIRM_DELETE', {name: training.name});
-
     this.confirmationService.confirm({
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: message,
-      isDestructive: true
+      confirmText: this.translate.instant('MY_TRAININGS.DELETE'),
+      cancelText: this.translate.instant('CONFIRMATION.CANCEL')
     }).pipe(
-      filter(confirmed => confirmed),
+      filter(Boolean),
       switchMap(() => this.trainingService.deleteTraining(training.id))
     ).subscribe(success => {
-      if (success) {
-        this.loadTrainings();
-      }
+      if (success) this.loadTrainings();
     });
   }
 
@@ -167,10 +186,6 @@ export class MyTrainingsComponent implements OnInit {
   }
 
   formatDate(date: Date): string {
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    }).format(new Date(date));
+    return new Intl.DateTimeFormat('uk-UA', {day: 'numeric', month: 'short'}).format(new Date(date));
   }
 }

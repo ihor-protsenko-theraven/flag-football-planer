@@ -8,9 +8,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   template: `
-    <nav class="glass sticky top-0 z-50 border-b border-slate-200/60">
+    <nav class="glass sticky top-0 z-50 border-b border-slate-200/60 safe-pt">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between min-h-[4rem] py-2">
           <!-- Logo -->
           <div class="flex items-center space-x-3 group cursor-pointer" routerLink="/">
             <div class="relative w-10 h-10 flex items-center justify-center">
@@ -23,9 +23,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             </div>
             <div>
               <h1
-                class="text-xl font-display font-bold text-slate-900 tracking-tight group-hover:text-green-700 transition-colors">{{ 'NAV.TITLE' | translate }}</h1>
+                class="text-xl font-display font-bold text-slate-900 tracking-tight group-hover:text-green-700 transition-colors leading-none">{{ 'NAV.TITLE' | translate }}</h1>
               <p
-                class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">{{ 'NAV.PRO_EDITION' | translate }}</p>
+                class="text-[10px] font-medium text-slate-500 uppercase tracking-widest mt-0.5">{{ 'NAV.PRO_EDITION' | translate }}</p>
             </div>
           </div>
 
@@ -93,10 +93,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
         <!-- Mobile Menu -->
         @if (mobileMenuOpen()) {
-          <div class="md:hidden py-4 space-y-2 border-t border-slate-100 animate-fade-in">
+          <div class="md:hidden py-4 space-y-2 border-t border-slate-100 animate-slide-down safe-pb">
             <a
               routerLink="/catalog"
-              routerLinkActive="bg-green-50 text-green-700"
+              routerLinkActive="bg-green-50 text-green-700 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
             >
@@ -104,7 +104,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             </a>
             <a
               routerLink="/builder"
-              routerLinkActive="bg-green-50 text-green-700"
+              routerLinkActive="bg-green-50 text-green-700 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
             >
@@ -112,7 +112,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             </a>
             <a
               routerLink="/trainings"
-              routerLinkActive="bg-green-50 text-green-700"
+              routerLinkActive="bg-green-50 text-green-700 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
             >
