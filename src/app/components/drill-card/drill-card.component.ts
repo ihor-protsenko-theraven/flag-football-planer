@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Drill } from '../../models/drill.model';
+import { TranslateModule } from '@ngx-translate/core';
+import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model';
 
 @Component({
   selector: 'app-drill-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <div class="card group cursor-pointer h-full flex flex-col relative overflow-hidden" (click)="onCardClick()">
       <!-- Hover Gradient Overlay -->
@@ -22,7 +23,7 @@ import { Drill } from '../../models/drill.model';
         />
         <div class="absolute top-3 right-3 z-20">
           <span [class]="getLevelBadgeClass() + ' shadow-sm backdrop-blur-sm'">
-            {{ drill.level }}
+            {{ getLevelTranslationKey(drill.level) | translate }}
           </span>
         </div>
       </div>
@@ -47,7 +48,7 @@ import { Drill } from '../../models/drill.model';
 
         <div class="flex items-center justify-between pt-3 border-t border-slate-100 mt-auto">
           <span [class]="getCategoryBadgeClass()">
-            {{ drill.category }}
+            {{ getCategoryTranslationKey(drill.category) | translate }}
           </span>
 
           <button 
@@ -120,5 +121,13 @@ export class DrillCardComponent {
       default:
         return `${baseClass} bg-slate-50 text-slate-700 border-slate-200`;
     }
+  }
+
+  getCategoryTranslationKey(value: string): string {
+    return DRILL_CATEGORIES.find(c => c.value === value)?.translationKey || value;
+  }
+
+  getLevelTranslationKey(value: string): string {
+    return DRILL_LEVELS.find(l => l.value === value)?.translationKey || value;
   }
 }

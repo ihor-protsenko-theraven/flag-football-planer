@@ -4,8 +4,8 @@
         "name": "Швидкий пас",
         "description": "Фокус на швидких і точних пасах між гравцями. Гравці шикуються у дві лінії обличчям один до одного на відстані 10 ярдів. Відпрацювання пасів від грудей, з відскоком та з-за голови.",
         "duration": 8,
-        "category": "пас",
-        "level": "початковий",
+        "category": "passing",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_001.jpg"
     },
     {
@@ -13,8 +13,8 @@
         "name": "Формація зонного захисту",
         "description": "Вивчення правильного позиціонування та комунікації в зонному захисті. Гравці тренують перекриття зон та перемикання між гравцями атаки.",
         "duration": 12,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_002.jpg"
     },
     {
@@ -22,8 +22,8 @@
         "name": "Основи бігу маршрутів",
         "description": "Освоєння фундаментальних патернів маршрутів, включаючи Slant, Post, Corner та Out. Фокус на різких катах (зміні напрямку) та таймінгу з квотербеком.",
         "duration": 15,
-        "category": "атака",
-        "level": "початковий",
+        "category": "offense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_003.jpg"
     },
     {
@@ -31,8 +31,8 @@
         "name": "Тренування на координаційній драбині",
         "description": "Інтенсивні вправи на роботу ніг з використанням драбини. Покращує швидкість, координацію та швидку зміну напрямку, що є критичним для флаг-футболу.",
         "duration": 10,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_004.jpg"
     },
     {
@@ -40,8 +40,8 @@
         "name": "Динамічна розминка",
         "description": "Повний комплекс розминки: високе піднімання стегна, захлест гомілки, махи ногами, кругові оберти руками та легкий біг для підготовки м'язів.",
         "duration": 5,
-        "category": "розминка",
-        "level": "початковий",
+        "category": "warmup",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_005.jpg"
     },
     {
@@ -49,8 +49,8 @@
         "name": "Персональне прикриття (Man-to-Man)",
         "description": "Просунута захисна вправа, фокус на техніці щільного персонального прикриття, положенні стегон та супроводженні ресивера по маршруту.",
         "duration": 15,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_006.jpg"
     },
     {
@@ -58,8 +58,8 @@
         "name": "Атака в Червоній Зоні",
         "description": "Відпрацювання розіграшів у Red Zone (менше 20 ярдів до заліковки). Фокус на швидких можливостях для набору очок та роботі в обмеженому просторі.",
         "duration": 12,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_007.jpg"
     },
     {
@@ -67,8 +67,8 @@
         "name": "Спринтерські інтервали",
         "description": "Високоінтенсивне інтервальне тренування: спринти на 40 ярдів з періодами відпочинку. Розвиває вибухову швидкість та витривалість.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "просунутий",
+        "category": "conditioning",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_008.jpg"
     },
     {
@@ -76,8 +76,8 @@
         "name": "Двохвилинний напад (Two-Minute Drill)",
         "description": "Симуляція кінцівки гри з обмеженим часом. Відпрацювання швидких розіграшів, управління часом (clock management) та прийняття рішень під тиском.",
         "duration": 10,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_009.jpg"
     },
     {
@@ -85,8 +85,8 @@
         "name": "Техніка зривання прапорців",
         "description": "Відпрацювання зривання прапорців: правильне положення рук, таймінг та кути переслідування. Базова захисна навичка для всіх рівнів.",
         "duration": 10,
-        "category": "захист",
-        "level": "початковий",
+        "category": "defense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_010.jpg"
     },
     {
@@ -94,8 +94,8 @@
         "name": "Перехресні маршрути (Crossing Routes)",
         "description": "Відпрацювання перехресних маршрутів з кількома ресиверами. Фокус на таймінгу, спейсингу (дистанції) та уникненні зіткнень у центрі поля.",
         "duration": 12,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_011.jpg"
     },
     {
@@ -103,8 +103,8 @@
         "name": "Вправи з конусами",
         "description": "Робота з конусами для відпрацювання катів, маневрування та зміни напрямку руху. Покращує спритність та контроль тіла.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "початковий",
+        "category": "conditioning",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_012.jpg"
     },
     {
@@ -112,8 +112,8 @@
         "name": "Бліц-пакети",
         "description": "Просунуті захисні стратегії тиску на квотербека. Вивчення таймінгу, розподілу проходів (gap assignments) та технік тиску.",
         "duration": 15,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_013.jpg"
     },
     {
@@ -121,8 +121,8 @@
         "name": "Виконання скрін-пасу",
         "description": "Відпрацювання скрін-пасів (Screen Pass) з правильним блокуванням та таймінгом. Ресивери вчаться ловити м'яч і швидко просуватися вперед.",
         "duration": 10,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_014.jpg"
     },
     {
@@ -130,8 +130,8 @@
         "name": "Командна розтяжка",
         "description": "Комплексна сесія розтяжки з фокусом на основні групи м'язів. Включає статичні та динамічні вправи для запобігання травмам.",
         "duration": 7,
-        "category": "розминка",
-        "level": "початковий",
+        "category": "warmup",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_015.jpg"
     },
     {
@@ -139,8 +139,8 @@
         "name": "Читання Option-маршрутів",
         "description": "Просунута пасова вправа, де ресивери читають захист і адаптують маршрут. Квотербек і ресивер повинні діяти синхронно.",
         "duration": 15,
-        "category": "пас",
-        "level": "просунутий",
+        "category": "passing",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_016.jpg"
     },
     {
@@ -148,8 +148,8 @@
         "name": "Захист на лінії воріт (Goal Line Stand)",
         "description": "Захисна вправа для зупинки нападу безпосередньо біля залікової зони. Контроль проходів та агресивне зривання прапорців у тісному просторі.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_017.jpg"
     },
     {
@@ -157,8 +157,8 @@
         "name": "Човниковий біг (Shuttle Runs)",
         "description": "Класична вправа 5-10-5 ярдів. Розвиває вибухові бічні рухи та серцево-судинну витривалість.",
         "duration": 6,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_018.jpg"
     },
     {
@@ -166,8 +166,8 @@
         "name": "Play Action (Пас з фейком винесення)",
         "description": "Оманливі пасові розіграші, що починаються з імітації винесення м'яча. Відпрацювання реалістичного фейку та виконання пасу.",
         "duration": 12,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_019.jpg"
     },
     {
@@ -175,8 +175,8 @@
         "name": "Заминка (Cool Down Jog)",
         "description": "Легкий біг та ходьба для поступового зниження серцевого ритму після інтенсивного тренування. Допомагає відновленню.",
         "duration": 5,
-        "category": "розминка",
-        "level": "початковий",
+        "category": "warmup",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_020.jpg"
     },
     {
@@ -184,8 +184,8 @@
         "name": "Точність снепу центра",
         "description": "Критично для формації Shotgun. Центри тренують стабільне введення м'яча (снеп) у груди квотербеку з відстані 5-7 ярдів, дивлячись вперед.",
         "duration": 8,
-        "category": "атака",
-        "level": "початковий",
+        "category": "offense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_021.jpg"
     },
     {
@@ -193,8 +193,8 @@
         "name": "Бекпедал та вихід з нього",
         "description": "Дефенсів-беки (DB) тренують низьку стійку при русі спиною вперед (backpedal), фіксацію опорної ноги та ривок вперед під кутом 45 градусів на м'яч.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_022.jpg"
     },
     {
@@ -202,8 +202,8 @@
         "name": "Ловля м'яча в коридорі (The Gauntlet)",
         "description": "Ресивер біжить лінією, поки квотербеки або тренери кидають м'ячі з різних сторін. Покращує реакцію та координацію очей і рук.",
         "duration": 12,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_023.jpg"
     },
     {
@@ -211,8 +211,8 @@
         "name": "Збивання м'яча (Tip Drill)",
         "description": "Захисники тренують збивання м'яча на землю замість спроби зловити його у натовпі. Важливо для захисту проти Hail Mary.",
         "duration": 8,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_024.jpg"
     },
     {
@@ -220,8 +220,8 @@
         "name": "Скрембл-дрил",
         "description": "Симуляція зламаного розіграшу. Квотербек тікає з «кишені», а ресивери повинні змінити маршрути, щоб підлаштуватися під нього або знайти вільну зону.",
         "duration": 15,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_025.jpg"
     },
     {
@@ -229,8 +229,8 @@
         "name": "Кути переслідування",
         "description": "Захисники вчаться обирати правильний геометричний кут для перехоплення бігуна біля бокової лінії, замість того щоб бігти просто за ним.",
         "duration": 10,
-        "category": "захист",
-        "level": "початковий",
+        "category": "defense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_026.jpg"
     },
     {
@@ -238,8 +238,8 @@
         "name": "Дзеркальне ухилення",
         "description": "Гравець з м'ячем протистоїть захиснику у вузькому коридорі (5 ярдів). Атака намагається зробити один рух, щоб обіграти; захист дзеркалить рухи.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_027.jpg"
     },
     {
@@ -247,8 +247,8 @@
         "name": "Подвійні маршрути (Double Moves)",
         "description": "Ресивери тренують імітацію першого маршруту (наприклад, Hitch) перед прискоренням у другий (наприклад, Go). Фокус на обмані мовою тіла.",
         "duration": 12,
-        "category": "пас",
-        "level": "просунутий",
+        "category": "passing",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_028.jpg"
     },
     {
@@ -256,8 +256,8 @@
         "name": "Точність передачі м'яча (Handoff)",
         "description": "Багаторазове повторення передачі м'яча з рук в руки (Mesh point) між QB та RB. Мінімізація фамблів та приховування м'яча.",
         "duration": 6,
-        "category": "атака",
-        "level": "початковий",
+        "category": "offense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_029.jpg"
     },
     {
@@ -265,8 +265,8 @@
         "name": "Комунікація при зміні зон",
         "description": "Захисники тренують передачу ресиверів при перетині зон. Фокус виключно на голосових командах («Вхід!», «Вихід!», «Крос!»).",
         "duration": 15,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_030.jpg"
     },
     {
@@ -274,8 +274,8 @@
         "name": "Джем на лінії (Jamming)",
         "description": "Захисник відпрацьовує прес-прикриття на лінії розіграшу, використовуючи руки для порушення релізу ресивера без затримки. Фокус на роботі ніг.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_031.jpg"
     },
     {
@@ -283,8 +283,8 @@
         "name": "Розпізнавання Hot Route",
         "description": "Ресивери вчаться ідентифікувати бліц і миттєво переходити на «гарячі маршрути» (швидкі Slant або Drag), поки квотербек читає поле.",
         "duration": 12,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_032.jpg"
     },
     {
@@ -292,8 +292,8 @@
         "name": "Реакція на сигнали",
         "description": "Гравці реагують на підняття тренером кольорових мішків або голосові команди під час бігу. Покращує час реакції та прискорення.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "початковий",
+        "category": "conditioning",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_033.jpg"
     },
     {
@@ -301,8 +301,8 @@
         "name": "Концепції Pick/Rub маршрутів",
         "description": "Два ресивери біжать маршрути на перетин або заслон (Rub), щоб легально заблокувати захисника. Фокус на таймінгу.",
         "duration": 12,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_034.jpg"
     },
     {
@@ -310,8 +310,8 @@
         "name": "Рішення на 4-му дауні",
         "description": "Квотербек тренує читання захисту перед снепом і прийняття швидких рішень грати чи ні. Включає опції пасу та винесення.",
         "duration": 10,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_035.jpg"
     },
     {
@@ -319,8 +319,8 @@
         "name": "Техніка Trail (наздоганяння)",
         "description": "DB тренують гру з позиції відставання (trail position), використовуючи швидкість і кути для відновлення позиції та гри по м'ячу.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_036.jpg"
     },
     {
@@ -328,8 +328,8 @@
         "name": "Ловля на боковій лінії (Toe-Tap)",
         "description": "Ресивери біжать маршрути вздовж бокової лінії, практикуючись залишати обидві ноги в полі (Toe-tap) при складних ловлях.",
         "duration": 10,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_037.jpg"
     },
     {
@@ -337,8 +337,8 @@
         "name": "Вибуховий старт (Get-Off)",
         "description": "Лінійні гравці та рашери працюють над вибуховим першим кроком після снепу. Фокус на низькому центрі ваги та роботі рук.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_038.jpg"
     },
     {
@@ -346,8 +346,8 @@
         "name": "Темпова атака (No-Huddle)",
         "description": "Напад проводить серію розіграшів у швидкому темпі без збору в хадл. Розвиває комунікацію та швидке розпізнавання захисту.",
         "duration": 15,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_039.jpg"
     },
     {
@@ -355,8 +355,8 @@
         "name": "Боротьба за м'яч у стрибку (Jump Ball)",
         "description": "Один на один у заліковій зоні (Fade route). Ресивер і захисник змагаються за м'яч у найвищій точці. Акцент на позиції тіла.",
         "duration": 10,
-        "category": "пас",
-        "level": "просунутий",
+        "category": "passing",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_040.jpg"
     },
     {
@@ -364,8 +364,8 @@
         "name": "Стримування винесення (Contain)",
         "description": "Рашери тренують утримання зовнішнього плеча (outside leverage), щоб не дати бігуну вийти на простір. Техніки Spill vs Force.",
         "duration": 12,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_041.jpg"
     },
     {
@@ -373,8 +373,8 @@
         "name": "Безпека м'яча (Gauntlet)",
         "description": "Гравець з м'ячем пробігає крізь коридор захисників, які намагаються зірвати прапорці, тримаючи м'яч високо і міцно.",
         "duration": 8,
-        "category": "атака",
-        "level": "початковий",
+        "category": "offense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_042.jpg"
     },
     {
@@ -382,8 +382,8 @@
         "name": "Дроп QB та кидок на бігу",
         "description": "Квотербеки відпрацьовують дропи на 3, 5 і 7 кроків, після чого роблять ролл-аут і кидають у русі. Симуляція ігрової динаміки.",
         "duration": 12,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_043.jpg"
     },
     {
@@ -391,8 +391,8 @@
         "name": "Трюки лінії захисту (Stunts)",
         "description": "Рашери тренують схрещування (twisting) та обхідні маневри (looping), щоб заплутати блокувальників і створити коридори тиску.",
         "duration": 10,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_044.jpg"
     },
     {
@@ -400,8 +400,8 @@
         "name": "Ловля через плече",
         "description": "Ресивери біжать глибокий маршрут Go і відстежують м'яч через плече. Фокус на контролі тіла та «м'яких руках».",
         "duration": 10,
-        "category": "пас",
-        "level": "початковий",
+        "category": "passing",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_045.jpg"
     },
     {
@@ -409,8 +409,8 @@
         "name": "Tagging Up (Рух після ловлі)",
         "description": "Після ловлі короткого пасу ресивер має торкнутися конуса («tag up») перед прискоренням. Вчить фіксувати м'яч перед бігом.",
         "duration": 8,
-        "category": "атака",
-        "level": "початковий",
+        "category": "offense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_046.jpg"
     },
     {
@@ -418,8 +418,8 @@
         "name": "Ловля реакційного м'яча",
         "description": "Тренер кидає реакційний м'яч (неправильної форми). Гравець у бекпедалі має зреагувати на непередбачуваний відскок.",
         "duration": 6,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_047.jpg"
     },
     {
@@ -427,8 +427,8 @@
         "name": "Розпізнавання моушенів та змін",
         "description": "Захист тренується розпізнавати рух (motion) та зміни шикування (shifts) перед снепом, швидко коригуючи свої завдання.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_048.jpg"
     },
     {
@@ -436,8 +436,8 @@
         "name": "Пас під дальнє плече (Back Shoulder)",
         "description": "Просунутий маршрут на таймінг, де QB кидає м'яч під заднє плече ресивера (подалі від захисника). Вимагає довіри.",
         "duration": 12,
-        "category": "пас",
-        "level": "просунутий",
+        "category": "passing",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_049.jpg"
     },
     {
@@ -445,8 +445,8 @@
         "name": "Фінальне кардіо: Indian Runs",
         "description": "Команда біжить колоною; останній гравець робить спринт у початок колони. Продовжується, доки всі не пробіжать спринт кілька разів.",
         "duration": 10,
-        "category": "фізпідготовка",
-        "level": "всі рівні",
+        "category": "conditioning",
+        "level": "all",
         "imageUrl": "assets/images/drills_images_preview/drill_050.jpg"
     },
     {
@@ -454,8 +454,8 @@
         "name": "Робота QB у кишені (Agility Ladder)",
         "description": "QB проходить координаційну драбину, тримаючи погляд на полі, потім робить кидок. Розвиває відчуття кишені та швидкість ніг.",
         "duration": 10,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_051.jpg"
     },
     {
@@ -463,8 +463,8 @@
         "name": "L-подібний дрил (3 конуси)",
         "description": "Класичний маршрут навколо 3 конусів буквою L. Спринт, бекпедал та приставний крок. Відмінно для різноспрямованого вибуху.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_052.jpg"
     },
     {
@@ -472,8 +472,8 @@
         "name": "RPO: Читання та реакція",
         "description": "QB відпрацьовує опцію Run-Pass проти живого захисту. Потрібно прочитати крайнього гравця на лінії та вирішити: пас чи вкладка (<2 сек).",
         "duration": 15,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_053.jpg"
     },
     {
@@ -481,8 +481,8 @@
         "name": "Прогресія Swim & Rip (Pass Rush)",
         "description": "Рашери тренують рухи Swim та Rip проти мішків або пасивних блокувальників. Фокус на роботі рук та обертанні стегон.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_054.jpg"
     },
     {
@@ -490,8 +490,8 @@
         "name": "Таймінг Bubble Screen",
         "description": "Швидкий скрін-пас на ресивера з двома блокувальниками попереду. Акцент на швидкій ловлі та кутах блокування.",
         "duration": 10,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_055.jpg"
     },
     {
@@ -499,8 +499,8 @@
         "name": "Естафета переслідування",
         "description": "Гравець з м'ячем тікає, група захисників переслідує з різних точок. Перемагає той, хто першим зірве прапорець. Вчить командній погоні.",
         "duration": 12,
-        "category": "захист",
-        "level": "початковий",
+        "category": "defense",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_056.jpg"
     },
     {
@@ -508,8 +508,8 @@
         "name": "Точність маршруту Comeback",
         "description": "Ресивер біжить 12-15 ярдів, різко зупиняється і повертається до м'яча під кутом 45°. QB кидає низько. Чудово для гри біля бокової.",
         "duration": 10,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_057.jpg"
     },
     {
@@ -517,8 +517,8 @@
         "name": "Хаос: Зривання прапорців",
         "description": "Кілька гравців з м'ячами (3-4) бігають в обмеженій зоні, поки захисники намагаються їх зупинити. Привчає до швидких рішень у хаосі.",
         "duration": 8,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_058.jpg"
     },
     {
@@ -526,8 +526,8 @@
         "name": "Серія Jet Sweep",
         "description": "Відпрацювання моушену перед снепом, що переходить у Jet Sweep. Фокус на таймінгу вкладки та блокуванні на периметрі.",
         "duration": 12,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_059.jpg"
     },
     {
@@ -535,8 +535,8 @@
         "name": "Ловля нестабільних м'ячів",
         "description": "Тренер кидає м'ячі, що крутяться (wobbly balls). Змушує ресиверів адаптуватися і ловити погані паси — як у реальній грі.",
         "duration": 8,
-        "category": "пас",
-        "level": "початковий",
+        "category": "passing",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_060.jpg"
     },
     {
@@ -544,8 +544,8 @@
         "name": "Стрибки на тумбу (Box Jumps)",
         "description": "Стрибки на тумбу 45-60 см з миттєвим прискоренням на 10 ярдів після приземлення. Розвиває силу ніг та стартову швидкість.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "просунутий",
+        "category": "conditioning",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_061.jpg"
     },
     {
@@ -553,8 +553,8 @@
         "name": "Cover 0: Jam & Go",
         "description": "Повний прес-захист без підстраховки (Cover 0). DB робить джем і біжить з ресивером на вертикальних маршрутах. Високий тиск.",
         "duration": 12,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_062.jpg"
     },
     {
@@ -562,8 +562,8 @@
         "name": "Ярди після ловлі (YAC)",
         "description": "Ресивер ловить короткий пас, потім долає смугу перешкод (конуси, мішки), щоб набрати ярди. Акцент на баченні поля.",
         "duration": 10,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_063.jpg"
     },
     {
@@ -571,8 +571,8 @@
         "name": "Pat & Go",
         "description": "Класична вправа: удар по руці, миттєвий спринт та ловля м'яча. Велика кількість повторень для розігріву рук та старту.",
         "duration": 6,
-        "category": "пас",
-        "level": "початковий",
+        "category": "passing",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_064.jpg"
     },
     {
@@ -580,8 +580,8 @@
         "name": "Таймінг розіграшів Reverse",
         "description": "Відпрацювання розіграшів Reverse та подвійних реверсів. Фокус на безпеці м'яча, фейках та розтягуванні захисту.",
         "duration": 12,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_065.jpg"
     },
     {
@@ -589,8 +589,8 @@
         "name": "Перехоплення з-під перешкоди (Tarp Drop)",
         "description": "Захисник стоїть під підвішеною тканиною; м'яч кидають високо, тканина падає, змушуючи миттєво знайти м'яч та перехопити.",
         "duration": 10,
-        "category": "захист",
-        "level": "просунутий",
+        "category": "defense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_066.jpg"
     },
     {
@@ -598,8 +598,8 @@
         "name": "Speed Cut / Stick Drill",
         "description": "Ресивер біжить на повній швидкості, робить різкий кат (Stick), фіксує ногу на секунду і продовжує рух. Будує вибухові кати.",
         "duration": 8,
-        "category": "атака",
-        "level": "середній",
+        "category": "offense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_067.jpg"
     },
     {
@@ -607,8 +607,8 @@
         "name": "Реакція «Чотири кути»",
         "description": "Тренер вказує на один із чотирьох конусів; гравець має спринтувати до нього. Покращує візуальну обробку та перший крок.",
         "duration": 7,
-        "category": "фізпідготовка",
-        "level": "початковий",
+        "category": "conditioning",
+        "level": "beginner",
         "imageUrl": "assets/images/drills_images_preview/drill_068.jpg"
     },
     {
@@ -616,8 +616,8 @@
         "name": "Виконання трюкових розіграшів",
         "description": "Відпрацювання Flea-flicker, Hook-and-ladder та подвійних пасів. Мала кількість повторень, максимальний фокус на обмані.",
         "duration": 15,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_069.jpg"
     },
     {
@@ -625,8 +625,8 @@
         "name": "Ловля низьких м'ячів (Scoop)",
         "description": "М'ячі кидають навмисно низько. Ресивери тренують підбір м'яча (scoop), не збиваючи крок. Виключає ловлю тілом.",
         "duration": 8,
-        "category": "пас",
-        "level": "середній",
+        "category": "passing",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_070.jpg"
     },
     {
@@ -634,8 +634,8 @@
         "name": "Стримування шпигуном (Spy)",
         "description": "Призначений захисник (Spy) слідує за квотербеком: його задача дзеркалити рухи QB і не дати йому втекти.",
         "duration": 10,
-        "category": "захист",
-        "level": "середній",
+        "category": "defense",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_071.jpg"
     },
     {
@@ -643,8 +643,8 @@
         "name": "Подвійний рух Hitch & Go",
         "description": "Ресивер імітує зупинку на 6 ярдах (Hitch), а потім вибухає вертикально. Завдання змусити DB повірити у фейк.",
         "duration": 10,
-        "category": "пас",
-        "level": "просунутий",
+        "category": "passing",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_072.jpg"
     },
     {
@@ -652,8 +652,8 @@
         "name": "Спринт з парашутом",
         "description": "Гравці біжать з парашутами опору. Розвиває потужність ніг та максимальну швидкість після від'єднання парашута.",
         "duration": 8,
-        "category": "фізпідготовка",
-        "level": "середній",
+        "category": "conditioning",
+        "level": "intermediate",
         "imageUrl": "assets/images/drills_images_preview/drill_073.jpg"
     },
     {
@@ -661,8 +661,8 @@
         "name": "Обмін Центр-QB під тиском",
         "description": "Центр робить снеп, поки захисник одразу рашить. QB повинен зловити м'яч, уникнути тиску і зробити пас. Симуляція поганих снепів.",
         "duration": 10,
-        "category": "атака",
-        "level": "просунутий",
+        "category": "offense",
+        "level": "advanced",
         "imageUrl": "assets/images/drills_images_preview/drill_074.jpg"
     },
     {
@@ -670,8 +670,8 @@
         "name": "Формація перемоги (Kneel)",
         "description": "Відпрацювання захисту м'яча та часу у формації Victory. Чистий снеп, поки лінія поглинає раш. Вчить дисципліні.",
         "duration": 5,
-        "category": "атака",
-        "level": "всі рівні",
+        "category": "offense",
+        "level": "all",
         "imageUrl": "assets/images/drills_images_preview/drill_075.jpg"
     }
 ]
