@@ -75,7 +75,7 @@ import {ConfirmData} from '../../models/confirm-data.interface';
     }
 
     .animate-fade-in {
-      animation: fade-in 0.2s ease-out;
+      animation: fade-in 0.1s ease-out;
     }
   `]
 })
