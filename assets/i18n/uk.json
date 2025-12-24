@@ -1,99 +1,100 @@
 {
-    "NAV": {
-        "TITLE": "Flag Planner",
-        "PRO_EDITION": "Pro версія",
-        "DRILL_CATALOG": "Каталог вправ",
-        "TRAINING_BUILDER": "Конструктор тренувань",
-        "MY_TRAININGS": "Мої тренування"
+  "NAV": {
+    "TITLE": "Flag Planner",
+    "PRO_EDITION": "Pro версія",
+    "DRILL_CATALOG": "Каталог вправ",
+    "TRAINING_BUILDER": "Конструктор тренувань",
+    "MY_TRAININGS": "Мої тренування"
+  },
+  "CATALOG": {
+    "TITLE": "Каталог вправ",
+    "SUBTITLE": "Переглядайте та знаходьте вправи для ваших тренувань",
+    "SEARCH_LABEL": "Пошук",
+    "SEARCH_PLACEHOLDER": "Пошук вправ...",
+    "CATEGORY_LABEL": "Категорія",
+    "ALL_CATEGORIES": "Всі категорії",
+    "LEVEL_LABEL": "Рівень",
+    "ALL_LEVELS": "Всі рівні",
+    "ACTIVE_FILTERS": "Активні фільтри:",
+    "CLEAR_ALL": "Очистити все",
+    "SHOWING_RESULTS": "Показано {{count}} вправ",
+    "RESULTS_TITLE": "Знайдено результатів",
+    "NO_RESULTS_TITLE": "Вправ не знайдено",
+    "NO_RESULTS_DESC": "Спробуйте змінити фільтри, щоб побачити більше результатів",
+    "CLEAR_FILTERS_BTN": "Очистити фільтри"
+  },
+  "DRILL": {
+    "CATEGORIES": {
+      "PASSING": "Пас",
+      "DEFENSE": "Захист",
+      "OFFENSE": "Напад",
+      "CONDITIONING": "Фізична підготовка",
+      "WARMUP": "Розминка",
+      "FLAG_PULLING": "Зривання прапорців"
     },
-    "CATALOG": {
-        "TITLE": "Каталог вправ",
-        "SUBTITLE": "Переглядайте та знаходьте вправи для ваших тренувань",
-        "SEARCH_LABEL": "Пошук",
-        "SEARCH_PLACEHOLDER": "Пошук вправ...",
-        "CATEGORY_LABEL": "Категорія",
-        "ALL_CATEGORIES": "Всі категорії",
-        "LEVEL_LABEL": "Рівень",
-        "ALL_LEVELS": "Всі рівні",
-        "ACTIVE_FILTERS": "Активні фільтри:",
-        "CLEAR_ALL": "Очистити все",
-        "SHOWING_RESULTS": "Показано {{count}} вправ",
-        "NO_RESULTS_TITLE": "Вправ не знайдено",
-        "NO_RESULTS_DESC": "Спробуйте змінити фільтри, щоб побачити більше результатів",
-        "CLEAR_FILTERS_BTN": "Очистити фільтри"
-    },
-    "DRILL": {
-        "CATEGORIES": {
-            "PASSING": "Пас",
-            "DEFENSE": "Захист",
-            "OFFENSE": "Напад",
-            "CONDITIONING": "Фізична підготовка",
-            "WARMUP": "Розминка",
-            "FLAG_PULLING": "Зривання прапорців"
-        },
-        "LEVELS": {
-            "BEGINNER": "Початковий",
-            "INTERMEDIATE": "Середній",
-            "ADVANCED": "Просунутий"
-        }
-    },
-    "DRILL_DETAIL": {
-        "BACK_TO_CATALOG": "Назад до каталогу",
-        "DURATION": "Тривалість",
-        "MINUTES": "хвилин",
-        "CATEGORY": "Категорія",
-        "LEVEL": "Рівень",
-        "DESCRIPTION": "Опис",
-        "INSTRUCTIONS": "Інструкції",
-        "EQUIPMENT": "Необхідне обладнання",
-        "TIPS": "Поради тренера",
-        "ADD_TO_TRAINING": "Додати до тренування",
-        "WATCH_VIDEO": "Дивитись відео",
-        "NO_VIDEO": "Відео недоступне",
-        "RELATED_DRILLS": "Схожі вправи"
-    },
-    "MY_TRAININGS": {
-        "TITLE": "Мої тренування",
-        "SUBTITLE": "Керуйте збереженими тренуваннями",
-        "NEW_TRAINING_BTN": "Нове тренування",
-        "VIEW_DETAILS": "Деталі",
-        "DELETE": "Видалити",
-        "NO_TRAININGS_TITLE": "Ще немає тренувань",
-        "NO_TRAININGS_DESC": "Почніть створювати своє перше тренування, щоб організувати вправи та створити ефективні плани",
-        "CREATE_FIRST_BTN": "Створити перше тренування",
-        "CONFIRM_DELETE": "Ви впевнені, що хочете видалити \"{{name}}\"? Цю дію неможливо скасувати."
-    },
-    "CONFIRMATION": {
-        "CONFIRM": "Підтвердити",
-        "CANCEL": "Скасувати",
-        "TITLE": "Підтвердження дії"
-    },
-    "TRAINING_BUILDER": {
-        "TITLE": "Конструктор тренувань",
-        "SUBTITLE": "Створіть власне тренування",
-        "RESET": "Скинути",
-        "SAVE_TRAINING": "Зберегти тренування",
-        "AVAILABLE_DRILLS": "Доступні вправи",
-        "SEARCH_PLACEHOLDER": "Пошук вправ...",
-        "NO_DRILLS": "Вправ не знайдено",
-        "TRAINING_NAME_LABEL": "Назва тренування",
-        "TRAINING_NAME_PLACEHOLDER": "напр., Ранкове тренування - Тиждень 1",
-        "DURATION": "Тривалість",
-        "MIN": "хв",
-        "DRILLS": "Вправи",
-        "SESSION_PLAN": "План заняття",
-        "CLEAR_ALL": "Очистити все",
-        "COACH_NOTES": "Нотатки тренера",
-        "NOTES_PLACEHOLDER": "Додайте спеціальні інструкції...",
-        "START_BUILDING_TITLE": "Почати створення",
-        "START_BUILDING_DESC": "Перетягніть вправи з бічної панелі, щоб створити тренування.",
-        "CONFIRM_CLEAR": "Ви впевнені, що хочете видалити всі вправи?",
-        "CONFIRM_RESET": "Ви впевнені, що хочете скинути? Всі незбережені зміни будуть втрачені.",
-        "SAVE_ERROR": "Будь ласка, введіть назву тренування та додайте хоча б одну вправу",
-        "SAVE_SUCCESS": "Тренування успішно збережено!",
-        "CATEGORY_LABEL": "Категорія",
-        "ALL_CATEGORIES": "Всі категорії",
-        "LEVEL_LABEL": "Рівень",
-        "ALL_LEVELS": "Всі рівні"
+    "LEVELS": {
+      "BEGINNER": "Початковий",
+      "INTERMEDIATE": "Середній",
+      "ADVANCED": "Просунутий"
     }
+  },
+  "DRILL_DETAIL": {
+    "BACK_TO_CATALOG": "Назад до каталогу",
+    "DURATION": "Тривалість",
+    "MINUTES": "хвилин",
+    "CATEGORY": "Категорія",
+    "LEVEL": "Рівень",
+    "DESCRIPTION": "Опис",
+    "INSTRUCTIONS": "Інструкції",
+    "EQUIPMENT": "Необхідне обладнання",
+    "TIPS": "Поради тренера",
+    "ADD_TO_TRAINING": "Додати до тренування",
+    "WATCH_VIDEO": "Дивитись відео",
+    "NO_VIDEO": "Відео недоступне",
+    "RELATED_DRILLS": "Схожі вправи"
+  },
+  "MY_TRAININGS": {
+    "TITLE": "Мої тренування",
+    "SUBTITLE": "Керуйте збереженими тренуваннями",
+    "NEW_TRAINING_BTN": "Нове тренування",
+    "VIEW_DETAILS": "Деталі",
+    "DELETE": "Видалити",
+    "NO_TRAININGS_TITLE": "Ще немає тренувань",
+    "NO_TRAININGS_DESC": "Почніть створювати своє перше тренування, щоб організувати вправи та створити ефективні плани",
+    "CREATE_FIRST_BTN": "Створити перше тренування",
+    "CONFIRM_DELETE": "Ви впевнені, що хочете видалити \"{{name}}\"? Цю дію неможливо скасувати."
+  },
+  "CONFIRMATION": {
+    "CONFIRM": "Підтвердити",
+    "CANCEL": "Скасувати",
+    "TITLE": "Підтвердження дії"
+  },
+  "TRAINING_BUILDER": {
+    "TITLE": "Конструктор тренувань",
+    "SUBTITLE": "Створіть власне тренування",
+    "RESET": "Скинути",
+    "SAVE_TRAINING": "Зберегти тренування",
+    "AVAILABLE_DRILLS": "Доступні вправи",
+    "SEARCH_PLACEHOLDER": "Пошук вправ...",
+    "NO_DRILLS": "Вправ не знайдено",
+    "TRAINING_NAME_LABEL": "Назва тренування",
+    "TRAINING_NAME_PLACEHOLDER": "напр., Ранкове тренування - Тиждень 1",
+    "DURATION": "Тривалість",
+    "MIN": "хв",
+    "DRILLS": "Вправи",
+    "SESSION_PLAN": "План заняття",
+    "CLEAR_ALL": "Очистити все",
+    "COACH_NOTES": "Нотатки тренера",
+    "NOTES_PLACEHOLDER": "Додайте спеціальні інструкції...",
+    "START_BUILDING_TITLE": "Почати створення",
+    "START_BUILDING_DESC": "Перетягніть вправи з бічної панелі, щоб створити тренування.",
+    "CONFIRM_CLEAR": "Ви впевнені, що хочете видалити всі вправи?",
+    "CONFIRM_RESET": "Ви впевнені, що хочете скинути? Всі незбережені зміни будуть втрачені.",
+    "SAVE_ERROR": "Будь ласка, введіть назву тренування та додайте хоча б одну вправу",
+    "SAVE_SUCCESS": "Тренування успішно збережено!",
+    "CATEGORY_LABEL": "Категорія",
+    "ALL_CATEGORIES": "Всі категорії",
+    "LEVEL_LABEL": "Рівень",
+    "ALL_LEVELS": "Всі рівні"
+  }
 }
