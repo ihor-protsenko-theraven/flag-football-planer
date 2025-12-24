@@ -64,15 +64,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           <div class="hidden md:flex items-center space-x-2 ml-4">
             <button
               (click)="switchLanguage('en')"
-              [class.text-green-600]="currentLang === 'en'"
-              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+              [class]="currentLang === 'en' ? 'px-3 py-1.5 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
             >EN
             </button>
             <span class="text-slate-300">|</span>
             <button
               (click)="switchLanguage('uk')"
-              [class.text-green-600]="currentLang === 'uk'"
-              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+              [class]="currentLang === 'uk' ? 'px-3 py-1.5 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
             >UK
             </button>
           </div>
@@ -122,14 +120,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           <div class="px-4 py-3 border-t border-slate-100 flex items-center space-x-4">
             <button
               (click)="switchLanguage('en')"
-              [class.text-green-600]="currentLang === 'en'"
-              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+              [class]="currentLang === 'en' ? 'px-4 py-2 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-4 py-2 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
             >English
             </button>
             <button
               (click)="switchLanguage('uk')"
-              [class.text-green-600]="currentLang === 'uk'"
-              class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+              [class]="currentLang === 'uk' ? 'px-4 py-2 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30 transition-all' : 'px-4 py-2 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all'"
             >Українська
             </button>
           </div>
@@ -141,10 +137,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent {
   mobileMenuOpen = false;
-  currentLang = 'en';
+  currentLang = 'uk';
 
   constructor(private translate: TranslateService) {
-    this.currentLang = translate.currentLang || translate.defaultLang || 'en';
+    this.currentLang = translate.currentLang || translate.defaultLang || 'uk';
   }
 
   switchLanguage(lang: string) {

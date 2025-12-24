@@ -14,8 +14,8 @@ export class App {
 
   constructor(private translate: TranslateService) {
     // Set default language
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('uk');
     // Use default language
-    translate.use('en');
+    translate.use('uk');
   }
 }
