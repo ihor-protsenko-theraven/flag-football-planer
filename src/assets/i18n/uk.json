@@ -53,7 +53,9 @@
     "ADD_TO_TRAINING": "Додати до тренування",
     "WATCH_VIDEO": "Дивитись відео",
     "NO_VIDEO": "Відео недоступне",
-    "RELATED_DRILLS": "Схожі вправи"
+    "RELATED_DRILLS": "Схожі вправи",
+    "DRILL_ADDED": "Вправу додано до тренування!",
+    "DRILL_ALREADY_EXISTS": "Вправа вже є в тренуванні"
   },
   "MY_TRAININGS": {
     "TITLE": "Мої тренування",

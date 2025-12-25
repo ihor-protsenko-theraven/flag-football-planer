@@ -1,12 +1,14 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ActivatedRoute, Router, RouterModule} from '@angular/router';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {SafeHtml} from '@angular/platform-browser';
 
 import {DrillService} from '../../services/drill.service';
 import {TranslationHelperService} from '../../services/translation-helper.service';
 import {DrillUiService} from '../../services/drill-ui.service';
+import {TrainingBuilderService} from '../../services/training-builder.service';
+import {ToastService} from '../../services/toast.service';
 import {Drill} from '../../models/drill.model';
 import {DrillCardComponent} from '../../components/drill-card/drill-card.component';
 
@@ -120,6 +122,7 @@ import {DrillCardComponent} from '../../components/drill-card/drill-card.compone
 
                   <div class="hidden md:block mt-auto">
                     <button
+                      (click)="addToTraining()"
                       class="btn-primary w-full py-3 text-lg shadow-lg shadow-green-500/20 flex items-center justify-center gap-2">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -242,6 +245,7 @@ import {DrillCardComponent} from '../../components/drill-card/drill-card.compone
         <div
           class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:hidden z-50 pb-safe-area">
           <button
+            (click)="addToTraining()"
             class="btn-primary w-full py-3.5 text-base shadow-lg shadow-green-500/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -270,6 +274,9 @@ export class DrillDetailComponent implements OnInit {
   private readonly drillService = inject(DrillService);
   readonly translationHelper = inject(TranslationHelperService);
   private readonly drillUi = inject(DrillUiService);
+  private readonly trainingBuilder = inject(TrainingBuilderService);
+  private readonly toastService = inject(ToastService);
+  private readonly translate = inject(TranslateService);
 
   drill = signal<Drill | null>(null);
   relatedDrills = signal<Drill[]>([]);
@@ -329,5 +336,18 @@ export class DrillDetailComponent implements OnInit {
 
   getLevelIcon(drillData: Drill): SafeHtml {
     return this.drillUi.getLevelIcon(drillData.level);
+  }
+
+  addToTraining(): void {
+    const currentDrill = this.drill();
+    if (!currentDrill) return;
+
+    const wasAdded = this.trainingBuilder.addDrill(currentDrill);
+
+    if (wasAdded) {
+      this.toastService.success(this.translate.instant('DRILL_DETAIL.DRILL_ADDED'));
+    } else {
+      this.toastService.error(this.translate.instant('DRILL_DETAIL.DRILL_ALREADY_EXISTS'));
+    }
   }
 }

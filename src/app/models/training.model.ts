@@ -1,3 +1,5 @@
+import {Drill} from './drill.model';
+
 export interface Training {
   id: string;
   name: string;
@@ -12,4 +14,8 @@ export interface TrainingDrill {
   duration: number;
   notes?: string;
   order: number;
+}
+
+export interface BuilderDrill extends TrainingDrill {
+  drill?: Drill;
 }

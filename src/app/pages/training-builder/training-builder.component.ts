@@ -1,22 +1,20 @@
-import { Component, computed, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
-import { filter } from 'rxjs';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import {Component, inject, OnInit, signal, ViewEncapsulation} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import {CdkDragDrop, DragDropModule} from '@angular/cdk/drag-drop';
+import {filter} from 'rxjs';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
-import { DrillService } from '../../services/drill.service';
-import { TrainingService } from '../../services/training.service';
-import { ConfirmationService } from '../../services/confirmation.service';
-import { DrillUiService } from '../../services/drill-ui.service';
+import {DrillService} from '../../services/drill.service';
+import {TrainingService} from '../../services/training.service';
+import {ConfirmationService} from '../../services/confirmation.service';
+import {DrillUiService} from '../../services/drill-ui.service';
+import {TrainingBuilderService} from '../../services/training-builder.service';
+import {ToastService} from '../../services/toast.service';
 
-import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from '../../models/drill.model';
-import { TrainingDrill } from '../../models/training.model';
-
-interface BuilderDrill extends TrainingDrill {
-  drill?: Drill;
-}
+import {Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
+import {BuilderDrill} from '../../models/training.model';
 
 @Component({
   selector: 'app-training-builder',
@@ -150,7 +148,8 @@ interface BuilderDrill extends TrainingDrill {
 
           <div class="lg:col-span-8 xl:col-span-9 space-y-6">
 
-            <div class="card p-4 md:p-6 sticky top-20 z-30 md:static shadow-lg md:shadow-card ring-1 ring-slate-900/5 md:ring-0">
+            <div
+              class="card p-4 md:p-6 sticky top-20 z-30 md:static shadow-lg md:shadow-card ring-1 ring-slate-900/5 md:ring-0">
               <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
                 <div class="flex-1 w-full">
                   <label class="block text-sm font-semibold text-slate-700 mb-2">
@@ -166,7 +165,8 @@ interface BuilderDrill extends TrainingDrill {
 
                 <div class="flex gap-3 w-full md:w-auto">
                   <div class="flex-1 md:w-32 p-2 md:p-3 bg-green-50 rounded-xl border border-green-100 text-center">
-                    <p class="text-[10px] md:text-xs font-semibold text-green-600 uppercase tracking-wide mb-0.5 md:mb-1">
+                    <p
+                      class="text-[10px] md:text-xs font-semibold text-green-600 uppercase tracking-wide mb-0.5 md:mb-1">
                       {{ 'TRAINING_BUILDER.DURATION' | translate }}
                     </p>
                     <p class="text-xl md:text-2xl font-bold text-green-700">
@@ -175,7 +175,8 @@ interface BuilderDrill extends TrainingDrill {
                     </p>
                   </div>
                   <div class="flex-1 md:w-32 p-2 md:p-3 bg-blue-50 rounded-xl border border-blue-100 text-center">
-                    <p class="text-[10px] md:text-xs font-semibold text-blue-600 uppercase tracking-wide mb-0.5 md:mb-1">
+                    <p
+                      class="text-[10px] md:text-xs font-semibold text-blue-600 uppercase tracking-wide mb-0.5 md:mb-1">
                       {{ 'TRAINING_BUILDER.DRILLS' | translate }}
                     </p>
                     <p class="text-xl md:text-2xl font-bold text-blue-700">{{ trainingDrills().length }}</p>
@@ -342,6 +343,8 @@ export class TrainingBuilderComponent implements OnInit {
   private readonly translate = inject(TranslateService);
   private readonly confirmationService = inject(ConfirmationService);
   private readonly drillUi = inject(DrillUiService);
+  private readonly trainingBuilder = inject(TrainingBuilderService);
+  private readonly toastService = inject(ToastService);
 
   readonly categories = DRILL_CATEGORIES;
   readonly levels = DRILL_LEVELS;
@@ -353,10 +356,10 @@ export class TrainingBuilderComponent implements OnInit {
 
 
   availableDrills = signal<Drill[]>([]);
-  trainingDrills = signal<BuilderDrill[]>([]);
-  totalDuration = computed(() =>
-    this.trainingDrills().reduce((sum, drill) => sum + (drill.duration || 0), 0)
-  );
+
+  // Use training builder service for state management
+  trainingDrills = this.trainingBuilder.trainingDrills;
+  totalDuration = this.trainingBuilder.totalDuration;
 
   ngOnInit(): void {
     this.loadDrills();
@@ -379,22 +382,17 @@ export class TrainingBuilderComponent implements OnInit {
   }
 
   addDrillToTraining(drill: Drill): void {
-    const newDrill: BuilderDrill = {
-      drillId: drill.id,
-      duration: drill.duration,
-      notes: '',
-      order: this.trainingDrills().length,
-      drill
-    };
+    const wasAdded = this.trainingBuilder.addDrill(drill);
 
-    this.trainingDrills.update(drills => [...drills, newDrill]);
+    if (wasAdded) {
+      this.toastService.success(this.translate.instant('DRILL_DETAIL.DRILL_ADDED'));
+    } else {
+      this.toastService.error(this.translate.instant('DRILL_DETAIL.DRILL_ALREADY_EXISTS'));
+    }
   }
 
   removeDrill(index: number): void {
-    this.trainingDrills.update(drills => {
-      const updated = drills.filter((_, i) => i !== index);
-      return updated.map((item, idx) => ({ ...item, order: idx }));
-    });
+    this.trainingBuilder.removeDrill(index);
   }
 
   clearAllDrills(): void {
@@ -406,7 +404,7 @@ export class TrainingBuilderComponent implements OnInit {
     }).pipe(
       filter(confirmed => confirmed)
     ).subscribe(() => {
-      this.trainingDrills.set([]);
+      this.trainingBuilder.clearAllDrills();
     });
   }
 
@@ -420,17 +418,7 @@ export class TrainingBuilderComponent implements OnInit {
   onDrop(event: CdkDragDrop<BuilderDrill[]>): void {
     if (event.previousIndex === event.currentIndex) return;
 
-    this.trainingDrills.update(currentDrills => {
-
-      const updatedDrills = [...currentDrills];
-
-      moveItemInArray(updatedDrills, event.previousIndex, event.currentIndex);
-
-      return updatedDrills.map((drill, index) => ({
-        ...drill,
-        order: index
-      }));
-    });
+    this.trainingBuilder.reorderDrills(event.previousIndex, event.currentIndex);
   }
 
   canSave(): boolean {
@@ -445,7 +433,7 @@ export class TrainingBuilderComponent implements OnInit {
 
     const training = {
       name: this.trainingName,
-      drills: this.trainingDrills().map(({ drill, ...rest }) => rest),
+      drills: this.trainingDrills().map(({drill, ...rest}) => rest),
       totalDuration: this.totalDuration()
     };
 
@@ -464,7 +452,7 @@ export class TrainingBuilderComponent implements OnInit {
       filter(confirmed => confirmed)
     ).subscribe(() => {
       this.trainingName = '';
-      this.trainingDrills.set([]);
+      this.trainingBuilder.clearAllDrills();
       this.searchQuery = '';
       this.selectedCategory = undefined;
       this.selectedLevel = undefined;

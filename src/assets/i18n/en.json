@@ -53,7 +53,9 @@
     "ADD_TO_TRAINING": "Add to Training",
     "WATCH_VIDEO": "Watch Video",
     "NO_VIDEO": "No video available",
-    "RELATED_DRILLS": "Related Drills"
+    "RELATED_DRILLS": "Related Drills",
+    "DRILL_ADDED": "Drill added to training!",
+    "DRILL_ALREADY_EXISTS": "Drill is already in training"
   },
   "MY_TRAININGS": {
     "TITLE": "My Trainings",
