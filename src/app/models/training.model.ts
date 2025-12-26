@@ -1,10 +1,12 @@
-import {Drill} from './drill.model';
+import { Drill, DrillLevel } from './drill.model';
 
 export interface Training {
   id: string;
   name: string;
+  description?: string;
   createdBy?: string;
   createdAt: Date;
+  level?: DrillLevel;
   drills: TrainingDrill[];
   totalDuration: number;
 }

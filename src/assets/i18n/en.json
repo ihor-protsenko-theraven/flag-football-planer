@@ -83,6 +83,8 @@
     "NO_DRILLS": "No drills found",
     "TRAINING_NAME_LABEL": "Training Name",
     "TRAINING_NAME_PLACEHOLDER": "e.g., Morning Practice - Week 1",
+    "DESCRIPTION_LABEL": "Training Description",
+    "DESCRIPTION_PLACEHOLDER": "Add a brief description of goals and the plan for this session...",
     "DURATION": "Duration",
     "MIN": "min",
     "DRILLS": "Drills",

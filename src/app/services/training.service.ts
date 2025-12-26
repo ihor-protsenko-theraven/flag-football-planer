@@ -1,80 +1,69 @@
-import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { Training, TrainingDrill } from '../models/training.model';
-import mockTrainings from '../../assets/data/mock-trainings.json';
+import {inject, Injectable} from '@angular/core';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {catchError, from, map, Observable, of} from 'rxjs';
+import {TrainingDbService} from './training-db.service';
+import {TrainingPlan} from '../models/training-plan.interface';
+import {Training, TrainingDrill} from '../models/training.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class TrainingService {
-    private trainings: Training[] = mockTrainings.map(t => ({
-        ...t,
-        createdAt: new Date(t.createdAt)
-    })) as Training[];
+  private readonly trainingDb = inject(TrainingDbService);
 
-    private trainingsSubject = new BehaviorSubject<Training[]>(this.trainings);
-    public trainings$ = this.trainingsSubject.asObservable();
+  /**
+   * Observable of all training plans from Firestore, mapped to the app's Training model.
+   */
+  public readonly trainings$ = this.trainingDb.getAllPlans().pipe(
+    map(plans => plans.map(plan => ({
+      ...plan,
+      createdAt: new Date(plan.createdAt)
+    } as Training)))
+  );
 
-    constructor() { }
+  /**
+   * Signal representing the current list of training plans.
+   */
+  public readonly trainings = toSignal(this.trainings$, {initialValue: [] as Training[]});
 
-    getTrainings(): Observable<Training[]> {
-        return of(this.trainings);
-    }
+  constructor() {
+  }
 
-    getTrainingById(id: string): Observable<Training | undefined> {
-        const training = this.trainings.find(t => t.id === id);
-        return of(training);
-    }
+  getTrainings(): Observable<Training[]> {
+    return this.trainings$;
+  }
 
-    createTraining(training: Omit<Training, 'id' | 'createdAt'>): Observable<Training> {
-        const newTraining: Training = {
-            ...training,
-            id: `training_${Date.now()}`,
-            createdAt: new Date(),
-            totalDuration: this.calculateTotalDuration(training.drills)
-        };
+  getTrainingById(id: string): Observable<Training | undefined> {
+    return this.trainings$.pipe(
+      map(trainings => trainings.find(t => t.id === id))
+    );
+  }
 
-        this.trainings.push(newTraining);
-        this.trainingsSubject.next(this.trainings);
+  createTraining(training: Omit<Training, 'id' | 'createdAt'>): Observable<void> {
+    const newPlan: Omit<TrainingPlan, 'id'> = {
+      ...training,
+      createdBy: training.createdBy || 'coach_default',
+      createdAt: new Date().toISOString()
+    };
 
-        return of(newTraining);
-    }
+    return from(this.trainingDb.saveNewPlan(newPlan)).pipe(
+      map(() => void 0)
+    );
+  }
 
-    updateTraining(id: string, updates: Partial<Training>): Observable<Training | null> {
-        const index = this.trainings.findIndex(t => t.id === id);
+  updateTraining(id: string, updates: Partial<Training>): Observable<Training | null> {
+    // Implementation for update if needed
+    return of(null);
+  }
 
-        if (index === -1) {
-            return of(null);
-        }
+  deleteTraining(id: string): Observable<boolean> {
+    return from(this.trainingDb.deletePlan(id)).pipe(
+      map(() => true),
+      catchError(() => of(false))
+    );
+  }
 
-        const updatedTraining: Training = {
-            ...this.trainings[index],
-            ...updates,
-            totalDuration: updates.drills
-                ? this.calculateTotalDuration(updates.drills)
-                : this.trainings[index].totalDuration
-        };
-
-        this.trainings[index] = updatedTraining;
-        this.trainingsSubject.next(this.trainings);
-
-        return of(updatedTraining);
-    }
-
-    deleteTraining(id: string): Observable<boolean> {
-        const index = this.trainings.findIndex(t => t.id === id);
-
-        if (index === -1) {
-            return of(false);
-        }
-
-        this.trainings.splice(index, 1);
-        this.trainingsSubject.next(this.trainings);
-
-        return of(true);
-    }
-
-    private calculateTotalDuration(drills: TrainingDrill[]): number {
-        return drills.reduce((total, drill) => total + drill.duration, 0);
-    }
+  private calculateTotalDuration(drills: TrainingDrill[]): number {
+    return drills.reduce((total, drill) => total + drill.duration, 0);
+  }
 }

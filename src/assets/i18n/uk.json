@@ -83,6 +83,8 @@
     "NO_DRILLS": "Вправ не знайдено",
     "TRAINING_NAME_LABEL": "Назва тренування",
     "TRAINING_NAME_PLACEHOLDER": "напр., Ранкове тренування - Тиждень 1",
+    "DESCRIPTION_LABEL": "Опис тренування",
+    "DESCRIPTION_PLACEHOLDER": "Додайте короткий опис цілей та плану тренування...",
     "DURATION": "Тривалість",
     "MIN": "хв",
     "DRILLS": "Вправи",

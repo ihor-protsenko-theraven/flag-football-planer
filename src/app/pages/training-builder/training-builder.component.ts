@@ -1,20 +1,20 @@
-import {Component, inject, OnInit, signal, ViewEncapsulation} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
-import {CdkDragDrop, DragDropModule} from '@angular/cdk/drag-drop';
-import {filter} from 'rxjs';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import { Component, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { filter } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-import {DrillService} from '../../services/drill.service';
-import {TrainingService} from '../../services/training.service';
-import {ConfirmationService} from '../../services/confirmation.service';
-import {DrillUiService} from '../../services/drill-ui.service';
-import {TrainingBuilderService} from '../../services/training-builder.service';
-import {ToastService} from '../../services/toast.service';
+import { DrillService } from '../../services/drill.service';
+import { TrainingService } from '../../services/training.service';
+import { ConfirmationService } from '../../services/confirmation.service';
+import { DrillUiService } from '../../services/drill-ui.service';
+import { TrainingBuilderService } from '../../services/training-builder.service';
+import { ToastService } from '../../services/toast.service';
 
-import {Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
-import {BuilderDrill} from '../../models/training.model';
+import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from '../../models/drill.model';
+import { BuilderDrill } from '../../models/training.model';
 
 @Component({
   selector: 'app-training-builder',
@@ -159,8 +159,34 @@ import {BuilderDrill} from '../../models/training.model';
                     type="text"
                     [(ngModel)]="trainingName"
                     [placeholder]="'TRAINING_BUILDER.TRAINING_NAME_PLACEHOLDER' | translate"
-                    class="input-field text-lg font-medium"
+                    class="input-field text-sm font-medium"
                   />
+                </div>
+
+                <div class="flex-1 w-full">
+                  <label class="block text-sm font-semibold text-slate-700 mb-2">
+                    {{ 'TRAINING_BUILDER.DESCRIPTION_LABEL' | translate }}
+                  </label>
+                  <input
+                    type="text"
+                    [(ngModel)]="trainingDescription"
+                    [placeholder]="'TRAINING_BUILDER.DESCRIPTION_PLACEHOLDER' | translate"
+                    class="input-field text-sm"
+                  />
+                </div>
+
+                <div class="w-full md:w-32">
+                  <label class="block text-sm font-semibold text-slate-700 mb-2">
+                    {{ 'TRAINING_BUILDER.LEVEL_LABEL' | translate }}
+                  </label>
+                  <select
+                    [(ngModel)]="trainingLevel"
+                    class="input-field  text-sm"
+                  >
+                    @for (level of levels; track level.value) {
+                      <option [value]="level.value">{{ level.translationKey | translate }}</option>
+                    }
+                  </select>
                 </div>
 
                 <div class="flex gap-3 w-full md:w-auto">
@@ -353,6 +379,8 @@ export class TrainingBuilderComponent implements OnInit {
   selectedCategory: DrillCategory | undefined;
   selectedLevel: DrillLevel | undefined;
   trainingName = '';
+  trainingDescription = '';
+  trainingLevel: DrillLevel = 'beginner';
 
 
   availableDrills = signal<Drill[]>([]);
@@ -433,7 +461,9 @@ export class TrainingBuilderComponent implements OnInit {
 
     const training = {
       name: this.trainingName,
-      drills: this.trainingDrills().map(({drill, ...rest}) => rest),
+      description: this.trainingDescription,
+      level: this.trainingLevel,
+      drills: this.trainingDrills().map(({ drill, ...rest }) => rest),
       totalDuration: this.totalDuration()
     };
 
@@ -454,6 +484,8 @@ export class TrainingBuilderComponent implements OnInit {
       filter(confirmed => confirmed)
     ).subscribe(() => {
       this.trainingName = '';
+      this.trainingDescription = '';
+      this.trainingLevel = 'beginner';
       this.trainingBuilder.clearAllDrills();
       this.searchQuery = '';
       this.selectedCategory = undefined;
