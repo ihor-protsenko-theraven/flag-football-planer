@@ -96,13 +96,13 @@ export class ToastComponent {
 
     switch (type) {
       case 'success':
-        return `${baseClasses} bg-green-50/95 border-green-200 text-green-800`;
+        return `${baseClasses} bg-green-50/95 dark:bg-green-900/90 border-green-200 dark:border-green-800 text-green-800 dark:text-green-100`;
       case 'error':
-        return `${baseClasses} bg-red-50/95 border-red-200 text-red-800`;
+        return `${baseClasses} bg-red-50/95 dark:bg-red-900/90 border-red-200 dark:border-red-800 text-red-800 dark:text-red-100`;
       case 'info':
-        return `${baseClasses} bg-blue-50/95 border-blue-200 text-blue-800`;
+        return `${baseClasses} bg-blue-50/95 dark:bg-blue-900/90 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-100`;
       default:
-        return `${baseClasses} bg-gray-50/95 border-gray-200 text-gray-800`;
+        return `${baseClasses} bg-gray-50/95 dark:bg-slate-800/90 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-slate-100`;
     }
   }
 

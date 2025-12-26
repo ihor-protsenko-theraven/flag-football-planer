@@ -2,13 +2,15 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule],
+  imports: [CommonModule, RouterModule, TranslateModule, ThemeToggleComponent],
   template: `
-    <nav class="glass sticky top-0 z-50 border-b border-slate-200/60 safe-pt">
+    <nav
+    class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 transition-all duration-300 safe-pt">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between min-h-[4rem] py-2">
           <!-- Logo -->
@@ -23,9 +25,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             </div>
             <div>
               <h1
-                class="text-xl font-display font-bold text-slate-900 tracking-tight group-hover:text-green-700 transition-colors leading-none">{{ 'NAV.TITLE' | translate }}</h1>
+                class="text-xl font-display font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors leading-none">{{ 'NAV.TITLE' | translate }}</h1>
               <p
-                class="text-[10px] font-medium text-slate-500 uppercase tracking-widest mt-0.5">{{ 'NAV.PRO_EDITION' | translate }}</p>
+                class="text-[10px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-0.5">{{ 'NAV.PRO_EDITION' | translate }}</p>
             </div>
           </div>
 
@@ -33,25 +35,25 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           <div class="hidden md:flex items-center space-x-1">
             <a
               routerLink="/catalog"
-              routerLinkActive="bg-green-50 text-green-700 shadow-sm ring-1 ring-green-500/20"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
-              class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
             >
               {{ 'NAV.DRILL_CATALOG' | translate }}
             </a>
             <a
               routerLink="/builder"
-              routerLinkActive="bg-green-50 text-green-700 shadow-sm ring-1 ring-green-500/20"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
-              class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
             >
               {{ 'NAV.TRAINING_BUILDER' | translate }}
             </a>
             <a
               routerLink="/trainings"
-              routerLinkActive="bg-green-50 text-green-700 shadow-sm ring-1 ring-green-500/20"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
-              class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
             >
               {{ 'NAV.MY_TRAININGS' | translate }}
             </a>
@@ -65,7 +67,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             >
               UK
             </button>
-            <span class="text-slate-300">|</span>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
             <button
               (click)="switchLanguage('en')"
               [class]="getLangButtonClass('en')"
@@ -74,10 +76,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             </button>
           </div>
 
+          <!-- Theme Toggle -->
+          <div class="hidden md:flex items-center ml-4">
+            <app-theme-toggle></app-theme-toggle>
+          </div>
+
           <!-- Mobile Menu Button -->
           <button
             (click)="toggleMobileMenu()"
-            class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/20"
+            class="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/20"
           >
             @if (!mobileMenuOpen()) {
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,34 +100,34 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
         <!-- Mobile Menu -->
         @if (mobileMenuOpen()) {
-          <div class="md:hidden py-4 space-y-2 border-t border-slate-100 animate-slide-down safe-pb">
+          <div class="md:hidden py-4 space-y-2 border-t border-slate-100 dark:border-slate-800 animate-slide-down safe-pb">
             <a
               routerLink="/catalog"
-              routerLinkActive="bg-green-50 text-green-700 font-semibold"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
-              class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
             >
               {{ 'NAV.DRILL_CATALOG' | translate }}
             </a>
             <a
               routerLink="/builder"
-              routerLinkActive="bg-green-50 text-green-700 font-semibold"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
-              class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
             >
               {{ 'NAV.TRAINING_BUILDER' | translate }}
             </a>
             <a
               routerLink="/trainings"
-              routerLinkActive="bg-green-50 text-green-700 font-semibold"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
-              class="block px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
             >
               {{ 'NAV.MY_TRAININGS' | translate }}
             </a>
 
             <!-- Mobile Language Switcher -->
-            <div class="px-4 py-3 border-t border-slate-100 flex items-center space-x-4">
+            <div class="px-4 py-3 border-t border-slate-100 dark:border-slate-800 flex items-center space-x-4">
               <button
                 (click)="switchLanguage('en')"
                 [class]="getLangButtonClass('en')"
@@ -133,6 +140,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
               >
                 Українська
               </button>
+            </div>
+
+            <div class="px-4 py-3 border-t border-slate-100 dark:border-slate-800">
+              <p class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">{{ 'NAV.THEME' | translate }}</p>
+              <app-theme-toggle></app-theme-toggle>
             </div>
           </div>
         }
@@ -169,6 +181,6 @@ export class NavbarComponent {
     if (isActive) {
       return `${baseClass} font-bold text-white bg-gradient-to-r from-green-600 to-emerald-500 shadow-md shadow-green-500/30`;
     }
-    return `${baseClass} font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100`;
+    return `${baseClass} font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800`;
   }
 }

@@ -6,7 +6,7 @@ export interface Training {
   description?: string;
   createdBy?: string;
   createdAt: Date;
-  level?: DrillLevel;
+  level: DrillLevel;
   drills: TrainingDrill[];
   totalDuration: number;
 }

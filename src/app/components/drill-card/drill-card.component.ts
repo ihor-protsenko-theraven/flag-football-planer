@@ -11,13 +11,13 @@ import { DrillUiService } from '../../services/drill-ui.service';
   imports: [CommonModule, TranslateModule],
   template: `
     <div
-      class="group relative h-full flex flex-col bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md hover:-translate-y-1 active:scale-[0.98] active:shadow-sm"
+      class="group relative h-full flex flex-col bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md dark:hover:shadow-slate-950/50 hover:-translate-y-1 active:scale-[0.98] active:shadow-sm"
       (click)="onCardClick()"
     >
 
-      <div class="relative w-full aspect-[3/2] overflow-hidden bg-gray-100">
+      <div class="relative w-full aspect-[3/2] overflow-hidden bg-gray-100 dark:bg-slate-800">
         @if (!imageLoaded()) {
-          <div class="absolute inset-0 bg-gray-200 animate-pulse z-10"></div>
+          <div class="absolute inset-0 bg-gray-200 dark:bg-slate-700 animate-pulse z-10"></div>
         }
 
         <img
@@ -34,7 +34,7 @@ import { DrillUiService } from '../../services/drill-ui.service';
         <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
 
         <div class="absolute top-3 right-3 z-20">
-          <span [class]="getLevelBadgeClass() + ' shadow-sm backdrop-blur-md bg-opacity-90'">
+          <span [class]="getLevelBadgeClass() + ' shadow-sm backdrop-blur-md bg-opacity-90 dark:bg-opacity-80'">
             {{ getLevelTranslationKey(drill.level) | translate }}
           </span>
         </div>
@@ -44,23 +44,23 @@ import { DrillUiService } from '../../services/drill-ui.service';
 
         <div class="flex items-start justify-between gap-3 mb-2">
           <h3
-            class="font-display font-bold text-lg text-gray-900 leading-tight line-clamp-2 group-hover:text-green-700 transition-colors">
+            class="font-display font-bold text-lg text-gray-900 dark:text-white leading-tight line-clamp-2 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors">
             {{ drill.name }}
           </h3>
           <span
-            class="shrink-0 flex items-center text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded-lg border border-gray-200">
-            <svg class="w-3.5 h-3.5 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
+            class="shrink-0 flex items-center text-xs font-bold text-gray-500 dark:text-slate-400 bg-gray-100 dark:bg-slate-800 px-2 py-1 rounded-lg border border-gray-200 dark:border-slate-700">
+            <svg class="w-3.5 h-3.5 mr-1 text-gray-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
               stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             {{ drill.duration }} min
           </span>
         </div>
 
-        <p class="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">
+        <p class="text-sm text-gray-500 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
           {{ drill.description }}
         </p>
 
-        <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
+        <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-100 dark:border-slate-800">
 
           <span [class]="getCategoryBadgeClass()">
             <span class="w-3.5 h-3.5" [innerHTML]="getCategoryIcon()"></span>

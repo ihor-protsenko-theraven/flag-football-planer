@@ -1,0 +1,49 @@
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(203, 213, 225, 0.5);
+  border-radius: 20px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+.modern-input {
+  @apply w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white transition-all outline-none;
+  @apply focus:ring-4 focus:ring-green-500/10 focus:border-green-500/50 focus:bg-white dark:focus:bg-slate-800;
+}
+
+.active-item {
+  @apply bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30 shadow-sm ring-1 ring-green-500/20;
+}
+
+.active-tab {
+  @apply text-slate-900 dark:text-white bg-white/50 dark:bg-slate-800/50 border-b-green-600;
+}
+
+.add-btn {
+  @apply flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-green-600 hover:text-white text-slate-600 dark:text-slate-400 font-black text-[10px] uppercase tracking-widest rounded-xl transition-all;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

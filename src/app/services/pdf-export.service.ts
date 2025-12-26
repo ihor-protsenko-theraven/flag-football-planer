@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { TDocumentDefinitions, Content, StyleDictionary } from 'pdfmake/interfaces';
+
 import { Training } from '../models/training.model';
 import { Drill } from '../models/drill.model';
+import { PDF_THEME_CONFIG } from '../core/config/pdf-theme.config';
 
 // Initialize pdfMake with fonts
 (pdfMake as any).vfs = (pdfFonts as any).pdfMake?.vfs || (pdfFonts as any).default?.pdfMake?.vfs;
@@ -11,22 +14,21 @@ import { Drill } from '../models/drill.model';
     providedIn: 'root'
 })
 export class PdfExportService {
-
-    constructor() { }
+    private readonly config = inject(PDF_THEME_CONFIG);
 
     exportTrainingToPDF(training: Training, drills: Drill[]): void {
         const drillMap = new Map(drills.map(d => [d.id, d]));
 
-        const documentDefinition: any = {
+        const documentDefinition: TDocumentDefinitions = {
             pageSize: 'A4',
-            pageMargins: [40, 60, 40, 60],
+            pageMargins: this.config.margins.page,
             content: [
                 // Header
                 {
                     text: 'FLAG FOOTBALL TRAINING PLAN',
                     style: 'header',
                     alignment: 'center',
-                    margin: [0, 0, 0, 10]
+                    margin: this.config.margins.header
                 },
                 {
                     canvas: [
@@ -35,7 +37,7 @@ export class PdfExportService {
                             x1: 0, y1: 0,
                             x2: 515, y2: 0,
                             lineWidth: 2,
-                            lineColor: '#22c55e'
+                            lineColor: this.config.accentColor
                         }
                     ],
                     margin: [0, 0, 0, 20]
@@ -62,86 +64,90 @@ export class PdfExportService {
                             width: '*',
                             stack: [
                                 { text: 'Total Duration', style: 'label' },
-                                { text: `${training.totalDuration} minutes`, style: 'value', color: '#22c55e', bold: true }
+                                { text: `${training.totalDuration} minutes`, style: 'value', color: this.config.accentColor, bold: true }
                             ]
                         }
                     ],
-                    margin: [0, 0, 0, 30]
+                    margin: this.config.margins.trainingInfo
                 },
 
                 // Drills Section
                 {
                     text: 'DRILLS',
                     style: 'sectionHeader',
-                    margin: [0, 0, 0, 15]
+                    margin: this.config.margins.sectionTitle
                 },
 
                 // Drills Table
                 ...this.generateDrillsContent(training, drillMap)
             ],
-            styles: {
-                header: {
-                    fontSize: 24,
-                    bold: true,
-                    color: '#166534'
-                },
-                sectionHeader: {
-                    fontSize: 16,
-                    bold: true,
-                    color: '#166534',
-                    decoration: 'underline'
-                },
-                label: {
-                    fontSize: 10,
-                    color: '#6b7280',
-                    margin: [0, 0, 0, 4]
-                },
-                value: {
-                    fontSize: 14,
-                    bold: true
-                },
-                drillNumber: {
-                    fontSize: 18,
-                    bold: true,
-                    color: '#22c55e'
-                },
-                drillName: {
-                    fontSize: 14,
-                    bold: true,
-                    color: '#1f2937'
-                },
-                drillMeta: {
-                    fontSize: 10,
-                    color: '#6b7280',
-                    margin: [0, 4, 0, 0]
-                },
-                drillDescription: {
-                    fontSize: 11,
-                    color: '#4b5563',
-                    margin: [0, 8, 0, 0]
-                },
-                drillNotes: {
-                    fontSize: 10,
-                    italics: true,
-                    color: '#3b82f6',
-                    margin: [0, 6, 0, 0]
-                },
-                duration: {
-                    fontSize: 12,
-                    bold: true,
-                    color: '#22c55e'
-                }
-            },
+            styles: this.getStyles(),
             defaultStyle: {
-                font: 'Roboto'
+                font: this.config.defaultFont
             }
         };
 
         pdfMake.createPdf(documentDefinition).download(`${training.name.replace(/\s+/g, '_')}_Training_Plan.pdf`);
     }
 
-    private generateDrillsContent(training: Training, drillMap: Map<string, Drill>): any[] {
-        const content: any[] = [];
+    private getStyles(): StyleDictionary {
+        return {
+            header: {
+                fontSize: this.config.fontSize.title,
+                bold: true,
+                color: this.config.headerColor
+            },
+            sectionHeader: {
+                fontSize: this.config.fontSize.sectionHeader,
+                bold: true,
+                color: this.config.sectionHeaderColor,
+                decoration: 'underline'
+            },
+            label: {
+                fontSize: this.config.fontSize.label,
+                color: this.config.labelColor,
+                margin: [0, 0, 0, 4]
+            },
+            value: {
+                fontSize: this.config.fontSize.value,
+                bold: true
+            },
+            drillNumber: {
+                fontSize: this.config.fontSize.drillNumber,
+                bold: true,
+                color: this.config.accentColor
+            },
+            drillName: {
+                fontSize: this.config.fontSize.drillName,
+                bold: true,
+                color: '#1f2937'
+            },
+            drillMeta: {
+                fontSize: this.config.fontSize.drillMeta,
+                color: this.config.metaColor,
+                margin: [0, 4, 0, 0]
+            },
+            drillDescription: {
+                fontSize: this.config.fontSize.drillDescription,
+                color: this.config.descriptionColor,
+                margin: [0, 8, 0, 0]
+            },
+            drillNotes: {
+                fontSize: this.config.fontSize.drillNotes,
+                italics: true,
+                color: this.config.notesColor,
+                margin: [0, 6, 0, 0]
+            },
+            duration: {
+                fontSize: this.config.fontSize.duration,
+                bold: true,
+                color: this.config.accentColor
+            }
+        };
+    }
+
+    private generateDrillsContent(training: Training, drillMap: Map<string, Drill>): Content[] {
+        const content: Content[] = [];
 
         training.drills
             .sort((a, b) => a.order - b.order)
@@ -197,7 +203,7 @@ export class PdfExportService {
                             style: 'drillNotes'
                         }] : [])
                     ],
-                    margin: [0, 0, 0, 20]
+                    margin: this.config.margins.drillItem
                 });
 
                 // Separator line (except for last drill)
@@ -209,11 +215,11 @@ export class PdfExportService {
                                 x1: 0, y1: 0,
                                 x2: 515, y2: 0,
                                 lineWidth: 0.5,
-                                lineColor: '#e5e7eb',
+                                lineColor: this.config.borderColor,
                                 dash: { length: 3 }
                             }
                         ],
-                        margin: [0, 0, 0, 20]
+                        margin: this.config.margins.separator
                     });
                 }
             });

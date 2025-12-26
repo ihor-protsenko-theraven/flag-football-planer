@@ -4,6 +4,8 @@ import { DrillDetailComponent } from './pages/drill-detail/drill-detail.componen
 import { TrainingBuilderComponent } from './pages/training-builder/training-builder.component';
 import { MyTrainingsComponent } from './pages/my-trainings/my-trainings.component';
 import { TrainingViewComponent } from './pages/training-view/training-view.component';
+import { AdminLoginComponent } from './pages/admin/login/admin-login.component';
+import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/catalog', pathMatch: 'full' },
@@ -12,6 +14,15 @@ export const routes: Routes = [
     { path: 'builder', component: TrainingBuilderComponent },
     { path: 'trainings', component: MyTrainingsComponent },
     { path: 'trainings/:id', component: TrainingViewComponent },
+
+    // Admin Routes
+    { path: 'admin/login', component: AdminLoginComponent },
+    {
+        path: 'admin/editor',
+        loadComponent: () => import('./pages/admin/editor/drill-editor.component').then(m => m.DrillEditorComponent),
+        canActivate: [adminGuard]
+    },
+
     { path: '**', redirectTo: '/catalog' }
 ];
 

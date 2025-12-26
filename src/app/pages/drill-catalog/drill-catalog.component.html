@@ -1,0 +1,318 @@
+<div class="min-h-screen bg-slate-50 dark:bg-slate-950 py-8 md:py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header Section -->
+    <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <h1 class="text-4xl font-display font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+          {{ 'CATALOG.TITLE' | translate }}
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400 font-medium text-lg">
+          {{ 'CATALOG.SUBTITLE' | translate }}
+        </p>
+      </div>
+
+      <button (click)="toggleFilters()"
+        class="md:hidden w-full flex items-center justify-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold py-4 px-6 rounded-2xl shadow-sm active:scale-95 transition-all">
+        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+        {{ 'CATALOG.FILTERS' | translate }}
+
+        @if (activeFiltersCount() > 0) {
+        <span
+          class="ml-2 bg-green-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full shadow-lg shadow-green-500/20">
+          {{ activeFiltersCount() }}
+        </span>
+        }
+
+        <svg class="w-5 h-5 ml-auto transition-transform duration-300 text-slate-400"
+          [class.rotate-180]="isFiltersOpen()" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Filters Section -->
+    <div
+      class="bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-500 ease-out mb-10"
+      [class.max-h-0]="!isFiltersOpen() && isMobile()" [class.max-h-[1000px]]="isFiltersOpen() || !isMobile()"
+      [class.opacity-0]="!isFiltersOpen() && isMobile()" [class.mb-0]="!isFiltersOpen() && isMobile()">
+      <div class="p-6 md:p-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Search -->
+          <div class="relative group">
+            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">
+              {{ 'CATALOG.SEARCH_LABEL' | translate }}
+            </label>
+            <div class="relative">
+              <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event); onFilterChange()"
+                [placeholder]="'CATALOG.SEARCH_PLACEHOLDER' | translate"
+                class="w-full pl-12 pr-12 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl text-slate-900 dark:text-white font-medium focus:ring-4 focus:ring-green-500/10 outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-500" />
+              <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              @if (searchQuery()) {
+              <button (click)="clearSearch()"
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-rose-500 p-1 bg-slate-200/50 dark:bg-slate-700/50 rounded-full transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              }
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div class="hidden md:block">
+            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">
+              {{ 'CATALOG.CATEGORY_LABEL' | translate }}
+            </label>
+            <div class="relative">
+              <select [ngModel]="selectedCategory()" (ngModelChange)="selectedCategory.set($event); onFilterChange()"
+                class="w-full py-4 pl-6 pr-12 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl text-slate-900 dark:text-white font-bold focus:ring-4 focus:ring-green-500/10 outline-none appearance-none cursor-pointer group">
+                <option [ngValue]="null" class="dark:bg-slate-800">{{ 'CATALOG.ALL_CATEGORIES' | translate }}</option>
+                @for (cat of categories; track cat.value) {
+                <option [value]="cat.value">{{ cat.translationKey | translate }}</option>
+                }
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level -->
+          <div class="hidden md:block">
+            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">
+              {{ 'CATALOG.LEVEL_LABEL' | translate }}
+            </label>
+            <div class="relative">
+              <select [ngModel]="selectedLevel()" (ngModelChange)="selectedLevel.set($event); onFilterChange()"
+                class="w-full py-4 pl-6 pr-12 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl text-slate-900 dark:text-white font-bold focus:ring-4 focus:ring-green-500/10 outline-none appearance-none cursor-pointer">
+                <option [ngValue]="null" class="dark:bg-slate-800">{{ 'CATALOG.ALL_LEVELS' | translate }}</option>
+                @for (level of levels; track level.value) {
+                <option [value]="level.value">{{ level.translationKey | translate }}</option>
+                }
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Filters Accordions -->
+          <div class="md:hidden space-y-4">
+            <div class="h-px bg-slate-100 dark:bg-slate-800 w-full"></div>
+
+            <!-- Category Accordion -->
+            <button (click)="toggleAccordion('category')" class="w-full flex items-center justify-between py-2 group">
+              <div class="text-left">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{{
+                  'CATALOG.CATEGORY_LABEL' | translate
+                  }}</p>
+                <p class="font-bold text-slate-900 dark:text-white text-lg">
+                  {{
+                  selectedCategory() ? getCategoryLabel(selectedCategory()) :
+                  ('CATALOG.ALL_CATEGORIES' | translate)
+                  }}
+                </p>
+              </div>
+              <div class="p-3 rounded-2xl bg-slate-50 group-active:bg-green-50 transition-colors">
+                <svg class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                  [class.rotate-180]="activeAccordion() === 'category'" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+
+            @if (activeAccordion() === 'category') {
+            <div class="grid grid-cols-2 gap-3 animate-slide-down">
+              <button (click)="selectCategoryMobile(null)"
+                class="p-4 rounded-2xl text-sm font-bold border-2 transition-all flex items-center justify-center"
+                [class]="!selectedCategory() ? 'bg-green-600 border-green-600 text-white shadow-lg shadow-green-500/20' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400'">
+                {{ 'CATALOG.ALL_CATEGORIES' | translate }}
+              </button>
+              @for (cat of categories; track cat.value) {
+              <button (click)="selectCategoryMobile(cat.value)"
+                class="p-4 rounded-2xl text-sm font-bold border-2 transition-all flex flex-col items-center gap-2"
+                [class]="selectedCategory() === cat.value ? 'bg-green-600 border-green-600 text-white shadow-lg shadow-green-500/20' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400'">
+                <span class="w-5 h-5 flex items-center" [innerHTML]="getCategoryIcon(cat.value)"></span>
+                {{ cat.translationKey | translate }}
+              </button>
+              }
+            </div>
+            }
+
+            <div class="h-px bg-slate-100 dark:bg-slate-800 w-full"></div>
+
+            <!-- Level Accordion -->
+            <button (click)="toggleAccordion('level')" class="w-full flex items-center justify-between py-2 group">
+              <div class="text-left">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{{
+                  'CATALOG.LEVEL_LABEL' | translate
+                  }}</p>
+                <p class="font-bold text-slate-900 dark:text-white text-lg">
+                  {{
+                  selectedLevel() ? getLevelLabel(selectedLevel()) : ('CATALOG.ALL_LEVELS' |
+                  translate)
+                  }}
+                </p>
+              </div>
+              <div class="p-3 rounded-2xl bg-slate-50 group-active:bg-green-50 transition-colors">
+                <svg class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                  [class.rotate-180]="activeAccordion() === 'level'" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+
+            @if (activeAccordion() === 'level') {
+            <div class="space-y-2 animate-slide-down">
+              <button (click)="selectLevelMobile(null)"
+                class="w-full p-4 rounded-2xl text-sm font-bold border-2 transition-all flex justify-between items-center"
+                [class]="!selectedLevel() ? 'bg-green-600 border-green-600 text-white shadow-lg shadow-green-500/20' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400'">
+                {{ 'CATALOG.ALL_LEVELS' | translate }}
+                @if (!selectedLevel()) {
+                <span class="text-xl">✓</span>
+                }
+              </button>
+              @for (level of levels; track level.value) {
+              <button (click)="selectLevelMobile(level.value)"
+                class="w-full p-4 rounded-2xl text-sm font-bold border-2 transition-all flex justify-between items-center"
+                [class]="selectedLevel() === level.value ? 'bg-green-600 border-green-600 text-white shadow-lg shadow-green-500/20' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400'">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 flex items-center" [innerHTML]="getLevelIcon(level.value)"></span>
+                  {{ level.translationKey | translate }}
+                </div>
+                @if (selectedLevel() === level.value) {
+                <span class="text-xl">✓</span>
+                }
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+        <!-- Active Filter Chips -->
+        @if (hasActiveFilters()) {
+        <div
+          class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-3 animate-fade-in">
+          <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mr-2">
+            {{ 'CATALOG.ACTIVE_FILTERS' | translate }}
+          </span>
+
+          @if (searchQuery()) {
+          <div
+            class="chip chip-green bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-100 dark:border-green-800/50 shadow-sm px-4 py-2 rounded-full flex items-center text-sm font-bold">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            "{{ searchQuery() }}"
+            <button (click)="clearSearch()"
+              class="ml-2 hover:text-green-900 dark:hover:text-green-300 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          }
+
+          @if (selectedCategory()) {
+          <div class="chip shadow-sm px-4 py-2 rounded-full flex items-center text-sm font-bold border"
+            [class]="getCategoryColorClass(selectedCategory())">
+            <span class="mr-2 w-4 h-4 flex items-center" [innerHTML]="getCategoryIcon(selectedCategory())"></span>
+            {{ getCategoryLabel(selectedCategory()) }}
+            <button (click)="clearCategory()" class="ml-2 hover:opacity-70 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          }
+
+          @if (selectedLevel()) {
+          <div class="chip shadow-sm px-4 py-2 rounded-full flex items-center text-sm font-bold border"
+            [class]="getLevelColorClass(selectedLevel())">
+            <span class="mr-2 w-4 h-4 flex items-center" [innerHTML]="getLevelIcon(selectedLevel())"></span>
+            {{ getLevelLabel(selectedLevel()) }}
+            <button (click)="clearLevel()" class="ml-2 hover:opacity-70 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          }
+
+          <button (click)="clearAllFilters()"
+            class="ml-auto text-xs font-black text-rose-500 hover:text-rose-600 uppercase tracking-widest transition-all hover:scale-105">
+            {{ 'CATALOG.CLEAR_ALL' | translate }}
+          </button>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Results Header -->
+    <div class="mb-8 flex items-center justify-between">
+      <h2 class="text-2xl font-display font-bold text-slate-900 dark:text-white flex items-center gap-3">
+        {{ 'CATALOG.RESULTS_TITLE' | translate }}
+        @if (!isLoading()) {
+        <span class="text-lg font-black text-slate-300 dark:text-slate-600 ml-1">
+          / {{ filteredDrills().length }}
+        </span>
+        }
+      </h2>
+    </div>
+
+    <!-- Grid Layout -->
+    @if (isLoading()) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      @for (item of [1, 2, 3, 4, 5, 6, 7, 8]; track item) {
+      <app-skeleton-card />
+      }
+    </div>
+    } @else {
+    @if (filteredDrills().length > 0) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 animate-fade-in">
+      @for (drill of filteredDrills(); track drill.id) {
+      <app-drill-card [drill]="drill" (cardClick)="onDrillClick($event)"
+        class="hover:scale-[1.03] transition-transform duration-500" />
+      }
+    </div>
+    } @else {
+    <!-- Empty State -->
+    <div
+      class="text-center py-24 bg-white dark:bg-slate-900 rounded-[3rem] border border-dashed border-slate-200 dark:border-slate-800">
+      <div
+        class="w-24 h-24 mx-auto mb-8 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center text-5xl">
+        🕵️‍♂️
+      </div>
+      <h3 class="text-3xl font-display font-bold text-slate-900 dark:text-white mb-3">
+        {{ 'CATALOG.NO_RESULTS_TITLE' | translate }}
+      </h3>
+      <p class="text-slate-500 dark:text-slate-400 mb-10 max-w-sm mx-auto text-lg font-medium">
+        {{ 'CATALOG.NO_RESULTS_DESC' | translate }}
+      </p>
+      <button (click)="clearAllFilters()"
+        class="px-10 py-5 bg-green-600 text-white rounded-2xl hover:bg-green-700 font-bold text-lg transition-all shadow-xl shadow-green-500/30 active:scale-95">
+        {{ 'CATALOG.CLEAR_FILTERS_BTN' | translate }}
+      </button>
+    </div>
+    }
+    }
+  </div>
+</div>

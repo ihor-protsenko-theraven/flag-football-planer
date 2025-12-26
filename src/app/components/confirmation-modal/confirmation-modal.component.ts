@@ -15,11 +15,11 @@ import {ConfirmData} from '../../models/confirm-data.interface';
         (click)="onBackdropClick($event)"
       >
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 bg-slate-900/50 dark:bg-slate-950/70 backdrop-blur-sm"></div>
 
         <!-- Modal -->
         <div
-          class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full transform transition-all"
+          class="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-md w-full transform transition-all border border-transparent dark:border-slate-800"
           role="dialog"
           aria-modal="true"
           [attr.aria-labelledby]="'modal-title'"
@@ -29,7 +29,7 @@ import {ConfirmData} from '../../models/confirm-data.interface';
           <div class="px-6 pt-6 pb-4">
             <h3
               id="modal-title"
-              class="text-xl font-bold text-slate-900 tracking-tight"
+              class="text-xl font-bold text-slate-900 dark:text-white tracking-tight"
             >
               {{ confirmData()?.title }}
             </h3>
@@ -39,7 +39,7 @@ import {ConfirmData} from '../../models/confirm-data.interface';
           <div class="px-6 pb-6">
             <p
               id="modal-description"
-              class="text-slate-600 leading-relaxed"
+              class="text-slate-600 dark:text-slate-400 leading-relaxed"
             >
               {{ confirmData()?.message }}
             </p>
@@ -49,7 +49,7 @@ import {ConfirmData} from '../../models/confirm-data.interface';
           <div class="px-6 pb-6 flex items-center justify-end space-x-3">
             <button
               (click)="onCancel()"
-              class="px-5 py-2.5 rounded-xl font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/50"
+              class="px-5 py-2.5 rounded-xl font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/50"
             >
               {{ confirmData()?.cancelText || ('CONFIRMATION.CANCEL' | translate) }}
             </button>

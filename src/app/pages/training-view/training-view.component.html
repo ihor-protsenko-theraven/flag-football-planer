@@ -1,0 +1,287 @@
+<div class="min-h-screen bg-slate-50 dark:bg-slate-950 py-8 md:py-12 pb-32 md:pb-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        @if (training(); as trainingData) {
+        <div class="animate-fade-in">
+
+            <!-- Navigation & Header -->
+            <div class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="space-y-4">
+                    <button routerLink="/trainings"
+                        class="group flex items-center text-slate-400 hover:text-green-600 font-bold transition-all">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        {{ 'TRAINING_VIEW.BACK_TO_LIST' | translate }}
+                    </button>
+
+                    <div class="space-y-2">
+                        <h1
+                            class="text-4xl md:text-5xl font-display font-black text-slate-900 dark:text-white leading-tight tracking-tight">
+                            {{ trainingData.name }}
+                        </h1>
+                        @if (trainingData.description) {
+                        <p class="text-slate-500 dark:text-slate-400 font-medium text-lg leading-relaxed max-w-2xl">
+                            {{ trainingData.description }}
+                        </p>
+                        }
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="flex items-center gap-2 text-slate-500 font-medium bg-white dark:bg-slate-800 px-3 py-1.5 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                                <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span class="text-sm">{{ formatDate(trainingData.createdAt) }}</span>
+                            </div>
+                            @if (trainingData.level) {
+                            <div [class]="getLevelBadgeStyles(trainingData.level)">
+                                <span class="w-4 h-4 flex items-center"
+                                    [innerHTML]="getLevelIcon(trainingData.level)"></span>
+                                <span class="text-xs font-black uppercase tracking-widest">{{ 'DRILL.LEVELS.' +
+                                    trainingData.level.toUpperCase() | translate }}</span>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <button (click)="exportToPDF()"
+                    class="hidden md:flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-slate-800 text-white rounded-2xl font-black text-lg shadow-xl shadow-slate-900/20 hover:bg-slate-800 dark:hover:bg-slate-700 transition-all active:scale-95 group">
+                    <div
+                        class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    {{ 'TRAINING_VIEW.EXPORT_PDF' | translate }}
+                </button>
+            </div>
+
+            <!-- Quick Stats Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Duration -->
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute -right-4 -bottom-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700">
+                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+                        {{ 'TRAINING_BUILDER.DURATION' | translate }}</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-4xl font-black text-slate-900 dark:text-white">{{ trainingData.totalDuration
+                            }}</span>
+                        <span class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">{{
+                            'TRAINING_BUILDER.MIN' | translate }}</span>
+                    </div>
+                </div>
+
+                <!-- Drills Count -->
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute -right-4 -bottom-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700">
+                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+                        {{ 'TRAINING_BUILDER.DRILLS' | translate }}</p>
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">{{ trainingData.drills.length
+                        }}</span>
+                </div>
+
+                <!-- Focus Category -->
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute -right-4 -bottom-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700">
+                        <span class="w-32 h-32 block"
+                            [innerHTML]="getCategoryIcon(getDrill(trainingData.drills[0]?.drillId)?.category)"></span>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+                        {{ 'TRAINING_VIEW.MAIN_FOCUS' | translate }}</p>
+                    <span class="text-2xl font-black text-slate-900 dark:text-white leading-tight">
+                        {{ ('DRILL.CATEGORIES.' + (getDrill(trainingData.drills[0]?.drillId)?.category ||
+                        'OFFENSE')?.toUpperCase())
+                        | translate }}
+                    </span>
+                </div>
+
+                <!-- Skill Level -->
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute -right-4 -bottom-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700">
+                        <span class="w-32 h-32 block" [innerHTML]="getLevelIcon(trainingData.level)"></span>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+                        {{ 'TRAINING_BUILDER.SKILL_LEVEL' | translate }}</p>
+                    <span class="text-2xl font-black text-slate-900 dark:text-white leading-tight">
+                        {{ ('DRILL.LEVELS.' + (trainingData.level || 'BEGINNER')?.toUpperCase()) | translate }}
+                    </span>
+                </div>
+            </div>
+
+            @if (trainingData.description && false) {
+            <div class="mb-12">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
+                    <span class="w-6 h-px bg-slate-200"></span>
+                    {{ 'TRAINING_BUILDER.DESCRIPTION_LABEL' | translate }}
+                </h3>
+                <div
+                    class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-sm text-lg text-slate-600 leading-relaxed font-medium">
+                    {{ trainingData.description }}
+                </div>
+            </div>
+            }
+
+            <!-- Drill List Section -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-xl shadow-lg shadow-slate-900/10">
+                        📋
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                        {{ 'TRAINING_VIEW.PLAN_TITLE' | translate }}
+                    </h2>
+                </div>
+
+                <div class="space-y-6">
+                    @for (trainingDrill of getSortedDrills(trainingData); let i = $index; track trainingDrill.drillId) {
+                    @let drillData = getDrill(trainingDrill.drillId);
+                    <div
+                        class="group relative bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 p-6 md:p-8 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-slate-950/50 transition-all duration-500 overflow-hidden">
+                        <!-- Drill Order Number -->
+                        <div
+                            class="absolute -left-1 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity top-0 text-[10rem] font-black pointer-events-none select-none">
+                            {{ i + 1 }}
+                        </div>
+
+                        <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10">
+                            <!-- Drill Info Column -->
+                            <div class="flex-1 space-y-4">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-4">
+                                            <span
+                                                class="w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-800 text-white dark:text-slate-100 flex items-center justify-center font-black text-sm">
+                                                {{ i + 1 }}
+                                            </span>
+                                            <h3 class="text-2xl font-black text-slate-900 dark:text-white">{{
+                                                drillData?.name }}</h3>
+                                        </div>
+                                        <div class="flex flex-wrap gap-2 pt-1 ml-12">
+                                            @if (drillData?.category) {
+                                            <div [class]="getCategoryBadgeStyles(drillData?.category)">
+                                                <span class="w-4 h-4 flex items-center"
+                                                    [innerHTML]="getCategoryIcon(drillData?.category)"></span>
+                                                <span class="text-[10px] font-black uppercase tracking-widest">{{
+                                                    'DRILL.CATEGORIES.' + drillData?.category?.toUpperCase() | translate
+                                                    }}</span>
+                                            </div>
+                                            }
+                                            @if (drillData?.level) {
+                                            <div [class]="getLevelBadgeStyles(drillData?.level)">
+                                                <span class="w-4 h-4 flex items-center"
+                                                    [innerHTML]="getLevelIcon(drillData?.level)"></span>
+                                                <span class="text-[10px] font-black uppercase tracking-widest">{{
+                                                    'DRILL.LEVELS.' + drillData?.level?.toUpperCase() | translate
+                                                    }}</span>
+                                            </div>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="px-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl flex items-center gap-2 group-hover:border-green-200 dark:group-hover:border-green-900/50 group-hover:bg-green-50 dark:group-hover:bg-green-900/20 transition-colors">
+                                            <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-green-500 transition-colors"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span
+                                                class="text-xl font-black text-slate-900 dark:text-white group-hover:text-green-900 dark:group-hover:text-green-400 transition-colors">
+                                                {{ trainingDrill.duration }}
+                                                <span
+                                                    class="text-xs font-bold text-slate-400 dark:text-slate-500 group-hover:text-green-600 dark:group-hover:text-green-500">{{
+                                                    'TRAINING_VIEW.MIN_SHORT' | translate }}</span>
+                                            </span>
+                                        </div>
+
+                                        @if (drillData?.id) {
+                                        <button [routerLink]="['/catalog', drillData?.id]"
+                                            class="p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl text-slate-400 dark:text-slate-500 hover:text-green-600 dark:hover:text-green-400 hover:border-green-100 dark:hover:border-green-900/50 transition-all active:scale-95 shadow-sm">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </button>
+                                        }
+                                    </div>
+                                </div>
+
+                                <p
+                                    class="text-slate-500 dark:text-slate-400 font-medium leading-relaxed ml-12 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                                    {{ drillData?.description }}
+                                </p>
+
+                                @if (trainingDrill.notes) {
+                                <div
+                                    class="ml-12 p-6 bg-amber-50/50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-[1.5rem] relative overflow-hidden group-hover:bg-amber-50 dark:group-hover:bg-amber-900/20 group-hover:border-amber-200 dark:group-hover:border-amber-900/50 transition-all">
+                                    <div
+                                        class="absolute -right-4 -top-4 w-12 h-12 bg-amber-200/10 dark:bg-amber-400/5 rounded-full blur-xl">
+                                    </div>
+                                    <h4
+                                        class="text-[10px] font-black text-amber-600 dark:text-amber-500 uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        </svg>
+                                        {{ 'TRAINING_VIEW.COACH_NOTES' | translate }}
+                                    </h4>
+                                    <p class="text-slate-700 dark:text-slate-300 italic font-medium leading-relaxed">
+                                        "{{ trainingDrill.notes }}"
+                                    </p>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        } @else {
+        <div class="min-h-[60vh] flex flex-col items-center justify-center space-y-6">
+            <div class="w-16 h-16 border-4 border-slate-200 border-t-green-600 rounded-full animate-spin"></div>
+            <p class="text-slate-400 font-black uppercase tracking-widest animate-pulse">{{ 'TRAINING_VIEW.LOADING' |
+                translate }}</p>
+        </div>
+        }
+    </div>
+
+    <!-- Mobile Sticky PDF Button -->
+    <div
+        class="fixed bottom-0 left-0 right-0 z-50 p-4 md:hidden bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 animate-slide-up">
+        <button (click)="exportToPDF()"
+            class="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white dark:text-slate-100 rounded-2xl text-lg font-black shadow-xl shadow-slate-900/20 dark:shadow-slate-950/40 flex items-center justify-center gap-3 active:scale-95 transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            {{ 'TRAINING_VIEW.EXPORT_PDF' | translate }}
+        </button>
+    </div>
+</div>
