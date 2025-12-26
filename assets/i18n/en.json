@@ -119,7 +119,8 @@
     "PLAN_TITLE": "Training Plan",
     "MIN_SHORT": "min",
     "COACH_NOTES": "Coach Notes",
-    "LOADING": "Loading training..."
+    "LOADING": "Loading training...",
+    "MAIN_FOCUS": "Main focus"
   },
   "ADMIN_EDITOR": {
     "TITLE": "Drill Editor",
