@@ -427,7 +427,7 @@ export class TrainingBuilderComponent implements OnInit {
 
   saveTraining(): void {
     if (!this.canSave()) {
-      alert(this.translate.instant('TRAINING_BUILDER.SAVE_ERROR'));
+      this.toastService.error(this.translate.instant('TRAINING_BUILDER.SAVE_ERROR'));
       return;
     }
 
@@ -437,6 +437,8 @@ export class TrainingBuilderComponent implements OnInit {
       totalDuration: this.totalDuration()
     };
 
+
+    this.toastService.success(this.translate.instant('TRAINING_BUILDER.SAVE_SUCCESS'));
     this.trainingService.createTraining(training).subscribe(() => {
       this.router.navigate(['/trainings']);
     });
