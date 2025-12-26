@@ -4,7 +4,8 @@
     "PRO_EDITION": "Pro Edition",
     "DRILL_CATALOG": "Drill Catalog",
     "TRAINING_BUILDER": "Training Builder",
-    "MY_TRAININGS": "My Trainings"
+    "MY_TRAININGS": "My Trainings",
+    "THEME": "Theme Display"
   },
   "CATALOG": {
     "TITLE": "Drill Catalog",
@@ -60,6 +61,9 @@
   "MY_TRAININGS": {
     "TITLE": "My Trainings",
     "SUBTITLE": "Manage your saved training sessions",
+    "SEARCH_PLACEHOLDER": "Search by training name...",
+    "FILTER_LEVEL": "Filter by Level",
+    "ALL_LEVELS": "All Levels",
     "NEW_TRAINING_BTN": "New Training",
     "VIEW_DETAILS": "View Details",
     "DELETE": "Delete",
@@ -116,5 +120,58 @@
     "MIN_SHORT": "min",
     "COACH_NOTES": "Coach Notes",
     "LOADING": "Loading training..."
+  },
+  "ADMIN_EDITOR": {
+    "TITLE": "Drill Editor",
+    "SUBTITLE": "Manage your Firestore drill library",
+    "ADD_NEW": "Add New Drill",
+    "NO_NAME": "No Name",
+    "SELECT_TO_EDIT": "Select a drill to edit",
+    "SELECT_DESC": "Or create a new one from the top button",
+    "FIELDS": {
+      "DURATION": "Duration (Min)",
+      "CATEGORY": "Category",
+      "LEVEL": "Level",
+      "IMAGE_URL": "Image URL",
+      "EQUIPMENT": "Equipment",
+      "DRILL_NAME": "Drill Name",
+      "DESCRIPTION": "Description",
+      "INSTRUCTIONS": "Instructions (Step-by-Step)",
+      "COACHING_TIPS": "Coaching Tips"
+    },
+    "BUTTONS": {
+      "ADD_ITEM": "+ Add Item",
+      "ADD_STEP": "+ Add Step",
+      "ADD_TIP": "+ Add Tip",
+      "CANCEL": "Cancel",
+      "SAVE": "Save Drill",
+      "SAVING": "Saving...",
+      "DELETE": "Delete"
+    },
+    "MESSAGES": {
+      "CREATE_SUCCESS": "Drill Created Successfully",
+      "UPDATE_SUCCESS": "Drill Updated Successfully",
+      "DELETE_SUCCESS": "Drill Deleted",
+      "SAVE_ERROR": "Failed to save drill",
+      "FETCH_ERROR": "Could not load drills",
+      "DELETE_CONFIRM": "Are you sure you want to delete \"{{name}}\"?",
+      "DELETE_CAUTION": "Caution: This will permanently remove \"{{name}}\" from your library. Continue?",
+      "VALIDATION_ERROR": "Please fix the errors in the form",
+      "DATA_RELOADED": "Data refreshed from server"
+    },
+    "TABS": {
+      "ENGLISH": "🇬🇧 English",
+      "UKRAINIAN": "🇺🇦 Ukrainian"
+    }
+  },
+  "ADMIN_LOGIN": {
+    "TITLE": "Admin Portal",
+    "SUBTITLE": "Secure access to Drill Editor",
+    "EMAIL": "Email Address",
+    "PASSWORD": "Password",
+    "SIGN_IN": "Sign In",
+    "AUTHENTICATING": "Authenticating...",
+    "SUCCESS": "Login Successful",
+    "ERROR": "Invalid credentials"
   }
 }
