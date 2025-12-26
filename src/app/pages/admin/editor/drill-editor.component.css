@@ -1,6 +1,6 @@
-
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -8,42 +8,86 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(203, 213, 225, 0.5);
+  background-color: rgba(203, 213, 225, 0.4);
   border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.2s;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.8);
 }
 
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(30, 41, 59, 0.5);
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+.dark .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(71, 85, 105, 0.8);
 }
 
 .modern-input {
-  @apply w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white transition-all outline-none;
-  @apply focus:ring-4 focus:ring-green-500/10 focus:border-green-500/50 focus:bg-white dark:focus:bg-slate-800;
+  @apply w-full px-5 py-3 md:px-6 md:py-4 text-base md:text-sm bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white transition-all duration-300 outline-none;
+  @apply focus:ring-4 focus:ring-green-500/10 focus:border-green-500 focus:bg-white dark:focus:bg-slate-800;
+  @apply placeholder:text-slate-400 dark:placeholder:text-slate-500 placeholder:transition-all placeholder:duration-300 focus:placeholder:translate-x-1 focus:placeholder:opacity-70;
+}
+
+.modern-input.ng-invalid.ng-touched {
+  @apply border-rose-300 dark:border-rose-900/50 focus:border-rose-500 focus:ring-rose-500/10 text-rose-600 dark:text-rose-400;
 }
 
 .active-item {
-  @apply bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30 shadow-sm ring-1 ring-green-500/20;
+  @apply bg-green-50 dark:bg-green-500/10 ring-1 ring-inset ring-green-500/30 shadow-sm z-10;
+}
+
+.active-item::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 3px;
+  background-color: #16a34a;
+  border-radius: 99px;
+  opacity: 0.8;
 }
 
 .active-tab {
-  @apply text-slate-900 dark:text-white bg-white/50 dark:bg-slate-800/50 border-b-green-600;
+  @apply text-green-700 dark:text-green-400 bg-white dark:bg-slate-800 shadow-sm border-b-2 border-green-500 md:border-b-0 md:ring-1 md:ring-slate-200 md:dark:ring-slate-700 rounded-xl;
 }
 
 .add-btn {
-  @apply flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-green-600 hover:text-white text-slate-600 dark:text-slate-400 font-black text-[10px] uppercase tracking-widest rounded-xl transition-all;
+  @apply flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-green-600 hover:text-white text-slate-600 dark:text-slate-400 font-black text-[10px] uppercase tracking-widest rounded-xl transition-all duration-200 active:scale-95 border border-transparent hover:border-green-500 hover:shadow-lg hover:shadow-green-500/20;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeIn 0.4s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.2, 0, 0.2, 1) forwards;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
+    filter: blur(2px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
     transform: translateY(0);
   }
 }
