@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/flag-football-planer/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

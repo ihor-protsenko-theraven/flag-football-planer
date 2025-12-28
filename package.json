@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --base-href /flag-football-planer/ && npx gh-pages -d dist/flag-football-planer/browser"
+    "deploy": "ng build --base-href / && firebase deploy --only hosting"
   },
   "prettier": {
     "printWidth": 100,
