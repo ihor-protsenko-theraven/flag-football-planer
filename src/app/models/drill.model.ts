@@ -4,15 +4,16 @@ export type DrillLevel = 'beginner' | 'intermediate' | 'advanced';
 /**
  * Technical translations stored in Firestore
  */
-export interface DrillTranslations {
+export interface DrillTranslation {
   name: string;
   description: string;
   instructions?: string[];
   coachingTips?: string[];
+  equipment?: string[];
 }
 
 /**
- * Shared fields that are not translated
+ * Shared fields that are not translated (metadata only)
  */
 export interface BaseDrill {
   id: string;
@@ -21,7 +22,6 @@ export interface BaseDrill {
   level: DrillLevel;
   imageUrl?: string;
   videoUrl?: string;
-  equipment?: string[];
   createdAt?: string;
   updatedAt?: string;
 }
@@ -31,8 +31,8 @@ export interface BaseDrill {
  */
 export interface FirestoreDrill extends BaseDrill {
   translations: {
-    en: DrillTranslations;
-    uk: DrillTranslations;
+    en: DrillTranslation;
+    uk: DrillTranslation;
   };
 }
 
@@ -44,19 +44,20 @@ export interface Drill extends BaseDrill {
   description: string;
   instructions?: string[];
   coachingTips?: string[];
+  equipment?: string[];
 }
 
 export const DRILL_CATEGORIES: { value: DrillCategory; label: string; translationKey: string }[] = [
-  { value: 'passing', label: 'Passing', translationKey: 'DRILL.CATEGORIES.PASSING' },
-  { value: 'defense', label: 'Defense', translationKey: 'DRILL.CATEGORIES.DEFENSE' },
-  { value: 'offense', label: 'Offense', translationKey: 'DRILL.CATEGORIES.OFFENSE' },
-  { value: 'conditioning', label: 'Conditioning', translationKey: 'DRILL.CATEGORIES.CONDITIONING' },
-  { value: 'warmup', label: 'Warm-up', translationKey: 'DRILL.CATEGORIES.WARMUP' },
-  { value: 'flag_pulling', label: 'Flag Pulling', translationKey: 'DRILL.CATEGORIES.FLAG_PULLING' },
+  {value: 'passing', label: 'Passing', translationKey: 'DRILL.CATEGORIES.PASSING'},
+  {value: 'defense', label: 'Defense', translationKey: 'DRILL.CATEGORIES.DEFENSE'},
+  {value: 'offense', label: 'Offense', translationKey: 'DRILL.CATEGORIES.OFFENSE'},
+  {value: 'conditioning', label: 'Conditioning', translationKey: 'DRILL.CATEGORIES.CONDITIONING'},
+  {value: 'warmup', label: 'Warm-up', translationKey: 'DRILL.CATEGORIES.WARMUP'},
+  {value: 'flag_pulling', label: 'Flag Pulling', translationKey: 'DRILL.CATEGORIES.FLAG_PULLING'},
 ];
 
 export const DRILL_LEVELS: { value: DrillLevel; label: string; translationKey: string }[] = [
-  { value: 'beginner', label: 'Beginner', translationKey: 'DRILL.LEVELS.BEGINNER' },
-  { value: 'intermediate', label: 'Intermediate', translationKey: 'DRILL.LEVELS.INTERMEDIATE' },
-  { value: 'advanced', label: 'Advanced', translationKey: 'DRILL.LEVELS.ADVANCED' },
+  {value: 'beginner', label: 'Beginner', translationKey: 'DRILL.LEVELS.BEGINNER'},
+  {value: 'intermediate', label: 'Intermediate', translationKey: 'DRILL.LEVELS.INTERMEDIATE'},
+  {value: 'advanced', label: 'Advanced', translationKey: 'DRILL.LEVELS.ADVANCED'},
 ];

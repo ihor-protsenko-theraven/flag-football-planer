@@ -83,7 +83,9 @@ export class MyTrainingsComponent implements OnInit {
       filter(Boolean),
       switchMap(() => this.trainingService.deleteTraining(training.id))
     ).subscribe(success => {
-      if (success) this.loadTrainings();
+      if (success) {
+        this.loadTrainings();
+      }
     });
   }
 
@@ -95,6 +97,38 @@ export class MyTrainingsComponent implements OnInit {
   formatDate(date: Date): string {
     const lang = this.translate.currentLang === 'uk' ? 'uk-UA' : 'en-US';
     return new Intl.DateTimeFormat(lang, {day: 'numeric', month: 'short', year: 'numeric'}).format(new Date(date));
+  }
+
+  formatScheduledDateTime(training: Training): string {
+    if (!training.scheduledDate) {
+      return this.translate.instant('MY_TRAININGS.NO_SCHEDULE');
+    }
+
+    try {
+      // Handle different date formats (Date object, Firestore Timestamp, string)
+      const dateObj = training.scheduledDate instanceof Date
+        ? training.scheduledDate
+        : new Date(training.scheduledDate as any);
+
+      // Validate the date
+      if (isNaN(dateObj.getTime())) {
+        return this.translate.instant('MY_TRAININGS.NO_SCHEDULE');
+      }
+
+      const lang = this.translate.currentLang === 'uk' ? 'uk-UA' : 'en-US';
+      const dateStr = new Intl.DateTimeFormat(lang, {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      }).format(dateObj);
+
+      return training.scheduledTime
+        ? `${dateStr}, ${training.scheduledTime}`
+        : dateStr;
+    } catch (error) {
+      console.error('Error formatting scheduled date:', error);
+      return this.translate.instant('MY_TRAININGS.NO_SCHEDULE');
+    }
   }
 
   getLevelBadgeClass(level?: DrillLevel): string {

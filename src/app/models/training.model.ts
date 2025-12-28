@@ -5,19 +5,23 @@ export interface Training {
   name: string;
   description?: string;
   createdBy?: string;
-  createdAt: Date;
+  createdAt: Date;  // When the training plan was created in the system
+  scheduledDate?: Date;  // When the training is scheduled to occur
+  scheduledTime?: string;  // Time of day (e.g., "18:00")
   level: DrillLevel;
   drills: TrainingDrill[];
-  totalDuration: number;
+  totalDuration: number;  // Calculated from Training Builder (sum of drill durations)
 }
 
 export interface TrainingDrill {
-  drillId: string;
-  duration: number;
+  instanceId?: string;  // Unique ID for this drill instance (UI only, not saved to DB)
+  drillId: string;  // Reference to the catalog drill
+  duration: number;  // Instance-specific duration (can differ from catalog default)
   notes?: string;
   order: number;
 }
 
 export interface BuilderDrill extends TrainingDrill {
-  drill?: Drill;
+  instanceId: string;  // Required for UI state management
+  drill?: Drill;  // Reference to the full drill object for UI display
 }

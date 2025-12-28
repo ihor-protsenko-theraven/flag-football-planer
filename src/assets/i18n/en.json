@@ -70,7 +70,9 @@
     "NO_TRAININGS_TITLE": "No training sessions yet",
     "NO_TRAININGS_DESC": "Start building your first training session to organize drills and create effective practice plans",
     "CREATE_FIRST_BTN": "Create Your First Training",
-    "CONFIRM_DELETE": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone."
+    "CONFIRM_DELETE": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+    "NO_SCHEDULE": "Not scheduled",
+    "SCHEDULED_FOR": "Scheduled for"
   },
   "CONFIRMATION": {
     "CONFIRM": "Confirm",
@@ -89,6 +91,8 @@
     "TRAINING_NAME_PLACEHOLDER": "e.g., Morning Practice - Week 1",
     "DESCRIPTION_LABEL": "Training Description",
     "DESCRIPTION_PLACEHOLDER": "Add a brief description of goals and the plan for this session...",
+    "SCHEDULE_DATE_LABEL": "Training Date",
+    "SCHEDULE_TIME_LABEL": "Training Time",
     "DURATION": "Duration",
     "MIN": "min",
     "DRILLS": "Drills",
@@ -120,7 +124,9 @@
     "MIN_SHORT": "min",
     "COACH_NOTES": "Coach Notes",
     "LOADING": "Loading training...",
-    "MAIN_FOCUS": "Main focus"
+    "MAIN_FOCUS": "Main focus",
+    "CREATED_ON": "Created on",
+    "SCHEDULED_FOR": "Scheduled for"
   },
   "ADMIN_EDITOR": {
     "TITLE": "Drill Editor",
@@ -163,6 +169,23 @@
     "TABS": {
       "ENGLISH": "🇬🇧 English",
       "UKRAINIAN": "🇺🇦 Ukrainian"
+    },
+    "SECTIONS": {
+      "META": "Metadata & Settings",
+      "EQUIPMENT_NEEDED": "Equipment Needed",
+      "NO_EQUIPMENT": "No equipment added",
+      "INSTRUCTIONS_STEP": "Step-by-step Instructions",
+      "NO_INSTRUCTIONS": "No instructions",
+      "TIPS_EDGE": "Coaching Tips",
+      "DANGER_ZONE": "Danger Zone",
+      "DANGER_DESC": "Permanently remove this drill from the library"
+    },
+    "PLACEHOLDERS": {
+      "EQUIPMENT": "e.g., Ball, Cones",
+      "NAME": "Drill Name...",
+      "DESCRIPTION": "Short description of the drill goal...",
+      "INSTRUCTION": "e.g., Set up markers every 5 yards",
+      "TIP": "Focus: Keep hips low during the turn..."
     }
   },
   "ADMIN_LOGIN": {

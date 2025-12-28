@@ -145,11 +145,11 @@
 // }
 
 
-import {computed, inject, Injectable} from '@angular/core';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {combineLatest, Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {TranslateService} from '@ngx-translate/core';
+import { computed, inject, Injectable } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { combineLatest, Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 import {
   collection,
   doc,
@@ -161,7 +161,7 @@ import {
   query,
   QuerySnapshot
 } from '@angular/fire/firestore';
-import {Drill, DrillCategory, DrillLevel, FirestoreDrill} from '../models/drill.model';
+import { Drill, DrillCategory, DrillLevel, FirestoreDrill } from '../models/drill.model';
 
 @Injectable({
   providedIn: 'root'
@@ -187,14 +187,14 @@ export class DrillService {
     return () => unsubscribe();
   });
 
-  private rawDrills = toSignal(this.rawDrills$, {initialValue: []});
+  private rawDrills = toSignal(this.rawDrills$, { initialValue: [] });
 
   private currentLang = toSignal(
     this.translate.onLangChange.pipe(
       map(event => event.lang),
       startWith(this.translate.currentLang || 'en')
     ),
-    {initialValue: 'en'}
+    { initialValue: 'en' }
   );
 
 
@@ -216,7 +216,7 @@ export class DrillService {
       level: drill.level,
       imageUrl: drill.imageUrl,
       videoUrl: drill.videoUrl,
-      equipment: drill.equipment,
+      equipment: translation?.equipment || [], // Get equipment from translation
       createdAt: drill.createdAt,
       updatedAt: drill.updatedAt,
       name: translation?.name || 'Unknown Drill',
@@ -229,7 +229,7 @@ export class DrillService {
   getDrills(): Observable<Drill[]> {
     return combineLatest([
       this.rawDrills$,
-      this.translate.onLangChange.pipe(startWith({lang: this.translate.currentLang || 'en'}))
+      this.translate.onLangChange.pipe(startWith({ lang: this.translate.currentLang || 'en' }))
     ]).pipe(
       map(([drills, langEvent]) => {
         const lang = langEvent.lang || 'en';
@@ -238,18 +238,17 @@ export class DrillService {
     );
   }
 
-  getDrillById(id: string): Observable<Drill | undefined> {
-    return new Observable<Drill | undefined>(subscriber => {
+  getDrillById(id: string): Observable<FirestoreDrill | undefined> {
+    return new Observable<FirestoreDrill | undefined>(subscriber => {
 
       const drillRef = doc(this.firestore, 'drills', id);
 
       const unsubscribe = onSnapshot(drillRef, (docSnap: DocumentSnapshot<DocumentData>) => {
         if (docSnap.exists()) {
-          const data = {id: docSnap.id, ...docSnap.data()} as FirestoreDrill;
-          const lang = this.translate.currentLang || 'en';
-          subscriber.next(this.flattenDrill(data, lang));
+          const data = { id: docSnap.id, ...docSnap.data() } as FirestoreDrill;
+          subscriber.next(data); // Return raw FirestoreDrill, not flattened
         } else {
-          subscriber.next(undefined); // Документ не знайдено
+          subscriber.next(undefined); // Document not found
         }
       }, (error) => {
         console.error("Error fetching drill:", error);

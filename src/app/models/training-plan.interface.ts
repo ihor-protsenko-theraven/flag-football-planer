@@ -7,6 +7,8 @@ export interface TrainingPlan {
   description?: string;
   createdBy?: string;
   createdAt: string;
+  scheduledDate?: string;
+  scheduledTime?: string;
   level?: DrillLevel;
   drills: TrainingDrill[];
   totalDuration: number;

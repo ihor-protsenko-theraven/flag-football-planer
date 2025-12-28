@@ -2,13 +2,14 @@ import { Component, EventEmitter, inject, Input, Output, signal } from '@angular
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { Drill, DRILL_CATEGORIES, DRILL_LEVELS } from '../../models/drill.model';
+import { Drill, FirestoreDrill } from '../../models/drill.model';
 import { DrillUiService } from '../../services/drill-ui.service';
+import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
 
 @Component({
   selector: 'app-drill-card',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, LocalizedDrillPipe],
   template: `
     <div
       class="group relative h-full flex flex-col bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md dark:hover:shadow-slate-950/50 hover:-translate-y-1 active:scale-[0.98] active:shadow-sm"
@@ -22,7 +23,7 @@ import { DrillUiService } from '../../services/drill-ui.service';
 
         <img
           [src]="getImageUrl()"
-          [alt]="drill.name"
+          [alt]="(drill | localizedDrill)?.name || 'Drill image'"
           loading="lazy"
           (load)="onImageLoad()"
           (error)="onImageError()"
@@ -35,7 +36,7 @@ import { DrillUiService } from '../../services/drill-ui.service';
 
         <div class="absolute top-3 right-3 z-20">
           <span [class]="getLevelBadgeClass() + ' shadow-sm backdrop-blur-md bg-opacity-90 dark:bg-opacity-80'">
-            {{ getLevelTranslationKey(drill.level) | translate }}
+            {{ drillUi.getLevelTranslationKey(drill.level) | translate }}
           </span>
         </div>
       </div>
@@ -45,11 +46,12 @@ import { DrillUiService } from '../../services/drill-ui.service';
         <div class="flex items-start justify-between gap-3 mb-2">
           <h3
             class="font-display font-bold text-lg text-gray-900 dark:text-white leading-tight line-clamp-2 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors">
-            {{ drill.name }}
+            {{ (drill | localizedDrill)?.name }}
           </h3>
           <span
             class="shrink-0 flex items-center text-xs font-bold text-gray-500 dark:text-slate-400 bg-gray-100 dark:bg-slate-800 px-2 py-1 rounded-lg border border-gray-200 dark:border-slate-700">
-            <svg class="w-3.5 h-3.5 mr-1 text-gray-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
+            <svg class="w-3.5 h-3.5 mr-1 text-gray-400 dark:text-slate-500" fill="none" stroke="currentColor"
+                 viewBox="0 0 24 24"><path
               stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             {{ drill.duration }} min
@@ -57,14 +59,14 @@ import { DrillUiService } from '../../services/drill-ui.service';
         </div>
 
         <p class="text-sm text-gray-500 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
-          {{ drill.description }}
+          {{ (drill | localizedDrill)?.description }}
         </p>
 
         <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-100 dark:border-slate-800">
 
           <span [class]="getCategoryBadgeClass()">
             <span class="w-3.5 h-3.5" [innerHTML]="getCategoryIcon()"></span>
-            {{ getCategoryTranslationKey(drill.category) | translate }}
+            {{ drillUi.getCategoryTranslationKey(drill.category) | translate }}
           </span>
 
           @if (showAddButton) {
@@ -85,13 +87,14 @@ import { DrillUiService } from '../../services/drill-ui.service';
   styles: []
 })
 export class DrillCardComponent {
-  @Input() drill!: Drill;
+  @Input({ required: true }) drill!: Drill | FirestoreDrill;
   @Input() showAddButton = false;
-  @Output() cardClick = new EventEmitter<Drill>();
-  @Output() addClick = new EventEmitter<Drill>();
+  @Output() cardClick = new EventEmitter<Drill | FirestoreDrill>();
+  @Output() addClick = new EventEmitter<Drill | FirestoreDrill>();
 
   imageLoaded = signal(false);
-  private readonly drillUi = inject(DrillUiService);
+
+  protected readonly drillUi = inject(DrillUiService);
 
   private readonly PLACEHOLDER_IMAGE = 'assets/images/drills_images_preview/drill_placeholder.jpg';
 
@@ -104,7 +107,7 @@ export class DrillCardComponent {
   }
 
   onImageError(): void {
-    this.imageLoaded.set(true); // Stop loader even on error
+    this.imageLoaded.set(true);
   }
 
   onCardClick(): void {
@@ -116,7 +119,6 @@ export class DrillCardComponent {
     this.addClick.emit(this.drill);
   }
 
-
   getLevelBadgeClass(): string {
     return `badge text-[10px] uppercase tracking-wider font-bold px-2 py-1 border border-white/20 ` + this.drillUi.getLevelStyle(this.drill.level);
   }
@@ -127,13 +129,5 @@ export class DrillCardComponent {
 
   getCategoryIcon(): SafeHtml {
     return this.drillUi.getCategoryIcon(this.drill.category);
-  }
-
-  getCategoryTranslationKey(value: string): string {
-    return DRILL_CATEGORIES.find(c => c.value === value)?.translationKey || value;
-  }
-
-  getLevelTranslationKey(value: string): string {
-    return DRILL_LEVELS.find(l => l.value === value)?.translationKey || value;
   }
 }

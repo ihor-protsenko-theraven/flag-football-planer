@@ -1,3 +1,4 @@
+/* Scrollbar styles залишаємо без змін */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -27,16 +28,27 @@
   background-color: rgba(71, 85, 105, 0.8);
 }
 
+/* ОНОВЛЕНИЙ MODERN INPUT */
 .modern-input {
-  @apply w-full px-5 py-3 md:px-6 md:py-4 text-base md:text-sm bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white transition-all duration-300 outline-none;
-  @apply focus:ring-4 focus:ring-green-500/10 focus:border-green-500 focus:bg-white dark:focus:bg-slate-800;
+  /* Зменшено вертикальні відступи (py-2.5) для компактності */
+  @apply w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white transition-all duration-200 outline-none;
+  @apply focus:ring-2 focus:ring-green-500/20 focus:border-green-500 focus:bg-white dark:focus:bg-slate-800;
   @apply placeholder:text-slate-400 dark:placeholder:text-slate-500 placeholder:transition-all placeholder:duration-300 focus:placeholder:translate-x-1 focus:placeholder:opacity-70;
+
+  /* Важливо для вирівнювання тексту */
+  line-height: 1.5;
+}
+
+/* Спеціальний стиль для Select, щоб прибрати стандартну стрілку і додати відступ справа */
+select.modern-input {
+  @apply appearance-none cursor-pointer pr-10 truncate;
 }
 
 .modern-input.ng-invalid.ng-touched {
   @apply border-rose-300 dark:border-rose-900/50 focus:border-rose-500 focus:ring-rose-500/10 text-rose-600 dark:text-rose-400;
 }
 
+/* Решта стилів без змін */
 .active-item {
   @apply bg-green-50 dark:bg-green-500/10 ring-1 ring-inset ring-green-500/30 shadow-sm z-10;
 }
@@ -71,23 +83,11 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-    filter: blur(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+  from { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 @keyframes slideUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }

@@ -1,17 +1,17 @@
-import {Component, computed, inject, OnInit, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {SafeHtml} from '@angular/platform-browser';
-import {map, startWith} from 'rxjs/operators';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { SafeHtml } from '@angular/platform-browser';
+import { map, startWith } from 'rxjs/operators';
 
-import {DrillService} from '../../services/drill.service';
-import {DrillUiService} from '../../services/drill-ui.service';
-import {Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
-import {DrillCardComponent} from '../../components/drill-card/drill-card.component';
-import {SkeletonCardComponent} from '../../components/skeleton-card/skeleton-card.component';
+import { DrillService } from '../../services/drill.service';
+import { DrillUiService } from '../../services/drill-ui.service';
+import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel, FirestoreDrill } from '../../models/drill.model';
+import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
+import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-card.component';
 
 @Component({
   selector: 'app-drill-catalog',
@@ -161,7 +161,7 @@ export class DrillCatalogComponent implements OnInit {
     this.selectedLevel.set(null);
   }
 
-  onDrillClick(drill: Drill): void {
+  onDrillClick(drill: Drill | FirestoreDrill): void {
     this.router.navigate(['/catalog', drill.id]);
   }
 

@@ -178,6 +178,38 @@
                                 class="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-green-500/20 transition-all text-sm text-slate-600 dark:text-white outline-none placeholder:text-slate-300 dark:placeholder:text-slate-500 resize-y min-h-[100px]"></textarea>
                         </div>
 
+                        <!-- Schedule Section -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">
+                                    <svg class="w-3.5 h-3.5 inline-block mr-1.5 -mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    {{ 'TRAINING_BUILDER.SCHEDULE_DATE_LABEL' | translate }}
+                                </label>
+                                <input type="date" [ngModel]="scheduledDate()"
+                                    (ngModelChange)="scheduledDate.set($event)"
+                                    class="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-green-500/20 transition-all text-sm font-medium text-slate-900 dark:text-white outline-none" />
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">
+                                    <svg class="w-3.5 h-3.5 inline-block mr-1.5 -mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    {{ 'TRAINING_BUILDER.SCHEDULE_TIME_LABEL' | translate }}
+                                </label>
+                                <input type="time" [ngModel]="scheduledTime()"
+                                    (ngModelChange)="scheduledTime.set($event)"
+                                    class="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-green-500/20 transition-all text-sm font-medium text-slate-900 dark:text-white outline-none" />
+                            </div>
+                        </div>
+
                         <!-- Stats Bar -->
                         <div class="flex flex-wrap gap-4 pt-4 border-t border-slate-50 dark:border-slate-800">
                             <div
@@ -240,7 +272,7 @@
                     <div id="plan-list" cdkDropList [cdkDropListData]="trainingDrills()"
                         [cdkDropListAutoScrollStep]="15" (cdkDropListDropped)="onDrop($event)"
                         class="flex-1 p-6 space-y-4 bg-slate-50/10 dark:bg-slate-800/10 min-h-[400px]">
-                        @for (item of trainingDrills(); let i = $index; track item.drillId) {
+                        @for (item of trainingDrills(); let i = $index; track item.instanceId) {
                         <div cdkDrag [cdkDragData]="item" (cdkDragStarted)="onDragStarted()"
                             class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-5 hover:border-green-400 hover:shadow-xl transition-all relative flex gap-6">
                             <div *cdkDragPlaceholder class="custom-placeholder"></div>
@@ -300,7 +332,8 @@
                                             {{ 'TRAINING_BUILDER.DURATION' | translate }} ({{ 'TRAINING_BUILDER.MIN' |
                                             translate }})
                                         </label>
-                                        <input type="number" [(ngModel)]="item.duration" min="1"
+                                        <input type="number" [(ngModel)]="item.duration"
+                                            (ngModelChange)="onDurationChange(i, $event)" min="1"
                                             class="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900 border-none rounded-xl text-sm font-black text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-green-500/20" />
                                     </div>
                                     <div class="md:col-span-9">

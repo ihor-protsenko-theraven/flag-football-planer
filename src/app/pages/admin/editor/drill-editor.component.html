@@ -210,35 +210,6 @@
                 </div>
               </div>
 
-              <div class="mt-8 pt-8 border-t border-slate-50 dark:border-slate-800/50">
-                <div class="flex items-center justify-between mb-4">
-                  <label
-                    class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{ 'ADMIN_EDITOR.SECTIONS.EQUIPMENT_NEEDED' | translate }}</label>
-                  <button type="button" (click)="addItem(equipment)"
-                          class="text-[10px] font-black uppercase text-green-600 hover:text-green-700 tracking-tighter bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-lg">
-                    {{ 'ADMIN_EDITOR.BUTTONS.ADD_ITEM' | translate }}
-                  </button>
-                </div>
-                <div formArrayName="equipment" class="flex flex-col md:flex-row flex-wrap gap-2">
-                  @for (item of equipment.controls; track item.value; let i = $index) {
-                    <div class="relative group flex items-center">
-                      <input [formControlName]="i" [placeholder]="'ADMIN_EDITOR.PLACEHOLDERS.EQUIPMENT' | translate"
-                             class="flex-1 md:flex-none pl-4 pr-10 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold focus:ring-2 focus:ring-green-500/10 outline-none w-full md:w-40">
-                      <button (click)="removeItem(equipment, i)"
-                              class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-slate-300 hover:text-rose-500 transition-colors md:opacity-0 group-hover:opacity-100">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2.5"/>
-                        </svg>
-                      </button>
-                    </div>
-                  }
-                  @if (equipment.length === 0) {
-                    <p
-                      class="text-[10px] italic text-slate-400 py-2">{{ 'ADMIN_EDITOR.SECTIONS.NO_EQUIPMENT' | translate }}</p>
-                  }
-                </div>
-              </div>
             </div>
 
             <div
@@ -350,6 +321,39 @@
                     </div>
                   </div>
 
+                  <div class="py-6 border-y border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                      <label
+                        class="text-[10px] font-black uppercase tracking-widest text-slate-400">{{ 'ADMIN_EDITOR.SECTIONS.EQUIPMENT_NEEDED' | translate }}
+                        ({{ activeFormTab() | uppercase }})</label>
+                      <button type="button" (click)="addItem(getEquipment(activeFormTab()))" class="add-btn">
+                        {{ 'ADMIN_EDITOR.BUTTONS.ADD_ITEM' | translate }}
+                      </button>
+                    </div>
+
+                    <div [formArrayName]="'equipment'" class="flex flex-wrap gap-2">
+                      @for (item of getEquipment(activeFormTab()).controls; track item; let k = $index) {
+                        <div
+                          class="relative group flex items-center bg-slate-50 dark:bg-slate-800 rounded-xl pr-2 border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-green-500/10 focus-within:border-green-500 transition-all">
+                          <input [formControlName]="k"
+                                 class="bg-transparent border-none text-xs font-bold py-2.5 pl-3 pr-1 w-32 md:w-40 focus:ring-0 placeholder:font-normal"
+                                 [placeholder]="'ADMIN_EDITOR.PLACEHOLDERS.EQUIPMENT' | translate">
+                          <button (click)="removeItem(getEquipment(activeFormTab()), k)"
+                                  class="text-slate-300 hover:text-rose-500 p-1 md:opacity-0 group-hover:opacity-100 transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                          </button>
+                        </div>
+                      }
+                      @if (getEquipment(activeFormTab()).length === 0) {
+                        <p
+                          class="text-xs text-slate-400 italic py-1">{{ 'ADMIN_EDITOR.SECTIONS.NO_EQUIPMENT' | translate }}</p>
+                      }
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -374,25 +378,56 @@
           </form>
         </div>
       } @else {
-        <div
-          class="hidden md:flex h-full flex-col items-center justify-center text-center max-w-lg mx-auto pb-12 animate-fade-in">
+        <div class="hidden md:flex h-full flex-col items-center justify-center text-center max-w-lg mx-auto pb-12 animate-fade-in">
+
           <div class="relative mb-12">
-            <div
-              class="w-48 h-48 bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl flex items-center justify-center text-8xl relative z-10 rotate-3 group hover:rotate-0 transition-transform duration-500">
-              📋
+            <div class="w-48 h-48 bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl flex items-center justify-center relative z-10 rotate-3 group hover:rotate-0 transition-transform duration-500 overflow-hidden border-4 border-slate-50 dark:border-slate-800">
+
+              <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <div class="w-full h-full border-l-2 border-r-2 border-slate-900 dark:border-white mx-auto flex justify-between px-8">
+                  <div class="h-full w-px bg-current"></div>
+                  <div class="h-full w-px bg-current"></div>
+                </div>
+              </div>
+
+              <svg class="w-32 h-32 text-slate-800 dark:text-slate-100 drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+                   viewBox="0 0 512 512"
+                   preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0,512) scale(0.1,-0.1)" fill="currentColor" stroke="none">
+                  <path d="M3367 5104 c-175 -42 -325 -181 -377 -352 -25 -80 -27 -215 -4 -293 67 -230 266 -379 504 -379 259 1 474 189 512 450 23 156 -32 318 -148 436 -126 127 -313 180 -487 138z"/>
+                  <path d="M2725 4201 c-16 -5 -212 -48 -435 -96 -225 -48 -419 -95 -437 -105 -45 -26 -824 -672 -856 -709 -69 -83 -37 -222 64 -273 44 -23 125 -23 166 0 18 9 204 159 413 332 l381 315 70 17 c38 9 87 19 109 23 l40 7 -54 -114 c-120 -251 -195 -545 -222 -868 -5 -68 -11 -91 -30 -113 -27 -32 -30 -67 -13 -164 l11 -64 -44 -47 c-54 -59 -109 -135 -137 -189 -25 -49 -27 -50 -246 -57 -116 -3 -154 -8 -222 -30 -95 -31 -185 -88 -244 -154 -45 -52 -115 -170 -105 -179 3 -3 45 8 92 25 48 17 91 29 95 26 5 -3 9 -17 10 -32 0 -15 8 -74 18 -132 l17 -105 38 72 c98 185 191 239 436 253 157 9 200 18 250 53 49 32 67 62 101 162 35 103 97 238 107 233 35 -16 1146 -769 1169 -791 6 -7 91 -300 187 -652 102 -374 186 -662 202 -693 45 -89 151 -152 255 -152 103 0 217 75 260 172 44 100 43 109 -173 889 -108 388 -203 721 -212 741 -9 19 -36 53 -59 75 -71 68 -946 658 -997 672 -25 7 -54 15 -66 18 -24 5 -313 -58 -426 -93 -62 -20 -87 -34 -119 -67 -71 -74 -142 -209 -183 -350 -36 -124 -92 -155 -309 -167 -209 -11 -292 -45 -398 -164 l-36 -41 -13 88 c-6 48 -16 87 -21 87 -5 0 -32 -9 -61 -20 -28 -11 -54 -17 -57 -15 -3 3 25 35 62 71 112 109 209 143 432 150 243 8 226 3 268 87 20 40 69 111 110 158 l74 85 -15 97 c-10 61 -12 101 -6 106 5 6 134 41 287 79 153 39 281 73 284 76 4 3 -13 249 -37 545 -43 531 -43 540 -25 586 37 99 117 155 221 155 115 0 210 -74 233 -181 5 -24 12 -84 15 -134 4 -49 9 -113 12 -142 l6 -52 62 62 c34 34 79 73 98 87 32 21 38 32 49 88 27 144 -10 298 -89 375 -60 58 -122 80 -232 83 -52 2 -108 -1 -125 -5z"/>
+                  <path d="M2625 3956 c-41 -18 -92 -77 -104 -122 -7 -27 1 -168 34 -569 38 -468 46 -537 64 -573 28 -55 91 -92 156 -92 55 0 1052 268 1123 302 76 36 118 133 92 213 -27 83 -119 144 -197 131 -21 -3 -218 -55 -438 -116 -226 -62 -402 -106 -405 -100 -3 5 -18 170 -33 367 -33 418 -38 455 -73 500 -49 65 -146 91 -219 59z"/>
+                  <path d="M3385 3724 c-112 -27 -222 -90 -311 -179 -45 -44 -86 -89 -91 -100 -9 -16 2 -48 58 -169 38 -82 71 -151 73 -153 7 -7 631 169 646 182 8 8 23 27 32 42 17 29 16 30 -66 209 l-83 179 -99 2 c-59 1 -123 -4 -159 -13z m126 -218 c10 -21 15 -23 36 -15 32 12 33 12 33 -6 0 -8 -9 -19 -20 -25 -17 -9 -18 -14 -9 -31 6 -11 8 -28 4 -37 -6 -14 -10 -13 -30 12 -17 21 -28 27 -44 21 -24 -7 -26 -17 -11 -46 9 -15 7 -21 -6 -26 -10 -4 -19 -2 -21 3 -11 32 -22 38 -48 26 -21 -10 -24 -15 -15 -31 14 -27 13 -41 -3 -41 -8 0 -19 11 -25 25 -10 22 -14 24 -37 13 -18 -8 -24 -16 -19 -27 16 -39 16 -51 0 -51 -9 0 -21 11 -28 25 -9 20 -14 22 -30 14 -33 -18 -49 8 -19 30 20 15 22 21 12 40 -19 35 -1 48 24 17 17 -21 28 -27 44 -21 18 5 21 12 15 40 -7 41 12 56 28 21 12 -29 20 -31 49 -16 15 9 17 15 9 30 -14 26 -12 40 5 40 9 0 20 -11 26 -24 10 -21 15 -23 35 -14 26 12 29 24 15 48 -6 8 -7 18 -5 22 9 15 24 8 35 -16z"/>
+                  <path d="M3722 3711 c24 -64 124 -269 129 -265 13 8 42 106 43 147 1 33 -5 44 -33 68 -44 36 -148 74 -139 50z"/>
+                  <path d="M2987 3180 c6 -84 12 -95 42 -85 26 8 23 21 -20 105 l-28 55 6 -75z"/>
+                  <path d="M2233 2124 c9 -31 117 -659 117 -681 0 -18 -45 -33 -432 -143 -473 -133 -502 -145 -559 -229 -38 -58 -52 -112 -47 -186 9 -142 118 -251 263 -263 55 -4 109 9 630 157 314 89 584 167 600 173 42 17 113 85 136 130 44 85 44 116 -1 369 -22 129 -44 237 -48 240 -8 7 -629 430 -650 443 -11 6 -13 4 -9 -10z"/>
+                </g>
+              </svg>
             </div>
+
             <div class="absolute -inset-4 bg-green-500/10 dark:bg-green-500/5 rounded-[3.5rem] blur-2xl"></div>
+
+            <div class="absolute -right-4 -bottom-2 bg-green-600 text-white p-3 rounded-2xl shadow-lg rotate-12 z-20">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" opacity="0.1"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 19.5C5 17 4 13.5 5.5 10l3 1.5C7.5 13.5 8 16 9.5 17.5s4 2 6 1l1.5 3c-3.5 1.5-7 .5-9.5-2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 4.5C19 7 20 10.5 18.5 14l-3-1.5C16.5 10.5 16 8 14.5 6.5s-4-2-6-1l-1.5-3c3.5-1.5 7-.5 9.5 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 10l4 4m-4 0l4-4"/>
+              </svg>
+            </div>
           </div>
 
-          <h2
-            class="text-3xl font-display font-black text-slate-900 dark:text-white mb-4 tracking-tight">{{ 'ADMIN_EDITOR.SELECT_TO_EDIT' | translate }}</h2>
-          <p
-            class="text-slate-500 dark:text-slate-400 font-medium text-lg leading-relaxed mb-10">{{ 'ADMIN_EDITOR.SELECT_DESC' | translate }}</p>
+          <h2 class="text-3xl font-display font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+            {{ 'ADMIN_EDITOR.SELECT_TO_EDIT' | translate }}
+          </h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium text-lg leading-relaxed mb-10">
+            {{ 'ADMIN_EDITOR.SELECT_DESC' | translate }}
+          </p>
 
           <button (click)="createNewDrill()"
-                  class="px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-2xl shadow-2xl hover:bg-green-600 dark:hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1 active:scale-95 flex items-center gap-3">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+                  class="px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-2xl shadow-2xl hover:bg-green-600 dark:hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1 active:scale-95 flex items-center gap-3 group">
+            <svg class="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
             </svg>
             {{ 'ADMIN_EDITOR.ADD_NEW' | translate }}
           </button>

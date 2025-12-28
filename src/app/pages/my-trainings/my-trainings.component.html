@@ -13,8 +13,9 @@
 
       <div class="flex-shrink-0">
         <button routerLink="/builder"
-                class="group flex items-center gap-2.5 bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg shadow-green-500/20 hover:shadow-green-500/30 active:scale-95 transition-all duration-200">
-          <svg class="w-5 h-5 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          class="group flex items-center gap-2.5 bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg shadow-green-500/20 hover:shadow-green-500/30 active:scale-95 transition-all duration-200">
+          <svg class="w-5 h-5 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
           </svg>
           <span>{{ 'MY_TRAININGS.NEW_TRAINING_BTN' | translate }}</span>
@@ -22,42 +23,41 @@
       </div>
     </div>
 
-    <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 mb-10 sticky top-4 z-30 backdrop-blur-xl bg-opacity-90 dark:bg-opacity-90">
+    <div
+      class="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 mb-10 sticky top-4 z-30 backdrop-blur-xl bg-opacity-90 dark:bg-opacity-90">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
 
         <div class="md:col-span-8">
           <label class="sr-only">{{ 'CATALOG.SEARCH_LABEL' | translate }}</label>
           <div class="relative group">
-            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-green-500 transition-colors">
+            <div
+              class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-green-500 transition-colors">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
-            <input
-              type="text"
-              [ngModel]="searchQuery()"
-              (ngModelChange)="searchQuery.set($event)"
+            <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
               [placeholder]="'MY_TRAININGS.SEARCH_PLACEHOLDER' | translate"
-              class="block w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-transparent focus:border-green-500 focus:bg-white dark:focus:bg-slate-900 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/10 transition-all duration-200 ease-in-out font-medium"
-            />
+              class="block w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-transparent focus:border-green-500 focus:bg-white dark:focus:bg-slate-900 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/10 transition-all duration-200 ease-in-out font-medium" />
           </div>
         </div>
 
         <div class="md:col-span-4">
           <label class="sr-only">{{ 'MY_TRAININGS.FILTER_LEVEL' | translate }}</label>
           <div class="relative group">
-            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-green-500 transition-colors">
+            <div
+              class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-green-500 transition-colors">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
               </svg>
             </div>
-            <select
-              [ngModel]="selectedLevel()"
-              (ngModelChange)="selectedLevel.set($event)"
+            <select [ngModel]="selectedLevel()" (ngModelChange)="selectedLevel.set($event)"
               class="block w-full pl-11 pr-10 py-3.5 bg-slate-50 dark:bg-slate-950 border border-transparent focus:border-green-500 focus:bg-white dark:focus:bg-slate-900 rounded-2xl text-slate-900 dark:text-white font-medium focus:ring-4 focus:ring-green-500/10 transition-all duration-200 cursor-pointer appearance-none">
               <option [ngValue]="null" class="dark:bg-slate-900">{{ 'MY_TRAININGS.ALL_LEVELS' | translate }}</option>
               @for (level of levels; track level.value) {
-                <option [value]="level.value" class="dark:bg-slate-900">{{ level.translationKey | translate }}</option>
+              <option [value]="level.value" class="dark:bg-slate-900">{{ level.translationKey | translate }}</option>
               }
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">
@@ -71,111 +71,137 @@
     </div>
 
     @if (isLoading()) {
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        @for (item of [1, 2, 3, 4, 5, 6]; track item) {
-          <app-skeleton-card></app-skeleton-card>
-        }
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      @for (item of [1, 2, 3, 4, 5, 6]; track item) {
+      <app-skeleton-card></app-skeleton-card>
+      }
+    </div>
     } @else {
-      @if (filteredTrainings().length > 0) {
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in">
-          @for (training of filteredTrainings(); track training.id) {
-            <div class="group relative bg-white dark:bg-slate-900 rounded-3xl p-1 border border-slate-200 dark:border-slate-800 hover:border-green-500/30 dark:hover:border-green-500/30 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-slate-950/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+    @if (filteredTrainings().length > 0) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in">
+      @for (training of filteredTrainings(); track training.id) {
+      <div
+        class="group relative bg-white dark:bg-slate-900 rounded-3xl p-1 border border-slate-200 dark:border-slate-800 hover:border-green-500/30 dark:hover:border-green-500/30 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-slate-950/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
 
-              <div class="flex flex-col h-full p-6 md:p-7">
+        <div class="flex flex-col h-full p-6 md:p-7">
 
-                <div class="flex justify-between items-start mb-4">
-                  <span [class]="getLevelBadgeClass(training.level) + ' px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-opacity-10 shadow-sm'">
-                    <span class="w-3.5 h-3.5" [innerHTML]="getLevelIcon(training.level)"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-wider">
-                      {{ 'DRILL.LEVELS.' + (training.level || 'BEGINNER').toUpperCase() | translate }}
-                    </span>
-                  </span>
+          <div class="flex justify-between items-start mb-4">
+            <span
+              [class]="getLevelBadgeClass(training.level) + ' px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-opacity-10 shadow-sm'">
+              <span class="w-3.5 h-3.5" [innerHTML]="getLevelIcon(training.level)"></span>
+              <span class="text-[10px] font-bold uppercase tracking-wider">
+                {{ 'DRILL.LEVELS.' + (training.level || 'BEGINNER').toUpperCase() | translate }}
+              </span>
+            </span>
 
-                  <button (click)="deleteTraining($event, training)"
-                          class="relative z-10 -mr-2 -mt-2 p-2.5 text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-xl transition-colors duration-200 group/delete"
-                          title="{{ 'MY_TRAININGS.DELETE' | translate }}">
-                    <svg class="w-5 h-5 transition-transform group-active/delete:scale-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
-                  </button>
-                </div>
+            <button (click)="deleteTraining($event, training)"
+              class="relative z-10 -mr-2 -mt-2 p-2.5 text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-xl transition-colors duration-200 group/delete"
+              title="{{ 'MY_TRAININGS.DELETE' | translate }}">
+              <svg class="w-5 h-5 transition-transform group-active/delete:scale-90" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>
+          </div>
 
-                <div class="mb-6 flex-1">
-                  <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3 leading-tight group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
-                    <a [routerLink]="['/trainings', training.id]" class="after:absolute after:inset-0 focus:outline-none">
-                      {{ training.name }}
-                    </a>
-                  </h3>
-                  <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
-                    {{ training.description || 'No description provided' }}
-                  </p>
-                </div>
-
-                <div class="mt-auto pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                  <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-2 group/stat">
-                      <div class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-400 group-hover/stat:text-green-600 transition-colors">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div class="flex flex-col">
-                        <span class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-0.5">{{ 'TRAINING_BUILDER.DURATION' | translate }}</span>
-                        <span class="text-sm font-bold text-slate-900 dark:text-white">
-                          {{ training.totalDuration }} <span class="text-[10px] font-normal text-slate-400">{{ 'TRAINING_BUILDER.MIN' | translate }}</span>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div class="flex items-center gap-2 group/stat">
-                      <div class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-400 group-hover/stat:text-blue-500 transition-colors">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                        </svg>
-                      </div>
-                      <div class="flex flex-col">
-                        <span class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-0.5">{{ 'TRAINING_BUILDER.DRILLS' | translate }}</span>
-                        <span class="text-sm font-bold text-slate-900 dark:text-white">{{ training.drills.length }}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-green-600 group-hover:text-white transition-all transform group-hover:scale-110">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          }
-        </div>
-      } @else {
-        <div class="flex flex-col items-center justify-center py-24 px-4 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-dashed border-slate-200 dark:border-slate-800">
-          <div class="relative mb-6">
-            <div class="absolute inset-0 bg-green-500 blur-2xl opacity-10 rounded-full"></div>
-            <div class="relative w-20 h-20 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center text-4xl shadow-sm">
-              📋
+          <div class="mb-6 flex-1">
+            <h3
+              class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3 leading-tight group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+              <a [routerLink]="['/trainings', training.id]" class="after:absolute after:inset-0 focus:outline-none">
+                {{ training.name }}
+              </a>
+            </h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-2 mb-3">
+              {{ training.description || 'No description provided' }}
+            </p>
+            <!-- Scheduled Date/Time -->
+            <div class="flex items-center gap-2 text-xs">
+              <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="font-medium" [class.text-slate-400]="!training.scheduledDate"
+                [class.text-green-600]="training.scheduledDate" [class.dark:text-green-400]="training.scheduledDate">
+                {{ formatScheduledDateTime(training) }}
+              </span>
             </div>
           </div>
-          <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-2">
-            {{ 'MY_TRAININGS.NO_TRAININGS_TITLE' | translate }}
-          </h3>
-          <p class="text-slate-500 dark:text-slate-400 mb-8 max-w-sm text-center">
-            {{ 'MY_TRAININGS.NO_TRAININGS_DESC' | translate }}
-          </p>
-          <button routerLink="/builder"
-                  class="group flex items-center gap-2 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl hover:bg-slate-800 dark:hover:bg-slate-100 font-bold transition-all shadow-xl shadow-slate-900/10 active:scale-95">
-            <svg class="w-5 h-5 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-            {{ 'MY_TRAININGS.CREATE_FIRST_BTN' | translate }}
-          </button>
+
+          <div class="mt-auto pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-6">
+              <div class="flex items-center gap-2 group/stat">
+                <div
+                  class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-400 group-hover/stat:text-green-600 transition-colors">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-0.5">{{
+                    'TRAINING_BUILDER.DURATION' | translate }}</span>
+                  <span class="text-sm font-bold text-slate-900 dark:text-white">
+                    {{ training.totalDuration }} <span class="text-[10px] font-normal text-slate-400">{{
+                      'TRAINING_BUILDER.MIN' | translate }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 group/stat">
+                <div
+                  class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-400 group-hover/stat:text-blue-500 transition-colors">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-0.5">{{
+                    'TRAINING_BUILDER.DRILLS' | translate }}</span>
+                  <span class="text-sm font-bold text-slate-900 dark:text-white">{{ training.drills.length }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-green-600 group-hover:text-white transition-all transform group-hover:scale-110">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
         </div>
+      </div>
       }
+    </div>
+    } @else {
+    <div
+      class="flex flex-col items-center justify-center py-24 px-4 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-dashed border-slate-200 dark:border-slate-800">
+      <div class="relative mb-6">
+        <div class="absolute inset-0 bg-green-500 blur-2xl opacity-10 rounded-full"></div>
+        <div
+          class="relative w-20 h-20 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center text-4xl shadow-sm">
+          📋
+        </div>
+      </div>
+      <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-2">
+        {{ 'MY_TRAININGS.NO_TRAININGS_TITLE' | translate }}
+      </h3>
+      <p class="text-slate-500 dark:text-slate-400 mb-8 max-w-sm text-center">
+        {{ 'MY_TRAININGS.NO_TRAININGS_DESC' | translate }}
+      </p>
+      <button routerLink="/builder"
+        class="group flex items-center gap-2 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl hover:bg-slate-800 dark:hover:bg-slate-100 font-bold transition-all shadow-xl shadow-slate-900/10 active:scale-95">
+        <svg class="w-5 h-5 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        {{ 'MY_TRAININGS.CREATE_FIRST_BTN' | translate }}
+      </button>
+    </div>
+    }
     }
   </div>
 </div>
