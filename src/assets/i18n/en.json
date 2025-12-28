@@ -26,6 +26,32 @@
     "APPLY_FILTERS": "Apply Filters",
     "CLEAR_FILTERS_BTN": "Clear Filters"
   },
+  "COMBINATIONS": {
+    "TITLE": "Playbook",
+    "BACK_TO_PLAYBOOK": "Back to Playbook",
+    "KEY_POINTS": "Key Execution Points",
+    "FILTERS": "Filters",
+    "CLEAR_ALL": "Clear All",
+    "CLEAR_FILTERS": "Clear Filters",
+    "CATEGORY": "Category",
+    "COMPLEXITY_LABEL": "Complexity",
+    "SHOWING_PLAYS": "Showing {{count}} of {{total}} plays",
+    "NO_PLAYS_TITLE": "No plays found",
+    "NO_PLAYS_DESC": "Try adjusting your filters or search terms",
+    "LOAD_MORE": "Load More Plays",
+    "SEARCH_PLACEHOLDER": "Search plays...",
+    "CATEGORIES": {
+      "PASS_PLAY": "Pass Play",
+      "RUN_PLAY": "Run Play",
+      "TRICK_PLAY": "Trick Play",
+      "DEFENSE_SCHEME": "Defense Scheme"
+    },
+    "COMPLEXITY": {
+      "BASIC": "Basic",
+      "INTERMEDIATE": "Intermediate",
+      "PRO": "Pro"
+    }
+  },
   "DRILL": {
     "CATEGORIES": {
       "PASSING": "Passing",

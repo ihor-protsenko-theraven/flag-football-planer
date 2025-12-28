@@ -161,7 +161,7 @@ import {
   query,
   QuerySnapshot
 } from '@angular/fire/firestore';
-import { Drill, DrillCategory, DrillLevel, FirestoreDrill } from '../models/drill.model';
+import { Drill, DrillCategory, DrillLevel, FirestoreDrill } from '../../models/drill.model';
 
 @Injectable({
   providedIn: 'root'

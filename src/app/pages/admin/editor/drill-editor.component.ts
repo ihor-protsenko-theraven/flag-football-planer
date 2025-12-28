@@ -12,10 +12,10 @@ import {
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
 
-import {DrillAdminService} from '../../../services/drill-admin.service';
+import {DrillAdminService} from '../../../services/drill/drill-admin.service';
 import {ToastService} from '../../../services/toast.service';
 import {ConfirmationService} from '../../../services/confirmation.service';
-import {DrillUiService} from '../../../services/drill-ui.service';
+import {DrillUiService} from '../../../services/drill/drill-ui.service';
 import {DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill} from '../../../models/drill.model';
 
 @Component({

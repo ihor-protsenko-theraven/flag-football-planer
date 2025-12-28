@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
-import {DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../models/drill.model';
-import {CATEGORY_UI_CONFIG, LEVEL_UI_CONFIG} from '../models/ui-style.model';
+import {DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
+import {CATEGORY_UI_CONFIG, LEVEL_UI_CONFIG} from '../../models/ui-style.model';
 
 @Injectable({
   providedIn: 'root'

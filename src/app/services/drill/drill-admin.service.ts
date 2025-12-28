@@ -1,20 +1,19 @@
 import {inject, Injectable} from '@angular/core';
 import {
-  Firestore,
-  collection,
-  doc,
   addDoc,
-  updateDoc,
+  collection,
   deleteDoc,
-  query,
-  orderBy,
-  onSnapshot,
-  QuerySnapshot,
+  doc,
   DocumentData,
-  Unsubscribe, getDoc
+  Firestore,
+  onSnapshot,
+  orderBy,
+  query,
+  QuerySnapshot,
+  updateDoc
 } from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {FirestoreDrill} from '../models/drill.model';
+import {FirestoreDrill} from '../../models/drill.model';
 
 @Injectable({
   providedIn: 'root'

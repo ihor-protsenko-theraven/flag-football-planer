@@ -12,7 +12,7 @@ import {
   setDoc
 } from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {TrainingPlan} from '../models/training-plan.interface';
+import {TrainingPlan} from '../../models/training-plan.interface';
 
 @Injectable({
   providedIn: 'root'

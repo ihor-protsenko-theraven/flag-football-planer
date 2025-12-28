@@ -7,8 +7,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { SafeHtml } from '@angular/platform-browser';
 import { map, startWith } from 'rxjs/operators';
 
-import { DrillService } from '../../services/drill.service';
-import { DrillUiService } from '../../services/drill-ui.service';
+import { DrillService } from '../../services/drill/drill.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
 import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel, FirestoreDrill } from '../../models/drill.model';
 import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
 import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-card.component';

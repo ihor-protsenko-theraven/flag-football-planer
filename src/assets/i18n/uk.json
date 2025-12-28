@@ -26,6 +26,32 @@
     "CLEAR_FILTERS_BTN": "Очистити фільтри",
     "APPLY_FILTERS": "Застосувати фільтри"
   },
+  "COMBINATIONS": {
+    "TITLE": "Плейбук",
+    "BACK_TO_PLAYBOOK": "Назад до плейбуку",
+    "KEY_POINTS": "Ключові моменти виконання",
+    "FILTERS": "Фільтри",
+    "CLEAR_ALL": "Очистити все",
+    "CLEAR_FILTERS": "Очистити фільтри",
+    "CATEGORY": "Категорія",
+    "COMPLEXITY_LABEL": "Складність",
+    "SHOWING_PLAYS": "Показано {{count}} з {{total}} комбінацій",
+    "NO_PLAYS_TITLE": "Комбінацій не знайдено",
+    "NO_PLAYS_DESC": "Спробуйте змінити фільтри або пошуковий запит",
+    "LOAD_MORE": "Завантажити ще",
+    "SEARCH_PLACEHOLDER": "Пошук комбінацій..",
+    "CATEGORIES": {
+      "PASS_PLAY": "Пасова гра",
+      "RUN_PLAY": "Винос",
+      "TRICK_PLAY": "Трюкова гра",
+      "DEFENSE_SCHEME": "Схема захисту"
+    },
+    "COMPLEXITY": {
+      "BASIC": "Базова",
+      "INTERMEDIATE": "Середня",
+      "PRO": "Професійна"
+    }
+  },
   "DRILL": {
     "CATEGORIES": {
       "PASSING": "Пас",

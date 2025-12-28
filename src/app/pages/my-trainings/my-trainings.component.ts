@@ -6,9 +6,9 @@ import {filter, switchMap} from 'rxjs';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {SafeHtml} from '@angular/platform-browser';
 
-import {TrainingService} from '../../services/training.service';
+import {TrainingService} from '../../services/training/training.service';
 import {ConfirmationService} from '../../services/confirmation.service';
-import {DrillUiService} from '../../services/drill-ui.service';
+import {DrillUiService} from '../../services/drill/drill-ui.service';
 import {SkeletonCardComponent} from '../../components/skeleton-card/skeleton-card.component';
 import {Training} from '../../models/training.model';
 import {DRILL_LEVELS, DrillLevel} from '../../models/drill.model';

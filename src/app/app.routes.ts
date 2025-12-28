@@ -14,6 +14,14 @@ export const routes: Routes = [
     { path: 'builder', component: TrainingBuilderComponent },
     { path: 'trainings', component: MyTrainingsComponent },
     { path: 'trainings/:id', component: TrainingViewComponent },
+    {
+        path: 'combinations',
+        loadComponent: () => import('./pages/combinations-catalog/combinations-catalog.component').then(m => m.CombinationsCatalogComponent)
+    },
+    {
+        path: 'combinations/:id',
+        loadComponent: () => import('./pages/combination-detail/combination-detail.component').then(m => m.CombinationDetailComponent)
+    },
 
     // Admin Routes
     { path: 'admin/login', component: AdminLoginComponent },

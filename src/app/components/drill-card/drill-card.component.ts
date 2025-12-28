@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { Drill, FirestoreDrill } from '../../models/drill.model';
-import { DrillUiService } from '../../services/drill-ui.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
 import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
 
 @Component({

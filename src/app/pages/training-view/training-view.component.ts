@@ -4,10 +4,10 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SafeHtml } from '@angular/platform-browser';
 
-import { TrainingService } from '../../services/training.service';
-import { DrillService } from '../../services/drill.service';
+import { TrainingService } from '../../services/training/training.service';
+import { DrillService } from '../../services/drill/drill.service';
 import { PdfExportService } from '../../services/pdf-export.service';
-import { DrillUiService } from '../../services/drill-ui.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
 import { Training } from '../../models/training.model';
 import { Drill, DrillCategory, DrillLevel } from '../../models/drill.model';
 
@@ -20,28 +20,45 @@ import { Drill, DrillCategory, DrillLevel } from '../../models/drill.model';
     .stat-card {
       @apply p-6 rounded-[2rem] border flex flex-col justify-center transition-all hover:scale-[1.02];
     }
+
     .stat-label {
       @apply text-[10px] font-black uppercase tracking-[0.2em] mb-2;
     }
+
     .stat-value {
       @apply text-3xl font-black flex items-baseline gap-2;
     }
+
     .stat-unit {
       @apply text-sm font-bold opacity-60;
     }
 
     @keyframes fade-in {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     .animate-fade-in {
       animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes slide-up {
-      from { transform: translateY(100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
+
     .animate-slide-up {
       animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }

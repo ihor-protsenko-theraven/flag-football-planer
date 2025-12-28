@@ -1,6 +1,6 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { Drill } from '../models/drill.model';
-import { BuilderDrill } from '../models/training.model';
+import { Drill } from '../../models/drill.model';
+import { BuilderDrill } from '../../models/training.model';
 
 @Injectable({
   providedIn: 'root'

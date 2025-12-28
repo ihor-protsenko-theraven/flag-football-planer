@@ -2,8 +2,8 @@ import {inject, Injectable} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {catchError, from, map, Observable, of} from 'rxjs';
 import {TrainingDbService} from './training-db.service';
-import {TrainingPlan} from '../models/training-plan.interface';
-import {Training} from '../models/training.model';
+import {TrainingPlan} from '../../models/training-plan.interface';
+import {Training} from '../../models/training.model';
 
 @Injectable({
   providedIn: 'root'
