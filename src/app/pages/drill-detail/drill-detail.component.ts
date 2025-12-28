@@ -99,12 +99,7 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/catalog']);
   }
 
-  openVideo(): void {
-    const currentDrill = this.drill();
-    if (currentDrill?.videoUrl) {
-      window.open(currentDrill.videoUrl, '_blank');
-    }
-  }
+
 
   onRelatedDrillClick(drillData: Drill | FirestoreDrill): void {
     this.router.navigate(['/catalog', drillData.id]);

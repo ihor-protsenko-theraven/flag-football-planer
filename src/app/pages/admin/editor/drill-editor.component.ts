@@ -79,6 +79,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
       category: ['passing', Validators.required],
       level: ['beginner', Validators.required],
       imageUrl: [''],
+      videoUrl: [''],
       translations: this.fb.group({
         en: this.fb.group({
           name: ['', Validators.required],
@@ -188,6 +189,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
       category: drill.category,
       level: drill.level,
       imageUrl: drill.imageUrl || '',
+      videoUrl: drill.videoUrl || '',
       translations: {
         en: {
           name: drill.translations.en?.name || '',
@@ -219,6 +221,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
       category: 'passing',
       level: 'beginner',
       imageUrl: '',
+      videoUrl: '',
       translations: {
         en: {name: '', description: ''},
         uk: {name: '', description: ''}
