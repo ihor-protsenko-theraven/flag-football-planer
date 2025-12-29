@@ -1,0 +1,61 @@
+<div class="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+  <div class="max-w-5xl mx-auto">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+        {{ 'ADMIN_DASHBOARD.TITLE' | translate }}
+      </h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400">
+        {{ 'ADMIN_DASHBOARD.SUBTITLE' | translate }}
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Drills Manager Card -->
+      <a routerLink="/admin/drill/new"
+        class="group relative bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/10 active:scale-[0.98]">
+        <div class="relative z-10">
+          <div
+            class="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors duration-300">
+            <svg class="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">{{ 'ADMIN_DASHBOARD.DRILLS.TITLE' |
+            translate }}
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            {{ 'ADMIN_DASHBOARD.DRILLS.DESCRIPTION' | translate }}
+          </p>
+        </div>
+        <div
+          class="absolute -right-8 -bottom-8 w-32 h-32 bg-emerald-50 dark:bg-emerald-900/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        </div>
+      </a>
+
+      <a routerLink="/admin/plays/new"
+        class="group relative bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border-2 border-transparent transition-all duration-300 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 overflow-hidden">
+        <div class="relative z-10">
+          <div
+            class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+            <svg class="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">{{ 'ADMIN_DASHBOARD.PLAYS.TITLE' |
+            translate }}
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            {{ 'ADMIN_DASHBOARD.PLAYS.DESCRIPTION' | translate }}
+          </p>
+        </div>
+        <div
+          class="absolute -right-8 -bottom-8 w-32 h-32 bg-blue-50 dark:bg-blue-900/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

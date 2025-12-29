@@ -10,7 +10,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
   imports: [CommonModule, RouterModule, TranslateModule, ThemeToggleComponent],
   template: `
     <nav
-    class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 transition-all duration-300 safe-pt">
+      class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 transition-all duration-300 safe-pt">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between min-h-[4rem] py-2">
           <!-- Logo -->
@@ -40,6 +40,14 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
             >
               {{ 'NAV.DRILL_CATALOG' | translate }}
+            </a>
+            <a
+              routerLink="/plays"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
+              [routerLinkActiveOptions]="{exact: false}"
+              class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
+            >
+              {{ 'NAV.PLAYS' | translate }}
             </a>
             <a
               routerLink="/builder"
@@ -100,7 +108,8 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 
         <!-- Mobile Menu -->
         @if (mobileMenuOpen()) {
-          <div class="md:hidden py-4 space-y-2 border-t border-slate-100 dark:border-slate-800 animate-slide-down safe-pb">
+          <div
+            class="md:hidden py-4 space-y-2 border-t border-slate-100 dark:border-slate-800 animate-slide-down safe-pb">
             <a
               routerLink="/catalog"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
@@ -108,6 +117,14 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
             >
               {{ 'NAV.DRILL_CATALOG' | translate }}
+            </a>
+            <a
+              routerLink="/plays"
+              routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
+              (click)="closeMobileMenu()"
+              class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+            >
+              {{ 'NAV.PLAYS' | translate }}
             </a>
             <a
               routerLink="/builder"
@@ -129,21 +146,24 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
             <!-- Mobile Language Switcher -->
             <div class="px-4 py-3 border-t border-slate-100 dark:border-slate-800 flex items-center space-x-4">
               <button
-                (click)="switchLanguage('en')"
-                [class]="getLangButtonClass('en')"
-              >
-                English
-              </button>
-              <button
                 (click)="switchLanguage('uk')"
                 [class]="getLangButtonClass('uk')"
               >
                 Українська
               </button>
+
+              <button
+                (click)="switchLanguage('en')"
+                [class]="getLangButtonClass('en')"
+              >
+                English
+              </button>
+
             </div>
 
             <div class="px-4 py-3 border-t border-slate-100 dark:border-slate-800">
-              <p class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">{{ 'NAV.THEME' | translate }}</p>
+              <p
+                class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">{{ 'NAV.THEME' | translate }}</p>
               <app-theme-toggle></app-theme-toggle>
             </div>
           </div>

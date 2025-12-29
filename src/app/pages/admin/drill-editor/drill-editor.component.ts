@@ -1,5 +1,5 @@
-import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormArray,
   FormBuilder,
@@ -9,19 +9,20 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {Subscription} from 'rxjs';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
-import {DrillAdminService} from '../../../services/drill/drill-admin.service';
-import {ToastService} from '../../../services/toast.service';
-import {ConfirmationService} from '../../../services/confirmation.service';
-import {DrillUiService} from '../../../services/drill/drill-ui.service';
-import {DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill} from '../../../models/drill.model';
+import { DrillAdminService } from '../../../services/drill/drill-admin.service';
+import { ToastService } from '../../../services/toast.service';
+import { ConfirmationService } from '../../../services/confirmation.service';
+import { DrillUiService } from '../../../services/drill/drill-ui.service';
+import { DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill } from '../../../models/drill.model';
 
 @Component({
   selector: 'app-drill-editor',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLink],
   templateUrl: './drill-editor.component.html',
   styleUrls: ['./drill-editor.component.css']
 })
@@ -32,6 +33,8 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
   private toast = inject(ToastService);
   private confirm = inject(ConfirmationService);
   private translate = inject(TranslateService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   readonly categories = DRILL_CATEGORIES;
   readonly levels = DRILL_LEVELS;
@@ -49,7 +52,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
     return id ? this.rawDrills().find(d => d.id === id) || null : null;
   });
 
-  isCreating = signal(false);
+  isCreating = signal(true);
   isSaving = signal(false);
 
   filteredDrills = computed(() => {
@@ -115,6 +118,31 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
     });
 
     this.drillsSub.add(firestoreSub);
+
+    const routeSub = this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.selectedDrillId.set(id);
+        this.isCreating.set(false);
+        this.loadDrill(id);
+      } else {
+        this.selectedDrillId.set(null);
+        this.isCreating.set(true);
+        this.createNewDrill();
+      }
+    });
+    this.drillsSub.add(routeSub);
+  }
+
+  private loadDrill(id: string) {
+    this.drillAdmin.getDrillById(id).subscribe(data => {
+      if (data) {
+        this.populateForm(data);
+      } else {
+        this.toast.error('Drill not found');
+        this.router.navigate(['/admin/drill/new']);
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -158,10 +186,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
 
   selectDrill(drill: FirestoreDrill) {
     if (this.drillForm.dirty && !confirm('Discard unsaved changes?')) return;
-    this.isCreating.set(false);
-    this.selectedDrillId.set(drill.id);
-    this.populateForm(drill);
-    this.activeFormTab.set(this.interfaceLang());
+    this.router.navigate(['/admin/drill/edit', drill.id]);
   }
 
   private populateForm(drill: FirestoreDrill) {
@@ -201,13 +226,20 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
         }
       }
     });
+    this.activeFormTab.set(this.interfaceLang());
+    this.drillForm.markAsPristine();
   }
 
   createNewDrill() {
-    if (this.drillForm.dirty && !confirm('Discard unsaved changes?')) return;
+    if (this.isCreating() === false && this.drillForm.dirty && !confirm('Discard unsaved changes?')) return;
+
+    // If we are already in "new" route but called manually
+    if (!this.isCreating()) {
+      this.router.navigate(['/admin/drill/new']);
+      return;
+    }
 
     this.selectedDrillId.set(null);
-    this.isCreating.set(true);
     this.activeFormTab.set(this.interfaceLang());
 
     (['en', 'uk'] as const).forEach(lang => {
@@ -223,8 +255,8 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
       imageUrl: '',
       videoUrl: '',
       translations: {
-        en: {name: '', description: ''},
-        uk: {name: '', description: ''}
+        en: { name: '', description: '' },
+        uk: { name: '', description: '' }
       }
     });
   }
@@ -239,17 +271,17 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
 
     this.isSaving.set(true);
     const formData = this.drillForm.getRawValue();
-    const drillId = this.selectedDrill()?.id;
+    const drillId = this.selectedDrillId();
 
     try {
       if (this.isCreating()) {
-        await this.drillAdmin.addDrill(formData);
+        const id = await this.drillAdmin.addDrill(formData);
         this.toast.success(this.translate.instant('ADMIN_EDITOR.MESSAGES.CREATE_SUCCESS'));
+        this.router.navigate(['/admin/drill/edit', id], { replaceUrl: true });
       } else if (drillId) {
         await this.drillAdmin.updateDrill(drillId, formData);
         this.toast.success(this.translate.instant('ADMIN_EDITOR.MESSAGES.UPDATE_SUCCESS'));
       }
-      this.cancelEdit();
     } catch (error) {
       console.error(error);
       this.toast.error(this.translate.instant('ADMIN_EDITOR.MESSAGES.SAVE_ERROR'));
@@ -265,7 +297,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
 
     this.confirm.confirm({
       title: this.translate.instant('ADMIN_EDITOR.BUTTONS.DELETE'),
-      message: this.translate.instant('ADMIN_EDITOR.MESSAGES.DELETE_CAUTION', {name}),
+      message: this.translate.instant('ADMIN_EDITOR.MESSAGES.DELETE_CAUTION', { name }),
       confirmText: this.translate.instant('ADMIN_EDITOR.BUTTONS.DELETE'),
       isDestructive: true
     }).subscribe(async (confirmed) => {
@@ -273,7 +305,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
         try {
           await this.drillAdmin.deleteDrill(drill.id);
           this.toast.success(this.translate.instant('ADMIN_EDITOR.MESSAGES.DELETE_SUCCESS'));
-          if (this.selectedDrill()?.id === drill.id) {
+          if (this.selectedDrillId() === drill.id) {
             this.cancelEdit();
           }
         } catch (error) {
@@ -284,9 +316,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
   }
 
   cancelEdit() {
-    this.selectedDrillId.set(null);
-    this.isCreating.set(false);
-    this.drillForm.reset();
+    this.router.navigate(['/admin/drill/new']);
   }
 
   getCategoryBaseStyle(category: string): string {

@@ -42,14 +42,9 @@ export class TrainingDbService {
 
   saveNewPlan(plan: Omit<TrainingPlan, 'id'>): Promise<void> {
     const plansCollection = collection(this.firestore, this.collectionName);
-
-    // Генеруємо ID для нового документа
     const newDocRef = doc(plansCollection);
-
-    // Зберігаємо ID всередину об'єкта (якщо це потрібно для твоєї логіки)
     const planWithId = {...plan, id: newDocRef.id};
 
-    // Використовуємо setDoc для запису по конкретному посиланню
     return setDoc(newDocRef, planWithId);
   }
 

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CombinationCategory, CombinationComplexity } from '../../models/combination.model';
+import { PlayCategory, PlayComplexity } from '../../models/plays.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class CombinationUiService {
+export class PlaysUiService {
 
     constructor(private sanitizer: DomSanitizer) { }
 
-    getCategoryStyle(category: CombinationCategory | null): string {
+    getCategoryStyle(category: PlayCategory | null): string {
         switch (category) {
             case 'pass_play': return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-200 dark:border-blue-800';
             case 'run_play': return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
@@ -19,7 +19,7 @@ export class CombinationUiService {
         }
     }
 
-    getComplexityStyle(complexity: CombinationComplexity | null): string {
+    getComplexityStyle(complexity: PlayComplexity | null): string {
         switch (complexity) {
             case 'basic': return 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300';
             case 'intermediate': return 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300';
@@ -28,8 +28,18 @@ export class CombinationUiService {
         }
     }
 
+    getCategoryIconClass(category: PlayCategory | string): string {
+        switch (category) {
+            case 'pass_play': return 'text-blue-600';
+            case 'run_play': return 'text-emerald-600';
+            case 'trick_play': return 'text-purple-600';
+            case 'defense_scheme': return 'text-red-600';
+            default: return 'text-slate-600';
+        }
+    }
+
     // Placeholder icons - in production these would be proper SVGs
-    getCategoryIcon(category: CombinationCategory | null): SafeHtml {
+    getCategoryIcon(category: PlayCategory | null): SafeHtml {
         let path = '';
         switch (category) {
             case 'pass_play': path = 'M12 19l9 2-9-18-9 18 9-2zm0 0v-8'; break;

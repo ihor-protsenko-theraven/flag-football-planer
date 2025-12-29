@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SafeHtml } from '@angular/platform-browser';
@@ -12,11 +12,12 @@ import { Drill, FirestoreDrill } from '../../models/drill.model';
 import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
 import { DrillDetailSkeletonComponent } from '../../components/drill-detail-skeleton/drill-detail-skeleton.component';
 import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
+import { VideoPlayerModalComponent } from '../../components/video-player-modal/video-player-modal.component';
 
 @Component({
   selector: 'app-drill-detail',
   standalone: true,
-  imports: [RouterModule, TranslateModule, DrillCardComponent, DrillDetailSkeletonComponent, LocalizedDrillPipe],
+  imports: [RouterModule, TranslateModule, DrillCardComponent, DrillDetailSkeletonComponent, LocalizedDrillPipe, VideoPlayerModalComponent],
   templateUrl: './drill-detail.component.html',
   styles: [`
     .pb-safe-area {
@@ -97,6 +98,14 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     this.router.navigate(['/catalog']);
+  }
+
+  @ViewChild(VideoPlayerModalComponent) videoPlayer!: VideoPlayerModalComponent;
+
+  openVideo(url: string) {
+    if (this.videoPlayer) {
+      this.videoPlayer.open(url);
+    }
   }
 
 

@@ -1,17 +1,24 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { SafeHtml } from '@angular/platform-browser';
-import { map, startWith } from 'rxjs/operators';
+import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {Subscription} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
-import { DrillService } from '../../services/drill/drill.service';
-import { DrillUiService } from '../../services/drill/drill-ui.service';
-import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel, FirestoreDrill } from '../../models/drill.model';
-import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
-import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-card.component';
+import {DrillService} from '../../services/drill/drill.service';
+import {DrillUiService} from '../../services/drill/drill-ui.service';
+import {
+  Drill,
+  DRILL_CATEGORIES,
+  DRILL_LEVELS,
+  DrillCategory,
+  DrillLevel,
+  FirestoreDrill
+} from '../../models/drill.model';
+import {DrillCardComponent} from '../../components/drill-card/drill-card.component';
+import {SkeletonCardComponent} from '../../components/skeleton-card/skeleton-card.component';
 
 @Component({
   selector: 'app-drill-catalog',
@@ -19,7 +26,6 @@ import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-c
   imports: [CommonModule, FormsModule, DrillCardComponent, SkeletonCardComponent, TranslateModule],
   templateUrl: './drill-catalog.component.html',
   styles: [`
-    /* Твої стилі без змін */
     .animate-fade-in {
       animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -63,23 +69,23 @@ import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-c
     }
   `]
 })
-export class DrillCatalogComponent implements OnInit {
+export class DrillCatalogComponent implements OnInit, OnDestroy {
   private readonly drillService = inject(DrillService);
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
   private readonly translate = inject(TranslateService);
   private readonly drillUi = inject(DrillUiService);
 
   readonly categories = DRILL_CATEGORIES;
   readonly levels = DRILL_LEVELS;
 
+  // Filter Signals
   searchQuery = signal<string>('');
-  selectedCategory = signal<DrillCategory | null>(null);
-  selectedLevel = signal<DrillLevel | null>(null);
+  selectedCategory = signal<DrillCategory | 'all'>('all');
+  selectedLevel = signal<DrillLevel | 'all'>('all');
 
-  isFiltersOpen = signal(false);
-  activeAccordion = signal<string | null>(null);
-  isMobile = signal(window.innerWidth < 768);
   isLoading = signal(true);
+  isMobileFiltersOpen = signal(false);
 
   private currentLang = toSignal(
     this.translate.onLangChange.pipe(
@@ -88,108 +94,88 @@ export class DrillCatalogComponent implements OnInit {
     )
   );
 
-  constructor() {
-    window.addEventListener('resize', () => {
-      this.isMobile.set(window.innerWidth < 768);
-    });
+  private routeSub?: Subscription;
 
-    this.drillService.getDrills().subscribe(() => {
-      setTimeout(() => this.isLoading.set(false), 300);
+  constructor() {
+    this.drillService.getDrills().subscribe({
+      next: () => this.isLoading.set(false),
+      error: () => this.isLoading.set(false)
     });
   }
 
   ngOnInit(): void {
+    // Sync filters with URL on init
+    this.routeSub = this.route.queryParams.subscribe(params => {
+      if (params['q']) this.searchQuery.set(params['q']);
+      if (params['cat']) this.selectedCategory.set(params['cat'] as DrillCategory);
+      if (params['lvl']) this.selectedLevel.set(params['lvl'] as DrillLevel);
+    });
   }
 
+  ngOnDestroy(): void {
+    this.routeSub?.unsubscribe();
+  }
+
+  // Reactive Logic
   filteredDrills = computed(() => {
     this.currentLang();
 
     const term = this.searchQuery().trim() || undefined;
-    const cat = this.selectedCategory() || undefined;
-    const lvl = this.selectedLevel() || undefined;
+    const cat = this.selectedCategory() === 'all' ? undefined : (this.selectedCategory() as DrillCategory);
+    const lvl = this.selectedLevel() === 'all' ? undefined : (this.selectedLevel() as DrillLevel);
 
     return this.drillService.filterAndSearchDrills(term, cat, lvl);
-  });
-
-  hasActiveFilters = computed(() => {
-    return !!(this.searchQuery().trim() || this.selectedCategory() || this.selectedLevel());
   });
 
   activeFiltersCount = computed(() => {
     let count = 0;
     if (this.searchQuery().trim()) count++;
-    if (this.selectedCategory()) count++;
-    if (this.selectedLevel()) count++;
+    if (this.selectedCategory() !== 'all') count++;
+    if (this.selectedLevel() !== 'all') count++;
     return count;
   });
 
-  onFilterChange(): void {
-    // Signals handle updates automatically
+  private updateUrl(): void {
+    const queryParams: any = {};
+    if (this.searchQuery().trim()) queryParams.q = this.searchQuery();
+    if (this.selectedCategory() !== 'all') queryParams.cat = this.selectedCategory();
+    if (this.selectedLevel() !== 'all') queryParams.lvl = this.selectedLevel();
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams,
+      queryParamsHandling: 'merge',
+      replaceUrl: true
+    });
+  }
+
+  onSearchChange(value: string): void {
+    this.searchQuery.set(value);
+    this.updateUrl();
+  }
+
+  setCategory(val: DrillCategory | 'all'): void {
+    this.selectedCategory.set(val);
+    this.updateUrl();
+  }
+
+  setLevel(val: DrillLevel | 'all'): void {
+    this.selectedLevel.set(val);
+    this.updateUrl();
   }
 
   toggleFilters(): void {
-    this.isFiltersOpen.update(v => !v);
-  }
-
-  toggleAccordion(section: string): void {
-    this.activeAccordion.update(curr => curr === section ? null : section);
-  }
-
-  selectCategoryMobile(value: DrillCategory | null): void {
-    this.selectedCategory.set(value);
-  }
-
-  selectLevelMobile(value: DrillLevel | null): void {
-    this.selectedLevel.set(value);
-  }
-
-  clearSearch(): void {
-    this.searchQuery.set('');
-  }
-
-  clearCategory(): void {
-    this.selectedCategory.set(null);
-  }
-
-  clearLevel(): void {
-    this.selectedLevel.set(null);
+    this.isMobileFiltersOpen.update(v => !v);
   }
 
   clearAllFilters(): void {
     this.searchQuery.set('');
-    this.selectedCategory.set(null);
-    this.selectedLevel.set(null);
+    this.selectedCategory.set('all');
+    this.selectedLevel.set('all');
+    this.updateUrl();
   }
 
   onDrillClick(drill: Drill | FirestoreDrill): void {
     this.router.navigate(['/catalog', drill.id]);
-  }
-
-  getCategoryLabel(val: DrillCategory | null): string {
-    if (!val) return '';
-    const c = this.categories.find(x => x.value === val);
-    return c ? this.translate.instant(c.translationKey) : val;
-  }
-
-  getLevelLabel(val: DrillLevel | null): string {
-    if (!val) return '';
-    const l = this.levels.find(x => x.value === val);
-    return l ? this.translate.instant(l.translationKey) : val;
-  }
-
-  getCategoryColorClass(category: DrillCategory | null): string {
-    return this.drillUi.getCategoryStyle(category);
-  }
-
-  getLevelColorClass(level: DrillLevel | null): string {
-    return this.drillUi.getLevelStyle(level);
-  }
-
-  getCategoryIcon(category: DrillCategory | null): SafeHtml {
-    return this.drillUi.getCategoryIcon(category);
-  }
-
-  getLevelIcon(level: DrillLevel | null): SafeHtml {
-    return this.drillUi.getLevelIcon(level);
   }
 }

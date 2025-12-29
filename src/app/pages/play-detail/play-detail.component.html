@@ -1,0 +1,152 @@
+<div class="min-h-screen bg-slate-50 dark:bg-slate-950 pb-20">
+    @if (play(); as playData) {
+
+    <!-- Top Navigation -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <button (click)="goBack()"
+            class="flex items-center gap-2 text-slate-500 hover:text-indigo-600 font-bold text-sm uppercase tracking-wide transition-colors">
+            <div
+                class="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </div>
+            {{ 'COMBINATIONS.BACK_TO_PLAYBOOK' | translate }}
+        </button>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-24">
+
+            <!-- Left Column: Visuals -->
+            <div class="space-y-8">
+                <!-- Main Image -->
+                <div
+                    class="relative aspect-[4/3] bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl shadow-indigo-500/10 overflow-hidden border border-slate-100 dark:border-slate-800 group">
+                    <img [src]="playData.imageUrl || 'assets/images/placeholder_combination.jpg'"
+                        [alt]="playData.name"
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+
+                    <!-- Overlay Badges -->
+                    <div class="absolute bottom-6 left-6 flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider border border-white/20">
+                            {{ playData.personnel }}
+                        </span>
+                        <span
+                            class="px-3 py-1.5 rounded-xl bg-indigo-600/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider border border-white/20 shadow-lg shadow-indigo-600/40">
+                            {{ playData.formation }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Metadata Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center text-center gap-2 shadow-sm">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">{{
+                            'COMBINATIONS.CATEGORY' | translate }}</span>
+                        <div class="flex items-center gap-2">
+                            <span [innerHTML]="uiService.getCategoryIcon(playData.category)" class="w-5 h-5"
+                                  [class]="uiService.getCategoryIconClass(playData.category)"></span>
+                            <span class="font-bold text-slate-900 dark:text-white">{{ 'COMBINATIONS.CATEGORIES.' +
+                                playData.category.toUpperCase() | translate }}</span>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center text-center gap-2 shadow-sm">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">{{
+                            'COMBINATIONS.COMPLEXITY_LABEL' | translate }}</span>
+                        <span
+                            [class]="'px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider ' + uiService.getComplexityStyle(playData.complexity)">
+                            {{ 'COMBINATIONS.COMPLEXITY.' + playData.complexity.toUpperCase() | translate }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Watch Video Button -->
+                @if (playData.videoUrl) {
+                <button (click)="openVideo(playData.videoUrl!)"
+                    class="w-full bg-slate-900 dark:bg-slate-800 rounded-3xl p-6 overflow-hidden flex flex-col justify-center transition-all active:scale-95 shadow-xl shadow-slate-900/20 dark:shadow-slate-950/20 cursor-pointer text-left group relative">
+                    <div
+                        class="absolute right-0 top-0 -mr-4 -mt-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-bg">
+                    </div>
+                    <div
+                        class="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-[0.2em] mb-2 z-10">
+                        {{ 'DRILL_DETAIL.WATCH_VIDEO' | translate }}
+                    </div>
+                    <div class="flex items-center gap-3 md:gap-4 z-10 w-full">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg shadow-green-500/40 group-hover:scale-110 transition-transform shrink-0">
+                            <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <span class="text-lg md:text-xl font-black text-white leading-tight break-words">
+                            {{ 'DRILL_DETAIL.PLAY_VIDEO' | translate }}
+                        </span>
+                    </div>
+                </button>
+                }
+            </div>
+
+            <!-- Right Column: Content -->
+            <div class="py-4">
+                <h1
+                    class="text-4xl md:text-5xl font-display font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                    {{ playData.name }}
+                </h1>
+
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-10 font-medium">
+                    {{ playData.description }}
+                </p>
+
+                <!-- Key Points -->
+                @if (playData.keyPoints?.length) {
+                <div
+                    class="bg-indigo-50 dark:bg-indigo-950/30 rounded-[2rem] p-8 border border-indigo-100 dark:border-indigo-900/50">
+                    <h3 class="flex items-center gap-3 text-indigo-900 dark:text-indigo-200 font-bold text-xl mb-6">
+                        <span
+                            class="w-8 h-8 rounded-full bg-indigo-200 dark:bg-indigo-800 flex items-center justify-center">
+                            <svg class="w-4 h-4 text-indigo-700 dark:text-indigo-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        {{ 'COMBINATIONS.KEY_POINTS' | translate }}
+                    </h3>
+                    <ul class="space-y-4">
+                        @for (point of playData.keyPoints; track $index) {
+                        <li class="flex items-start gap-4 text-indigo-900/80 dark:text-indigo-200/80">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+                            <span class="text-lg">{{ point }}</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+                }
+
+                <!-- Actions (Future placeholder) -->
+                <!-- <div class="mt-10 flex gap-4"> ... </div> -->
+
+            </div>
+        </div>
+    </div>
+    } @else {
+    <!-- Loading Skeleton -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-pulse">
+        <div class="h-8 w-32 bg-slate-200 dark:bg-slate-800 rounded-lg mb-8"></div>
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-800 rounded-[2.5rem]"></div>
+            <div class="space-y-6">
+                <div class="h-12 w-3/4 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
+                <div class="h-24 w-full bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
+                <div class="h-64 w-full bg-slate-200 dark:bg-slate-800 rounded-[2rem]"></div>
+            </div>
+        </div>
+    </div>
+    }
+    <app-video-player-modal />
+</div>

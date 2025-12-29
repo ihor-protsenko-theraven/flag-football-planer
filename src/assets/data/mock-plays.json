@@ -1,0 +1,142 @@
+[
+    {
+        "id": "single-back-1",
+        "category": "pass_play",
+        "complexity": "basic",
+        "imageUrl": "assets/images/plays/single-back-1.png",
+        "personnel": "5v5",
+        "formation": "Single Back",
+        "translations": {
+            "en": {
+                "name": "Single Back Standard",
+                "description": "A fundamental 5v5 passing play with balanced routes.",
+                "keyPoints": [
+                    "Side receivers (X and Z) perform post routes cutting toward the center.",
+                    "Receiver Y runs a corner route after crossing the LOS.",
+                    "Center releases for a corner route if primary targets are covered."
+                ]
+            },
+            "uk": {
+                "name": "Сінгл Бек Стандарт",
+                "description": "Базова пасова комбінація 5 на 5 зі збалансованими маршрутами.",
+                "keyPoints": [
+                    "Бокові ресивери (X та Z) виконують маршрут 'пост' у центр.",
+                    "Ресивер Y виконує маршрут 'корнер' після перетину лінії сутички.",
+                    "Центр виконує маршрут 'корнер', якщо основні цілі закриті."
+                ]
+            }
+        }
+    },
+    {
+        "id": "spread-1",
+        "category": "pass_play",
+        "complexity": "intermediate",
+        "imageUrl": "assets/images/plays/spread-1.png",
+        "personnel": "5v5",
+        "formation": "Spread",
+        "translations": {
+            "en": {
+                "name": "Spread Option Right",
+                "description": "An intermediate play designed to exploit weak defense on the right side.",
+                "keyPoints": [
+                    "Receiver Z runs a fly route for deep yardage.",
+                    "Receiver Y runs an option route toward the right sideline.",
+                    "Center pushes toward the right sideline for additional options."
+                ]
+            },
+            "uk": {
+                "name": "Спред Опція Праворуч",
+                "description": "Комбінація середньої складності для використання слабкого захисту з правого боку.",
+                "keyPoints": [
+                    "Ресивер Z біжить маршрут 'флай' для глибокого просування.",
+                    "Ресивер Y виконує маршрут 'опція' до правої бокової лінії.",
+                    "Центр зміщується до правої бокової лінії для додаткових варіантів."
+                ]
+            }
+        }
+    },
+    {
+        "id": "bunch-1",
+        "category": "pass_play",
+        "complexity": "pro",
+        "imageUrl": "assets/images/plays/bunch-1.png",
+        "personnel": "5v5",
+        "formation": "Bunch",
+        "translations": {
+            "en": {
+                "name": "Bunch Deep Threat",
+                "description": "An advanced play starting from a bunch formation to confuse the defense.",
+                "keyPoints": [
+                    "Center and Receiver Y run corner routes to draw defense deep.",
+                    "Other receivers perform staggered out routes at shorter distances.",
+                    "Requires good timing and communication to avoid collisions."
+                ]
+            },
+            "uk": {
+                "name": "Банч Глибока Загроза",
+                "description": "Просунута комбінація з формації 'банч' для дезорієнтації захисту.",
+                "keyPoints": [
+                    "Центр та ресивер Y виконують маршрути 'корнер', відтягуючи захист вглиб.",
+                    "Інші ресивери виконують ступінчасті маршрути 'аут' на коротку дистанцію.",
+                    "Потребує гарного таймінгу та комунікації для уникнення зіткнень."
+                ]
+            }
+        }
+    },
+    {
+        "id": "trips-1",
+        "category": "trick_play",
+        "complexity": "intermediate",
+        "imageUrl": "assets/images/plays/trips-1.png",
+        "personnel": "5v5",
+        "formation": "Trips",
+        "translations": {
+            "en": {
+                "name": "Trips Cross Over",
+                "description": "A trick play exploiting defensive focus on the trips side.",
+                "keyPoints": [
+                    "Three receivers line up on one side.",
+                    "Defense is pulled to cover heavy yardage routes on the right.",
+                    "Center or inside receiver becomes open on the opposite side."
+                ]
+            },
+            "uk": {
+                "name": "Тріпс Перехрестя",
+                "description": "Хитра комбінація, що використовує концентрацію захисту на стороні 'тріпс'.",
+                "keyPoints": [
+                    "Трьох ресиверів вишикувано з одного боку.",
+                    "Захист відтягується для перекриття глибоких маршрутів праворуч.",
+                    "Центр або внутрішній ресивер стає вільним на протилежному боці."
+                ]
+            }
+        }
+    },
+    {
+        "id": "twins-1",
+        "category": "pass_play",
+        "complexity": "basic",
+        "imageUrl": "assets/images/plays/twins-1.png",
+        "personnel": "5v5",
+        "formation": "Twins",
+        "translations": {
+            "en": {
+                "name": "Twins Quick In",
+                "description": "A basic quick-hitting play from twins formation for short yardage.",
+                "keyPoints": [
+                    "Right side receivers run post routes to draw defense toward center.",
+                    "Receiver X and Center run quick in and out routes.",
+                    "Perfect for closing small gaps for a first down."
+                ]
+            },
+            "uk": {
+                "name": "Твінс Швидкий Ін",
+                "description": "Базова швидка комбінація з формації 'твінс' для короткого просування.",
+                "keyPoints": [
+                    "Ресивери з правого боку біжать 'пост', відтягуючи захист до центру.",
+                    "Ресивер X та центр виконують швидкі маршрути 'ін' та 'аут'.",
+                    "Ідеально для закриття невеликої дистанції до першого дауну."
+                ]
+            }
+        }
+    }
+]

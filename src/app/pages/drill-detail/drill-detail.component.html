@@ -107,8 +107,8 @@
               </div>
 
               @if (drillData.videoUrl) {
-              <a [href]="drillData.videoUrl" target="_blank" rel="noopener noreferrer"
-                class="group relative bg-slate-900 dark:bg-slate-800 rounded-3xl p-6 overflow-hidden flex flex-col justify-center transition-all active:scale-95 shadow-xl shadow-slate-900/20 dark:shadow-slate-950/20 cursor-pointer text-left">
+              <button (click)="openVideo(drillData.videoUrl)"
+                class="group relative w-full bg-slate-900 dark:bg-slate-800 rounded-3xl p-6 overflow-hidden flex flex-col justify-center transition-all active:scale-95 shadow-xl shadow-slate-900/20 dark:shadow-slate-950/20 cursor-pointer text-left">
                 <div
                   class="absolute right-0 top-0 -mr-4 -mt-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-bg">
                 </div>
@@ -126,7 +126,7 @@
                   <span class="text-lg md:text-xl font-black text-white leading-tight break-words">{{
                     'DRILL_DETAIL.PLAY_VIDEO' | translate }}</span>
                 </div>
-              </a>
+              </button>
               }
             </div>
 
@@ -279,4 +279,5 @@
   <!-- Skeleton / Loading State -->
   <app-drill-detail-skeleton />
   }
+  <app-video-player-modal></app-video-player-modal>
 </div>

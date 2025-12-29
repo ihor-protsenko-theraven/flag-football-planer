@@ -1,10 +1,16 @@
 {
+  "COMMON": {
+    "VIEW_DETAILS": "View Details",
+    "ALL_CATEGORIES": "All Categories",
+    "ALL_COMPLEXITIES": "All Complexities"
+  },
   "NAV": {
     "TITLE": "Flag Planner",
     "PRO_EDITION": "Pro Edition",
     "DRILL_CATALOG": "Drill Catalog",
     "TRAINING_BUILDER": "Training Builder",
     "MY_TRAININGS": "My Trainings",
+    "PLAYS": "Plays Catalog",
     "THEME": "Theme Display"
   },
   "CATALOG": {
@@ -27,7 +33,8 @@
     "CLEAR_FILTERS_BTN": "Clear Filters"
   },
   "COMBINATIONS": {
-    "TITLE": "Playbook",
+    "TITLE": "Plays",
+    "SUBTITLE": "Master the art of flag football with our curated collection of elite tactical plays and combinations.",
     "BACK_TO_PLAYBOOK": "Back to Playbook",
     "KEY_POINTS": "Key Execution Points",
     "FILTERS": "Filters",
@@ -40,6 +47,9 @@
     "NO_PLAYS_DESC": "Try adjusting your filters or search terms",
     "LOAD_MORE": "Load More Plays",
     "SEARCH_PLACEHOLDER": "Search plays...",
+    "EMPTY_TITLE": "No plays found",
+    "EMPTY_DESC": "We couldn't find any plays matching your current filters. Try adjusting your search or clearing filters.",
+    "RESET_FILTERS": "Reset All Filters",
     "CATEGORIES": {
       "PASS_PLAY": "Pass Play",
       "RUN_PLAY": "Run Play",
@@ -217,6 +227,58 @@
       "TIP": "Focus: Keep hips low during the turn..."
     }
   },
+  "PLAY_EDITOR": {
+    "TITLE": "Play Editor",
+    "SUBTITLE": "Manage your Firestore plays library",
+    "ADD_NEW": "Add New Play",
+    "NO_NAME": "No Name",
+    "SELECT_TO_EDIT": "Select a play to edit",
+    "SELECT_DESC": "Or create a new one from the top button",
+    "FIELDS": {
+      "CATEGORY": "Category",
+      "COMPLEXITY": "Complexity",
+      "PERSONNEL": "Personnel",
+      "FORMATION": "Formation",
+      "IMAGE_URL": "Image URL",
+      "VIDEO_URL": "Video URL",
+      "NAME": "Play Name",
+      "DESCRIPTION": "Description"
+    },
+    "BUTTONS": {
+      "ADD_ITEM": "+ Add Item",
+      "ADD_TIP": "+ Add Key Point",
+      "CANCEL": "Cancel",
+      "SAVE": "Save Play",
+      "SAVING": "Saving...",
+      "DELETE": "Delete"
+    },
+    "MESSAGES": {
+      "CREATE_SUCCESS": "Play Created Successfully",
+      "UPDATE_SUCCESS": "Play Updated Successfully",
+      "DELETE_SUCCESS": "Play Deleted",
+      "SAVE_ERROR": "Failed to save play",
+      "FETCH_ERROR": "Could not load plays",
+      "DELETE_CONFIRM": "Are you sure you want to delete \"{{name}}\"?",
+      "DELETE_CAUTION": "Caution: This will permanently remove \"{{name}}\" from your library. Continue?",
+      "VALIDATION_ERROR": "Please fix the errors in the form"
+    },
+    "TABS": {
+      "ENGLISH": "🇬🇧 English",
+      "UKRAINIAN": "🇺🇦 Ukrainian"
+    },
+    "SECTIONS": {
+      "META": "Metadata & Settings",
+      "KEY_POINTS": "Key Execution Points",
+      "NO_KEY_POINTS": "No key points added",
+      "DANGER_ZONE": "Danger Zone",
+      "DANGER_DESC": "Permanently remove this play from the library"
+    },
+    "PLACEHOLDERS": {
+      "NAME": "Play Name...",
+      "DESCRIPTION": "Short description of the play...",
+      "KEY_POINT": "Key point..."
+    }
+  },
   "ADMIN_LOGIN": {
     "TITLE": "Admin Portal",
     "SUBTITLE": "Secure access to Drill Editor",
@@ -226,5 +288,18 @@
     "AUTHENTICATING": "Authenticating...",
     "SUCCESS": "Login Successful",
     "ERROR": "Invalid credentials"
+  },
+  "ADMIN_DASHBOARD": {
+    "TITLE": "Admin Dashboard",
+    "SUBTITLE": "Welcome back, Administrator. What would you like to manage today?",
+    "BACK_TO_DASHBOARD": "Back to Dashboard",
+    "DRILLS": {
+      "TITLE": "Drills Manager",
+      "DESCRIPTION": "Create, edit, and organize training exercises. Keep your drills up to date for better practice sessions."
+    },
+    "PLAYS": {
+      "TITLE": "Plays Manager",
+      "DESCRIPTION": "Design and manage tactical combinations. Build your playbook with advanced plays and strategies."
+    }
   }
 }
