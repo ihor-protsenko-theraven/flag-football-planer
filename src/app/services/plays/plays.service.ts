@@ -18,11 +18,12 @@ import {
   updateDoc
 } from '@angular/fire/firestore';
 import { FirestorePlays, Play, PlayCategory, PlayComplexity } from '../../models/plays.model';
+import { CrudService } from '../../core/interfaces/crud-service.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlaysService {
+export class PlaysService implements CrudService<FirestorePlays> {
   private firestore = inject(Firestore);
   private translate = inject(TranslateService);
   private collectionName = 'plays';
@@ -95,7 +96,7 @@ export class PlaysService {
     );
   }
 
-  getCombinationById(id: string): Observable<FirestorePlays | undefined> {
+  getById(id: string): Observable<FirestorePlays | undefined> {
     const docRef = doc(this.firestore, `${this.collectionName}/${id}`);
     return new Observable<FirestorePlays | undefined>(subscriber => {
       const unsubscribe = onSnapshot(docRef, (docSnap: DocumentSnapshot<DocumentData>) => {
@@ -112,15 +113,11 @@ export class PlaysService {
     });
   }
 
-  getRawCombinationsStream(): Observable<FirestorePlays[]> {
+  getAllList(): Observable<FirestorePlays[]> {
     return this.rawPlays$;
   }
 
-  getRawPlayById(id: string): Observable<FirestorePlays | undefined> {
-    return this.getCombinationById(id);
-  }
-
-  async addPlay(play: Omit<FirestorePlays, 'id'>): Promise<string> {
+  async add(play: Omit<FirestorePlays, 'id'>): Promise<string> {
     const col = collection(this.firestore, this.collectionName);
     const docRef = await addDoc(col, {
       ...play,
@@ -129,12 +126,12 @@ export class PlaysService {
     return docRef.id;
   }
 
-  async deletePlay(id: string): Promise<void> {
+  async delete(id: string): Promise<void> {
     const docRef = doc(this.firestore, `${this.collectionName}/${id}`);
     return deleteDoc(docRef);
   }
 
-  async updatePlay(id: string, data: Partial<FirestorePlays>): Promise<void> {
+  async update(id: string, data: Partial<FirestorePlays>): Promise<void> {
     const docRef = doc(this.firestore, `${this.collectionName}/${id}`);
     return updateDoc(docRef, { ...data });
   }
@@ -179,5 +176,6 @@ export class PlaysService {
     return filtered;
   }
 }
+
 
 

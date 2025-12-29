@@ -166,117 +166,102 @@
     "CREATED_ON": "Created on",
     "SCHEDULED_FOR": "Scheduled for"
   },
-  "ADMIN_EDITOR": {
-    "TITLE": "Drill Editor",
-    "SUBTITLE": "Manage your Firestore drill library",
-    "ADD_NEW": "Add New Drill",
-    "NO_NAME": "No Name",
-    "SELECT_TO_EDIT": "Select a drill to edit",
-    "SELECT_DESC": "Or create a new one from the top button",
-    "FIELDS": {
-      "DURATION": "Duration (Min)",
-      "CATEGORY": "Category",
-      "LEVEL": "Level",
-      "IMAGE_URL": "Image URL",
-      "VIDEO_URL": "Video URL",
-      "EQUIPMENT": "Equipment",
-      "DRILL_NAME": "Drill Name",
-      "DESCRIPTION": "Description",
-      "INSTRUCTIONS": "Instructions (Step-by-Step)",
-      "COACHING_TIPS": "Coaching Tips"
+  "EDITOR": {
+    "COMMON": {
+      "TITLE": "Editor",
+      "SUBTITLE": "Manage your library",
+      "ADD_NEW": "Add New",
+      "NO_NAME": "No Name",
+      "SELECT_TO_EDIT": "Select an item to edit",
+      "SELECT_DESC": "Or create a new one from the top button",
+      "FIELDS": {
+        "IMAGE_URL": "Image URL",
+        "VIDEO_URL": "Video URL",
+        "NAME": "Name",
+        "DESCRIPTION": "Description"
+      },
+      "BUTTONS": {
+        "ADD_ITEM": "+ Add Item",
+        "CANCEL": "Cancel",
+        "SAVE": "Save",
+        "SAVING": "Saving...",
+        "DELETE": "Delete"
+      },
+      "MESSAGES": {
+        "CREATE_SUCCESS": "Created Successfully",
+        "UPDATE_SUCCESS": "Updated Successfully",
+        "DELETE_SUCCESS": "Deleted",
+        "SAVE_ERROR": "Failed to save",
+        "FETCH_ERROR": "Could not load data",
+        "NOT_FOUND": "Item not found",
+        "DELETE_CONFIRM": "Are you sure you want to delete \"{{name}}\"?",
+        "DELETE_CAUTION": "Caution: This will permanently remove \"{{name}}\" from your library. Continue?",
+        "VALIDATION_ERROR": "Please fix the errors in the form",
+        "DATA_RELOADED": "Data refreshed from server"
+      },
+      "TABS": {
+        "ENGLISH": "🇬🇧 English",
+        "UKRAINIAN": "🇺🇦 Ukrainian"
+      },
+      "SECTIONS": {
+        "META": "Metadata & Settings",
+        "DANGER_ZONE": "Danger Zone",
+        "DANGER_DESC": "Permanently remove this item from the library"
+      },
+      "PLACEHOLDERS": {
+        "NAME": "Name...",
+        "DESCRIPTION": "Short description..."
+      }
     },
-    "BUTTONS": {
-      "ADD_ITEM": "+ Add Item",
-      "ADD_STEP": "+ Add Step",
-      "ADD_TIP": "+ Add Tip",
-      "CANCEL": "Cancel",
-      "SAVE": "Save Drill",
-      "SAVING": "Saving...",
-      "DELETE": "Delete"
+    "DRILL": {
+      "TITLE": "Drill Editor",
+      "SUBTITLE": "Manage your Firestore drill library",
+      "FIELDS": {
+        "DURATION": "Duration (Min)",
+        "CATEGORY": "Category",
+        "LEVEL": "Level",
+        "EQUIPMENT": "Equipment",
+        "DRILL_NAME": "Drill Name",
+        "INSTRUCTIONS": "Instructions (Step-by-Step)",
+        "COACHING_TIPS": "Coaching Tips"
+      },
+      "BUTTONS": {
+        "ADD_STEP": "+ Add Step",
+        "ADD_TIP": "+ Add Tip",
+        "ADD_ITEM": "+Add Item"
+      },
+      "SECTIONS": {
+        "EQUIPMENT_NEEDED": "Equipment Needed",
+        "NO_EQUIPMENT": "No equipment added",
+        "INSTRUCTIONS_STEP": "Step-by-step Instructions",
+        "NO_INSTRUCTIONS": "No instructions",
+        "TIPS_EDGE": "Coaching Tips"
+      },
+      "PLACEHOLDERS": {
+        "EQUIPMENT": "e.g., Ball, Cones",
+        "INSTRUCTION": "e.g., Set up markers every 5 yards",
+        "TIP": "Focus: Keep hips low during the turn..."
+      }
     },
-    "MESSAGES": {
-      "CREATE_SUCCESS": "Drill Created Successfully",
-      "UPDATE_SUCCESS": "Drill Updated Successfully",
-      "DELETE_SUCCESS": "Drill Deleted",
-      "SAVE_ERROR": "Failed to save drill",
-      "FETCH_ERROR": "Could not load drills",
-      "DELETE_CONFIRM": "Are you sure you want to delete \"{{name}}\"?",
-      "DELETE_CAUTION": "Caution: This will permanently remove \"{{name}}\" from your library. Continue?",
-      "VALIDATION_ERROR": "Please fix the errors in the form",
-      "DATA_RELOADED": "Data refreshed from server"
-    },
-    "TABS": {
-      "ENGLISH": "🇬🇧 English",
-      "UKRAINIAN": "🇺🇦 Ukrainian"
-    },
-    "SECTIONS": {
-      "META": "Metadata & Settings",
-      "EQUIPMENT_NEEDED": "Equipment Needed",
-      "NO_EQUIPMENT": "No equipment added",
-      "INSTRUCTIONS_STEP": "Step-by-step Instructions",
-      "NO_INSTRUCTIONS": "No instructions",
-      "TIPS_EDGE": "Coaching Tips",
-      "DANGER_ZONE": "Danger Zone",
-      "DANGER_DESC": "Permanently remove this drill from the library"
-    },
-    "PLACEHOLDERS": {
-      "EQUIPMENT": "e.g., Ball, Cones",
-      "NAME": "Drill Name...",
-      "DESCRIPTION": "Short description of the drill goal...",
-      "INSTRUCTION": "e.g., Set up markers every 5 yards",
-      "TIP": "Focus: Keep hips low during the turn..."
-    }
-  },
-  "PLAY_EDITOR": {
-    "TITLE": "Play Editor",
-    "SUBTITLE": "Manage your Firestore plays library",
-    "ADD_NEW": "Add New Play",
-    "NO_NAME": "No Name",
-    "SELECT_TO_EDIT": "Select a play to edit",
-    "SELECT_DESC": "Or create a new one from the top button",
-    "FIELDS": {
-      "CATEGORY": "Category",
-      "COMPLEXITY": "Complexity",
-      "PERSONNEL": "Personnel",
-      "FORMATION": "Formation",
-      "IMAGE_URL": "Image URL",
-      "VIDEO_URL": "Video URL",
-      "NAME": "Play Name",
-      "DESCRIPTION": "Description"
-    },
-    "BUTTONS": {
-      "ADD_ITEM": "+ Add Item",
-      "ADD_TIP": "+ Add Key Point",
-      "CANCEL": "Cancel",
-      "SAVE": "Save Play",
-      "SAVING": "Saving...",
-      "DELETE": "Delete"
-    },
-    "MESSAGES": {
-      "CREATE_SUCCESS": "Play Created Successfully",
-      "UPDATE_SUCCESS": "Play Updated Successfully",
-      "DELETE_SUCCESS": "Play Deleted",
-      "SAVE_ERROR": "Failed to save play",
-      "FETCH_ERROR": "Could not load plays",
-      "DELETE_CONFIRM": "Are you sure you want to delete \"{{name}}\"?",
-      "DELETE_CAUTION": "Caution: This will permanently remove \"{{name}}\" from your library. Continue?",
-      "VALIDATION_ERROR": "Please fix the errors in the form"
-    },
-    "TABS": {
-      "ENGLISH": "🇬🇧 English",
-      "UKRAINIAN": "🇺🇦 Ukrainian"
-    },
-    "SECTIONS": {
-      "META": "Metadata & Settings",
-      "KEY_POINTS": "Key Execution Points",
-      "NO_KEY_POINTS": "No key points added",
-      "DANGER_ZONE": "Danger Zone",
-      "DANGER_DESC": "Permanently remove this play from the library"
-    },
-    "PLACEHOLDERS": {
-      "NAME": "Play Name...",
-      "DESCRIPTION": "Short description of the play...",
-      "KEY_POINT": "Key point..."
+    "PLAY": {
+      "TITLE": "Play Editor",
+      "SUBTITLE": "Manage your Firestore plays library",
+      "FIELDS": {
+        "CATEGORY": "Category",
+        "COMPLEXITY": "Complexity",
+        "PERSONNEL": "Personnel",
+        "FORMATION": "Formation"
+      },
+      "BUTTONS": {
+        "ADD_TIP": "+ Add Key Point"
+      },
+      "SECTIONS": {
+        "KEY_POINTS": "Key Execution Points",
+        "NO_KEY_POINTS": "No key points added"
+      },
+      "PLACEHOLDERS": {
+        "KEY_POINT": "Key point..."
+      }
     }
   },
   "ADMIN_LOGIN": {

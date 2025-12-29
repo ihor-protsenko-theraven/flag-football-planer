@@ -5,27 +5,30 @@
     class="h-16 md:h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-8 flex items-center justify-between z-30 shrink-0 transition-all">
 
     <div class="flex items-center gap-3 md:gap-4">
-      <!-- Mobile Back (only when editing/creating on mobile) -->
-      @if (selectedPlayId() || isCreating()) {
-      <button (click)="cancelEdit()"
-        class="md:hidden w-10 h-10 -ml-2 flex items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      }
-
-      <div class="flex items-center gap-3 md:gap-4">
+      <div class="flex items-center gap-2 md:gap-4">
+        <!-- Dashboard Back (compact on mobile) -->
         <a routerLink="/admin"
-          class="flex items-center gap-2 px-3 py-1.5 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 font-bold text-xs bg-slate-100 dark:bg-slate-800/50 rounded-lg transition-all hover:-translate-x-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          class="flex items-center gap-2 p-2 md:px-3 md:py-1.5 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 font-bold text-xs bg-slate-100 dark:bg-slate-800/50 rounded-lg transition-all hover:-translate-x-1">
+          <svg class="w-5 h-5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7 7-7" />
           </svg>
-          <span class="hidden sm:inline">{{ 'ADMIN_DASHBOARD.BACK_TO_DASHBOARD' | translate }}</span>
+          <span class="hidden md:inline">{{ 'ADMIN_DASHBOARD.BACK_TO_DASHBOARD' | translate }}</span>
         </a>
 
+        <!-- Mobile List Toggle -->
+        <button (click)="toggleMobileSidebar()"
+          class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            @if (mobileSidebarVisible()) {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            } @else {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            }
+          </svg>
+        </button>
+
         <div
-          class="w-8 h-8 md:w-10 md:h-10 bg-indigo-600 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 shrink-0">
+          class="hidden sm:flex w-8 h-8 md:w-10 md:h-10 bg-indigo-600 rounded-lg md:rounded-xl items-center justify-center shadow-lg shadow-indigo-500/20 shrink-0">
           <svg class="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -33,39 +36,39 @@
               d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <div [class.hidden]="(selectedPlayId() || isCreating()) ? 'hidden md:block' : 'block'">
-          <h1 class="text-lg md:text-xl font-black text-slate-900 dark:text-white tracking-tight line-clamp-1">
-            {{ 'PLAY_EDITOR.TITLE' | translate }}
+        <div [class.hidden]="(selectedItemId() || isCreating()) ? 'hidden md:block' : 'block'">
+          <h1 class="text-base md:text-xl font-black text-slate-900 dark:text-white tracking-tight line-clamp-1">
+            {{ 'EDITOR.PLAY.TITLE' | translate }}
           </h1>
           <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest hidden sm:block">
-            {{ 'COMBINATIONS.TITLE' | translate }} {{ 'PLAY_EDITOR.SUBTITLE' | translate }}
+            {{ 'COMBINATIONS.TITLE' | translate }} {{ 'EDITOR.PLAY.SUBTITLE' | translate }}
           </p>
         </div>
       </div>
     </div>
 
     <div class="flex items-center gap-2 md:gap-3">
-      @if (selectedPlayId() || isCreating()) {
-      <button (click)="cancelEdit()"
+      @if (selectedItemId() || isCreating()) {
+      <button (click)="cancel()"
         class="hidden md:block px-5 py-2.5 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
-        {{ 'PLAY_EDITOR.BUTTONS.CANCEL' | translate }}
+        {{ 'EDITOR.COMMON.BUTTONS.CANCEL' | translate }}
       </button>
 
-      <button (click)="savePlay()" [disabled]="isSaving()"
+      <button (click)="save()" [disabled]="isSaving()"
         class="flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-lg md:rounded-xl shadow-lg shadow-indigo-500/20 transition-all active:scale-95 disabled:opacity-50 text-sm md:text-base">
         @if (isSaving()) {
         <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
         }
-        <span [class.hidden]="isSaving()">{{ 'PLAY_EDITOR.BUTTONS.SAVE' | translate }}</span>
+        <span [class.hidden]="isSaving()">{{ 'EDITOR.COMMON.BUTTONS.SAVE' | translate }}</span>
       </button>
       } @else {
       <!-- Fallback add button if needed, usually covered by sidebar -->
-      <button (click)="createNewPlay()"
-        class="flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-lg md:rounded-xl shadow-xl transition-all active:scale-95 hover:-translate-y-0.5 text-sm md:text-base">
+      <button (click)="handleRouteId(null)"
+        class="md:hidden flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-lg md:rounded-xl shadow-xl transition-all active:scale-95 hover:-translate-y-0.5 text-sm md:text-base">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
-        <span>{{ 'PLAY_EDITOR.ADD_NEW' | translate }}</span>
+        <span>{{ 'EDITOR.COMMON.ADD_NEW' | translate }}</span>
       </button>
       }
     </div>
@@ -76,20 +79,28 @@
     <!-- Sidebar -->
     <aside
       class="border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col z-20 transition-transform duration-300"
-      [class]="(selectedPlayId() || isCreating()) ? 'hidden md:flex w-full md:w-80 xl:w-96' : 'flex w-full md:w-80 xl:w-96'">
+      [class]="mobileSidebarVisible() ? 'flex w-full absolute inset-0' : ((selectedItemId() || isCreating()) ? 'hidden md:flex w-full md:w-80 xl:w-96' : 'flex w-full md:w-80 xl:w-96')">
 
       <div
         class="p-4 md:p-6 space-y-3 md:space-y-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 shrink-0">
-        <div class="relative">
-          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" />
+        <div class="flex gap-2">
+          <div class="relative flex-1">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" />
+              </svg>
+            </span>
+            <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
+              [placeholder]="'CATALOG.SEARCH_PLACEHOLDER' | translate"
+              class="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all shadow-sm">
+          </div>
+          <button (click)="handleRouteId(null)"
+            class="w-12 h-12 flex items-center justify-center bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl shadow-lg transition-all active:scale-95 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
-          </span>
-          <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
-            [placeholder]="'CATALOG.SEARCH_PLACEHOLDER' | translate"
-            class="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all shadow-sm">
+          </button>
         </div>
 
         <div class="flex gap-2">
@@ -112,14 +123,16 @@
 
       <div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-2 pb-24 md:pb-3">
         @for (play of filteredPlays(); track play.id) {
-        <div (click)="selectPlay(play)" [class.active-item]="selectedPlayId() === play.id"
+        <div (click)="handleRouteId(play.id)" [class.active-item]="selectedItemId() === play.id"
           class="group p-4 rounded-2xl border border-transparent transition-all cursor-pointer bg-white dark:bg-slate-800/20 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:shadow-md flex flex-col gap-2">
 
           <div class="flex justify-between items-start gap-2">
             <h4
               class="font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-500 transition-colors line-clamp-2 leading-tight">
-              {{ play.translations[interfaceLang()]?.name || play.translations['en']?.name || 'PLAY_EDITOR.NO_NAME' |
-              translate }}
+              {{
+              play.translations[interfaceLang()]?.name || play.translations['en']?.name || 'EDITOR.COMMON.NO_NAME' |
+              translate
+              }}
             </h4>
           </div>
 
@@ -137,8 +150,10 @@
         } @empty {
         <div class="h-64 flex flex-col items-center justify-center text-center p-6 grayscale opacity-40">
           <div class="text-4xl mb-4">🔍</div>
-          <p class="text-sm font-black uppercase tracking-widest text-slate-500">{{ 'CATALOG.NO_RESULTS_TITLE' |
-            translate }}</p>
+          <p class="text-sm font-black uppercase tracking-widest text-slate-500">{{
+            'CATALOG.NO_RESULTS_TITLE' |
+            translate
+            }}</p>
         </div>
         }
       </div>
@@ -147,11 +162,11 @@
     <!-- Main Content -->
     <main
       class="flex-1 overflow-y-auto custom-scrollbar bg-slate-50 dark:bg-slate-950 p-4 md:p-6 xl:p-12 relative w-full"
-      [class]="(selectedPlayId() || isCreating()) ? 'block' : 'hidden md:block'">
+      [class]="(selectedItemId() || isCreating()) ? 'block' : 'hidden md:block'">
 
-      @if (selectedPlayId() || isCreating()) {
+      @if (selectedItemId() || isCreating()) {
       <div class="max-w-4xl mx-auto pb-24 animate-fade-in">
-        <form [formGroup]="playForm" class="space-y-6 md:space-y-10">
+        <form [formGroup]="editorForm" class="space-y-6 md:space-y-10">
 
           <!-- Meta Section -->
           <div
@@ -164,13 +179,16 @@
                     stroke-linejoin="round" stroke-width="2" />
                 </svg>
               </div>
-              <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400">{{ 'PLAY_EDITOR.SECTIONS.META' |
-                translate }}</h3>
+              <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400">{{
+                'EDITOR.COMMON.SECTIONS.META'
+                |
+                translate
+                }}</h3>
 
-              @if(selectedPlayId()) {
+              @if (selectedItemId()) {
               <span
                 class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 text-[10px] font-black rounded-full uppercase tracking-widest">
-                ID: #{{ selectedPlayId() }}
+                ID: #{{ selectedItemId() }}
               </span>
               }
             </div>
@@ -178,7 +196,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'PLAY_EDITOR.FIELDS.CATEGORY' | translate }}</label>
+                  'EDITOR.PLAY.FIELDS.CATEGORY' | translate
+                  }}</label>
                 <div class="relative">
                   <select formControlName="category" [class.border-rose-500]="isControlInvalid(['category'])"
                     class="modern-input appearance-none cursor-pointer font-bold h-12">
@@ -195,13 +214,16 @@
               </div>
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'PLAY_EDITOR.FIELDS.COMPLEXITY' | translate }}</label>
+                  'EDITOR.PLAY.FIELDS.COMPLEXITY' | translate
+                  }}</label>
                 <div class="relative">
                   <select formControlName="complexity" [class.border-rose-500]="isControlInvalid(['complexity'])"
                     class="modern-input appearance-none cursor-pointer font-bold h-12">
                     @for (c of complexities; track c.value) {
-                    <option [value]="c.value">{{ 'COMBINATIONS.COMPLEXITY.' + (c.value | uppercase) | translate
-                      }}</option>
+                    <option [value]="c.value">{{
+                      'COMBINATIONS.COMPLEXITY.' + (c.value | uppercase) | translate
+                      }}
+                    </option>
                     }
                   </select>
                   <svg class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
@@ -212,7 +234,8 @@
               </div>
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'PLAY_EDITOR.FIELDS.PERSONNEL' | translate }}</label>
+                  'EDITOR.PLAY.FIELDS.PERSONNEL' | translate
+                  }}</label>
                 <div class="relative">
                   <select formControlName="personnel" [class.border-rose-500]="isControlInvalid(['personnel'])"
                     class="modern-input appearance-none cursor-pointer font-bold h-12">
@@ -229,103 +252,76 @@
               </div>
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'PLAY_EDITOR.FIELDS.FORMATION' | translate }}</label>
+                  'EDITOR.PLAY.FIELDS.FORMATION' | translate
+                  }}</label>
                 <input type="text" formControlName="formation" [class.border-rose-500]="isControlInvalid(['formation'])"
                   class="modern-input font-bold h-12" placeholder="Spread">
               </div>
               <div class="space-y-2 md:col-span-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'PLAY_EDITOR.FIELDS.IMAGE_URL' | translate }}</label>
+                  'EDITOR.COMMON.FIELDS.IMAGE_URL' | translate
+                  }}</label>
                 <input type="text" formControlName="imageUrl" class="modern-input text-xs h-12">
               </div>
               <div class="space-y-2 md:col-span-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'PLAY_EDITOR.FIELDS.VIDEO_URL' | translate }}</label>
+                  'EDITOR.COMMON.FIELDS.VIDEO_URL' | translate
+                  }}</label>
                 <input type="text" formControlName="videoUrl" class="modern-input text-xs h-12">
               </div>
             </div>
           </div>
 
           <!-- Translations -->
-          <div
-            class="bg-white dark:bg-slate-900 rounded-3xl md:rounded-[2.5rem] shadow-sm md:shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800/80 overflow-hidden text-slate-900 dark:text-white">
-            <div class="flex border-b border-slate-50 dark:border-slate-800/50 bg-slate-50/50 dark:bg-slate-800/30">
-              <button type="button" (click)="switchFormTab('en')" [class.active-tab]="activeFormTab() === 'en'"
-                class="flex-1 py-4 md:py-5 text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-400 transition-all border-b-2 border-transparent flex items-center justify-center gap-2">
-                {{ 'PLAY_EDITOR.TABS.ENGLISH' | translate }}
-                @if (hasTabErrors('en')) {
-                <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                }
-              </button>
-              <button type="button" (click)="switchFormTab('uk')" [class.active-tab]="activeFormTab() === 'uk'"
-                class="flex-1 py-4 md:py-5 text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-400 transition-all border-b-2 border-transparent flex items-center justify-center gap-2">
-                {{ 'PLAY_EDITOR.TABS.UKRAINIAN' | translate }}
-                @if (hasTabErrors('uk')) {
-                <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                }
-              </button>
-            </div>
+          <app-translation-tabs [translationsGroup]="translationsGroup" [activeTab]="activeFormTab()"
+            (tabChange)="switchTab($event)">
+            @for (lang of ['en', 'uk']; track lang) {
+            <div [hidden]="activeFormTab() !== lang" [formGroup]="getLangGroup(lang)" class="space-y-8 animate-fade-in">
 
-            <div class="p-5 md:p-12 space-y-8 md:space-y-10" [formGroupName]="'translations'">
-              <div [formGroupName]="activeFormTab()" class="space-y-8 md:space-y-10 animate-fade-in">
-                <div class="space-y-6">
-                  <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                      'PLAY_EDITOR.FIELDS.NAME' | translate }}</label>
-                    <input type="text" [formControl]="getTranslationControl('name')"
-                      [class.border-rose-500]="isControlInvalid(['translations', activeFormTab(), 'name'])"
-                      class="modern-input h-14 md:h-16 text-lg md:text-2xl font-black placeholder:text-slate-200"
-                      [placeholder]="'PLAY_EDITOR.PLACEHOLDERS.NAME' | translate">
-                  </div>
-                  <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                      'PLAY_EDITOR.FIELDS.DESCRIPTION' | translate }}</label>
-                    <textarea [formControl]="getTranslationControl('description')" rows="4"
-                      [class.border-rose-500]="isControlInvalid(['translations', activeFormTab(), 'description'])"
-                      class="modern-input py-4 text-sm md:text-base font-medium resize-none"
-                      [placeholder]="'PLAY_EDITOR.PLACEHOLDERS.DESCRIPTION' | translate"></textarea>
-                  </div>
+              <app-common-translation-fields [langGroup]="getLangGroup(lang)" [translationPrefix]="'EDITOR.COMMON'">
+              </app-common-translation-fields>
+
+              <!-- Specific Fields: Key Points -->
+              <div class="space-y-4 md:space-y-6">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-xs md:text-sm font-black uppercase tracking-widest text-slate-900 dark:text-white">
+                    {{ 'EDITOR.PLAY.SECTIONS.KEY_POINTS' | translate }}</h4>
+                  <button type="button" (click)="addItem(getKeyPoints(lang))" class="add-btn">
+                    {{ 'EDITOR.PLAY.BUTTONS.ADD_TIP' | translate }}
+                  </button>
                 </div>
-
-                <div class="space-y-4 md:space-y-6">
-                  <div class="flex items-center justify-between">
-                    <h4 class="text-xs md:text-sm font-black uppercase tracking-widest text-slate-900 dark:text-white">
-                      {{ 'PLAY_EDITOR.SECTIONS.KEY_POINTS' | translate }}</h4>
-                    <button type="button" (click)="addItem(getKeyPoints(activeFormTab()))" class="add-btn">
-                      {{ 'PLAY_EDITOR.BUTTONS.ADD_TIP' | translate }}
+                <div [formArrayName]="'keyPoints'" class="space-y-3">
+                  @for (tip of getKeyPoints(lang).controls; track tip.value; let j = $index) {
+                  <div
+                    class="group flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-indigo-50/30 dark:bg-indigo-500/5 rounded-2xl md:rounded-[1.25rem] border border-transparent hover:border-indigo-500/20 transition-all">
+                    <div class="w-2 h-2 rounded-full bg-indigo-500 mt-2 md:mt-2.5 shrink-0"></div>
+                    <textarea [formControlName]="j" rows="1"
+                      class="flex-1 bg-transparent border-none text-sm font-semibold text-slate-700 dark:text-slate-200 focus:ring-0 outline-none p-0 resize-none"
+                      [placeholder]="'EDITOR.PLAY.PLACEHOLDERS.KEY_POINT' | translate"></textarea>
+                    <button (click)="removeItem(getKeyPoints(lang), j)"
+                      class="md:opacity-0 group-hover:opacity-100 p-1 md:p-2 text-slate-300 hover:text-rose-500 transition-all shrink-0">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                      </svg>
                     </button>
                   </div>
-                  <div [formArrayName]="'keyPoints'" class="space-y-3">
-                    @for (tip of getKeyPoints(activeFormTab()).controls; track tip.value; let j = $index) {
-                    <div
-                      class="group flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-indigo-50/30 dark:bg-indigo-500/5 rounded-2xl md:rounded-[1.25rem] border border-transparent hover:border-indigo-500/20 transition-all">
-                      <div class="w-2 h-2 rounded-full bg-indigo-500 mt-2 md:mt-2.5 shrink-0"></div>
-                      <textarea [formControlName]="j" rows="1"
-                        class="flex-1 bg-transparent border-none text-sm font-semibold text-slate-700 dark:text-slate-200 focus:ring-0 outline-none p-0 resize-none"
-                        [placeholder]="'PLAY_EDITOR.PLACEHOLDERS.KEY_POINT' | translate"></textarea>
-                      <button (click)="removeItem(getKeyPoints(activeFormTab()), j)"
-                        class="md:opacity-0 group-hover:opacity-100 p-1 md:p-2 text-slate-300 hover:text-rose-500 transition-all shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                        </svg>
-                      </button>
-                    </div>
-                    }
-                    @if (getKeyPoints(activeFormTab()).length === 0) {
-                    <div
-                      class="py-6 border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-3xl flex flex-col items-center justify-center text-slate-400">
-                      <p class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400">{{
-                        'PLAY_EDITOR.SECTIONS.NO_KEY_POINTS' | translate }}
-                      </p>
-                    </div>
-                    }
+                  }
+                  @if (getKeyPoints(lang).length === 0) {
+                  <div
+                    class="py-6 border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-3xl flex flex-col items-center justify-center text-slate-400">
+                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400">{{
+                      'EDITOR.PLAY.SECTIONS.NO_KEY_POINTS' | translate
+                      }}
+                    </p>
                   </div>
+                  }
                 </div>
               </div>
             </div>
-          </div>
+            }
+          </app-translation-tabs>
 
           @if (!isCreating()) {
           <div
@@ -333,13 +329,16 @@
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div>
                 <h4 class="text-sm font-black uppercase tracking-widest text-rose-600 dark:text-rose-500">{{
-                  'PLAY_EDITOR.SECTIONS.DANGER_ZONE' | translate }}</h4>
-                <p class="text-xs font-medium text-rose-400 mt-1">{{ 'PLAY_EDITOR.SECTIONS.DANGER_DESC' | translate
+                  'EDITOR.COMMON.SECTIONS.DANGER_ZONE' | translate
+                  }}</h4>
+                <p class="text-xs font-medium text-rose-400 mt-1">{{
+                  'EDITOR.COMMON.SECTIONS.DANGER_DESC' | translate
                   }}</p>
               </div>
-              <button type="button" (click)="deletePlay()"
+              <button type="button"
+                (click)="delete(selectedItemId()!, translationsGroup.get([interfaceLang(), 'name'])?.value || '')"
                 class="w-full md:w-auto px-6 py-3 bg-white dark:bg-rose-950/30 text-rose-600 border border-rose-200 dark:border-rose-900/50 font-black rounded-xl hover:bg-rose-600 hover:text-white transition-all text-xs uppercase tracking-widest shadow-sm">
-                {{ 'PLAY_EDITOR.BUTTONS.DELETE' | translate }}
+                {{ 'EDITOR.COMMON.BUTTONS.DELETE' | translate }}
               </button>
             </div>
           </div>
@@ -351,19 +350,38 @@
       <div
         class="hidden md:flex h-full flex-col items-center justify-center text-center max-w-lg mx-auto pb-12 animate-fade-in pl-80 xl:pl-96">
         <h2 class="text-3xl font-display font-black text-slate-900 dark:text-white mb-4 tracking-tight">
-          {{ 'PLAY_EDITOR.SELECT_TO_EDIT' | translate }}
+          {{ 'EDITOR.COMMON.SELECT_TO_EDIT' | translate }}
         </h2>
-        <button (click)="createNewPlay()"
+        <button (click)="handleRouteId(null)"
           class="px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-2xl shadow-2xl hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white transition-all transform hover:-translate-y-1 active:scale-95 flex items-center gap-3 group">
           <svg class="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor"
             viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
           </svg>
-          {{ 'PLAY_EDITOR.ADD_NEW' | translate }}
+          {{ 'EDITOR.COMMON.ADD_NEW' | translate }}
         </button>
       </div>
       }
     </main>
+
+    <!-- Mobile Sticky Footer -->
+    @if ((selectedItemId() || isCreating()) && !mobileSidebarVisible()) {
+    <div
+      class="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 flex gap-3 z-40 animate-slide-up">
+      <button (click)="cancel()"
+        class="flex-1 py-4 text-slate-500 dark:text-slate-400 font-black uppercase tracking-widest text-[10px] bg-slate-100 dark:bg-slate-800 rounded-2xl transition-all active:scale-95">
+        {{ 'EDITOR.COMMON.BUTTONS.CANCEL' | translate }}
+      </button>
+
+      <button (click)="save()" [disabled]="isSaving()"
+        class="flex-[2] py-4 bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-lg shadow-indigo-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">
+        @if (isSaving()) {
+        <div class="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+        }
+        <span>{{ 'EDITOR.COMMON.BUTTONS.SAVE' | translate }}</span>
+      </button>
+    </div>
+    }
   </div>
 </div>

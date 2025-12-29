@@ -14,14 +14,15 @@ import {
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FirestoreDrill } from '../../models/drill.model';
+import { CrudService } from '../../core/interfaces/crud-service.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DrillAdminService {
+export class DrillAdminService implements CrudService<FirestoreDrill> {
   private readonly firestore = inject(Firestore);
 
-  getDrillsStream(): Observable<FirestoreDrill[]> {
+  getAllList(): Observable<FirestoreDrill[]> {
     return new Observable<FirestoreDrill[]>(subscriber => {
       const col = collection(this.firestore, 'drills');
       const q = query(col, orderBy('createdAt', 'desc'));
@@ -40,7 +41,7 @@ export class DrillAdminService {
     });
   }
 
-  async addDrill(drill: Omit<FirestoreDrill, 'id'>): Promise<string> {
+  async add(drill: Omit<FirestoreDrill, 'id'>): Promise<string> {
     const col = collection(this.firestore, 'drills');
     const docRef = await addDoc(col, {
       ...drill,
@@ -50,7 +51,7 @@ export class DrillAdminService {
     return docRef.id;
   }
 
-  async updateDrill(id: string, drill: Partial<FirestoreDrill>): Promise<void> {
+  async update(id: string, drill: Partial<FirestoreDrill>): Promise<void> {
     const drillRef = doc(this.firestore, `drills/${id}`);
     return updateDoc(drillRef, {
       ...drill,
@@ -58,12 +59,12 @@ export class DrillAdminService {
     });
   }
 
-  async deleteDrill(id: string): Promise<void> {
+  async delete(id: string): Promise<void> {
     const drillRef = doc(this.firestore, `drills/${id}`);
     return deleteDoc(drillRef);
   }
 
-  getDrillById(id: string): Observable<FirestoreDrill | undefined> {
+  getById(id: string): Observable<FirestoreDrill | undefined> {
     const drillRef = doc(this.firestore, `drills/${id}`);
     return new Observable<FirestoreDrill | undefined>(subscriber => {
       const unsubscribe = onSnapshot(drillRef, (docSnap) => {
@@ -78,5 +79,4 @@ export class DrillAdminService {
       return () => unsubscribe();
     });
   }
-
 }

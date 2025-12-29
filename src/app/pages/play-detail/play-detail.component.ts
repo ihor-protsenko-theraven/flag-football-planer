@@ -59,7 +59,7 @@ export class PlayDetailComponent implements OnInit, OnDestroy {
 
   loadCombination(id: string) {
     this.loader.set(true);
-    this.playsService.getCombinationById(id).subscribe(data => {
+    this.playsService.getById(id).subscribe(data => {
       this.play.set(data || null);
       this.loader.set(false);
     });
