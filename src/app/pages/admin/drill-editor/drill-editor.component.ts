@@ -1,5 +1,5 @@
-import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   FormArray,
   FormBuilder,
@@ -9,15 +9,15 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
 
-import { DrillAdminService } from '../../../services/drill/drill-admin.service';
-import { ToastService } from '../../../services/toast.service';
-import { ConfirmationService } from '../../../services/confirmation.service';
-import { DrillUiService } from '../../../services/drill/drill-ui.service';
-import { DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill } from '../../../models/drill.model';
+import {DrillAdminService} from '../../../services/drill/drill-admin.service';
+import {ToastService} from '../../../services/toast.service';
+import {ConfirmationService} from '../../../services/confirmation.service';
+import {DrillUiService} from '../../../services/drill/drill-ui.service';
+import {DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill} from '../../../models/drill.model';
 
 @Component({
   selector: 'app-drill-editor',
@@ -27,14 +27,14 @@ import { DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill } from '.
   styleUrls: ['./drill-editor.component.css']
 })
 export class DrillEditorComponent implements OnInit, OnDestroy {
-  private fb = inject(FormBuilder);
-  private drillAdmin = inject(DrillAdminService);
-  private drillUi = inject(DrillUiService);
-  private toast = inject(ToastService);
-  private confirm = inject(ConfirmationService);
-  private translate = inject(TranslateService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private readonly fb = inject(FormBuilder);
+  private readonly drillAdmin = inject(DrillAdminService);
+  private readonly drillUi = inject(DrillUiService);
+  private readonly toast = inject(ToastService);
+  private readonly confirmationService = inject(ConfirmationService);
+  private readonly translate = inject(TranslateService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   readonly categories = DRILL_CATEGORIES;
   readonly levels = DRILL_LEVELS;
@@ -231,7 +231,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
   }
 
   createNewDrill() {
-    if (this.isCreating() === false && this.drillForm.dirty && !confirm('Discard unsaved changes?')) return;
+    if (!this.isCreating() && this.drillForm.dirty && !confirm('Discard unsaved changes?')) return;
 
     // If we are already in "new" route but called manually
     if (!this.isCreating()) {
@@ -255,8 +255,8 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
       imageUrl: '',
       videoUrl: '',
       translations: {
-        en: { name: '', description: '' },
-        uk: { name: '', description: '' }
+        en: {name: '', description: ''},
+        uk: {name: '', description: ''}
       }
     });
   }
@@ -277,7 +277,7 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
       if (this.isCreating()) {
         const id = await this.drillAdmin.addDrill(formData);
         this.toast.success(this.translate.instant('ADMIN_EDITOR.MESSAGES.CREATE_SUCCESS'));
-        this.router.navigate(['/admin/drill/edit', id], { replaceUrl: true });
+        this.router.navigate(['/admin/drill/edit', id], {replaceUrl: true});
       } else if (drillId) {
         await this.drillAdmin.updateDrill(drillId, formData);
         this.toast.success(this.translate.instant('ADMIN_EDITOR.MESSAGES.UPDATE_SUCCESS'));
@@ -295,9 +295,9 @@ export class DrillEditorComponent implements OnInit, OnDestroy {
     const lang = this.interfaceLang();
     const name = drill.translations[lang]?.name || drill.translations.en.name;
 
-    this.confirm.confirm({
+    this.confirmationService.confirm({
       title: this.translate.instant('ADMIN_EDITOR.BUTTONS.DELETE'),
-      message: this.translate.instant('ADMIN_EDITOR.MESSAGES.DELETE_CAUTION', { name }),
+      message: this.translate.instant('ADMIN_EDITOR.MESSAGES.DELETE_CAUTION', {name}),
       confirmText: this.translate.instant('ADMIN_EDITOR.BUTTONS.DELETE'),
       isDestructive: true
     }).subscribe(async (confirmed) => {

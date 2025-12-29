@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal, O
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import {
   PLAYS_CATEGORIES,
@@ -25,13 +25,12 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
   private playsService = inject(PlaysService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private translate = inject(TranslateService);
 
   readonly categories = PLAYS_CATEGORIES;
   readonly complexities = PLAYS_COMPLEXITIES;
 
-  // State Signals
-  private allPlays = signal<Play[]>([]);
-  isLoading = signal(true);
+  isLoading = signal(false);
 
   // Filter Signals
   searchQuery = signal('');
@@ -40,20 +39,6 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
   isMobileFiltersOpen = signal(false);
 
   private routeSub?: Subscription;
-
-  constructor() {
-    // Initial data load
-    this.playsService.getCombinationsStream().subscribe({
-      next: (data) => {
-        this.allPlays.set(data);
-        this.isLoading.set(false);
-      },
-      error: (err) => {
-        console.error('Error loading plays:', err);
-        this.isLoading.set(false);
-      }
-    });
-  }
 
   ngOnInit(): void {
     // Sync filters with URL on init
@@ -77,21 +62,14 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
   });
 
   filteredPlays = computed(() => {
-    const list = this.allPlays();
-    const query = this.searchQuery().toLowerCase().trim();
+    // Accessing plays() ensures this computed signal updates when language/data changes
+    this.playsService.plays();
+
+    const query = this.searchQuery();
     const cat = this.selectedCategory();
     const comp = this.selectedComplexity();
 
-    return list.filter(play => {
-      const matchSearch = !query ||
-        play.name.toLowerCase().includes(query) ||
-        (play.description && play.description.toLowerCase().includes(query));
-
-      const matchCat = cat === 'all' || play.category === cat;
-      const matchComp = comp === 'all' || play.complexity === comp;
-
-      return matchSearch && matchCat && matchComp;
-    });
+    return this.playsService.filterAndSearchPlays(query, cat, comp);
   });
 
   // Actions
@@ -139,3 +117,4 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
     });
   }
 }
+

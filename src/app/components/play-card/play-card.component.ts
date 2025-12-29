@@ -1,23 +1,23 @@
-
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { Play } from '../../models/plays.model';
+import { Play, FirestorePlays } from '../../models/plays.model';
 import { PlaysUiService } from '../../services/plays/plays-ui.service';
+import { LocalizedPlayPipe } from '../../core/pipes/localized-play.pipe';
 
 @Component({
   selector: 'app-combination-card',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, LocalizedPlayPipe],
   template: `
     <div (click)="navigateToDetail()"
          class="group relative bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-500 cursor-pointer h-full flex flex-col hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 active:scale-[0.98]">
 
       <!-- Image / Diagram -->
       <div class="relative aspect-video bg-slate-100 dark:bg-slate-800 overflow-hidden">
-        <img [src]="drill.imageUrl || 'assets/images/placeholder_combination.jpg'"
-             [alt]="drill.name"
+        <img [src]="play.imageUrl || 'assets/images/placeholder_combination.jpg'"
+             [alt]="(play | localizedPlay)?.name"
              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
              loading="lazy">
 
@@ -27,16 +27,16 @@ import { PlaysUiService } from '../../services/plays/plays-ui.service';
         <!-- Category Badge (Top Left) -->
         <div class="absolute top-4 left-4">
           <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-md bg-blue-600/90 text-white border border-blue-400/30">
-             {{ 'COMBINATIONS.CATEGORIES.' + drill.category.toUpperCase() | translate }}
+             {{ 'COMBINATIONS.CATEGORIES.' + play.category.toUpperCase() | translate }}
           </span>
         </div>
 
         <!-- Complexity Dot (Top Right) -->
         <div class="absolute top-4 right-4">
           <div class="flex items-center gap-2 px-2.5 py-1 rounded-full backdrop-blur-md bg-black/40 border border-white/10">
-            <span [class]="'w-2 h-2 rounded-full ' + getComplexityColor(drill.complexity)"></span>
+            <span [class]="'w-2 h-2 rounded-full ' + getComplexityColor(play.complexity)"></span>
             <span class="text-[10px] font-bold text-white uppercase tracking-wider">
-              {{ 'COMBINATIONS.COMPLEXITY.' + drill.complexity.toUpperCase() | translate }}
+              {{ 'COMBINATIONS.COMPLEXITY.' + play.complexity.toUpperCase() | translate }}
             </span>
           </div>
         </div>
@@ -45,17 +45,17 @@ import { PlaysUiService } from '../../services/plays/plays-ui.service';
       <!-- Content -->
       <div class="p-6 flex flex-col flex-1">
         <div class="flex items-center gap-2 mb-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">
-          <span>{{ drill.personnel }}</span>
+          <span>{{ play.personnel }}</span>
           <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-          <span>{{ drill.formation }}</span>
+          <span>{{ play.formation }}</span>
         </div>
 
         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {{ drill.name }}
+          {{ (play | localizedPlay)?.name }}
         </h3>
 
         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-2 mb-6">
-          {{ drill.description }}
+          {{ (play | localizedPlay)?.description }}
         </p>
 
         <!-- Footer -->
@@ -73,7 +73,7 @@ import { PlaysUiService } from '../../services/plays/plays-ui.service';
   styles: [`:host { display: block; height: 100%; } `]
 })
 export class PlayCardComponent {
-  @Input({ required: true }) drill!: Play;
+  @Input({ required: true }) play!: Play | FirestorePlays;
 
   uiService = inject(PlaysUiService);
   private router = inject(Router);
@@ -88,6 +88,6 @@ export class PlayCardComponent {
   }
 
   navigateToDetail() {
-    this.router.navigate(['/plays', this.drill.id]);
+    this.router.navigate(['/plays', this.play.id]);
   }
 }

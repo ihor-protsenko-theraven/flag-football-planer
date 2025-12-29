@@ -1,5 +1,5 @@
-import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   FormArray,
   FormBuilder,
@@ -9,14 +9,14 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {Subscription} from 'rxjs';
 
-import { PlaysService } from '../../../services/plays/plays.service';
-import { PlaysUiService } from '../../../services/plays/plays-ui.service';
-import { ToastService } from '../../../services/toast.service';
-import { ConfirmationService } from '../../../services/confirmation.service';
+import {PlaysService} from '../../../services/plays/plays.service';
+import {PlaysUiService} from '../../../services/plays/plays-ui.service';
+import {ToastService} from '../../../services/toast.service';
+import {ConfirmationService} from '../../../services/confirmation.service';
 import {
   FirestorePlays,
   PlayCategory,
@@ -33,14 +33,14 @@ import {
   styleUrls: ['./play-editor.component.css']
 })
 export class PlayEditorComponent implements OnInit, OnDestroy {
-  private fb = inject(FormBuilder);
-  private playsService = inject(PlaysService);
-  private playsUi = inject(PlaysUiService);
-  private toast = inject(ToastService);
-  private confirm = inject(ConfirmationService);
-  private translate = inject(TranslateService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private readonly fb = inject(FormBuilder);
+  private readonly playsService = inject(PlaysService);
+  private readonly playsUi = inject(PlaysUiService);
+  private readonly toast = inject(ToastService);
+  private readonly confirmationService = inject(ConfirmationService);
+  private readonly translate = inject(TranslateService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   readonly categories = PLAYS_CATEGORIES;
   readonly complexities = PLAYS_COMPLEXITIES;
@@ -237,8 +237,8 @@ export class PlayEditorComponent implements OnInit, OnDestroy {
       imageUrl: '',
       videoUrl: '',
       translations: {
-        en: { name: '', description: '' },
-        uk: { name: '', description: '' }
+        en: {name: '', description: ''},
+        uk: {name: '', description: ''}
       }
     });
   }
@@ -259,7 +259,7 @@ export class PlayEditorComponent implements OnInit, OnDestroy {
       if (this.isCreating()) {
         const id = await this.playsService.addPlay(formData);
         this.toast.success(this.translate.instant('PLAY_EDITOR.MESSAGES.CREATE_SUCCESS'));
-        this.router.navigate(['/admin/plays/edit', id], { replaceUrl: true });
+        this.router.navigate(['/admin/plays/edit', id], {replaceUrl: true});
       } else if (playId) {
         await this.playsService.updatePlay(playId, formData);
         this.toast.success(this.translate.instant('PLAY_EDITOR.MESSAGES.UPDATE_SUCCESS'));
@@ -276,9 +276,9 @@ export class PlayEditorComponent implements OnInit, OnDestroy {
     const playId = this.selectedPlayId();
     if (!playId) return;
 
-    this.confirm.confirm({
+    this.confirmationService.confirm({
       title: this.translate.instant('PLAY_EDITOR.BUTTONS.DELETE'),
-      message: this.translate.instant('PLAY_EDITOR.MESSAGES.DELETE_CAUTION', { name: '#' + playId }),
+      message: this.translate.instant('PLAY_EDITOR.MESSAGES.DELETE_CAUTION', {name: '#' + playId}),
       confirmText: this.translate.instant('PLAY_EDITOR.BUTTONS.DELETE'),
       isDestructive: true
     }).subscribe(async (confirmed) => {

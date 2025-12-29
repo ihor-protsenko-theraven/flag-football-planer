@@ -1,18 +1,18 @@
-import { Component, computed, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { SafeHtml } from '@angular/platform-browser';
-import { startWith, Subject, switchMap, takeUntil } from 'rxjs';
-import { DrillService } from '../../services/drill/drill.service';
-import { TranslationHelperService } from '../../services/translation-helper.service';
-import { DrillUiService } from '../../services/drill/drill-ui.service';
-import { TrainingBuilderService } from '../../services/training/training-builder.service';
-import { ToastService } from '../../services/toast.service';
-import { Drill, FirestoreDrill } from '../../models/drill.model';
-import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
-import { DrillDetailSkeletonComponent } from '../../components/drill-detail-skeleton/drill-detail-skeleton.component';
-import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
-import { VideoPlayerModalComponent } from '../../components/video-player-modal/video-player-modal.component';
+import {Component, computed, inject, OnDestroy, OnInit, signal, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router, RouterModule} from '@angular/router';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {SafeHtml} from '@angular/platform-browser';
+import {startWith, Subject, switchMap, takeUntil} from 'rxjs';
+import {DrillService} from '../../services/drill/drill.service';
+import {TranslationHelperService} from '../../services/translation-helper.service';
+import {DrillUiService} from '../../services/drill/drill-ui.service';
+import {TrainingBuilderService} from '../../services/training/training-builder.service';
+import {ToastService} from '../../services/toast.service';
+import {Drill, FirestoreDrill} from '../../models/drill.model';
+import {DrillCardComponent} from '../../components/drill-card/drill-card.component';
+import {DrillDetailSkeletonComponent} from '../../components/drill-detail-skeleton/drill-detail-skeleton.component';
+import {LocalizedDrillPipe} from '../../core/pipes/localized-drill.pipe';
+import {VideoPlayerModalComponent} from '../../components/video-player-modal/video-player-modal.component';
 
 @Component({
   selector: 'app-drill-detail',
@@ -45,7 +45,7 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly drillService = inject(DrillService);
   readonly translationHelper = inject(TranslationHelperService);
-  readonly drillUi = inject(DrillUiService); // Public for template access
+  readonly drillUi = inject(DrillUiService);
   private readonly trainingBuilder = inject(TrainingBuilderService);
   private readonly toastService = inject(ToastService);
   private readonly translate = inject(TranslateService);
@@ -55,9 +55,8 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
   drill = signal<FirestoreDrill | null>(null);
 
   ngOnInit(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 
-    // Отримуємо ID
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -74,7 +73,7 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
   private loadDrill(id: string): void {
     this.translate.onLangChange.pipe(
-      startWith({ lang: this.translate.currentLang }),
+      startWith({lang: this.translate.currentLang}),
       switchMap(() => this.drillService.getDrillById(id)),
       takeUntil(this.destroy$)
     ).subscribe(drillData => {
@@ -88,9 +87,10 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
   relatedDrills = computed(() => {
     const currentDrill = this.drill();
-    if (!currentDrill) return [];
+    if (!currentDrill) {
+      return [];
+    }
 
-    // filterAndSearchDrills returns flattened Drill[], which is fine for display
     return this.drillService.filterAndSearchDrills(undefined, currentDrill.category as any, undefined)
       .filter(d => d.id !== currentDrill.id)
       .slice(0, 3);
@@ -109,11 +109,10 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
   }
 
 
-
   onRelatedDrillClick(drillData: Drill | FirestoreDrill): void {
     this.router.navigate(['/catalog', drillData.id]);
     this.loadDrill(drillData.id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   getLevelBadgeStyles(drillData: FirestoreDrill): string {
@@ -130,9 +129,10 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
   addToTraining(): void {
     const currentDrill = this.drill();
-    if (!currentDrill) return;
+    if (!currentDrill) {
+      return;
+    }
 
-    // Flatten the FirestoreDrill to Drill for TrainingBuilderService
     const flattenedDrill = this.flattenDrillForTraining(currentDrill);
     const wasAdded = this.trainingBuilder.addDrill(flattenedDrill);
 
@@ -143,9 +143,6 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  /**
-   * Helper method to flatten FirestoreDrill to Drill for services that need the old format
-   */
   private flattenDrillForTraining(drill: FirestoreDrill): Drill {
     const currentLang = this.translate.currentLang || 'en';
     const safeLang = (currentLang === 'uk' || currentLang === 'en') ? currentLang : 'en';

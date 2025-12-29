@@ -70,24 +70,24 @@
 
                 <!-- Desktop Filters & Mobile Collapsible Section -->
                 <div
-                    [class]="'space-y-4 ' + 
+                    [class]="'space-y-4 ' +
           (isMobileFiltersOpen() ? 'mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50' : 'hidden md:block md:mt-4 md:pt-4 md:border-t')">
 
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <!-- Complexity Select -->
                         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0">
                             <button (click)="setComplexity('all')"
-                                [class]="'px-5 py-2.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all ' + 
-                (selectedComplexity() === 'all' 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
+                                [class]="'px-5 py-2.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all ' +
+                (selectedComplexity() === 'all'
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                   : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-100 dark:border-slate-800 hover:bg-slate-50')">
                                 {{ 'COMMON.ALL_COMPLEXITIES' | translate }}
                             </button>
                             @for (lvl of complexities; track lvl.value) {
                             <button (click)="setComplexity(lvl.value)"
-                                [class]="'px-5 py-2.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all ' + 
-                  (selectedComplexity() === lvl.value 
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
+                                [class]="'px-5 py-2.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all ' +
+                  (selectedComplexity() === lvl.value
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                     : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-100 dark:border-slate-800 hover:bg-slate-50')">
                                 {{ lvl.translationKey | translate }}
                             </button>
@@ -105,18 +105,18 @@
 
                     <!-- Category Horizontal Scroll -->
                     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2">
-                        <button (click)="setCategory('all')" [class]="'px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ' + 
-              (selectedCategory() === 'all' 
-                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/40' 
+                        <button (click)="setCategory('all')" [class]="'px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ' +
+              (selectedCategory() === 'all'
+                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/40'
                 : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300')">
                             {{ 'COMMON.ALL_CATEGORIES' | translate }}
                         </button>
 
                         @for (cat of categories; track cat.value) {
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 shrink-0"></div>
-                        <button (click)="setCategory(cat.value)" [class]="'px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ' + 
-                (selectedCategory() === cat.value 
-                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/40' 
+                        <button (click)="setCategory(cat.value)" [class]="'px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ' +
+                (selectedCategory() === cat.value
+                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/40'
                   : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300')">
                             {{ cat.translationKey | translate }}
                         </button>
@@ -178,7 +178,7 @@
         <!-- Plays Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
             @for (play of filteredPlays(); track play.id) {
-            <app-combination-card [drill]="play" />
+            <app-combination-card [play]="play" />
             }
         </div>
         }
