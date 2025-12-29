@@ -41,6 +41,10 @@ export class MyTrainingsComponent implements OnInit {
 
   levels = DRILL_LEVELS;
 
+  areFiltersActive = computed(() => {
+    return this.searchQuery().trim() !== '' || this.selectedLevel() !== null;
+  });
+
   filteredTrainings = computed(() => {
     let list = this.trainings();
     const query = this.searchQuery().toLowerCase().trim();
@@ -56,6 +60,11 @@ export class MyTrainingsComponent implements OnInit {
 
     return list;
   });
+
+  clearFilters(): void {
+    this.searchQuery.set('');
+    this.selectedLevel.set(null);
+  }
 
   ngOnInit(): void {
     this.loadTrainings();
@@ -115,7 +124,7 @@ export class MyTrainingsComponent implements OnInit {
         return this.translate.instant('MY_TRAININGS.NO_SCHEDULE');
       }
 
-      const lang = this.translate.currentLang === 'uk' ? 'uk-UA' : 'en-US';
+      const lang = this.translate.getCurrentLang() === 'uk' ? 'uk-UA' : 'en-US';
       const dateStr = new Intl.DateTimeFormat(lang, {
         weekday: 'short',
         month: 'short',

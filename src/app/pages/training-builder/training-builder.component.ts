@@ -1,20 +1,20 @@
-import {Component, computed, inject, OnInit, signal, ViewEncapsulation} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
-import {CdkDragDrop, DragDropModule} from '@angular/cdk/drag-drop';
-import {filter} from 'rxjs';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {SafeHtml} from '@angular/platform-browser';
+import { Component, computed, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { filter } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SafeHtml } from '@angular/platform-browser';
 
-import {DrillService} from '../../services/drill/drill.service';
-import {TrainingService} from '../../services/training/training.service';
-import {ConfirmationService} from '../../services/confirmation.service';
-import {DrillUiService} from '../../services/drill/drill-ui.service';
-import {TrainingBuilderService} from '../../services/training/training-builder.service';
-import {ToastService} from '../../services/toast.service';
+import { DrillService } from '../../services/drill/drill.service';
+import { TrainingService } from '../../services/training/training.service';
+import { ConfirmationService } from '../../services/confirmation.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
+import { TrainingBuilderService } from '../../services/training/training-builder.service';
+import { ToastService } from '../../services/toast.service';
 
-import {Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel} from '../../models/drill.model';
+import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from '../../models/drill.model';
 
 @Component({
   selector: 'app-training-builder',
@@ -95,6 +95,12 @@ export class TrainingBuilderComponent implements OnInit {
   scheduledTime = signal<string>('');  // Time string for input[type="time"]
 
 
+  areFiltersActive = computed(() => {
+    return this.searchQuery().trim() !== '' ||
+      this.selectedCategory() !== undefined ||
+      this.selectedLevel() !== undefined;
+  });
+
   availableDrills = computed(() => {
     return this.drillService.filterAndSearchDrills(
       this.searchQuery(),
@@ -103,12 +109,18 @@ export class TrainingBuilderComponent implements OnInit {
     );
   });
 
+  clearFilters(): void {
+    this.searchQuery.set('');
+    this.selectedCategory.set(undefined);
+    this.selectedLevel.set(undefined);
+  }
+
   // Use training builder service for state management
   trainingDrills = this.trainingBuilder.trainingDrills;
   totalDuration = this.trainingBuilder.totalDuration;
 
   ngOnInit(): void {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   onFilterChange(): void {
@@ -179,7 +191,7 @@ export class TrainingBuilderComponent implements OnInit {
       level: this.trainingLevel(),
       scheduledDate: this.scheduledDate() ? new Date(this.scheduledDate()) : undefined,
       scheduledTime: this.scheduledTime() || undefined,
-      drills: this.trainingDrills().map(({instanceId, drill, ...rest}) => rest),  // Exclude UI-only fields
+      drills: this.trainingDrills().map(({ instanceId, drill, ...rest }) => rest),  // Exclude UI-only fields
       totalDuration: this.totalDuration()
     };
 

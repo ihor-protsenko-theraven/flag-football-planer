@@ -57,6 +57,10 @@ export class PlayEditorComponent extends BaseEditorComponent<FirestorePlays> {
   selectedCategoryFilter = signal<PlayCategory | null>(null);
   mobileSidebarVisible = signal(false);
 
+  areFiltersActive = computed(() => {
+    return this.searchQuery().trim() !== '' || this.selectedCategoryFilter() !== null;
+  });
+
   filteredPlays = computed(() => {
     const list = this.allItems();
     const query = this.searchQuery().toLowerCase().trim();
@@ -74,6 +78,11 @@ export class PlayEditorComponent extends BaseEditorComponent<FirestorePlays> {
       return nameA.localeCompare(nameB);
     });
   });
+
+  resetFilters() {
+    this.searchQuery.set('');
+    this.selectedCategoryFilter.set(null);
+  }
 
   protected initForm() {
     return this.fb.group({

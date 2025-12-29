@@ -22,20 +22,31 @@
 
                     <div
                         class="p-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
-                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                            <span class="text-2xl">⚡</span> {{ 'TRAINING_BUILDER.AVAILABLE_DRILLS' | translate }}
-                        </h2>
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="text-2xl">⚡</span> {{ 'TRAINING_BUILDER.AVAILABLE_DRILLS' | translate }}
+                            </h2>
+                        </div>
 
                         <div class="space-y-4">
                             <div class="relative">
                                 <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
                                     [placeholder]="'TRAINING_BUILDER.SEARCH_PLACEHOLDER' | translate"
-                                    class="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-green-500/20 transition-all text-sm outline-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500" />
+                                    class="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-green-500/20 transition-all text-sm outline-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500" />
                                 <svg class="w-5 h-5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none"
                                     stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
+                                @if (searchQuery()) {
+                                <button (click)="searchQuery.set('')"
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                                }
                             </div>
 
                             <div class="grid grid-cols-1 gap-3">
@@ -73,6 +84,15 @@
                                     </select>
                                 </div>
                             </div>
+
+                            @if (areFiltersActive()) {
+                            <div class="flex justify-end pt-2">
+                                <button (click)="clearFilters()"
+                                    class="text-[10px] font-black uppercase tracking-widest text-green-600 dark:text-green-500 hover:text-green-700 transition-colors">
+                                    {{ 'CATALOG.CLEAR_ALL' | translate }}
+                                </button>
+                            </div>
+                            }
                         </div>
                     </div>
 
@@ -329,7 +349,8 @@
                                     <div class="md:col-span-3">
                                         <label
                                             class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">
-                                            {{ 'TRAINING_BUILDER.REC_DURATION' | translate }} ({{ 'TRAINING_BUILDER.MIN' |
+                                            {{ 'TRAINING_BUILDER.REC_DURATION' | translate }} ({{ 'TRAINING_BUILDER.MIN'
+                                            |
                                             translate }})
                                         </label>
                                         <input type="number" [(ngModel)]="item.duration"

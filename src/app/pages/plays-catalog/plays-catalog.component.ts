@@ -1,18 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
-import {
-  PLAYS_CATEGORIES,
-  PLAYS_COMPLEXITIES,
-  Play,
-  PlayCategory,
-  PlayComplexity
-} from '../../models/plays.model';
-import { PlaysService } from '../../services/plays/plays.service';
-import { PlayCardComponent } from '../../components/play-card/play-card.component';
+import {ChangeDetectionStrategy, Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
+import {PlayCategory, PlayComplexity, PLAYS_CATEGORIES, PLAYS_COMPLEXITIES} from '../../models/plays.model';
+import {PlaysService} from '../../services/plays/plays.service';
+import {PlayCardComponent} from '../../components/play-card/play-card.component';
 
 @Component({
   selector: 'app-combinations-catalog',
@@ -54,8 +48,15 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
   }
 
   // Reactive Logic
+  areFiltersActive = computed(() => {
+    return this.searchQuery().trim() !== '' ||
+      this.selectedCategory() !== 'all' ||
+      this.selectedComplexity() !== 'all';
+  });
+
   activeFiltersCount = computed(() => {
     let count = 0;
+    if (this.searchQuery().trim()) count++;
     if (this.selectedCategory() !== 'all') count++;
     if (this.selectedComplexity() !== 'all') count++;
     return count;
@@ -112,7 +113,6 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams,
-      queryParamsHandling: 'merge',
       replaceUrl: true
     });
   }

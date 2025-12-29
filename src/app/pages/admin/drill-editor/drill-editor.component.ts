@@ -50,6 +50,10 @@ export class DrillEditorComponent extends BaseEditorComponent<FirestoreDrill> {
   selectedCategoryFilter = signal<DrillCategory | null>(null);
   mobileSidebarVisible = signal(false);
 
+  areFiltersActive = computed(() => {
+    return this.searchQuery().trim() !== '' || this.selectedCategoryFilter() !== null;
+  });
+
   filteredDrills = computed(() => {
     const list = this.allItems();
     const query = this.searchQuery().toLowerCase().trim();
@@ -67,6 +71,11 @@ export class DrillEditorComponent extends BaseEditorComponent<FirestoreDrill> {
       return nameA.localeCompare(nameB);
     });
   });
+
+  resetFilters() {
+    this.searchQuery.set('');
+    this.selectedCategoryFilter.set(null);
+  }
 
   protected initForm() {
     return this.fb.group({

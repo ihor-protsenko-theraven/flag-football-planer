@@ -39,7 +39,15 @@
             </div>
             <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
               [placeholder]="'MY_TRAININGS.SEARCH_PLACEHOLDER' | translate"
-              class="block w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-transparent focus:border-green-500 focus:bg-white dark:focus:bg-slate-900 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/10 transition-all duration-200 ease-in-out font-medium" />
+              class="block w-full pl-11 pr-10 py-3.5 bg-slate-50 dark:bg-slate-950 border border-transparent focus:border-green-500 focus:bg-white dark:focus:bg-slate-900 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/10 transition-all duration-200 ease-in-out font-medium" />
+            @if (searchQuery()) {
+            <button (click)="searchQuery.set('')"
+              class="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            }
           </div>
         </div>
 
@@ -69,6 +77,15 @@
         </div>
       </div>
     </div>
+
+    @if (areFiltersActive()) {
+    <div class="flex justify-end mb-4 animate-fade-in">
+      <button (click)="clearFilters()"
+        class="text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 uppercase tracking-widest px-4 py-2 transition-colors">
+        {{ 'CATALOG.CLEAR_ALL' | translate }}
+      </button>
+    </div>
+    }
 
     @if (isLoading()) {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
