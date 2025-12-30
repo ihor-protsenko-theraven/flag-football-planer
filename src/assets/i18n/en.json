@@ -264,6 +264,12 @@
     "PLAYS": {
       "TITLE": "Plays Manager",
       "DESCRIPTION": "Design and manage tactical combinations. Build your playbook with advanced plays and strategies."
+    },
+    "STATS": {
+      "TOTAL_DRILLS": "Total Drills",
+      "TOTAL_PLAYS": "Total Plays",
+      "TEAM_MEMBERS": "Team Members",
+      "TRAININGS": "Workshops Created"
     }
   }
 }

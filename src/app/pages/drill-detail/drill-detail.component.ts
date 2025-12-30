@@ -55,6 +55,12 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
   drill = signal<FirestoreDrill | null>(null);
 
+  private readonly PLACEHOLDER_IMAGE = 'assets/images/logo.png';
+
+  get getImageUrl(): string {
+    return this.drill()?.imageUrl || this.PLACEHOLDER_IMAGE;
+  }
+
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 

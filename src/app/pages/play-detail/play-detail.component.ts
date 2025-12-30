@@ -29,6 +29,12 @@ export class PlayDetailComponent implements OnInit, OnDestroy {
 
   loader = signal(true);
 
+  private readonly PLACEHOLDER_IMAGE = 'assets/images/logo.png';
+
+  get getImageUrl(): string {
+    return this.play()?.imageUrl || this.PLACEHOLDER_IMAGE;
+  }
+
   @ViewChild(VideoPlayerModalComponent) videoPlayer!: VideoPlayerModalComponent;
 
   openVideo(url: string) {

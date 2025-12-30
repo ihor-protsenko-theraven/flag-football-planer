@@ -1,10 +1,10 @@
-import { Component, EventEmitter, inject, Input, Output, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { SafeHtml } from '@angular/platform-browser';
-import { Drill, FirestoreDrill } from '../../models/drill.model';
-import { DrillUiService } from '../../services/drill/drill-ui.service';
-import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
+import {Component, EventEmitter, inject, Input, Output, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TranslateModule} from '@ngx-translate/core';
+import {SafeHtml} from '@angular/platform-browser';
+import {Drill, FirestoreDrill} from '../../models/drill.model';
+import {DrillUiService} from '../../services/drill/drill-ui.service';
+import {LocalizedDrillPipe} from '../../core/pipes/localized-drill.pipe';
 
 @Component({
   selector: 'app-drill-card',
@@ -22,7 +22,7 @@ import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
         }
 
         <img
-          [src]="getImageUrl()"
+          [src]="getImageUrl"
           [alt]="(drill | localizedDrill)?.name || 'Drill image'"
           loading="lazy"
           (load)="onImageLoad()"
@@ -87,7 +87,7 @@ import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
   styles: []
 })
 export class DrillCardComponent {
-  @Input({ required: true }) drill!: Drill | FirestoreDrill;
+  @Input({required: true}) drill!: Drill | FirestoreDrill;
   @Input() showAddButton = false;
   @Output() cardClick = new EventEmitter<Drill | FirestoreDrill>();
   @Output() addClick = new EventEmitter<Drill | FirestoreDrill>();
@@ -96,9 +96,9 @@ export class DrillCardComponent {
 
   protected readonly drillUi = inject(DrillUiService);
 
-  private readonly PLACEHOLDER_IMAGE = 'assets/images/drills_images_preview/drill_placeholder.jpg';
+  private readonly PLACEHOLDER_IMAGE = 'assets/images/logo.png';
 
-  getImageUrl(): string {
+  get getImageUrl(): string {
     return this.drill.imageUrl || this.PLACEHOLDER_IMAGE;
   }
 

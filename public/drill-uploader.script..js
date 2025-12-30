@@ -4,7 +4,7 @@ const path = require('path');
 
 // 1. НАЛАШТУВАННЯ
 // Переконайся, що файл ключа лежить поруч із цим скриптом
-const serviceAccount = require('./serviceAccountKey.json');
+const serviceAccount = require('../serviceAccountKey.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
