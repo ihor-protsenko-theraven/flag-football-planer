@@ -3,11 +3,11 @@ import { Drill, DrillLevel } from './drill.model';
 export interface Training {
   id: string;
   name: string;
-  description?: string;
+  description?: string | null;
   createdBy?: string;
   createdAt: Date;  // When the training plan was created in the system
-  scheduledDate?: Date;  // When the training is scheduled to occur
-  scheduledTime?: string;  // Time of day (e.g., "18:00")
+  scheduledDate?: Date | null;  // When the training is scheduled to occur
+  scheduledTime?: string | null;  // Time of day (e.g., "18:00")
   level: DrillLevel;
   drills: TrainingDrill[];
   totalDuration: number;  // Calculated from Training Builder (sum of drill durations)

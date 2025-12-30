@@ -14,6 +14,7 @@ import { DrillAdminService } from '../../../services/drill/drill-admin.service';
 import { DrillUiService } from '../../../services/drill/drill-ui.service';
 import { DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, FirestoreDrill } from '../../../models/drill.model';
 import { BaseEditorComponent } from '../../../core/components/base-editor.component';
+import { APP_ROUTES } from '../../../core/constants/routes';
 import { TranslationTabsComponent } from '../../../core/components/translation-tabs/translation-tabs.component';
 import { CommonTranslationFieldsComponent } from '../../../core/components/common-translation-fields.component';
 
@@ -44,7 +45,7 @@ export class DrillEditorComponent extends BaseEditorComponent<FirestoreDrill> {
 
   protected override get service() { return this.drillAdmin; }
   protected override get translationKeyPrefix() { return 'EDITOR.DRILL'; }
-  protected override get listRoute() { return '/admin/drill'; }
+  protected override get listRoute() { return APP_ROUTES.ADMIN.DRILLS; }
 
   searchQuery = signal<string>('');
   selectedCategoryFilter = signal<DrillCategory | null>(null);

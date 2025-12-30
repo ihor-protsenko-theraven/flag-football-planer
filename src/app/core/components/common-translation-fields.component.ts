@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
       <!-- Name -->
       <div class="space-y-2">
         <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-          {{ 'EDITOR.COMMON.FIELDS.NAME' | translate }}
+          {{ 'COMMON.NAME' | translate }}
         </label>
         <input formControlName="name"
                [placeholder]="'EDITOR.COMMON.PLACEHOLDERS.NAME' | translate"
@@ -23,7 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
       <!-- Description -->
       <div class="space-y-2">
         <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-          {{ 'EDITOR.COMMON.FIELDS.DESCRIPTION' | translate }}
+          {{ 'COMMON.DESCRIPTION' | translate }}
         </label>
         <textarea formControlName="description"
                   [placeholder]="'EDITOR.COMMON.PLACEHOLDERS.DESCRIPTION' | translate"

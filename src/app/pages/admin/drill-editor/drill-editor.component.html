@@ -6,7 +6,7 @@
     <div class="flex items-center gap-3 md:gap-4">
       <div class="flex items-center gap-2 md:gap-4">
         <!-- New Dashboard Back link (icon only on mobile) -->
-        <a routerLink="/admin"
+        <a [routerLink]="APP_ROUTES.ADMIN.ROOT"
           class="flex items-center gap-2 p-2 md:px-3 md:py-1.5 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 font-bold text-xs bg-slate-100 dark:bg-slate-800/50 rounded-lg transition-all hover:-translate-x-1">
           <svg class="w-5 h-5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7 7-7" />
@@ -48,7 +48,7 @@
       @if (selectedItemId() || isCreating()) {
       <button (click)="cancel()"
         class="hidden md:block px-5 py-2.5 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
-        {{ 'EDITOR.COMMON.BUTTONS.CANCEL' | translate }}
+        {{ 'COMMON.CANCEL' | translate }}
       </button>
 
       <button (click)="save()" [disabled]="isSaving()"
@@ -56,7 +56,7 @@
         @if (isSaving()) {
         <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
         }
-        <span [class.hidden]="isSaving()">{{ 'EDITOR.COMMON.BUTTONS.SAVE' | translate }}</span>
+        <span [class.hidden]="isSaving()">{{ 'COMMON.SAVE' | translate }}</span>
       </button>
       } @else {
       <button (click)="handleRouteId(null)"
@@ -88,7 +88,7 @@
               </svg>
             </span>
             <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
-              [placeholder]="'CATALOG.SEARCH_PLACEHOLDER' | translate"
+              [placeholder]="'COMMON.SEARCH_PLACEHOLDER' | translate"
               class="w-full pl-11 pr-10 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium focus:ring-2 focus:ring-green-500/10 focus:border-green-500 outline-none transition-all shadow-sm">
             @if (searchQuery()) {
             <button (click)="searchQuery.set('')"
@@ -108,12 +108,14 @@
         </div>
 
         <div class="flex items-center justify-between mb-1">
-          <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{ 'CATALOG.FILTERS' |
-            translate }}</span>
+          <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
+            'COMMON.FILTERS' |
+            translate
+            }}</span>
           @if (areFiltersActive()) {
           <button (click)="resetFilters()"
             class="text-[10px] font-black uppercase tracking-widest text-green-600 dark:text-green-500 hover:text-green-700 transition-colors">
-            {{ 'CATALOG.CLEAR_ALL' | translate }}
+            {{ 'COMMON.CLEAR_ALL' | translate }}
           </button>
           }
         </div>
@@ -121,7 +123,7 @@
           <div class="relative flex-1">
             <select [ngModel]="selectedCategoryFilter()" (ngModelChange)="selectedCategoryFilter.set($event)"
               class="w-full pl-4 pr-10 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-black uppercase tracking-widest appearance-none cursor-pointer focus:ring-2 focus:ring-green-500/10 focus:border-green-500 outline-none transition-all shadow-sm">
-              <option [value]="null">{{ 'CATALOG.ALL_CATEGORIES' | translate }}</option>
+              <option [value]="null">{{ 'COMMON.ALL_CATEGORIES' | translate }}</option>
               @for (cat of categories; track cat.value) {
               <option [value]="cat.value">{{ 'DRILL.CATEGORIES.' + (cat.value | uppercase) | translate }}</option>
               }
@@ -164,7 +166,7 @@
             </span>
             <span
               class="ml-auto text-[10px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-800/50 px-2 py-0.5 rounded-md">
-              {{ drill.duration }} {{ 'TRAINING_BUILDER.MIN' | translate }}
+              {{ drill.duration }} {{ 'COMMON.MIN' | translate }}
             </span>
           </div>
         </div>
@@ -223,7 +225,7 @@
 
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'EDITOR.DRILL.FIELDS.CATEGORY' | translate
+                  'COMMON.CATEGORY' | translate
                   }}</label>
                 <div class="relative">
                   <select formControlName="category" [class.border-rose-500]="isControlInvalid(['category'])"
@@ -242,7 +244,7 @@
 
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{{
-                  'EDITOR.DRILL.FIELDS.LEVEL' | translate
+                  'COMMON.LEVEL' | translate
                   }}</label>
                 <div class="relative">
                   <select formControlName="level" [class.border-rose-500]="isControlInvalid(['level'])"
@@ -364,7 +366,7 @@
                     }}
                     ({{ lang | uppercase }})</label>
                   <button type="button" (click)="addItem(getEquipment(lang))" class="add-btn">
-                    {{ 'EDITOR.DRILL.BUTTONS.ADD_ITEM' | translate }}
+                    {{ 'EDITOR.COMMON.BUTTONS.ADD_ITEM' | translate }}
                   </button>
                 </div>
 
@@ -409,7 +411,7 @@
               <button type="button"
                 (click)="delete(selectedItemId()!, translationsGroup.get([interfaceLang(), 'name'])?.value || '')"
                 class="w-full md:w-auto px-6 py-3 bg-white dark:bg-rose-950/30 text-rose-600 border border-rose-200 dark:border-rose-900/50 font-black rounded-xl hover:bg-rose-600 hover:text-white transition-all text-xs uppercase tracking-widest shadow-sm">
-                {{ 'EDITOR.COMMON.BUTTONS.DELETE' | translate }}
+                {{ 'COMMON.DELETE' | translate }}
               </button>
             </div>
           </div>
@@ -495,7 +497,7 @@
       class="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 flex gap-3 z-40 animate-slide-up">
       <button (click)="cancel()"
         class="flex-1 py-4 text-slate-500 dark:text-slate-400 font-black uppercase tracking-widest text-[10px] bg-slate-100 dark:bg-slate-800 rounded-2xl transition-all active:scale-95">
-        {{ 'EDITOR.COMMON.BUTTONS.CANCEL' | translate }}
+        {{ 'COMMON.CANCEL' | translate }}
       </button>
 
       <button (click)="save()" [disabled]="isSaving()"
@@ -503,7 +505,7 @@
         @if (isSaving()) {
         <div class="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
         }
-        <span>{{ 'EDITOR.COMMON.BUTTONS.SAVE' | translate }}</span>
+        <span>{{ 'COMMON.SAVE' | translate }}</span>
       </button>
     </div>
     }

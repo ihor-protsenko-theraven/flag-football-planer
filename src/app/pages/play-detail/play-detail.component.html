@@ -12,7 +12,7 @@
                         d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
             </div>
-            {{ 'COMBINATIONS.BACK_TO_PLAYBOOK' | translate }}
+            {{ 'COMMON.BACK_TO_LIST' | translate }}
         </button>
     </div>
 
@@ -46,7 +46,7 @@
                     <div
                         class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center text-center gap-2 shadow-sm">
                         <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">{{
-                            'COMBINATIONS.CATEGORY' | translate }}</span>
+                            'COMMON.CATEGORY' | translate }}</span>
                         <div class="flex items-center gap-2">
                             <span [innerHTML]="uiService.getCategoryIcon(playData.category)" class="w-5 h-5"
                                 [class]="uiService.getCategoryIconClass(playData.category)"></span>
@@ -57,7 +57,7 @@
                     <div
                         class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center text-center gap-2 shadow-sm">
                         <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">{{
-                            'COMBINATIONS.COMPLEXITY_LABEL' | translate }}</span>
+                            'COMMON.COMPLEXITY' | translate }}</span>
                         <span
                             [class]="'px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider ' + uiService.getComplexityStyle(playData.complexity)">
                             {{ 'COMBINATIONS.COMPLEXITY.' + playData.complexity.toUpperCase() | translate }}
@@ -74,7 +74,7 @@
                     </div>
                     <div
                         class="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-[0.2em] mb-2 z-10">
-                        {{ 'DRILL_DETAIL.WATCH_VIDEO' | translate }}
+                        {{ 'COMMON.LOADING' | translate }}
                     </div>
                     <div class="flex items-center gap-3 md:gap-4 z-10 w-full">
                         <div
@@ -99,7 +99,7 @@
                 </h1>
 
                 <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-10 font-medium">
-                    {{ (playData | localizedPlay)?.description }}
+                    {{ 'COMMON.DESCRIPTION' | translate }}
                 </p>
 
                 <!-- Key Points -->

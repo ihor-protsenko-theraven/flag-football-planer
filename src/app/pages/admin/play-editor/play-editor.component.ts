@@ -20,6 +20,7 @@ import {
   PLAYS_PERSONNEL
 } from '../../../models/plays.model';
 import { BaseEditorComponent } from '../../../core/components/base-editor.component';
+import { APP_ROUTES } from '../../../core/constants/routes';
 import { TranslationTabsComponent } from '../../../core/components/translation-tabs/translation-tabs.component';
 import { CommonTranslationFieldsComponent } from '../../../core/components/common-translation-fields.component';
 
@@ -51,7 +52,7 @@ export class PlayEditorComponent extends BaseEditorComponent<FirestorePlays> {
 
   protected override get service() { return this.playsService; }
   protected override get translationKeyPrefix() { return 'EDITOR.PLAY'; }
-  protected override get listRoute() { return '/admin/plays'; }
+  protected override get listRoute() { return APP_ROUTES.ADMIN.PLAYS_LIST; }
 
   searchQuery = signal<string>('');
   selectedCategoryFilter = signal<PlayCategory | null>(null);

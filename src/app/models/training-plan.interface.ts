@@ -4,11 +4,11 @@ import { DrillLevel } from './drill.model';
 export interface TrainingPlan {
   id?: string;
   name: string;
-  description?: string;
+  description?: string | null;
   createdBy?: string;
   createdAt: string;
-  scheduledDate?: string;
-  scheduledTime?: string;
+  scheduledDate?: string | null;
+  scheduledTime?: string | null;
   level?: DrillLevel;
   drills: TrainingDrill[];
   totalDuration: number;

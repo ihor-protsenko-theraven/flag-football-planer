@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 
+import { APP_ROUTES } from '../../core/constants/routes';
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -14,7 +16,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between min-h-[4rem] py-2">
           <!-- Logo -->
-          <div class="flex items-center space-x-3 group cursor-pointer" routerLink="/">
+          <div class="flex items-center space-x-3 group cursor-pointer" [routerLink]="APP_ROUTES.HOME">
             <div class="relative w-10 h-10 flex items-center justify-center">
               <div
                 class="absolute inset-0 bg-gradient-to-tr from-green-600 to-emerald-400 rounded-xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300 shadow-lg shadow-green-500/30"></div>
@@ -34,7 +36,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-1">
             <a
-              routerLink="/catalog"
+              [routerLink]="APP_ROUTES.CATALOG"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
@@ -42,7 +44,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               {{ 'NAV.DRILL_CATALOG' | translate }}
             </a>
             <a
-              routerLink="/plays"
+              [routerLink]="APP_ROUTES.PLAYS"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
@@ -50,7 +52,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               {{ 'NAV.PLAYS' | translate }}
             </a>
             <a
-              routerLink="/builder"
+              [routerLink]="APP_ROUTES.BUILDER"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
@@ -58,7 +60,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               {{ 'NAV.TRAINING_BUILDER' | translate }}
             </a>
             <a
-              routerLink="/trainings"
+              [routerLink]="APP_ROUTES.TRAININGS"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 shadow-sm ring-1 ring-green-500/20"
               [routerLinkActiveOptions]="{exact: false}"
               class="px-4 py-2 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
@@ -111,7 +113,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
           <div
             class="md:hidden py-4 space-y-2 border-t border-slate-100 dark:border-slate-800 animate-slide-down safe-pb">
             <a
-              routerLink="/catalog"
+              [routerLink]="APP_ROUTES.CATALOG"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
@@ -119,7 +121,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               {{ 'NAV.DRILL_CATALOG' | translate }}
             </a>
             <a
-              routerLink="/plays"
+              [routerLink]="APP_ROUTES.PLAYS"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
@@ -127,7 +129,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               {{ 'NAV.PLAYS' | translate }}
             </a>
             <a
-              routerLink="/builder"
+              [routerLink]="APP_ROUTES.BUILDER"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
@@ -135,7 +137,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
               {{ 'NAV.TRAINING_BUILDER' | translate }}
             </a>
             <a
-              routerLink="/trainings"
+              [routerLink]="APP_ROUTES.TRAININGS"
               routerLinkActive="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               (click)="closeMobileMenu()"
               class="block px-4 py-3 rounded-xl font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
@@ -174,6 +176,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
   styles: []
 })
 export class NavbarComponent {
+  protected readonly APP_ROUTES = APP_ROUTES;
   private readonly translate = inject(TranslateService);
 
   mobileMenuOpen = signal(false);

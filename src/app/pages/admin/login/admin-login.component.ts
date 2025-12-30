@@ -1,10 +1,11 @@
-import {Component, inject, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Auth, signInWithEmailAndPassword} from '@angular/fire/auth';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {ToastService} from '../../../services/toast.service';
+import { Component, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ToastService } from '../../../services/toast.service';
+import { APP_ROUTES } from '../../../core/constants/routes';
 
 @Component({
   selector: 'app-admin-login',
@@ -83,7 +84,7 @@ export class AdminLoginComponent {
 
       this.toast.success(this.translate.instant('ADMIN_LOGIN.SUCCESS'));
 
-      const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin/editor';
+      const returnUrl = this.route.snapshot.queryParams['returnUrl'] || APP_ROUTES.ADMIN.DASHBOARD;
       this.router.navigateByUrl(returnUrl);
     } catch (error: any) {
       console.error('Login Error:', error);

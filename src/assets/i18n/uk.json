@@ -2,7 +2,36 @@
   "COMMON": {
     "VIEW_DETAILS": "Детальніше",
     "ALL_CATEGORIES": "Всі категорії",
-    "ALL_COMPLEXITIES": "Всі рівні складності"
+    "ALL_LEVELS": "Всі рівні",
+    "ALL_COMPLEXITIES": "Всі рівні складності",
+    "SEARCH_PLACEHOLDER": "Пошук...",
+    "SEARCH_LABEL": "Пошук",
+    "FILTERS": "Фільтри",
+    "CLEAR_ALL": "Очистити все",
+    "CLEAR_FILTERS": "Очистити фільтри",
+    "APPLY_FILTERS": "Застосувати фільтри",
+    "CATEGORY": "Категорія",
+    "LEVEL": "Рівень",
+    "COMPLEXITY": "Складність",
+    "DURATION": "Тривалість",
+    "MINUTES": "хвилин",
+    "MIN": "хв",
+    "SAVE": "Зберегти",
+    "CANCEL": "Скасувати",
+    "DELETE": "Видалити",
+    "CONFIRM": "Підтвердити",
+    "CONFIRM_DISCARD": "Відмінити",
+    "DISCARD_CHANGES": "У вас є незбережені зміни. Ви впевнені, що хочете їх відмінити?",
+    "BACK": "Назад",
+    "BACK_TO_CATALOG": "Назад до каталогу",
+    "BACK_TO_LIST": "До списку",
+    "DESCRIPTION": "Опис",
+    "INSTRUCTIONS": "Інструкції",
+    "EQUIPMENT": "Обладнання",
+    "NOTES": "Нотатки",
+    "LOADING": "Завантаження...",
+    "NAME": "Назва",
+    "NO_RESULTS": "Нічого не знайдено"
   },
   "NAV": {
     "TITLE": "Flag Planner",
@@ -16,32 +45,18 @@
   "CATALOG": {
     "TITLE": "Каталог вправ",
     "SUBTITLE": "Переглядайте та знаходьте вправи для ваших тренувань",
-    "SEARCH_LABEL": "Пошук",
     "SEARCH_PLACEHOLDER": "Пошук вправ...",
-    "FILTERS": "Фільтри",
-    "CATEGORY_LABEL": "Категорія",
-    "ALL_CATEGORIES": "Всі категорії",
-    "LEVEL_LABEL": "Рівень",
-    "ALL_LEVELS": "Всі рівні",
     "ACTIVE_FILTERS": "Активні фільтри:",
-    "CLEAR_ALL": "Очистити все",
     "SHOWING_RESULTS": "Показано {{count}} вправ",
     "RESULTS_TITLE": "Знайдено результатів",
     "NO_RESULTS_TITLE": "Вправ не знайдено",
-    "NO_RESULTS_DESC": "Спробуйте змінити фільтри, щоб побачити більше результатів",
-    "CLEAR_FILTERS_BTN": "Очистити фільтри",
-    "APPLY_FILTERS": "Застосувати фільтри"
+    "NO_RESULTS_DESC": "Спробуйте змінити фільтри, щоб побачити більше результатів"
   },
   "COMBINATIONS": {
     "TITLE": "Плейбук",
     "SUBTITLE": "Опануйте мистецтво флаг-футболу з нашою колекцією перевірених тактичних розіграшів та комбінацій.",
     "BACK_TO_PLAYBOOK": "Назад до плейбуку",
     "KEY_POINTS": "Ключові моменти виконання",
-    "FILTERS": "Фільтри",
-    "CLEAR_ALL": "Очистити все",
-    "CLEAR_FILTERS": "Очистити фільтри",
-    "CATEGORY": "Категорія",
-    "COMPLEXITY_LABEL": "Складність",
     "SHOWING_PLAYS": "Показано {{count}} з {{total}} комбінацій",
     "NO_PLAYS_TITLE": "Комбінацій не знайдено",
     "NO_PLAYS_DESC": "Спробуйте змінити фільтри або пошуковий запит",
@@ -78,14 +93,6 @@
     }
   },
   "DRILL_DETAIL": {
-    "BACK_TO_CATALOG": "Назад до каталогу",
-    "DURATION": "Тривалість",
-    "MINUTES": "хвилин",
-    "CATEGORY": "Категорія",
-    "LEVEL": "Рівень",
-    "DESCRIPTION": "Опис",
-    "INSTRUCTIONS": "Інструкції",
-    "EQUIPMENT": "Необхідне обладнання",
     "TIPS": "Поради тренера",
     "ADD_TO_TRAINING": "Додати до тренування",
     "WATCH_VIDEO": "Дивитись відео",
@@ -100,10 +107,7 @@
     "SUBTITLE": "Керуйте збереженими тренуваннями",
     "SEARCH_PLACEHOLDER": "Пошук за назвою...",
     "FILTER_LEVEL": "Фільтр за рівнем",
-    "ALL_LEVELS": "Всі рівні",
     "NEW_TRAINING_BTN": "Нове тренування",
-    "VIEW_DETAILS": "Деталі",
-    "DELETE": "Видалити",
     "NO_TRAININGS_TITLE": "Ще немає тренувань",
     "NO_TRAININGS_DESC": "Почніть створювати своє перше тренування, щоб організувати вправи та створити ефективні плани",
     "CREATE_FIRST_BTN": "Створити перше тренування",
@@ -112,8 +116,6 @@
     "SCHEDULED_FOR": "Заплановано на"
   },
   "CONFIRMATION": {
-    "CONFIRM": "Підтвердити",
-    "CANCEL": "Скасувати",
     "TITLE": "Підтвердження дії"
   },
   "TRAINING_BUILDER": {
@@ -126,45 +128,32 @@
     "NO_DRILLS": "Вправ не знайдено",
     "TRAINING_NAME_LABEL": "Назва тренування",
     "TRAINING_NAME_PLACEHOLDER": "напр., Ранкове тренування - Тиждень 1",
-    "DESCRIPTION_LABEL": "Опис тренування",
     "DESCRIPTION_PLACEHOLDER": "Додайте короткий опис цілей та плану тренування...",
     "SCHEDULE_DATE_LABEL": "Дата тренування",
     "SCHEDULE_TIME_LABEL": "Час тренування",
-    "DURATION": "Тривалість",
     "REC_DURATION": "Рекомендована тривалість",
-    "MIN": "хв",
     "DRILLS": "Вправи",
     "SESSION_PLAN": "План заняття",
-    "CLEAR_ALL": "Очистити все",
-    "COACH_NOTES": "Нотатки тренера",
     "NOTES_PLACEHOLDER": "Додайте спеціальні інструкції...",
     "START_BUILDING_TITLE": "Почати створення",
     "START_BUILDING_DESC": "Перетягніть вправи з бічної панелі, щоб створити тренування.",
     "CONFIRM_CLEAR": "Ви впевнені, що хочете видалити всі вправи?",
     "CONFIRM_RESET": "Ви впевнені, що хочете скинути? Всі незбережені зміни будуть втрачені.",
     "SAVE_ERROR": "Будь ласка, введіть назву тренування та додайте хоча б одну вправу",
-    "SAVE_SUCCESS": "Тренування успішно збережено!",
-    "CATEGORY_LABEL": "Категорія",
-    "ALL_CATEGORIES": "Всі категорії",
-    "LEVEL_LABEL": "Рівень",
-    "ALL_LEVELS": "Всі рівні"
+    "SAVE_SUCCESS": "Тренування успішно збережено!"
   },
   "TRAINING_VIEW": {
-    "BACK_TO_LIST": "До списку тренувань",
     "EXPORT_PDF": "Експорт в PDF",
     "TOTAL_DURATION": "Тривалість",
     "TOTAL_DRILLS": "Кількість",
     "AVG_DURATION": "Середній час",
-    "MINUTES": "хвилин",
     "EXERCISES": "вправ",
     "MIN_DRILL": "хв / вправа",
     "PLAN_TITLE": "План тренування",
-    "MIN_SHORT": "хв",
-    "COACH_NOTES": "Нотатки тренера",
-    "LOADING": "Завантаження тренування...",
     "MAIN_FOCUS": "Фокус",
     "CREATED_ON": "Створено",
-    "SCHEDULED_FOR": "Заплановано на"
+    "SCHEDULED_FOR": "Заплановано на",
+    "COACH_NOTES": "Нотатки тренера"
   },
   "EDITOR": {
     "COMMON": {
@@ -176,16 +165,11 @@
       "SELECT_DESC": "Або створіть новий за допомогою кнопки вище",
       "FIELDS": {
         "IMAGE_URL": "URL зображення",
-        "VIDEO_URL": "URL відео",
-        "NAME": "Назва",
-        "DESCRIPTION": "Опис"
+        "VIDEO_URL": "URL відео"
       },
       "BUTTONS": {
         "ADD_ITEM": "+ Додати елемент",
-        "CANCEL": "Скасувати",
-        "SAVE": "Зберегти",
-        "SAVING": "Збереження...",
-        "DELETE": "Видалити"
+        "SAVING": "Збереження..."
       },
       "MESSAGES": {
         "CREATE_SUCCESS": "Успішно створено",
@@ -193,6 +177,7 @@
         "DELETE_SUCCESS": "Видалено",
         "SAVE_ERROR": "Не вдалося зберегти",
         "FETCH_ERROR": "Не вдалося завантажити дані",
+        "DELETE_ERROR": "Не вдалося видалити",
         "NOT_FOUND": "Елемент не знайдено",
         "DELETE_CONFIRM": "Ви впевнені, що хочете видалити \"{{name}}\"?",
         "DELETE_CAUTION": "Обережно: Це назавжди видалить \"{{name}}\" з вашої бібліотеки. Продовжити?",
@@ -218,17 +203,13 @@
       "SUBTITLE": "Керуйте бібліотекою вправ у Firestore",
       "FIELDS": {
         "DURATION": "Тривалість (хв)",
-        "CATEGORY": "Категорія",
-        "LEVEL": "Рівень",
-        "EQUIPMENT": "Обладнання",
         "DRILL_NAME": "Назва вправи",
         "INSTRUCTIONS": "Інструкції (покроково)",
         "COACHING_TIPS": "Поради тренера"
       },
       "BUTTONS": {
         "ADD_STEP": "+ Додати крок",
-        "ADD_TIP": "+ Додати пораду",
-        "ADD_ITEM": "+ Додати обладнання"
+        "ADD_TIP": "+ Додати пораду"
       },
       "SECTIONS": {
         "EQUIPMENT_NEEDED": "Необхідне обладнання",
@@ -247,8 +228,6 @@
       "TITLE": "Редактор розіграшів",
       "SUBTITLE": "Керуйте бібліотекою розіграшів у Firestore",
       "FIELDS": {
-        "CATEGORY": "Категорія",
-        "COMPLEXITY": "Складність",
         "PERSONNEL": "Персонал",
         "FORMATION": "Формація"
       },
@@ -266,7 +245,7 @@
   },
   "ADMIN_LOGIN": {
     "TITLE": "Портал адміністратора",
-    "SUBTITLE": "Безпечний доступ до редактора вправ",
+    "SUBTITLE": "Безпечний доступ до редактора",
     "EMAIL": "Електронна пошта",
     "PASSWORD": "Пароль",
     "SIGN_IN": "Увійти",

@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Play, FirestorePlays } from '../../models/plays.model';
 import { PlaysUiService } from '../../services/plays/plays-ui.service';
 import { LocalizedPlayPipe } from '../../core/pipes/localized-play.pipe';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 @Component({
   selector: 'app-combination-card',
@@ -88,6 +89,6 @@ export class PlayCardComponent {
   }
 
   navigateToDetail() {
-    this.router.navigate(['/plays', this.play.id]);
+    this.router.navigate([APP_ROUTES.PLAY_DETAIL(this.play.id)]);
   }
 }

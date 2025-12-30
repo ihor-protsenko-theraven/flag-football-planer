@@ -13,6 +13,7 @@ import { ConfirmationService } from '../../services/confirmation.service';
 import { DrillUiService } from '../../services/drill/drill-ui.service';
 import { TrainingBuilderService } from '../../services/training/training-builder.service';
 import { ToastService } from '../../services/toast.service';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from '../../models/drill.model';
 
@@ -71,6 +72,7 @@ import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from
   `]
 })
 export class TrainingBuilderComponent implements OnInit {
+  protected readonly APP_ROUTES = APP_ROUTES;
   private readonly drillService = inject(DrillService);
   private readonly trainingService = inject(TrainingService);
   private readonly router = inject(Router);
@@ -152,7 +154,7 @@ export class TrainingBuilderComponent implements OnInit {
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: this.translate.instant('TRAINING_BUILDER.CONFIRM_CLEAR'),
       confirmText: this.translate.instant('TRAINING_BUILDER.CLEAR_ALL'),
-      cancelText: this.translate.instant('CONFIRMATION.CANCEL')
+      cancelText: this.translate.instant('COMMON.CANCEL')
     }).pipe(
       filter(confirmed => confirmed)
     ).subscribe(() => {
@@ -187,10 +189,10 @@ export class TrainingBuilderComponent implements OnInit {
 
     const training = {
       name: this.trainingName(),
-      description: this.trainingDescription(),
+      description: this.trainingDescription() || null,
       level: this.trainingLevel(),
-      scheduledDate: this.scheduledDate() ? new Date(this.scheduledDate()) : undefined,
-      scheduledTime: this.scheduledTime() || undefined,
+      scheduledDate: this.scheduledDate() ? new Date(this.scheduledDate()) : null,
+      scheduledTime: this.scheduledTime() || null,
       drills: this.trainingDrills().map(({ instanceId, drill, ...rest }) => rest),  // Exclude UI-only fields
       totalDuration: this.totalDuration()
     };
@@ -198,7 +200,7 @@ export class TrainingBuilderComponent implements OnInit {
 
     this.toastService.success(this.translate.instant('TRAINING_BUILDER.SAVE_SUCCESS'));
     this.trainingService.createTraining(training).subscribe(() => {
-      this.router.navigate(['/trainings']);
+      this.router.navigate([this.APP_ROUTES.TRAININGS]);
     });
   }
 
@@ -207,7 +209,7 @@ export class TrainingBuilderComponent implements OnInit {
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: this.translate.instant('TRAINING_BUILDER.CONFIRM_RESET'),
       confirmText: this.translate.instant('TRAINING_BUILDER.RESET'),
-      cancelText: this.translate.instant('CONFIRMATION.CANCEL')
+      cancelText: this.translate.instant('COMMON.CANCEL')
     }).pipe(
       filter(confirmed => confirmed)
     ).subscribe(() => {

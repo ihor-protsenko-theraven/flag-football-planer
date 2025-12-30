@@ -49,7 +49,8 @@
                         </div>
                         <input [ngModel]="searchQuery()" (ngModelChange)="onSearchChange($event)" type="text"
                             class="block w-full pl-11 pr-4 py-3 bg-slate-100/50 dark:bg-slate-800/50 border-none rounded-2xl text-slate-900 dark:text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 font-medium"
-                            [placeholder]="'COMBINATIONS.SEARCH_PLACEHOLDER' | translate">
+                            [placeholder]="'COMMON.SEARCH_PLACEHOLDER' | translate">
+
                     </div>
 
                     <!-- Mobile Filter Toggle (Hidden on MD+) -->
@@ -81,7 +82,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            {{ 'COMBINATIONS.CLEAR_ALL' | translate }}
+                            {{ 'COMMON.CLEAR_ALL' | translate }}
+
                         </button>
                     </div>
                     }
@@ -111,7 +113,8 @@
                         @if (areFiltersActive()) {
                         <button (click)="clearFilters()"
                             class="hidden md:flex text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 uppercase tracking-widest px-4 py-2 transition-colors">
-                            {{ 'COMBINATIONS.CLEAR_ALL' | translate }}
+                            {{ 'COMMON.CLEAR_ALL' | translate }}
+
                         </button>
                         }
                     </div>
@@ -123,6 +126,7 @@
                 ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/40'
                 : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300')">
                             {{ 'COMMON.ALL_CATEGORIES' | translate }}
+
                         </button>
 
                         @for (cat of categories; track cat.value) {

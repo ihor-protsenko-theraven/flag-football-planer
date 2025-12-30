@@ -13,7 +13,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
           </div>
-          {{ 'DRILL_DETAIL.BACK_TO_CATALOG' | translate }}
+          {{ 'COMMON.BACK_TO_CATALOG' | translate }}
         </button>
         <h1
           class="text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 dark:text-white tracking-tight leading-none">
@@ -93,7 +93,7 @@
               <div
                 class="bg-green-50 dark:bg-green-950 rounded-3xl p-6 border border-green-100 dark:border-green-900 flex flex-col justify-center">
                 <div class="text-[10px] text-green-600 dark:text-green-400 font-black uppercase tracking-[0.2em] mb-2">
-                  {{ 'DRILL_DETAIL.DURATION' | translate }}
+                  {{ 'COMMON.DURATION' | translate }}
                 </div>
                 <div class="text-2xl font-black text-green-900 dark:text-green-200 flex items-center">
                   <svg class="w-7 h-7 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   {{ drillData.duration }}<span class="text-sm ml-1 font-bold">{{
-                    'DRILL_DETAIL.MINUTES' | translate
+                    'COMMON.MINUTES' | translate
                     }}</span>
                 </div>
               </div>
@@ -136,7 +136,7 @@
                 <h3
                   class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
                   <span class="w-6 h-px bg-slate-100 dark:bg-slate-800"></span>
-                  {{ 'DRILL_DETAIL.DESCRIPTION' | translate }}
+                  {{ 'COMMON.DESCRIPTION' | translate }}
                 </h3>
                 <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                   {{ (drillData | localizedDrill)?.description }}
@@ -148,7 +148,7 @@
                 <h3
                   class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
                   <span class="w-6 h-px bg-slate-100 dark:bg-slate-800"></span>
-                  {{ 'DRILL_DETAIL.EQUIPMENT' | translate }}
+                  {{ 'COMMON.EQUIPMENT' | translate }}
                 </h3>
                 <div class="flex flex-wrap gap-2">
                   @for (item of (drillData | localizedDrill)?.equipment; track $index) {
@@ -194,7 +194,7 @@
                   d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
             </span>
-            {{ 'DRILL_DETAIL.INSTRUCTIONS' | translate }}
+            {{ 'COMMON.INSTRUCTIONS' | translate }}
           </h2>
           <div class="space-y-6">
             @for (step of (drillData | localizedDrill)?.instructions; track $index) {

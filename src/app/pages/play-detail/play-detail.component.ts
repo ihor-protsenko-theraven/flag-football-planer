@@ -9,6 +9,7 @@ import { VideoPlayerModalComponent } from '../../components/video-player-modal/v
 import { PlaysService } from '../../services/plays/plays.service';
 import { PlaysUiService } from '../../services/plays/plays-ui.service';
 import { LocalizedPlayPipe } from '../../core/pipes/localized-play.pipe';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 @Component({
   selector: 'app-combination-detail',
@@ -66,7 +67,7 @@ export class PlayDetailComponent implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.router.navigate(['/plays']);
+    this.router.navigate([APP_ROUTES.PLAYS]);
   }
 }
 

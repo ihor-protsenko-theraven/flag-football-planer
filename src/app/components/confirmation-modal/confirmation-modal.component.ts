@@ -1,6 +1,6 @@
 import {Component, HostListener, inject, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateModule} from '@ngx-translate/core';
 import {ConfirmationService} from '../../services/confirmation.service';
 import {ConfirmData} from '../../models/confirm-data.interface';
 
@@ -51,13 +51,13 @@ import {ConfirmData} from '../../models/confirm-data.interface';
               (click)="onCancel()"
               class="px-5 py-2.5 rounded-xl font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/50"
             >
-              {{ confirmData()?.cancelText || ('CONFIRMATION.CANCEL' | translate) }}
+              {{ confirmData()?.cancelText || ('COMMON.CANCEL' | translate) }}
             </button>
             <button
               (click)="onConfirm()"
               [class]="getConfirmButtonClass()"
             >
-              {{ confirmData()?.confirmText || ('CONFIRMATION.CONFIRM' | translate) }}
+              {{ confirmData()?.confirmText || ('COMMON.CONFIRM' | translate) }}
             </button>
           </div>
         </div>
@@ -81,7 +81,6 @@ import {ConfirmData} from '../../models/confirm-data.interface';
 })
 export class ConfirmationModalComponent implements OnInit {
   private readonly confirmationService = inject(ConfirmationService);
-  private readonly translate = inject(TranslateService);
 
   isVisible = signal(false);
   confirmData = signal<ConfirmData | null>(null);

@@ -1,22 +1,23 @@
-import {Component, computed, inject, OnInit, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Router, RouterModule} from '@angular/router';
-import {filter, switchMap} from 'rxjs';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {SafeHtml} from '@angular/platform-browser';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { filter, switchMap } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SafeHtml } from '@angular/platform-browser';
 
-import {TrainingService} from '../../services/training/training.service';
-import {ConfirmationService} from '../../services/confirmation.service';
-import {DrillUiService} from '../../services/drill/drill-ui.service';
-import {SkeletonCardComponent} from '../../components/skeleton-card/skeleton-card.component';
-import {Training} from '../../models/training.model';
-import {DRILL_LEVELS, DrillLevel} from '../../models/drill.model';
+import { TrainingService } from '../../services/training/training.service';
+import { ConfirmationService } from '../../services/confirmation.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
+import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-card.component';
+import { Training } from '../../models/training.model';
+import { DRILL_LEVELS, DrillLevel } from '../../models/drill.model';
+import { ToastService } from '../../services/toast.service';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 @Component({
   selector: 'app-my-trainings',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule, FormsModule, SkeletonCardComponent],
+  imports: [RouterModule, TranslateModule, FormsModule, SkeletonCardComponent],
   templateUrl: './my-trainings.component.html',
   styles: [`
     .line-clamp-2 {
@@ -28,11 +29,12 @@ import {DRILL_LEVELS, DrillLevel} from '../../models/drill.model';
   `]
 })
 export class MyTrainingsComponent implements OnInit {
+  protected readonly APP_ROUTES = APP_ROUTES;
   private readonly trainingService = inject(TrainingService);
   private readonly translate = inject(TranslateService);
   private readonly confirmationService = inject(ConfirmationService);
-  private readonly router = inject(Router);
   private readonly drillUi = inject(DrillUiService);
+  private readonly toastService = inject(ToastService);
 
   trainings = signal<Training[]>([]);
   isLoading = signal(true);
@@ -40,6 +42,7 @@ export class MyTrainingsComponent implements OnInit {
   selectedLevel = signal<DrillLevel | null>(null);
 
   levels = DRILL_LEVELS;
+  readonly SKELETON_ITEMS = [1, 2, 3, 4, 5, 6];
 
   areFiltersActive = computed(() => {
     return this.searchQuery().trim() !== '' || this.selectedLevel() !== null;
@@ -82,30 +85,23 @@ export class MyTrainingsComponent implements OnInit {
 
   deleteTraining(event: Event, training: Training): void {
     event.stopPropagation();
-    const message = this.translate.instant('MY_TRAININGS.CONFIRM_DELETE', {name: training.name});
+    const message = this.translate.instant('MY_TRAININGS.CONFIRM_DELETE', { name: training.name });
     this.confirmationService.confirm({
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: message,
-      confirmText: this.translate.instant('MY_TRAININGS.DELETE'),
-      cancelText: this.translate.instant('CONFIRMATION.CANCEL')
+      confirmText: this.translate.instant('COMMON.DELETE'),
+      cancelText: this.translate.instant('COMMON.CANCEL')
     }).pipe(
       filter(Boolean),
       switchMap(() => this.trainingService.deleteTraining(training.id))
     ).subscribe(success => {
       if (success) {
         this.loadTrainings();
+        this.toastService.success(this.translate.instant('EDITOR.COMMON.MESSAGES.DELETE_SUCCESS'));
+      } else {
+        this.toastService.success(this.translate.instant('EDITOR.COMMON.MESSAGES.DELETE_ERROR'));
       }
     });
-  }
-
-  editTraining(event: Event, training: Training): void {
-    event.stopPropagation();
-    this.router.navigate(['/trainings', training.id]);
-  }
-
-  formatDate(date: Date): string {
-    const lang = this.translate.currentLang === 'uk' ? 'uk-UA' : 'en-US';
-    return new Intl.DateTimeFormat(lang, {day: 'numeric', month: 'short', year: 'numeric'}).format(new Date(date));
   }
 
   formatScheduledDateTime(training: Training): string {

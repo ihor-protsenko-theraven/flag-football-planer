@@ -1,18 +1,19 @@
-import {Component, computed, inject, OnDestroy, OnInit, signal, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router, RouterModule} from '@angular/router';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {SafeHtml} from '@angular/platform-browser';
-import {startWith, Subject, switchMap, takeUntil} from 'rxjs';
-import {DrillService} from '../../services/drill/drill.service';
-import {TranslationHelperService} from '../../services/translation-helper.service';
-import {DrillUiService} from '../../services/drill/drill-ui.service';
-import {TrainingBuilderService} from '../../services/training/training-builder.service';
-import {ToastService} from '../../services/toast.service';
-import {Drill, FirestoreDrill} from '../../models/drill.model';
-import {DrillCardComponent} from '../../components/drill-card/drill-card.component';
-import {DrillDetailSkeletonComponent} from '../../components/drill-detail-skeleton/drill-detail-skeleton.component';
-import {LocalizedDrillPipe} from '../../core/pipes/localized-drill.pipe';
-import {VideoPlayerModalComponent} from '../../components/video-player-modal/video-player-modal.component';
+import { Component, computed, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SafeHtml } from '@angular/platform-browser';
+import { startWith, Subject, switchMap, takeUntil } from 'rxjs';
+import { DrillService } from '../../services/drill/drill.service';
+import { TranslationHelperService } from '../../services/translation-helper.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
+import { TrainingBuilderService } from '../../services/training/training-builder.service';
+import { ToastService } from '../../services/toast.service';
+import { Drill, FirestoreDrill } from '../../models/drill.model';
+import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
+import { DrillDetailSkeletonComponent } from '../../components/drill-detail-skeleton/drill-detail-skeleton.component';
+import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
+import { VideoPlayerModalComponent } from '../../components/video-player-modal/video-player-modal.component';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 @Component({
   selector: 'app-drill-detail',
@@ -55,14 +56,14 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
   drill = signal<FirestoreDrill | null>(null);
 
   ngOnInit(): void {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
       this.loadDrill(id);
     } else {
-      this.router.navigate(['/catalog']);
+      this.router.navigate([APP_ROUTES.CATALOG]);
     }
   }
 
@@ -73,14 +74,14 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
   private loadDrill(id: string): void {
     this.translate.onLangChange.pipe(
-      startWith({lang: this.translate.currentLang}),
+      startWith({ lang: this.translate.currentLang }),
       switchMap(() => this.drillService.getDrillById(id)),
       takeUntil(this.destroy$)
     ).subscribe(drillData => {
       if (drillData) {
         this.drill.set(drillData);
       } else {
-        this.router.navigate(['/catalog']);
+        this.router.navigate([APP_ROUTES.CATALOG]);
       }
     });
   }
@@ -97,7 +98,7 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
   });
 
   goBack(): void {
-    this.router.navigate(['/catalog']);
+    this.router.navigate([APP_ROUTES.CATALOG]);
   }
 
   @ViewChild(VideoPlayerModalComponent) videoPlayer!: VideoPlayerModalComponent;
@@ -110,9 +111,9 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
 
 
   onRelatedDrillClick(drillData: Drill | FirestoreDrill): void {
-    this.router.navigate(['/catalog', drillData.id]);
+    this.router.navigate([APP_ROUTES.CATALOG_DETAIL(drillData.id)]);
     this.loadDrill(drillData.id);
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   getLevelBadgeStyles(drillData: FirestoreDrill): string {

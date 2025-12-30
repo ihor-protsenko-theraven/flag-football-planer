@@ -31,7 +31,7 @@
                         <div class="space-y-4">
                             <div class="relative">
                                 <input type="text" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)"
-                                    [placeholder]="'TRAINING_BUILDER.SEARCH_PLACEHOLDER' | translate"
+                                    [placeholder]="'COMMON.SEARCH_PLACEHOLDER' | translate"
                                     class="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-green-500/20 transition-all text-sm outline-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500" />
                                 <svg class="w-5 h-5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none"
                                     stroke="currentColor" viewBox="0 0 24 24">
@@ -53,14 +53,14 @@
                                 <div class="flex-1">
                                     <label
                                         class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">
-                                        {{ 'TRAINING_BUILDER.CATEGORY_LABEL' | translate }}
+                                        {{ 'COMMON.CATEGORY' | translate }}
                                     </label>
                                     <select [ngModel]="selectedCategory()"
                                         (ngModelChange)="selectedCategory.set($event)"
                                         class="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none cursor-pointer focus:border-green-300 text-slate-900 dark:text-white">
                                         <option [ngValue]="undefined" class="dark:bg-slate-900">{{
-                                            'TRAINING_BUILDER.ALL_CATEGORIES' | translate
-                                            }}</option>
+                                            'COMMON.ALL_CATEGORIES' | translate }}</option>
+
                                         @for (cat of categories; track cat.value) {
                                         <option [value]="cat.value" class="dark:bg-slate-900">{{ cat.translationKey |
                                             translate }}</option>
@@ -70,13 +70,13 @@
                                 <div class="flex-1">
                                     <label
                                         class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">
-                                        {{ 'TRAINING_BUILDER.LEVEL_LABEL' | translate }}
+                                        {{ 'COMMON.LEVEL' | translate }}
                                     </label>
                                     <select [ngModel]="selectedLevel()" (ngModelChange)="selectedLevel.set($event)"
                                         class="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none cursor-pointer focus:border-green-300 text-slate-900 dark:text-white">
-                                        <option [ngValue]="undefined" class="dark:bg-slate-900">{{
-                                            'TRAINING_BUILDER.ALL_LEVELS' | translate }}
-                                        </option>
+                                        <option [ngValue]="undefined" class="dark:bg-slate-900">{{ 'COMMON.ALL_LEVELS' |
+                                            translate }}</option>
+
                                         @for (level of levels; track level.value) {
                                         <option [value]="level.value" class="dark:bg-slate-900">{{ level.translationKey
                                             | translate }}</option>
@@ -89,7 +89,7 @@
                             <div class="flex justify-end pt-2">
                                 <button (click)="clearFilters()"
                                     class="text-[10px] font-black uppercase tracking-widest text-green-600 dark:text-green-500 hover:text-green-700 transition-colors">
-                                    {{ 'CATALOG.CLEAR_ALL' | translate }}
+                                    {{ 'COMMON.CLEAR_ALL' | translate }}
                                 </button>
                             </div>
                             }
@@ -157,7 +157,7 @@
                                 <div>
                                     <label
                                         class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">
-                                        {{ 'TRAINING_BUILDER.TRAINING_NAME_LABEL' | translate }}
+                                        {{ 'COMMON.NAME' | translate }}
                                     </label>
                                     <input type="text" [ngModel]="trainingName()"
                                         (ngModelChange)="trainingName.set($event)"
@@ -168,7 +168,7 @@
                             <div class="md:col-span-4">
                                 <label
                                     class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">
-                                    {{ 'TRAINING_BUILDER.LEVEL_LABEL' | translate }}
+                                    {{ 'COMMON.LEVEL' | translate }}
                                 </label>
                                 <div class="relative">
                                     <select [ngModel]="trainingLevel()" (ngModelChange)="trainingLevel.set($event)"
@@ -190,7 +190,7 @@
                         <!-- Description Field -->
                         <div class="space-y-2">
                             <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">
-                                {{ 'TRAINING_BUILDER.DESCRIPTION_LABEL' | translate }}
+                                {{ 'COMMON.DESCRIPTION' | translate }}
                             </label>
                             <textarea [ngModel]="trainingDescription()"
                                 (ngModelChange)="trainingDescription.set($event)"
@@ -238,16 +238,14 @@
                                     class="w-12 h-12 rounded-xl bg-green-200/50 dark:bg-green-900/40 flex items-center justify-center text-green-700 dark:text-green-400">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            d="M12 8v4l3 3m6-3a9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <p
-                                        class="text-[10px] font-bold text-green-600 dark:text-green-400 uppercase tracking-widest">
-                                        {{
-                                        'TRAINING_BUILDER.DURATION' | translate }}</p>
+                                    {{ 'COMMON.DURATION' | translate }}
+
                                     <p class="text-2xl font-black text-green-800 dark:text-green-300">{{ totalDuration()
-                                        }}<span class="text-sm ml-1">{{ 'TRAINING_BUILDER.MIN' | translate }}</span></p>
+                                        }}<span class="text-sm ml-1">{{ 'COMMON.MIN' | translate }}</span></p>
                                 </div>
                             </div>
                             <div
@@ -283,7 +281,7 @@
                         @if (trainingDrills().length > 0) {
                         <button (click)="clearAllDrills()"
                             class="text-sm font-bold text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 px-4 py-2 rounded-xl transition-all active:scale-95">
-                            {{ 'TRAINING_BUILDER.CLEAR_ALL' | translate }}
+                            {{ 'COMMON.CLEAR_ALL' | translate }}
                         </button>
                         }
                     </div>
@@ -349,7 +347,7 @@
                                     <div class="md:col-span-3">
                                         <label
                                             class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">
-                                            {{ 'TRAINING_BUILDER.REC_DURATION' | translate }} ({{ 'TRAINING_BUILDER.MIN'
+                                            {{ 'COMMON.DURATION' | translate }} ({{ 'COMMON.MIN'
                                             |
                                             translate }})
                                         </label>
@@ -360,7 +358,7 @@
                                     <div class="md:col-span-9">
                                         <label
                                             class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">
-                                            {{ 'TRAINING_BUILDER.COACH_NOTES' | translate }}
+                                            {{ 'COMMON.NOTES' | translate }}
                                         </label>
                                         <input type="text" [(ngModel)]="item.notes"
                                             [placeholder]="'TRAINING_BUILDER.NOTES_PLACEHOLDER' | translate"
@@ -397,11 +395,12 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div class="hidden md:flex items-center gap-6">
                 <div class="flex flex-col">
-                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">{{
-                        'TRAINING_BUILDER.DURATION' | translate }}</span>
+                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">{{ 'COMMON.DURATION' |
+                        translate }}</span>
+
                     <span class="text-xl font-black text-slate-900 dark:text-white">{{ totalDuration() }}<span
                             class="text-sm ml-1">{{
-                            'TRAINING_BUILDER.MIN' | translate }}</span></span>
+                            'COMMON.MIN' | translate }}</span></span>
                 </div>
                 <div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
                 <div class="flex flex-col">
@@ -414,7 +413,7 @@
             <div class="flex items-center gap-4 w-full md:w-auto">
                 <button (click)="resetBuilder()"
                     class="flex-1 md:flex-none px-8 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95">
-                    {{ 'TRAINING_BUILDER.RESET' | translate }}
+                    {{ 'COMMON.CANCEL' | translate }}
                 </button>
                 <button (click)="saveTraining()" [disabled]="!canSave()"
                     class="flex-[2] md:flex-none px-12 py-3.5 rounded-2xl bg-green-600 text-white font-bold shadow-xl shadow-green-500/30 hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-95 flex items-center justify-center gap-2">
@@ -422,7 +421,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                     </svg>
-                    {{ 'TRAINING_BUILDER.SAVE_TRAINING' | translate }}
+                    {{ 'COMMON.SAVE' | translate }}
                 </button>
             </div>
         </div>

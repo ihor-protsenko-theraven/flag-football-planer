@@ -1,13 +1,14 @@
-import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
-import {Subject, takeUntil} from 'rxjs';
-import {ToastService} from '../../services/toast.service';
-import {ConfirmationService} from '../../services/confirmation.service';
-import {CrudService} from '../interfaces/crud-service.interface';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Subject, takeUntil } from 'rxjs';
+import { ToastService } from '../../services/toast.service';
+import { ConfirmationService } from '../../services/confirmation.service';
+import { APP_ROUTES, RoutePath } from '../constants/routes';
+import { CrudService } from '../interfaces/crud-service.interface';
 
-@Component({template: ''})
+@Component({ template: '' })
 export abstract class BaseEditorComponent<T extends { id: string; translations?: any }> implements OnInit, OnDestroy {
   protected readonly fb = inject(FormBuilder);
   protected readonly toast = inject(ToastService);
@@ -15,6 +16,7 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
   protected readonly translate = inject(TranslateService);
   protected readonly route = inject(ActivatedRoute);
   protected readonly router = inject(Router);
+  protected readonly APP_ROUTES = APP_ROUTES;
 
   // --- Dependency Injection via Abstract Getters ---
   protected abstract get service(): CrudService<T>;
@@ -22,7 +24,6 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
   protected abstract get translationKeyPrefix(): string; // e.g., 'PLAY_EDITOR' or 'ADMIN_EDITOR'
   protected abstract get listRoute(): string; // e.g., '/admin/plays' or '/admin/drill'
 
-  // --- State Signals ---
   protected readonly destroy$ = new Subject<void>();
 
   public allItems = signal<T[]>([]);
@@ -101,7 +102,7 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
           this.populateForm(data);
         } else {
           this.toast.error(this.translate.instant('EDITOR.COMMON.MESSAGES.NOT_FOUND'));
-          this.router.navigate([this.listRoute, 'new']);
+          this.router.navigate([this.listRoute, RoutePath.NEW]);
         }
       });
   }
@@ -122,7 +123,7 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
       if (this.isCreating()) {
         const newId = await this.service.add(formData);
         this.toast.success(this.translate.instant('EDITOR.COMMON.MESSAGES.CREATE_SUCCESS'));
-        this.router.navigate([this.listRoute, 'edit', newId], {replaceUrl: true});
+        this.router.navigate([this.listRoute, RoutePath.EDIT, newId], { replaceUrl: true });
       } else if (id) {
         await this.service.update(id, formData);
         this.toast.success(this.translate.instant('EDITOR.COMMON.MESSAGES.UPDATE_SUCCESS'));
@@ -138,9 +139,10 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
 
   public delete(id: string, displayName: string): void {
     this.confirmationService.confirm({
-      title: this.translate.instant('EDITOR.COMMON.BUTTONS.DELETE'),
-      message: this.translate.instant('EDITOR.COMMON.MESSAGES.DELETE_CAUTION', {name: displayName}),
-      confirmText: this.translate.instant('EDITOR.COMMON.BUTTONS.DELETE'),
+      title: this.translate.instant('CONFIRMATION.TITLE'),
+      message: this.translate.instant('EDITOR.COMMON.MESSAGES.DELETE_CAUTION', { name: displayName }),
+      confirmText: this.translate.instant('COMMON.DELETE'),
+      cancelText: this.translate.instant('COMMON.CANCEL'),
       isDestructive: true
     }).subscribe(async (confirmed) => {
       if (confirmed) {
@@ -148,7 +150,7 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
           await this.service.delete(id);
           this.toast.success(this.translate.instant('EDITOR.COMMON.MESSAGES.DELETE_SUCCESS'));
           if (this.selectedItemId() === id) {
-            this.router.navigate([this.listRoute, 'new']);
+            this.router.navigate([this.listRoute, RoutePath.NEW]);
           }
         } catch (error) {
           console.error(error);
@@ -159,8 +161,32 @@ export abstract class BaseEditorComponent<T extends { id: string; translations?:
   }
 
   public cancel(): void {
-    if (this.editorForm.dirty && !confirm('Discard unsaved changes?')) return;
-    this.router.navigate([this.listRoute, 'new']);
+    if (this.editorForm.dirty) {
+      this.confirmationService.confirm({
+        title: this.translate.instant('COMMON.CONFIRM_DISCARD'),
+        message: this.translate.instant('COMMON.DISCARD_CHANGES'),
+        confirmText: this.translate.instant('COMMON.CONFIRM_DISCARD'),
+        isDestructive: true
+      }).subscribe(confirmed => {
+        if (confirmed) {
+          this.executeCancel();
+        }
+      });
+    } else {
+      this.executeCancel();
+    }
+  }
+
+  private executeCancel(): void {
+    if (this.isCreating()) {
+      this.resetToNew();
+    } else {
+      const id = this.selectedItemId();
+      if (id) {
+        this.loadItem(id);
+      }
+    }
+    this.editorForm.markAsPristine();
   }
 
   public switchTab(lang: 'en' | 'uk'): void {

@@ -10,6 +10,7 @@ import { PdfExportService } from '../../services/pdf-export.service';
 import { DrillUiService } from '../../services/drill/drill-ui.service';
 import { Training } from '../../models/training.model';
 import { Drill, DrillCategory, DrillLevel } from '../../models/drill.model';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 @Component({
   selector: 'app-training-view',
@@ -65,6 +66,7 @@ import { Drill, DrillCategory, DrillLevel } from '../../models/drill.model';
   `]
 })
 export class TrainingViewComponent implements OnInit {
+  protected readonly APP_ROUTES = APP_ROUTES;
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly trainingService = inject(TrainingService);
@@ -89,7 +91,7 @@ export class TrainingViewComponent implements OnInit {
       if (trainingData) {
         this.training.set(trainingData);
       } else {
-        this.router.navigate(['/trainings']);
+        this.router.navigate([APP_ROUTES.TRAININGS]);
       }
     });
   }

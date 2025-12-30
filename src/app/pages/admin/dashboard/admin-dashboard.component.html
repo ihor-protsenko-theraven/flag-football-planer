@@ -11,7 +11,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Drills Manager Card -->
-      <a routerLink="/admin/drill/new"
+      <a [routerLink]="APP_ROUTES.ADMIN.DRILL_NEW"
         class="group relative bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/10 active:scale-[0.98]">
         <div class="relative z-10">
           <div
@@ -33,7 +33,7 @@
         </div>
       </a>
 
-      <a routerLink="/admin/plays/new"
+      <a [routerLink]="APP_ROUTES.ADMIN.PLAYS_NEW"
         class="group relative bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border-2 border-transparent transition-all duration-300 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 overflow-hidden">
         <div class="relative z-10">
           <div

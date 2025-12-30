@@ -2,7 +2,36 @@
   "COMMON": {
     "VIEW_DETAILS": "View Details",
     "ALL_CATEGORIES": "All Categories",
-    "ALL_COMPLEXITIES": "All Complexities"
+    "ALL_LEVELS": "All Levels",
+    "ALL_COMPLEXITIES": "All Complexities",
+    "SEARCH_PLACEHOLDER": "Search...",
+    "SEARCH_LABEL": "Search",
+    "FILTERS": "Filters",
+    "CLEAR_ALL": "Clear All",
+    "CLEAR_FILTERS": "Clear Filters",
+    "APPLY_FILTERS": "Apply Filters",
+    "CATEGORY": "Category",
+    "LEVEL": "Level",
+    "COMPLEXITY": "Complexity",
+    "DURATION": "Duration",
+    "MINUTES": "minutes",
+    "MIN": "min",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "CONFIRM": "Confirm",
+    "CONFIRM_DISCARD": "Discard",
+    "DISCARD_CHANGES": "You have unsaved changes. Are you sure you want to discard them?",
+    "BACK": "Back",
+    "BACK_TO_CATALOG": "Back to Catalog",
+    "BACK_TO_LIST": "Back to List",
+    "DESCRIPTION": "Description",
+    "INSTRUCTIONS": "Instructions",
+    "EQUIPMENT": "Equipment",
+    "NOTES": "Notes",
+    "LOADING": "Loading...",
+    "NAME": "Name",
+    "NO_RESULTS": "No results found"
   },
   "NAV": {
     "TITLE": "Flag Planner",
@@ -16,32 +45,18 @@
   "CATALOG": {
     "TITLE": "Drill Catalog",
     "SUBTITLE": "Browse and discover drills for your training sessions",
-    "SEARCH_LABEL": "Search",
     "SEARCH_PLACEHOLDER": "Search drills...",
-    "FILTERS": "Filters",
-    "CATEGORY_LABEL": "Category",
-    "ALL_CATEGORIES": "All Categories",
-    "LEVEL_LABEL": "Level",
-    "ALL_LEVELS": "All Levels",
     "ACTIVE_FILTERS": "Active filters:",
-    "CLEAR_ALL": "Clear all",
     "SHOWING_RESULTS": "Showing {{count}} drills",
     "RESULTS_TITLE": "Results found",
     "NO_RESULTS_TITLE": "No drills found",
-    "NO_RESULTS_DESC": "Try adjusting your filters to see more results",
-    "APPLY_FILTERS": "Apply Filters",
-    "CLEAR_FILTERS_BTN": "Clear Filters"
+    "NO_RESULTS_DESC": "Try adjusting your filters to see more results"
   },
   "COMBINATIONS": {
     "TITLE": "Plays",
     "SUBTITLE": "Master the art of flag football with our curated collection of elite tactical plays and combinations.",
     "BACK_TO_PLAYBOOK": "Back to Playbook",
     "KEY_POINTS": "Key Execution Points",
-    "FILTERS": "Filters",
-    "CLEAR_ALL": "Clear All",
-    "CLEAR_FILTERS": "Clear Filters",
-    "CATEGORY": "Category",
-    "COMPLEXITY_LABEL": "Complexity",
     "SHOWING_PLAYS": "Showing {{count}} of {{total}} plays",
     "NO_PLAYS_TITLE": "No plays found",
     "NO_PLAYS_DESC": "Try adjusting your filters or search terms",
@@ -78,14 +93,6 @@
     }
   },
   "DRILL_DETAIL": {
-    "BACK_TO_CATALOG": "Back to Catalog",
-    "DURATION": "Duration",
-    "MINUTES": "minutes",
-    "CATEGORY": "Category",
-    "LEVEL": "Level",
-    "DESCRIPTION": "Description",
-    "INSTRUCTIONS": "Instructions",
-    "EQUIPMENT": "Equipment Needed",
     "TIPS": "Coaching Tips",
     "ADD_TO_TRAINING": "Add to Training",
     "WATCH_VIDEO": "Watch Video",
@@ -100,10 +107,7 @@
     "SUBTITLE": "Manage your saved training sessions",
     "SEARCH_PLACEHOLDER": "Search by training name...",
     "FILTER_LEVEL": "Filter by Level",
-    "ALL_LEVELS": "All Levels",
     "NEW_TRAINING_BTN": "New Training",
-    "VIEW_DETAILS": "View Details",
-    "DELETE": "Delete",
     "NO_TRAININGS_TITLE": "No training sessions yet",
     "NO_TRAININGS_DESC": "Start building your first training session to organize drills and create effective practice plans",
     "CREATE_FIRST_BTN": "Create Your First Training",
@@ -112,8 +116,6 @@
     "SCHEDULED_FOR": "Scheduled for"
   },
   "CONFIRMATION": {
-    "CONFIRM": "Confirm",
-    "CANCEL": "Cancel",
     "TITLE": "Confirm Action"
   },
   "TRAINING_BUILDER": {
@@ -126,16 +128,12 @@
     "NO_DRILLS": "No drills found",
     "TRAINING_NAME_LABEL": "Training Name",
     "TRAINING_NAME_PLACEHOLDER": "e.g., Morning Practice - Week 1",
-    "DESCRIPTION_LABEL": "Training Description",
     "DESCRIPTION_PLACEHOLDER": "Add a brief description of goals and the plan for this session...",
     "SCHEDULE_DATE_LABEL": "Training Date",
     "SCHEDULE_TIME_LABEL": "Training Time",
-    "DURATION": "Duration",
     "REC_DURATION": "Recommended duration",
-    "MIN": "min",
     "DRILLS": "Drills",
     "SESSION_PLAN": "Session Plan",
-    "CLEAR_ALL": "Clear All",
     "COACH_NOTES": "Coach Notes",
     "NOTES_PLACEHOLDER": "Add specific instructions...",
     "START_BUILDING_TITLE": "Start Building",
@@ -143,25 +141,16 @@
     "CONFIRM_CLEAR": "Are you sure you want to remove all drills?",
     "CONFIRM_RESET": "Are you sure you want to reset? All unsaved changes will be lost.",
     "SAVE_ERROR": "Please enter a training name and add at least one drill",
-    "SAVE_SUCCESS": "Training saved successfully!",
-    "CATEGORY_LABEL": "Category",
-    "ALL_CATEGORIES": "All Categories",
-    "LEVEL_LABEL": "Level",
-    "ALL_LEVELS": "All Levels"
+    "SAVE_SUCCESS": "Training saved successfully!"
   },
   "TRAINING_VIEW": {
-    "BACK_TO_LIST": "Back to My Trainings",
     "EXPORT_PDF": "Export to PDF",
     "TOTAL_DURATION": "Total Duration",
     "TOTAL_DRILLS": "Total Drills",
     "AVG_DURATION": "Avg Duration",
-    "MINUTES": "minutes",
     "EXERCISES": "exercises",
     "MIN_DRILL": "min/drill",
     "PLAN_TITLE": "Training Plan",
-    "MIN_SHORT": "min",
-    "COACH_NOTES": "Coach Notes",
-    "LOADING": "Loading training...",
     "MAIN_FOCUS": "Main focus",
     "CREATED_ON": "Created on",
     "SCHEDULED_FOR": "Scheduled for"
@@ -176,16 +165,11 @@
       "SELECT_DESC": "Or create a new one from the top button",
       "FIELDS": {
         "IMAGE_URL": "Image URL",
-        "VIDEO_URL": "Video URL",
-        "NAME": "Name",
-        "DESCRIPTION": "Description"
+        "VIDEO_URL": "Video URL"
       },
       "BUTTONS": {
         "ADD_ITEM": "+ Add Item",
-        "CANCEL": "Cancel",
-        "SAVE": "Save",
-        "SAVING": "Saving...",
-        "DELETE": "Delete"
+        "SAVING": "Saving..."
       },
       "MESSAGES": {
         "CREATE_SUCCESS": "Created Successfully",
@@ -193,6 +177,7 @@
         "DELETE_SUCCESS": "Deleted",
         "SAVE_ERROR": "Failed to save",
         "FETCH_ERROR": "Could not load data",
+        "DELETE_ERROR": "Failed to delete",
         "NOT_FOUND": "Item not found",
         "DELETE_CONFIRM": "Are you sure you want to delete \"{{name}}\"?",
         "DELETE_CAUTION": "Caution: This will permanently remove \"{{name}}\" from your library. Continue?",
@@ -218,17 +203,13 @@
       "SUBTITLE": "Manage your Firestore drill library",
       "FIELDS": {
         "DURATION": "Duration (Min)",
-        "CATEGORY": "Category",
-        "LEVEL": "Level",
-        "EQUIPMENT": "Equipment",
         "DRILL_NAME": "Drill Name",
         "INSTRUCTIONS": "Instructions (Step-by-Step)",
         "COACHING_TIPS": "Coaching Tips"
       },
       "BUTTONS": {
         "ADD_STEP": "+ Add Step",
-        "ADD_TIP": "+ Add Tip",
-        "ADD_ITEM": "+Add Item"
+        "ADD_TIP": "+ Add Tip"
       },
       "SECTIONS": {
         "EQUIPMENT_NEEDED": "Equipment Needed",
@@ -247,8 +228,6 @@
       "TITLE": "Play Editor",
       "SUBTITLE": "Manage your Firestore plays library",
       "FIELDS": {
-        "CATEGORY": "Category",
-        "COMPLEXITY": "Complexity",
         "PERSONNEL": "Personnel",
         "FORMATION": "Formation"
       },
@@ -266,7 +245,7 @@
   },
   "ADMIN_LOGIN": {
     "TITLE": "Admin Portal",
-    "SUBTITLE": "Secure access to Drill Editor",
+    "SUBTITLE": "Secure access to Editor",
     "EMAIL": "Email Address",
     "PASSWORD": "Password",
     "SIGN_IN": "Sign In",

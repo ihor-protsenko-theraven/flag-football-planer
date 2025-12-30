@@ -1,9 +1,9 @@
-import {inject, Injectable} from '@angular/core';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {catchError, from, map, Observable, of} from 'rxjs';
-import {TrainingDbService} from './training-db.service';
-import {TrainingPlan} from '../../models/training-plan.interface';
-import {Training} from '../../models/training.model';
+import { inject, Injectable } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { catchError, from, map, Observable, of } from 'rxjs';
+import { TrainingDbService } from './training-db.service';
+import { TrainingPlan } from '../../models/training-plan.interface';
+import { Training } from '../../models/training.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class TrainingService {
     } as Training)))
   );
 
-  public readonly trainings = toSignal(this.trainings$, {initialValue: [] as Training[]});
+  public readonly trainings = toSignal(this.trainings$, { initialValue: [] as Training[] });
 
   constructor() {
   }
@@ -35,8 +35,13 @@ export class TrainingService {
 
   createTraining(training: Omit<Training, 'id' | 'createdAt'>): Observable<void> {
     const newPlan: Omit<TrainingPlan, 'id'> = {
-      ...training,
-      scheduledDate: training.scheduledDate ? training.scheduledDate.toISOString() : undefined,
+      name: training.name,
+      description: training.description || null,
+      level: training.level,
+      drills: training.drills,
+      totalDuration: training.totalDuration,
+      scheduledDate: training.scheduledDate ? training.scheduledDate.toISOString() : null,
+      scheduledTime: training.scheduledTime || null,
       createdBy: training.createdBy || 'coach_default',
       createdAt: new Date().toISOString()
     };
