@@ -14,17 +14,19 @@ import {DomSanitizer} from '@angular/platform-browser';
   `]
 })
 export class VideoPlayerModalComponent {
-  private sanitizer = inject(DomSanitizer);
+  private readonly sanitizer = inject(DomSanitizer);
 
-  // Signals
   isOpen = signal(false);
   private _videoSrc = signal<string | null>(null);
 
-  // Platform detection (YouTube vs Instagram)
   platform = computed(() => {
     const src = this._videoSrc();
-    if (!src) return 'unknown';
-    if (src.includes('instagram.com')) return 'instagram';
+    if (!src) {
+      return 'unknown';
+    }
+    if (src.includes('instagram.com')) {
+      return 'instagram';
+    }
     return 'youtube';
   });
 
@@ -34,7 +36,6 @@ export class VideoPlayerModalComponent {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src);
   });
 
-  // Публічний метод відкриття
   open(rawUrl: string) {
     const embedUrl = this.convertToEmbedUrl(rawUrl);
 
@@ -49,7 +50,7 @@ export class VideoPlayerModalComponent {
 
   close() {
     this.isOpen.set(false);
-    this._videoSrc.set(null); // Очищаємо src, щоб зупинити відео
+    this._videoSrc.set(null);
     this.toggleBodyScroll(false);
   }
 

@@ -1,11 +1,10 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ToastService, Toast } from '../../services/toast.service';
+import {Component, inject} from '@angular/core';
+import {Toast, ToastService} from '../../services/toast.service';
 
 @Component({
   selector: 'app-toast',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   template: `
     <div class="fixed bottom-4 right-4 z-50 space-y-2">
       @for (toast of toastService.toasts(); track toast.id) {
@@ -28,7 +27,8 @@ import { ToastService, Toast } from '../../services/toast.service';
               }
               @case ('info') {
                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               }
             }

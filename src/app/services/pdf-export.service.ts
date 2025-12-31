@@ -199,7 +199,7 @@ export class PdfExportService {
 
                         // Notes (if any)
                         ...(trainingDrill.notes ? [{
-                            text: `📝 Notes: ${trainingDrill.notes}`,
+                            text: `Notes: ${trainingDrill.notes}`,
                             style: 'drillNotes'
                         }] : [])
                     ],

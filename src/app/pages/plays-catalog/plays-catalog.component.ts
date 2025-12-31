@@ -1,12 +1,13 @@
-import {ChangeDetectionStrategy, Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {Subscription} from 'rxjs';
-import {PlayCategory, PlayComplexity, PLAYS_CATEGORIES, PLAYS_COMPLEXITIES} from '../../models/plays.model';
-import {PlaysService} from '../../services/plays/plays.service';
-import {PlayCardComponent} from '../../components/play-card/play-card.component';
+import { ChangeDetectionStrategy, Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { PlayCategory, PlayComplexity, PLAYS_CATEGORIES, PLAYS_COMPLEXITIES } from '../../models/plays.model';
+import { PlaysService } from '../../services/plays/plays.service';
+import { PlaysUiService } from '../../services/plays/plays-ui.service';
+import { PlayCardComponent } from '../../components/play-card/play-card.component';
 
 @Component({
   selector: 'app-combinations-catalog',
@@ -20,6 +21,7 @@ export class PlaysCatalogComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private translate = inject(TranslateService);
+  protected playsUi = inject(PlaysUiService);
 
   readonly categories = PLAYS_CATEGORIES;
   readonly complexities = PLAYS_COMPLEXITIES;

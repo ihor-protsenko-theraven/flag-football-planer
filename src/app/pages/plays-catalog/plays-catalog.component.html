@@ -102,7 +102,7 @@
                             <button (click)="setComplexity(lvl.value)"
                                 [class]="'px-5 py-2.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all ' +
                   (selectedComplexity() === lvl.value
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                    ? playsUi.getComplexityStyle(lvl.value) + ' shadow-lg'
                     : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-100 dark:border-slate-800 hover:bg-slate-50')">
                                 {{ lvl.translationKey | translate }}
                             </button>
@@ -133,7 +133,7 @@
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 shrink-0"></div>
                         <button (click)="setCategory(cat.value)" [class]="'px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ' +
                 (selectedCategory() === cat.value
-                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/40'
+                  ? playsUi.getCategoryStyle(cat.value) + ' shadow-lg'
                   : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300')">
                             {{ cat.translationKey | translate }}
                         </button>

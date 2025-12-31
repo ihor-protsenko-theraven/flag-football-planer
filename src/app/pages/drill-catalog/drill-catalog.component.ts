@@ -1,13 +1,14 @@
-import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {Subscription} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Component, computed, inject, OnDestroy, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { Subscription } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
-import {DrillService} from '../../services/drill/drill.service';
+import { DrillService } from '../../services/drill/drill.service';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
 import {
   Drill,
   DRILL_CATEGORIES,
@@ -16,9 +17,9 @@ import {
   DrillLevel,
   FirestoreDrill
 } from '../../models/drill.model';
-import {DrillCardComponent} from '../../components/drill-card/drill-card.component';
-import {SkeletonCardComponent} from '../../components/skeleton-card/skeleton-card.component';
-import {APP_ROUTES} from '../../core/constants/routes';
+import { DrillCardComponent } from '../../components/drill-card/drill-card.component';
+import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-card.component';
+import { APP_ROUTES } from '../../core/constants/routes';
 
 @Component({
   selector: 'app-drill-catalog',
@@ -67,10 +68,12 @@ import {APP_ROUTES} from '../../core/constants/routes';
       transform: translateY(-1px);
       filter: brightness(0.95);
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DrillCatalogComponent implements OnInit, OnDestroy {
   private readonly drillService = inject(DrillService);
+  protected readonly drillUi = inject(DrillUiService);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly translate = inject(TranslateService);

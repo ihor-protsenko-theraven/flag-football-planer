@@ -1,18 +1,18 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { filter, switchMap } from 'rxjs';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { SafeHtml } from '@angular/platform-browser';
+import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {filter, switchMap} from 'rxjs';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {SafeHtml} from '@angular/platform-browser';
 
-import { TrainingService } from '../../services/training/training.service';
-import { ConfirmationService } from '../../services/confirmation.service';
-import { DrillUiService } from '../../services/drill/drill-ui.service';
-import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-card.component';
-import { Training } from '../../models/training.model';
-import { DRILL_LEVELS, DrillLevel } from '../../models/drill.model';
-import { ToastService } from '../../services/toast.service';
-import { APP_ROUTES } from '../../core/constants/routes';
+import {TrainingService} from '../../services/training/training.service';
+import {ConfirmationService} from '../../services/confirmation.service';
+import {DrillUiService} from '../../services/drill/drill-ui.service';
+import {SkeletonCardComponent} from '../../components/skeleton-card/skeleton-card.component';
+import {Training} from '../../models/training.model';
+import {DRILL_LEVELS, DrillLevel} from '../../models/drill.model';
+import {ToastService} from '../../services/toast.service';
+import {APP_ROUTES} from '../../core/constants/routes';
 
 @Component({
   selector: 'app-my-trainings',
@@ -26,7 +26,8 @@ import { APP_ROUTES } from '../../core/constants/routes';
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyTrainingsComponent implements OnInit {
   protected readonly APP_ROUTES = APP_ROUTES;
@@ -85,7 +86,7 @@ export class MyTrainingsComponent implements OnInit {
 
   deleteTraining(event: Event, training: Training): void {
     event.stopPropagation();
-    const message = this.translate.instant('MY_TRAININGS.CONFIRM_DELETE', { name: training.name });
+    const message = this.translate.instant('MY_TRAININGS.CONFIRM_DELETE', {name: training.name});
     this.confirmationService.confirm({
       title: this.translate.instant('CONFIRMATION.TITLE'),
       message: message,

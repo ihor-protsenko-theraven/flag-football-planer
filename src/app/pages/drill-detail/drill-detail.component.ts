@@ -126,6 +126,10 @@ export class DrillDetailComponent implements OnInit, OnDestroy {
     return 'flex items-center gap-1.5 px-4 py-2 rounded-2xl text-sm font-black shadow-lg backdrop-blur-xl border border-white/20 uppercase tracking-widest ' + this.drillUi.getLevelStyle(drillData.level);
   }
 
+  getCategoryBadgeStyles(drillData: FirestoreDrill): string {
+    return 'flex items-center gap-1.5 px-4 py-2 rounded-2xl text-sm font-black shadow-lg backdrop-blur-xl border border-white/20 uppercase tracking-widest ' + this.drillUi.getCategoryStyle(drillData.category);
+  }
+
   getCategoryIcon(drillData: FirestoreDrill): SafeHtml {
     return this.drillUi.getCategoryIcon(drillData.category);
   }

@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
+import { Component, computed, inject, OnInit, signal, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -69,7 +69,8 @@ import { Drill, DRILL_CATEGORIES, DRILL_LEVELS, DrillCategory, DrillLevel } from
     .animate-slide-up {
       animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainingBuilderComponent implements OnInit {
   protected readonly APP_ROUTES = APP_ROUTES;

@@ -1,10 +1,10 @@
-import {Component, EventEmitter, inject, Input, Output, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {TranslateModule} from '@ngx-translate/core';
-import {SafeHtml} from '@angular/platform-browser';
-import {Drill, FirestoreDrill} from '../../models/drill.model';
-import {DrillUiService} from '../../services/drill/drill-ui.service';
-import {LocalizedDrillPipe} from '../../core/pipes/localized-drill.pipe';
+import { Component, EventEmitter, inject, Input, Output, signal, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { SafeHtml } from '@angular/platform-browser';
+import { Drill, FirestoreDrill } from '../../models/drill.model';
+import { DrillUiService } from '../../services/drill/drill-ui.service';
+import { LocalizedDrillPipe } from '../../core/pipes/localized-drill.pipe';
 
 @Component({
   selector: 'app-drill-card',
@@ -84,10 +84,11 @@ import {LocalizedDrillPipe} from '../../core/pipes/localized-drill.pipe';
       </div>
     </div>
   `,
-  styles: []
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DrillCardComponent {
-  @Input({required: true}) drill!: Drill | FirestoreDrill;
+  @Input({ required: true }) drill!: Drill | FirestoreDrill;
   @Input() showAddButton = false;
   @Output() cardClick = new EventEmitter<Drill | FirestoreDrill>();
   @Output() addClick = new EventEmitter<Drill | FirestoreDrill>();
